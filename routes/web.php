@@ -22,3 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/menu',function(){
     return view('menu');
 });
+
+Route::post('/update','UserController@update')->name('user.update');
+Route::get('admin','AdminController@index')->name('admin.index');
+Route::get('/edit_user/{id}','AdminController@edit')->name('admin.edit');
+Route::post('user_update','AdminController@update')->name('admin.update');
+Route::get('/delete/{id}','AdminController@delete')->name('admin.delete');

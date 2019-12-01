@@ -1,13 +1,7 @@
-
 @if(Auth::user()->isAdmin())
-<h2>Acceso como administrador</h2>
-<a href="{{route('admin.index')}}">Listar Usuarios</a>
-
-
-@else
 <div class="div_usuario">
-    <h2>Acceso usuario</h2>
-    <form class="contact-form" action="{{route('user.update')}}" method="post">
+   
+    <form class="contact-form" action="{{route('admin.update')}}" method="post">
         @csrf
         <div class="form-group">
 
@@ -35,6 +29,4 @@
     </form>
 
 </div>
-
-
 @endif
