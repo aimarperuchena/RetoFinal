@@ -1,6 +1,15 @@
-{{ Auth::user()->role->descripcion }}
-@if(Auth::user()->role->esAdmin)
-ERES esAdmin
+{{Auth::user()->role->id}}
+<!-- @if(Auth::user()->role->id)
+<a href="/admin">Listar Usuarios</a>
 @else
 eres usuario
+@endif -->
+
+@if(Auth::user()->isAdmin())
+<a href="/admin">Listar Usuarios</a>
+
+@else
+
+
+
 @endif

@@ -1,0 +1,236 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* --------------------------------Navbar----------------------------------- */
+
+.navbar {
+    background-color: #000000;
+}
+
+.contenido {
+    padding-right: 5em;
+}
+
+
+/* Banner */
+
+.intro-banner {
+    background-image: url("../img/banner2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 800px;
+    color: #ffffff;
+    border-bottom: 1px solid #ffa200;
+    padding-top: 10em;
+}
+
+
+/* -------------------------------Body-------------------------------------- */
+
+
+/* Sobre Nosotros */
+
+.about {
+    background-color: #efefef;
+}
+
+.about h2 {
+    text-align: center;
+}
+
+.row {
+    margin-right: 0px;
+}
+
+
+/* Servicios */
+
+#services {
+    background: #ffffff;
+    color: #2f2f2f!important;
+    background-attachment: fixed;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#services h1 {
+    text-align: center;
+    color: #2f2f2f!important;
+    padding-bottom: 10px;
+}
+
+#services h1::after {
+    content: '';
+    background: #ff6600;
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin: 20px auto 5px;
+}
+
+.services {
+    margin-top: 40px;
+}
+
+.icon {
+    font-size: 40px;
+    margin: 20px auto;
+    padding: 10px;
+    height: 80px;
+    width: 80px;
+    border: 1px solid #000000;
+    border-radius: 50%
+}
+
+#services p {
+    font-size: 14px;
+    margin-top: 20px;
+    color: #2f2f2f;
+}
+
+.services .col-md-3:hover {
+    background: #ff6600;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+
+/* Carousel */
+
+.carousel {
+    text-align: center;
+    margin: 5%;
+}
+
+
+/* Mapa */
+
+.mapa {
+    padding: 5%;
+    background-color: black;
+    text-align: center;
+    color: #ffffff;
+    height: 600px;
+}
+
+.mapa iframe {
+    border-radius: 2%;
+    width: 80%;
+    height: 80%;
+}
+
+.mapa h2 {
+    padding-bottom: 2%;
+}
+
+
+/* Contactenos */
+
+#contact {
+    background-color: #efefef;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #777;
+}
+
+.contact-form {
+    padding: 15px;
+}
+
+.form-control {
+    border-radius: 0!important;
+    border: none!important;
+}
+
+::placeholder {
+    color: #999 !important;
+}
+
+.follow {
+    background: #fff;
+    padding: 10px;
+    margin: 15px;
+}
+
+.contact-info .fa {
+    margin: 10px;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+.contact-info .fab {
+    margin: 10px;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+
+/* --------------------------------Ventanas Modal ---------------------------*/
+
+.form-modal {
+    display: inline;
+}
+
+.footer-modal button {
+    transition: 0.5s;
+    background-color: #ff6600;
+    color: #ffffff;
+}
+
+.footer-modal button:hover {
+    transition: 0.5s;
+    background-color: #ff2a00;
+    color: #ffffff;
+}
+
+.footer-modal a:hover {
+    transition: 0.5s;
+    color: #ff2a00;
+    text-decoration: underline;
+}
+
+.footer-modal a {
+    color: #ff6600;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+
+/* ------------------------------Footer------------------------------------- */
+
+.footer {
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.footer select {
+    padding: 2%;
+    border: none;
+    background-color: #ffffff;
+    color: #2f2f2f;
+}
+
+.footer li {
+    list-style-type: none;
+}
+
+
+/* ------------------------------VISTA MENU------------------------------------- */
+
+.div_usuario {
+    margin-top: 5%;
+}
+
+.div_admin {
+    margin-top: 5%;
+}
