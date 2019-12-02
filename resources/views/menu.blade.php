@@ -32,9 +32,27 @@
               </li>
              
               <li class="nav-item">
-                 <a class="nav-link"  href="{{ route('logout') }}"  onclick="event.preventDefault();document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+              @guest
+                           
+              @else
+              
+             
 
-              </li>
+                               
+                                    <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                
+                            </li>
+                        @endguest
+
+              
               <li class="nav-item">
                   <a href="{{ url('locale/es') }}"><i class="fa fa-language"></i>ES</a>
               </li>
