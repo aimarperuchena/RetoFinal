@@ -38,5 +38,12 @@ return [
     "pnumero" => 'Phone Number',
     "pcompania" => 'Your Company name',
     "pmensaje" => 'Message',
-
+    "acceso" => 'Administrator Access',
+    "usuario" => 'User',
+    "rol" => 'Role',
+    "editar" => 'Edit',
+    "eliminar" => 'Delete',
+    "accu" => 'User access',
+    "lusuarios" => 'List Users',
+    "pass" => 'Password',
 ];

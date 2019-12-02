@@ -37,6 +37,14 @@ return [
     "pnumero" => 'Telefono zenbakia',
     "pcompania" => 'Sozietatearen izena',
     "pmensaje" => 'Mezua',
+    "acceso" => 'Administratzailearen Sarbidea',
+    "usuario" => 'Erabiltzaile',
+    "rol" => 'Rol',
+    "editar" => 'Editatu',
+    "eliminar" => 'Ezabatu',
+    "accu" => 'Erabiltzailearen sarbidea',
+    "lusuarios" => 'Erabiltzaileen zerrenda',
+    "pass" => 'Pasahitza',
 
 
 

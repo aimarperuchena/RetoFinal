@@ -38,6 +38,12 @@ return [
     "pnumero" => 'Numero de telefono',
     "pcompania" => 'Nombre de compañia',
     "pmensaje" => 'Mensaje',
-
-
+    "acceso" => 'Acceso como administrador',
+    "usuario" => 'Usuario',
+    "rol" => 'Rol',
+    "editar" => 'Editar',
+    "eliminar" => 'Eliminar',
+    "accu" => 'Acceso usuario',
+    "lusuarios" => 'Listar Usuarios',
+    "pass" => 'Contraseña',
 ];

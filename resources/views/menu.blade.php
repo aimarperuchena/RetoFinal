@@ -72,13 +72,13 @@
 @if(Auth::user()->isAdmin())
 <br>
 <br><br><br>
-<h2>Acceso como administrador</h2>
-<a href="{{route('admin.index')}}">Listar Usuarios</a>
+<h2>{{ __('multi.acceso') }}</h2>
+<a href="{{route('admin.index')}}">{{ __('multi.lusuarios') }}</a>
 
 
 @else
 <div class="div_usuario">
-    <h2>Acceso usuario</h2>
+    <h2>{{ __('multi.accu') }}</h2>
     <form class="contact-form" action="{{route('user.update')}}" method="post">
         @csrf
         <div class="form-group">
@@ -96,7 +96,7 @@
             @endif
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password...">
+            <input type="password" class="form-control" name="password" placeholder="{{ __('multi.pass') }}">
             @if($errors->has('password'))
             <div class="error">{{ $errors->first('password') }}</div>
             @endif
