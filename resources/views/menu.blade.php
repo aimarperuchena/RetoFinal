@@ -80,7 +80,7 @@
 <div class="div_usuario">
     <h2>{{ __('multi.accu') }}</h2>
     <a href="{{route('user.edit')}}">Editar Usuario</a>
-    <a href="/user_delete/">Eliminar Usuario</a>
+    <a href="/user_delete/{{ Auth::user()->id }}">Eliminar Usuario</a>
 </div>
 
 

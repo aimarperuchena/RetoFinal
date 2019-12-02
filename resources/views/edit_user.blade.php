@@ -66,7 +66,7 @@
 </section>
 
 
-    @if(Auth::user()->isAdmin())
+@if(Auth::user()->isAdmin())
     <div class="div_usuario">
 @if(isset($usuario))
         <form class="contact-form" action="{{route('admin.update')}}" method="post">
@@ -96,13 +96,20 @@
                 <div class="error">{{ $errors->first('password') }}</div>
                 @endif
             </div>
-            <input type="hidden" name="id" value=" {{ Auth::user()->id }}">
+            <input type="hidden" name="id" value=" {{ $usuario->id }}">
 
             <button type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
         </form>
 @endif
     </div>
+    @else
+    <div class="div_admin">
+    <h3>Pirate de aqui que no eres admin</h3>
+    </div>
+
     @endif
+    
+    
 
 
     <script src="assets/js/jquery-3.3.1.min.js"></script>
