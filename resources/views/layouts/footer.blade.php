@@ -12,10 +12,21 @@
         <div class="col-4">
             <h2>{{ __('multi.servicios') }}</h2>
             <ul>
-                <li>Reservas</li>
-                <li>Stock</li>
-                <li>Contabilidad</li>
-                <li>Incidencias</li>
+                <li>
+                    <span>{{ __('multi.reservas_title') }}</span>
+                </li>
+                <li>
+                <span>{{ __('multi.stock_title') }}</span>
+
+                </li>
+                <li>
+                <span>{{ __('multi.contabilidad_title') }}</span>
+
+                </li>
+                <li>
+                <span>{{ __('multi.incidencias_title') }}</span>
+
+                </li>
             </ul>
         </div>
         <div class="col-4">

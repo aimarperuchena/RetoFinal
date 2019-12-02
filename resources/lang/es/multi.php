@@ -46,4 +46,13 @@ return [
     "accu" => 'Acceso usuario',
     "lusuarios" => 'Listar Usuarios',
     "pass" => 'Contraseña',
+    "pirate"=>'Esta vista es solo para administradores',
+    "reservas_title"=>"Reservas",
+    "reservas"=>'Organice la reserva de mesas con solo un click',
+    "stock_title"=>'Stock',
+    "stock"=>'El stock de los productos en tiempo real',
+    "contabilidad_title"=>'Contabilidad',
+    "contabilidad"=>'Lleve la contabilidad precisa de su sociedad',
+    "incidencias_title"=>'Incidencias',
+    "incidencias"=>'Comunicación directa de incidencias con los socios',
 ];

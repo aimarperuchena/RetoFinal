@@ -46,4 +46,13 @@ return [
     "accu" => 'User access',
     "lusuarios" => 'List Users',
     "pass" => 'Password',
+    "pirate"=>'This view is only for admin users',
+    "reservas_title"=>"Reservations",
+    "reservas"=>'Organice the table reservations with a click',
+    "stock_title"=>'Stock',
+    "stock"=>'The stock of products in real time',
+    "contabilidad_title"=>'Accounting',
+    "contabilidad"=>'Keep accurate accounting of your society',
+    "incidencias_title"=>'Incidents',
+    "incidencias"=>'Direct communication of incidents with partners',
 ];

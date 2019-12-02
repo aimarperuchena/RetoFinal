@@ -45,6 +45,15 @@ return [
     "accu" => 'Erabiltzailearen sarbidea',
     "lusuarios" => 'Erabiltzaileen zerrenda',
     "pass" => 'Pasahitza',
+    "pirate"=>'Lehio hau administratzaileentzat bakarrik',
+    "reservas_title"=>"Erreserbak",
+    "reservas"=>'Erreserbak kontrolatu klik batekin',
+    "stock_title"=>'Stock',
+    "stock"=>'Produktuen stoka momenturo',
+    "contabilidad_title"=>'Kontabilitatea',
+    "contabilidad"=>'Sozietatearen kontabilitatea',
+    "incidencias_title"=>'Gertakariak',
+    "incidencias"=>'Bazkideekin gertakarien komunikabidea',
 
 
 
