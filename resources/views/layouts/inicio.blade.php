@@ -1,5 +1,7 @@
 @extends('index')
 @section('content')
+
+
 <section class="body">
   <div class="intro-banner pl-5">
     <h1 class="display-1">Gastro-Society</h1>
@@ -112,31 +114,31 @@
                     <form class="contact-form" action="{{route('contact.save')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="{{ __('multi.pnombre') }}">
+                            <input id="contact_name" type="text" class="form-control" name="name" placeholder="{{ __('multi.pnombre') }}">
                             @if($errors->has('name'))
                             <div class="error">{{ $errors->first('name') }}</div>
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="phone" placeholder="{{ __('multi.pnumero') }}">
+                            <input id="phone" type="number" class="form-control" name="phone" placeholder="{{ __('multi.pnumero') }}">
                             @if($errors->has('phone'))
                             <div class="error">{{ $errors->first('phone') }}</div>
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="{{ __('multi.correo') }}">
+                            <input id="contact_email" type="email" class="form-control" name="email" placeholder="{{ __('multi.correo') }}">
                             @if($errors->has('email'))
                             <div class="error">{{ $errors->first('email') }}</div>
                             @endif
                         </div>
 
                         <div class="form-group">
-                            <textarea class="form-control" rows="4" name="message" placeholder="{{ __('multi.pmensaje') }}"></textarea>
+                            <textarea id="text_area" class="form-control" rows="4" name="message" placeholder="{{ __('multi.pmensaje') }}"></textarea>
                             @if($errors->has('message'))
                             <div class="error">{{ $errors->first('message') }}</div>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
+                        <button id="enviar" type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
                     </form>
                 </div>
                 <div class="col-md-6 contact-info">

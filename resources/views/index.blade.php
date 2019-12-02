@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/carousel.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="img/png" href="assets\img\logo_alpha.png">
+   
 </head>
 
 <body>
@@ -17,11 +18,15 @@
 @yield('content')
 @include('layouts.footer')
 <!-- Javascript -->
+
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="assets/js/jquery.backstretch.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
+<script src="assets/js/validacion_login.js"></script>
+<script src="assets/js/validacion_registro.js"></script>
+<script src="assets/js/validacion_contacto.js"></script>
 <script src="assets/js/scripts.js"></script>
 </body>
 
@@ -63,7 +68,7 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <div class="col-md-8 offset-md-4 footer-modal">
-                    <button type="submit" class="btn">
+                    <button id="login" type="submit" class="btn">
                         {{ __('Login') }}
                     </button>
 
@@ -97,7 +102,8 @@
                 <div class="md-form mb-5">
                     <div class="col-md-6 form-modal">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                        <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name..."> @error('name')
+                        <input id="name_reg" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name..."> 
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -108,7 +114,8 @@
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email..."> @error('email')
+                        <input id="email_reg" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email..."> 
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -118,7 +125,8 @@
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password..."> @error('password')
+                        <input id="password_reg" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password..."> 
+                        @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -128,14 +136,14 @@
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                        <input id="password-confirm" type="password" class="" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password...">
+                        <input id="password-confirm_reg" type="password" class="" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password...">
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <div class="col-md-6 offset-md-4 footer-modal">
-                    <button type="submit" class="btn">
+                    <button id="registro" type="submit" class="btn">
                         {{ __('Register') }}
                     </button>
                 </div>
