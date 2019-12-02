@@ -22,6 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/menu',function(){
     return view('menu');
 });
+
+Route::get('/correo',function(){
+    return view('correo');
+});
 Route::post('/contact','ContactController@save')->name("contact.save");
 
 Route::post('/update','UserController@update')->name('user.update');

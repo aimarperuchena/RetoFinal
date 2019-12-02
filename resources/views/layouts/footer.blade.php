@@ -19,13 +19,7 @@
             </ul>
         </div>
         <div class="col-4">
-            <h2></i>{{ __('multi.idioma') }}</h2>
-            <select class="" name="">
-                <option value="es">Español</option>
-                <option value="en">Inglés</option>
-                <option value="eu">Euskera</option>
-                <option value="fr">Francés</option>
-            </select>
+            
             <h2>{{ __('multi.terminos') }}</h2>
             <ul>
                 <li>{{ __('multi.derechos') }}</li>
