@@ -28,14 +28,13 @@
                   <a class="nav-link" data-toggle="modal" data-target="#modalRegistrerForm">{{ __('multi.registro') }}</a>
               </li>
               <li class="nav-item">
-                  <a href="{{ url('locale/es') }}"><i class="fa fa-language"></i>ES</a>
+                  <a href="{{ url('locale/es') }}"><img class="banderas" src="assets/img/espania.ico"></a>
               </li>
-
-              <li>
-                  <a href="{{ url('locale/en') }}"><i class="fa fa-language"></i>EN</a>
+              <li class="nav-item">
+                  <a href="{{ url('locale/en') }}"><img class="banderas" src="assets/img/reino_unido.ico"></a>
               </li>
-              <li>
-                  <a href="{{ url('locale/eus') }}"><i class="fa fa-language"></i>EUS</a>
+              <li class="nav-item">
+                  <a href="{{ url('locale/eus') }}"><img class="banderas" src="assets/img/pais_vasco.ico"></a>
               </li>
 
           </ul>
