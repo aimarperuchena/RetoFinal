@@ -24,11 +24,21 @@ class AdminController extends Controller
     public function update(UserRequest $request)
     {
         $validated = $request->validated();
+
+        User::where('id', $request->id)
+         
+          ->update([
+              'name' => $request->name,
+              'email'=>$request->email,
+              'password'=>\Hash::make($request->password),
+          ]);
+          /*
         $user= User::find($request->id);
         $user->email= $request->email;
         $user->name=$request->name;
-        $user->password=encrypt($request->password);
+        $user->password=\Hash::make($request->password);
         $user->save();
+        */
         return redirect('menu');
      }
 

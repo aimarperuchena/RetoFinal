@@ -68,13 +68,13 @@
 
     @if(Auth::user()->isAdmin())
     <div class="div_usuario">
-
+@if(isset($usuario))
         <form class="contact-form" action="{{route('admin.update')}}" method="post">
             @csrf
             <div class="form-group">
             <span>{{ __('multi.pnombre') }}</span>
 
-                <input type="text" class="form-control" name="name" value=" {{ Auth::user()->name }}">
+                <input type="text" class="form-control" name="name" value=" {{ $usuario->name }}">
                 @if($errors->has('name'))
                 <div class="error">{{ $errors->first('name') }}</div>
                 @endif
@@ -83,7 +83,7 @@
             <div class="form-group">
             <span>{{ __('multi.correo') }}</span>
 
-                <input type="email" class="form-control" name="email" value=" {{ Auth::user()->email }}">
+                <input type="email" class="form-control" name="email" value="{{ $usuario->email }}">
                 @if($errors->has('email'))
                 <div class="error">{{ $errors->first('email') }}</div>
                 @endif
@@ -100,7 +100,7 @@
 
             <button type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
         </form>
-
+@endif
     </div>
     @endif
 
