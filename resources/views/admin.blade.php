@@ -90,6 +90,11 @@
         </table>
         @endif
     </div>
+
+    @else
+    <div class="div_admin">
+    <h3>Pirate de aqui que no eres admin</h3>
+    </div>
     @endif
 
 

@@ -30,29 +30,29 @@
                     <div class="icon">
                         <i class="fas fa-tasks"></i>
                     </div>
-                    <h3>{{ __('multi.s1') }}</h3>
-                    <p>{{ __('multi.servicio1') }}</p>
+                    <h3>Reservas</h3>
+                    <p>Organize la reserva de mesas con solo un click</p>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="icon">
                         <i class="fa fa-check-circle"></i>
                     </div>
-                    <h3>{{ __('multi.s2') }}</h3>
-                    <p>{{ __('multi.servicio2') }}</p>
+                    <h3>Stock</h3>
+                    <p>El stock de los productos en tiempo real</p>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3>{{ __('multi.s3') }}</h3>
-                    <p>{{ __('multi.servicio3') }}</p>
+                    <h3>Contabilidad</h3>
+                    <p>Lleve la contabilidad precisa de su sociedad</p>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="icon">
                         <i class="fas fa-utensils"></i>
                     </div>
-                    <h3>{{ __('multi.s4') }}</h3>
-                    <p>{{ __('multi.servicio4') }}</p>
+                    <h3>Incidencias</h3>
+                    <p>Comunicación directa de incidencias con los socios</p>
                 </div>
             </div>
         </div>
