@@ -29,3 +29,10 @@ Route::get('admin','AdminController@index')->name('admin.index');
 Route::get('/edit_user/{id}','AdminController@edit')->name('admin.edit');
 Route::post('user_update','AdminController@update')->name('admin.update');
 Route::get('/delete/{id}','AdminController@delete')->name('admin.delete');
+
+//Cambio de idiomas segun detecta
+
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
