@@ -32,10 +32,10 @@ $(document).ready(function() {
 
     const validarEmail = (email) => {
         if (/\S+@\S+\.\S+/.test(email)) {
-
+            document.getElementById("login_email_error").innerHTML = "";
             return true;
         } else {
-
+            document.getElementById("login_email_error").innerHTML = "Email mal introducido";
             return false;
         }
 
@@ -44,10 +44,13 @@ $(document).ready(function() {
 
     const validarPassword = (password) => {
         if (password.length >= 10) {
+            document.getElementById("login_password_error").innerHTML = "";
             return true;
 
 
         } else {
+
+            document.getElementById("login_password_error").innerHTML = "Contraseña mal introducida";
 
             return false;
         }

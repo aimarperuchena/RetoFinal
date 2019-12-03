@@ -101,7 +101,9 @@
                     	@endif
                 	</div>
                 	<input type="hidden" name="id" value=" {{ $usuario->id }}">
-
+                    <p id="error_email"></p>
+                    <p id="error_pass"></p>
+                    <p id="error_name"></p>
                 	<button id="enviar" type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
             	</form>
     	@endif

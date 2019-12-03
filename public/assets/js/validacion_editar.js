@@ -1,7 +1,9 @@
 const validarName = (name) => {
-    if (name.length > 2) {
+    if (name.length >= 2) {
+        document.getElementById("error_name").innerHTML = "";
         return true;
     } else {
+        document.getElementById("error_name").innerHTML = "El nombre debe tener mas de dos caracteres";
         return false;
     }
 }
@@ -9,16 +11,20 @@ const validarName = (name) => {
 
 const validarEmail = (email) => {
     if (/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById("error_email").innerHTML = "";
         return true;
     } else {
+        document.getElementById("error_email").innerHTML = "Email mal introducido";
         return false;
     }
 }
 
 const validarPassword = (password) => {
     if (password.length >= 10) {
+        document.getElementById("error_pass").innerHTML = "";
         return true;
     } else {
+        document.getElementById("error_pass").innerHTML = "La contraseña debe tener mas de 10 caracteres";
         return false;
     }
 }
@@ -69,7 +75,6 @@ $(document).ready(function() {
             enviar.disabled = false;
         } else {
             enviar.disabled = true;
-            console.log('Name: ' + bol_name + " Email: " + bol_email + " Pass: " + bol_pass)
         }
     }
 

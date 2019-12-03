@@ -67,6 +67,11 @@
                     </div>
                 </div>
 
+                <div class="md-form mb-4">
+                    <p id="login_email_error"> </p>
+                    <p id="login_password_error"></p></p>
+                </div>
+
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <div class="col-md-8 offset-md-4 footer-modal">
@@ -80,6 +85,8 @@
                     </a> @endif
                 </div>
             </div>
+
+          
         </form>
     </div>
 </div>
@@ -141,7 +148,11 @@
                         <input id="password-confirm_reg" type="password" class="" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password...">
                     </div>
                 </div>
-
+                <div class="md-form mb-4">
+                    <p id="registro_email_error"> </p>
+                    <p id="registro_password_error"></p>
+                    <p id="registro_name"></p></p>
+                </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <div class="col-md-6 offset-md-4 footer-modal">

@@ -50,21 +50,29 @@ $(document).ready(function() {
             registro.disabled = false;
         } else {
             registro.disabled = true;
+            if (password != password2) {
+                document.getElementById('registro_password_error').innerHTML = "Las contraseñas no coinciden";
+
+            }
 
         }
     }
     const validarEmail = (email) => {
         if (/\S+@\S+\.\S+/.test(email)) {
+            document.getElementById('registro_email_error').innerHTML = "";
             return true;
         } else {
+            document.getElementById('registro_email_error').innerHTML = "Email mal introducido";
             return false;
         }
     }
 
     const validarPassword = (password) => {
         if (password.length >= 10) {
+            document.getElementById('registro_password_error').innerHTML = "";
             return true;
         } else {
+            document.getElementById('registro_password_error').innerHTML = "Contraseña debe tener minimo 10 caracteres";
             return false;
         }
     }
@@ -72,12 +80,12 @@ $(document).ready(function() {
 
 
     const validarName = (name) => {
-        if (name.length > 2) {
+        if (name.length >= 2) {
+            document.getElementById('registro_name').innerHTML = "";
             return true;
-
         } else {
+            document.getElementById('registro_name').innerHTML = "Nombre debe tener 2 caracteres minimo";
             return false;
-
         }
     }
 })
