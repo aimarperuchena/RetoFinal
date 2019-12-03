@@ -68,11 +68,10 @@
 </section>
 
 @if(Auth::user()->isAdmin())
-<br>
-<br><br><br>
+<div class="div_usuario">
 <h2>{{ __('multi.acceso') }}</h2>
 <a href="{{route('admin.index')}}">{{ __('multi.lusuarios') }}</a>
-
+</div>
 
 @else
 <div class="div_usuario">

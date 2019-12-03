@@ -66,7 +66,7 @@
 
 
 @if(Auth::user()->isAdmin())
-    <div class="div_usuario">
+    <div class="div_usuario_editar">
 @if(isset($usuario))
         <form class="contact-form" action="{{route('admin.update')}}" method="post">
             @csrf

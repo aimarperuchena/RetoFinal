@@ -66,13 +66,13 @@
 
 
 
-    <div class="div_usuario">
+    <div class="div_usuario_editar">
 
     <form class="contact-form" action="{{route('user.update')}}" method="post">
         @csrf
         <div class="form-group">
 <span>{{ __('multi.pnombre') }}</span>
-            <input id="name" type="text" class="form-control" name="name" value=" {{ Auth::user()->name }}">
+            <input id="name" type="text" style="border:solid black 1px;" class="form-control" name="name" value=" {{ Auth::user()->name }}">
             @if($errors->has('name'))
             <div class="error">{{ $errors->first('name') }}</div>
             @endif
