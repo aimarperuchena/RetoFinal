@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     const validar = () => {
         if (bol_name === true && bol_email === true && bol_pass === true && bol_pass2 === true && password === password2) {
-            alert('si')
+
             registro.disabled = false;
         } else {
             registro.disabled = true;
