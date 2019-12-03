@@ -125,7 +125,6 @@
     <script src="{{ asset('assets/js/jquery.backstretch.min.js') }}"></script>
     <script src="{{ asset('assets/js/validacion_editar.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
 </body>
 

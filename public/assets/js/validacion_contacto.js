@@ -38,8 +38,9 @@ $(document).ready(function() {
     });
 
     $('#text_area').on('input', function(e) {
-        message = document.getElementById("text_area").innerHTML;
-        bol_message = validarPhone(phone);
+        message = document.getElementById("text_area").value;
+        bol_message = validarMensaje(message);
+        console.log(message)
 
         validar();
     });
@@ -49,6 +50,8 @@ $(document).ready(function() {
 
             registro.disabled = false;
 
+        } else {
+            console.log('Name: ' + bol_name + " Email: " + bol_email + " Phone: " + bol_phone + " Message: " + bol_message)
         }
     }
 
