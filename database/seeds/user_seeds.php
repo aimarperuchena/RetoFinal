@@ -22,7 +22,7 @@ class user_seeds extends Seeder
             DB::table('users')->insert([
                 'name' => 'user',
                 'email'=>'user@example.com',
-                'password'=>bcrypt('useruser'),
+                'password'=>bcrypt('usuariousuario'),
                 'role_id'=>'2'
                 ]);
     }
