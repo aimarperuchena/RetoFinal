@@ -49,16 +49,15 @@
                         @endguest
 
               
-              <li class="nav-item">
-                  <a href="{{ url('locale/es') }}"><i class="fa fa-language"></i>ES</a>
-              </li>
-
-              <li>
-                  <a href="{{ url('locale/en') }}"><i class="fa fa-language"></i>EN</a>
-              </li>
-              <li>
-                  <a href="{{ url('locale/eus') }}"><i class="fa fa-language"></i>EUS</a>
-              </li>
+                <li class="nav-item">
+                    <a href="{{ url('locale/es') }}"><img class="banderas" src="assets/img/espania.ico"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('locale/en') }}"><img class="banderas" src="assets/img/reino_unido.ico"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('locale/eus') }}"><img class="banderas" src="assets/img/pais_vasco.ico"></a>
+                </li>
 
           </ul>
       </div>
@@ -73,7 +72,7 @@
         @csrf
         <div class="form-group">
 <span>{{ __('multi.pnombre') }}</span>
-            <input type="text" class="form-control" name="name" value=" {{ Auth::user()->name }}">
+            <input id="name" type="text" class="form-control" name="name" value=" {{ Auth::user()->name }}">
             @if($errors->has('name'))
             <div class="error">{{ $errors->first('name') }}</div>
             @endif
@@ -82,7 +81,7 @@
         <div class="form-group">
         <span>{{ __('multi.correo') }}</span>
 
-            <input type="email" class="form-control" name="email" value=" {{ Auth::user()->email }}">
+            <input id="email" type="email" class="form-control" name="email" value=" {{ Auth::user()->email }}">
             @if($errors->has('email'))
             <div class="error">{{ $errors->first('email') }}</div>
             @endif
@@ -90,14 +89,14 @@
         <div class="form-group">
         <span>{{ __('multi.pass') }}</span>
 
-            <input type="password" class="form-control" name="password" placeholder="{{ __('multi.pass') }}">
+            <input id="password" type="password" class="form-control" name="password" placeholder="{{ __('multi.pass') }}">
             @if($errors->has('password'))
             <div class="error">{{ $errors->first('password') }}</div>
             @endif
         </div>
         <input type="hidden" name="id" value=" {{ Auth::user()->id }}">
 
-        <button type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
+        <button id="enviar" type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
     </form>
 
     </div>
@@ -110,6 +109,7 @@
     <script src="assets/js/jquery.backstretch.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/validacion_editar.js"></script>
 </body>
 
 </html>

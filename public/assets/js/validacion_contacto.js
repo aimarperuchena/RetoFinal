@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('#contact_email').on('input', function(e) {
         email = document.getElementById("contact_email").value;
         bol_email = validarEmail(email);
-        /*   alert('email' + bol_email) */
+
         validar();
     });
 
@@ -26,21 +26,21 @@ $(document).ready(function() {
         name = document.getElementById("contact_name").value;
 
         bol_name = validarName(name);
-        console.log(name)
+
         validar();
     });
 
     $('#phone').on('input', function(e) {
         phone = document.getElementById("phone").value;
         bol_phone = validarPhone(phone);
-        /*   alert('email' + bol_email) */
+
         validar();
     });
 
     $('#text_area').on('input', function(e) {
         message = document.getElementById("text_area").innerHTML;
         bol_message = validarPhone(phone);
-        /*   alert('email' + bol_email) */
+
         validar();
     });
 
@@ -49,8 +49,6 @@ $(document).ready(function() {
 
             registro.style.visibility = 'visible';
 
-        } else {
-            console.log('Name: ' + bol_name + " Phone:" + bol_phone + " Email: " + bol_email + " Message: " + bol_message);
         }
     }
 

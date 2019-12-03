@@ -53,17 +53,15 @@
                         @endguest
 
               
-              <li class="nav-item">
-                  <a href="{{ url('locale/es') }}"><i class="fa fa-language"></i>ES</a>
-              </li>
-
-              <li>
-                  <a href="{{ url('locale/en') }}"><i class="fa fa-language"></i>EN</a>
-              </li>
-              <li>
-                  <a href="{{ url('locale/eus') }}"><i class="fa fa-language"></i>EUS</a>
-              </li>
-
+                <li class="nav-item">
+                    <a href="{{ url('locale/es') }}"><img class="banderas" src="assets/img/espania.ico"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('locale/en') }}"><img class="banderas" src="assets/img/reino_unido.ico"></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('locale/eus') }}"><img class="banderas" src="assets/img/pais_vasco.ico"></a>
+                </li>
           </ul>
       </div>
   </nav>

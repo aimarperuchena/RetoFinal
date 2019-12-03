@@ -15,12 +15,12 @@ $(document).ready(function() {
     password = document.getElementById("password_reg").value;
     password2 = document.getElementById("password-confirm_reg").value;
     registro = document.getElementById("registro");
-    registro.style.visibility = 'hidden';
+    registro.disabled = true;
 
 
     $('#name_reg').on('input', function(e) {
         name = document.getElementById("name_reg").value;
-        console.log(name)
+
         bol_name = validarName(name);
         validar();
     });
@@ -47,11 +47,10 @@ $(document).ready(function() {
     const validar = () => {
         if (bol_name === true && bol_email === true && bol_pass === true && bol_pass2 === true && password === password2) {
             alert('si')
-            registro.style.visibility = 'visible';
+            registro.disabled = false;
         } else {
-            registro.style.visibility = 'hidden';
+            registro.disabled = true;
 
-            console.log('Name:' + bol_name + " Email: " + bol_email + " Pass: " + bol_pass + " Pass2_ " + bol_pass2);
         }
     }
     const validarEmail = (email) => {
