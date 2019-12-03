@@ -123,6 +123,10 @@
                             <div class="error">{{ $errors->first('message') }}</div>
                             @endif
                         </div>
+                     <p id="contact_name">aa</p>
+                     <p id="contact_phone"></p>
+                     <p id="contact_email"></p>
+                     <p id="contact_message"></p>
                         <button id="enviar" type="submit" class="btn btn-primary" name="Send">{{ __('multi.enviar') }}</button>
                     </form>
                 </div>

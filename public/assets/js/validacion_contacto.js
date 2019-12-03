@@ -40,7 +40,7 @@ $(document).ready(function() {
     $('#text_area').on('input', function(e) {
         message = document.getElementById("text_area").value;
         bol_message = validarMensaje(message);
-        console.log(message)
+
 
         validar();
     });
@@ -51,23 +51,29 @@ $(document).ready(function() {
             registro.disabled = false;
 
         } else {
-            console.log('Name: ' + bol_name + " Email: " + bol_email + " Phone: " + bol_phone + " Message: " + bol_message)
+            registro.disabled = true;
         }
     }
 
 
     const validarMensaje = (message) => {
         if (message.length >= 10) {
+            document.getElementById("contact_message").innerHTML = "";
             return true;
         } else {
+            document.getElementById("contact_message").innerHTML = "El mensaje debe tener minimo 10 caracteres";
+
             return false;
         }
     }
 
     const validarEmail = (email) => {
         if (/\S+@\S+\.\S+/.test(email)) {
+            document.getElementById("contact_email").innerHTML = "";
+
             return true;
         } else {
+            document.getElementById("contact_email").innerHTML = "Email incorrecto";
 
             return false;
         }
@@ -75,9 +81,14 @@ $(document).ready(function() {
 
     }
     const validarName = (name) => {
-        if (name.length > 2) {
+        if (name.length >= 2) {
+            document.getElementById("contact_name").innerHTML = "";
+
             return true;
         } else {
+            document.getElementById("contact_name").innerHTML = "El nombre debe tener minimo 2 caracteres";
+
+
             return false;
         }
     }
@@ -87,8 +98,10 @@ $(document).ready(function() {
 
     const validarPhone = (phone) => {
         if (phone.length === 9 && /^[679]{1}[0-9]{8}$/.test(phone)) {
+            document.getElementById("contact_phone").innerHTML = "";
             return true;
         } else {
+            document.getElementById("contact_phone").innerHTML = "El telefono es incorrecto";
             return false;
         }
     }
