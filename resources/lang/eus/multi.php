@@ -22,7 +22,7 @@ return [
     "servicio2" => 'Aplikazioa segurua da eta ez duzu mahai bat erreserbatzeko eta galtzeko arriskurik.',
     "servicio3" => 'Eman izena eta bilatu zure enpresa erreserbatzeko.',
     "servicio4" => 'Zenbat taula daude erreserbatzeko.',
-    "localiza" => 'Kokatu zure gizartea',
+    "localiza" => 'Kokatu gaitzazu',
     "sdestacadas" => 'Nabarmendutako elkarteak',
      "enviar" => 'Bidali',
     "direccion" => 'Helbidea',
@@ -54,7 +54,7 @@ return [
     "contabilidad"=>'Sozietatearen kontabilitatea',
     "incidencias_title"=>'Gertakariak',
     "incidencias"=>'Bazkideekin gertakarien komunikabidea',
-
+    "sociedad_confia"=>'Guregan konfiatzen duten sozietateak',
 
 
 ];

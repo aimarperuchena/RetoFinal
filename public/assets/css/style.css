@@ -14,7 +14,7 @@ html {
     background-color: #000000;
 }
 
-.banderas{
+.banderas {
     width: 30px;
     height: 30px;
     margin-top: 5px;
@@ -246,5 +246,28 @@ html {
 /*------------------------------VISTA CORREO----------------------------------------*/
 
 .correo_mensaje {
+    margin-top: 5%;
+}
+
+
+/*-----------------------------SOCIEDADES-------------------------------------*/
+
+.sociedades {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.sociedad {
+    flex: 0 0 30%;
+}
+
+.img-card {
+    width: 80%;
+}
+
+.sociedades_confian {
+    text-align: center;
     margin-top: 5%;
 }

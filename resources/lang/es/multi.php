@@ -22,7 +22,7 @@ return [
     "servicio2" => 'La app es segura y no tienes peligro de reservar y perder mesa',
     "servicio3" => 'Registrate y busca tu sociedad para reservar',
     "servicio4" => 'Puedes reservar cuantas mesas están disponibles.',
-    "localiza" => 'Localiza tu Sociedad',
+    "localiza" => 'Localizanos',
     "sdestacadas" => 'Sociedades Destacadas',
     "enviar" => 'Enviar',
     "direccion" => 'Dirección',
@@ -55,4 +55,5 @@ return [
     "contabilidad"=>'Lleve la contabilidad precisa de su sociedad',
     "incidencias_title"=>'Incidencias',
     "incidencias"=>'Comunicación directa de incidencias con los socios',
+    "sociedad_confia"=>'Sociedades que confian en nosotros',
 ];

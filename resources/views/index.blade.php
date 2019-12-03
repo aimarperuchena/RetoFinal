@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/carousel.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="img/png" href="assets\img\logo_alpha.png">
+
    
 </head>
 
@@ -28,6 +29,8 @@
 <script src="assets/js/validacion_registro.js"></script>
 <script src="assets/js/validacion_contacto.js"></script>
 <script src="assets/js/scripts.js"></script>
+<script src="assets/js/carrousel.js"></script>
+
 </body>
 
 </html>

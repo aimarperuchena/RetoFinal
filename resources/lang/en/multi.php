@@ -22,7 +22,7 @@ return [
     "servicio2" => 'The application is safe and has no danger of booking and losing a table.',
     "servicio3" => 'Register and search your company to book.',
     "servicio4" => 'You can book how many tables are available.',
-    "localiza" => 'Localiza tu Sociedad',
+    "localiza" => 'Locate us',
     "sdestacadas" => 'Featured Societies',
     "enviar" => 'Send',
     "direccion" => 'Address',
@@ -55,4 +55,5 @@ return [
     "contabilidad"=>'Keep accurate accounting of your society',
     "incidencias_title"=>'Incidents',
     "incidencias"=>'Direct communication of incidents with partners',
+    "sociedad_confia"=>'Socities trusting us',
 ];

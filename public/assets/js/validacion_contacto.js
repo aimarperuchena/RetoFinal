@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 
     registro = document.getElementById("enviar");
-    registro.style.visibility = 'hidden';
+    registro.disabled = true;
     $('#contact_email').on('input', function(e) {
         email = document.getElementById("contact_email").value;
         bol_email = validarEmail(email);
@@ -47,7 +47,7 @@ $(document).ready(function() {
     const validar = () => {
         if (bol_name === true && bol_email === true && bol_phone === true && bol_message === true) {
 
-            registro.style.visibility = 'visible';
+            registro.disabled = false;
 
         }
     }
