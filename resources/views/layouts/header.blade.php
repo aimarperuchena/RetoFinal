@@ -7,6 +7,27 @@
       </button>
       <div class="contenido collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+              @if ($user = Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link" >{{ $user->name }}</a>
+                </li>
+
+                <li class="nav-item">
+                @guest
+                @else
+                  <a class="nav-link" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+
+                </li>
+                @endguest
+              @else
               <li class="nav-item active">
                   <a class="nav-link" href="#">{{ __('multi.inicio') }}
                       <span class="sr-only">(current)</span>
@@ -27,6 +48,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="modal" data-target="#modalRegistrerForm">{{ __('multi.registro') }}</a>
               </li>
+              @endif
               <li class="nav-item">
                   <a href="{{ url('locale/es') }}"><img class="banderas" src="assets/img/espania.ico"></a>
               </li>
