@@ -13,14 +13,17 @@ class CreateProducts extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_sociedad');
+            $table->unsignedBigInteger('sociedad_id');            
             $table->string('nombre');
             $table->longText('descripcion');
-            $table->float('precio');
+            $table->double('precio');
             $table->integer('stock');
             $table->timestamps();
+
+            $table->foreign('sociedad_id')->references('id')->on('sociedad');
+
         });
     }
 

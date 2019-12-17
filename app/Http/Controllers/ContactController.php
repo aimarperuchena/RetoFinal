@@ -11,10 +11,10 @@ class ContactController extends Controller
         $validated = $request->validated();
 
         $contact = new Contact();
-        $contact->name=$request->name;
-        $contact->phone=$request->phone;
+        $contact->nombre=$request->name;
+        $contact->telefono=$request->phone;
         $contact->email=$request->email;
-        $contact->message=$request->message;
+        $contact->texto=$request->message;
 
         $contact->save();
         return redirect('/');

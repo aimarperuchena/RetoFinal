@@ -14,7 +14,7 @@ class UserController extends Controller
       
         $user= User::find($request->id);
         $user->email= $request->email;
-        $user->name=$request->name;
+        $user->nombre=$request->name;
         $user->password=\Hash::make($request->password);
         $user->save();
         return redirect('menu');
