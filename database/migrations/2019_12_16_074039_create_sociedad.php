@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIncidents extends Migration
+class CreateSociedad extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateIncidents extends Migration
      */
     public function up()
     {
-        Schema::create('incidencias', function (Blueprint $table) {
+        Schema::create('sociedad', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('sociedad_id');            
-            $table->longText('descripcion');
-            $table->string('estado');
-            $table->date('fecha');
+            $table->string('nombre');
+            $table->string('ubicacion');
+            $table->integer('telefono');
+            $table->unsignedBigInteger('id_administrador');
             $table->timestamps();
 
-            $table->foreign('sociedad_id')->references('id')->on('sociedad');
+            $table->foreign('id_administrador')->references('id')->on('users');
 
         });
     }
@@ -33,6 +33,6 @@ class CreateIncidents extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incidents');
+        Schema::dropIfExists('sociedad');
     }
 }

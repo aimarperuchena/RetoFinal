@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContact extends Migration
+class CreateLineas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateContact extends Migration
      */
     public function up()
     {
-        Schema::create('contacto', function (Blueprint $table) {
+        Schema::create('lineas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->integer('telefono');
-            $table->string('email');
-            $table->string('mensaje');
+            $table->unsignedBigInteger('producto_id'); 
+            $table->unsignedBigInteger('factura_id'); 
+
+
             $table->timestamps();
+            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('factura_id')->references('id')->on('facturas');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateContact extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact');
+        Schema::dropIfExists('lineas');
     }
 }
