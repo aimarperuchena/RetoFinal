@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class user_seeds extends Seeder
+class user_seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -75,13 +75,28 @@ class user_seeds extends Seeder
                                 'role_id'=>'3'
                                 ]);
                                 DB::table('users')->insert([
-                                    'nombre' => 'armonia_admin',
-                                    'apellido'=>'armonia_admin',
+                                    'nombre' => 'pescadores_admin',
+                                    'apellido'=>'pescadores_admin',
                                     'telefono'=>12345678,
-                                    'email'=>'armonia_admin@gmail.com',
-                                    'password'=>bcrypt('armoniaarmonia'),
+                                    'email'=>'pescadores_admin@gmail.com',
+                                    'password'=>bcrypt('pescadorespescadores'),
                                     'role_id'=>'2'
                                     ]);
-                    
+                                    DB::table('users')->insert([
+                                        'nombre' => 'armonia_admin',
+                                        'apellido'=>'armonia_admin',
+                                        'telefono'=>12345678,
+                                        'email'=>'armonia_admin@gmail.com',
+                                        'password'=>bcrypt('armoniaarmonia'),
+                                        'role_id'=>'2'
+                                        ]);
+                                        DB::table('users')->insert([
+                                            'nombre' => 'bascongada_admin',
+                                            'apellido'=>'bascongada_admin',
+                                            'telefono'=>12345678,
+                                            'email'=>'bascongada_admin@gmail.com',
+                                            'password'=>bcrypt('bascongadabascongada'),
+                                            'role_id'=>'2'
+                                            ]);
     }
 }

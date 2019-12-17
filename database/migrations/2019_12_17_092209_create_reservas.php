@@ -17,7 +17,8 @@ class CreateReservas extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id'); 
             $table->unsignedBigInteger('usuario_id');
-
+            $table->date('fecha');
+            $table->integer('personas');
             $table->timestamps();
             $table->foreign('usuario_id')->references('id')->on('users');
 
