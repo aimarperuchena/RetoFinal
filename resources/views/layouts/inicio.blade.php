@@ -9,8 +9,8 @@
   </div>
     <div id="nosotros" class="about">
         <div class="row p-5">
-            <div class="col aboutImg">
-                <div class="card" style="width: 25rem;">
+            <div class="col">
+                <div class="card nosotros" style="width: 25rem;">
                     <img src="assets\img\aboutUs.jpg" class="card-img-top" alt="Sobre Nosotros">
                     <div class="card-body">
                         <p class="card-text">Gastro-Society</p>
@@ -63,34 +63,31 @@
         <h2>{{ __('multi.localiza') }}</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13810.649339936816!2d-1.986587800278839!3d43.307321967731774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51affe3b68fe15%3A0xe43ec55994864649!2zU2FuIFNlYmFzdGnDoW4sIEd1aXDDunpjb2E!5e0!3m2!1ses!2ses!4v1574411863455!5m2!1ses!2ses" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     </div>
-
-<h3 class="sociedades_confian">{{ __('multi.sociedad_confia') }}</h3>
-<div class="sociedades">
-<div class="card sociedad" style="width: 18rem;">
-  <img src="assets\img\sociedad1.jpg" class="card-img-top img-card" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Abandotarra K.E</h5>
-  </div>
-</div>
-<div class="card sociedad" style="width: 18rem;">
-  <img src="assets\img\sociedad2.jpg" class="card-img-top img-card" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Abarketa</h5>
-
-  </div>
-</div>
-<div class="card sociedad" style="width: 18rem;">
-  <img src="assets\img\sociedad3.jpg" class="card-img-top img-card" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Abendaño</h5>
-
-  </div>
-</div>
-
-</div>
-
-
-
+    <div class="sociedades mb-5 mt-5 text-center">
+      <div class="container">
+        <h3 class="sociedades_confian">{{ __('multi.sociedad_confia') }}</h3>
+        <div class="sociedades">
+          <div class="card sociedad mb-5" style="width: 18rem;">
+            <img src="assets\img\sociedad1.jpg" class="card-img img-card" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Abandotarra K.E</h5>
+            </div>
+          </div>
+          <div class="card sociedad mb-5" style="width: 18rem;">
+            <img src="assets\img\sociedad2.jpg" class="card-img img-card" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Abarketa</h5>
+            </div>
+          </div>
+          <div class="card sociedad mb-5" style="width: 18rem;">
+            <img src="assets\img\sociedad3.jpg" class="card-img img-card" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Abendaño</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="contact">
         <div class="container">
             <h1>{{ __('multi.contactanos') }}</h1>
