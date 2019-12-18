@@ -17,7 +17,7 @@ class CreateLineas extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('producto_id'); 
             $table->unsignedBigInteger('factura_id'); 
-
+            $table->integer('unidades');
 
             $table->timestamps();
             $table->foreign('producto_id')->references('id')->on('productos');

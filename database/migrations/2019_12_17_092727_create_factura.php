@@ -16,9 +16,9 @@ class CreateFactura extends Migration
         Schema::create('facturas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('reserva_id'); 
-$table->date('fecha');
-$table->integer('personas');
-$table->double('importe');
+            $table->date('fecha');
+            $table->integer('personas');
+            $table->double('importe');
             $table->timestamps();
             $table->foreign('reserva_id')->references('id')->on('reservas');
 
