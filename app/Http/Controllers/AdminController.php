@@ -8,44 +8,14 @@ use App\User;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+     $this->middleware('role:2'); 
+    }
     public function index()
     {
-        $usuarios = User::all();
-        return view('admin')->with('usuarios', $usuarios);
+        return view('layouts.admin.home');
     }
 
 
-    public function edit($id)
-    {
-        $usuario = User::find($id);
-        return view('edit_user')->with('usuario', $usuario);
-    }
-
-    public function update(UserRequest $request)
-    {
-        $validated = $request->validated();
-
-        User::where('id', $request->id)
-         
-          ->update([
-              'name' => $request->name,
-              'email'=>$request->email,
-              'password'=>\Hash::make($request->password),
-          ]);
-          /*
-        $user= User::find($request->id);
-        $user->email= $request->email;
-        $user->name=$request->name;
-        $user->password=\Hash::make($request->password);
-        $user->save();
-        */
-        return redirect('menu');
-     }
-
-
-     public function delete($id){
-        $usuario= User::find($id);
-        $usuario->delete();
-        return redirect('menu');
-     }
 }

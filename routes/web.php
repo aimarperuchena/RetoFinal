@@ -23,21 +23,15 @@ Route::get('/menu',function(){
     return view('menu');
 });
 
+Route::get('/webmaster', 'WebMasterController@index');
+Route::get('/admin', 'AdminController@index');
+Route::get('/user', 'UserController@index');
 
 
-Route::get('/correo',function(){
-    return view('correo');
+Route::get('/denegado',function(){
+    return view('layouts.denegado');
 });
 Route::post('/contact','ContactController@save')->name("contact.save");
-Route::get('/user_edit',function(){
-    return view('user_edit');
-})->name('user.edit');
-Route::post('/update','UserController@update')->name('user.update');
-Route::get('user_delete/{id}','UserController@delete')->name('user.delete');
-Route::get('admin','AdminController@index')->name('admin.index');
-Route::get('/edit_user/{id}','AdminController@edit')->name('admin.edit');
-Route::post('user_update','AdminController@update')->name('admin.update');
-Route::get('/delete/{id}','AdminController@delete')->name('admin.delete');
 
 //Cambio de idiomas segun detecta
 

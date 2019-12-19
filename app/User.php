@@ -42,13 +42,18 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
- 
+    public function isWebMaster(){
+        return($this->role_id==1);
+    }
 
     public function isAdmin(){
-        if($this->role->id==1){
-            return true;
-        }else{
-            return false;
-        }
+        return($this->role_id==2);
+    }
+    public function isUser(){
+        return($this->role_id==3);
+    }
+
+    public function getRole(){
+        return ($this->role_id);
     }
 }
