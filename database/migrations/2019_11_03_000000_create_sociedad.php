@@ -18,10 +18,10 @@ class CreateSociedad extends Migration
             $table->string('nombre');
             $table->string('ubicacion');
             $table->integer('telefono');
-            $table->unsignedBigInteger('id_administrador');
+            $table->unsignedBigInteger('administrador_id');
             $table->timestamps();
 
-            $table->foreign('id_administrador')->references('id')->on('users');
+            $table->foreign('administrador_id')->references('id')->on('users');
 
         });
     }

@@ -18,19 +18,19 @@ class sociedad_seeder extends Seeder
             'nombre' => 'Sociedad Pesadores',
             'ubicacion'=>'Donosti',
             'telefono'=>12345678,
-            'id_administrador'=>'8'
+            'administrador_id'=>'8'
         ]);
         DB::table('sociedad')->insert([
             'nombre' => 'Sociedad Armonia',
             'ubicacion'=>'Pasaia',
             'telefono'=>12345678,
-            'id_administrador'=>'9'
+            'administrador_id'=>'9'
         ]);
         DB::table('sociedad')->insert([
             'nombre' => 'Sociedad Bascongada',
             'ubicacion'=>'Donosti',
             'telefono'=>12345678,
-            'id_administrador'=>'10'
+            'administrador_id'=>'10'
         ]);
     }
 }
