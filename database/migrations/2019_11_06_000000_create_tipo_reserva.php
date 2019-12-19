@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProducts extends Migration
+class CreateTipoReserva extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,10 @@ class CreateProducts extends Migration
      */
     public function up()
     {
-        Schema::create('productos', function (Blueprint $table) {
+        Schema::create('tipo_reserva', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('sociedad_id');            
             $table->string('nombre');
-            $table->longText('descripcion');
-            $table->double('precio');
-            $table->integer('stock');
             $table->timestamps();
-
-            $table->foreign('sociedad_id')->references('id')->on('sociedad');
-
         });
     }
 
@@ -34,6 +27,6 @@ class CreateProducts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('tipo_reserva');
     }
 }
