@@ -28,19 +28,19 @@ class incidencias_seeder extends Seeder
             'sociedad_id' => '1',
             'descripcion'=>'La cafetera no ba',
             'estado'=>'pendiente',
-            'fecha'=>'10/12/2019'
+            'fecha'=>'2019/12/2'
         ]);
         DB::table('incidencias')->insert([
             'sociedad_id' => '2',
             'descripcion'=>'La puerta no ba',
             'estado'=>'pendiente',
-            'fecha'=>'10/12/2019'
+            'fecha'=>'2019/12/2'
         ]);
         DB::table('incidencias')->insert([
             'sociedad_id' => '3',
-            'descripcion'=>'La sarten no ba',
-            'estado'=>'pendiente',
-            'fecha'=>'10/12/2019'
+            'descripcion'=>'La sarten esta rota',
+            'estado'=>'reparada',
+            'fecha'=>'2019/12/2'
         ]);
     }
 }

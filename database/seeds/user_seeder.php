@@ -30,73 +30,76 @@ class user_seeder extends Seeder
                 'role_id'=>'3'
                 ]);
 
+            DB::table('users')->insert([
+                'nombre' => 'aimar',
+                'apellido'=>'peruchena',
+                'telefono'=>12345678,
+                'email'=>'aimarperuchena@gmail.com',
+                'password'=>bcrypt('aimaraimar'),
+                'role_id'=>'3'
+                ]);
+                
 
-                DB::table('users')->insert([
-                    'nombre' => 'aimar',
-                    'apellido'=>'peruchena',
-                    'telefono'=>12345678,
-                    'email'=>'aimarperuchena@gmail.com',
-                    'password'=>bcrypt('aimaraimar'),
-                    'role_id'=>'3'
-                    ]);
-                    
+            DB::table('users')->insert([
+                'nombre' => 'jeffry',
+                'apellido'=>'molina',
+                'telefono'=>12345678,
+                'email'=>'jeffry@gmail.com',
+                'password'=>bcrypt('jeffryjeffry'),
+                'role_id'=>'3'
+                ]);
 
-                DB::table('users')->insert([
-                    'nombre' => 'jeffry',
-                    'apellido'=>'molina',
-                    'telefono'=>12345678,
-                    'email'=>'jeffry@gmail.com',
-                    'password'=>bcrypt('jeffryjeffry'),
-                    'role_id'=>'3'
-                    ]);
-                    DB::table('users')->insert([
-                        'nombre' => 'adrian',
-                        'apellido'=>'rodriguez',
-                        'telefono'=>12345678,
-                        'email'=>'adrian@gmail.com',
-                        'password'=>bcrypt('adrianadrian'),
-                        'role_id'=>'3'
-                        ]);
+            DB::table('users')->insert([
+                'nombre' => 'adrian',
+                'apellido'=>'rodriguez',
+                'telefono'=>12345678,
+                'email'=>'adrian@gmail.com',
+                'password'=>bcrypt('adrianadrian'),
+                'role_id'=>'3'
+                ]);
 
-                        DB::table('users')->insert([
-                            'nombre' => 'tomas',
-                            'apellido'=>'tomas',
-                            'telefono'=>12345678,
-                            'email'=>'tomas@gmail.com',
-                            'password'=>bcrypt('tomastomas'),
-                            'role_id'=>'3'
-                            ]);
-                            DB::table('users')->insert([
-                                'nombre' => 'maria',
-                                'apellido'=>'maria',
-                                'telefono'=>12345678,
-                                'email'=>'maria@gmail.com',
-                                'password'=>bcrypt('mariamaria'),
-                                'role_id'=>'3'
+            DB::table('users')->insert([
+                'nombre' => 'tomas',
+                'apellido'=>'tomas',
+                'telefono'=>12345678,
+                'email'=>'tomas@gmail.com',
+                'password'=>bcrypt('tomastomas'),
+                'role_id'=>'3'
+                ]);
+
+            DB::table('users')->insert([
+                'nombre' => 'maria',
+                'apellido'=>'maria',
+                'telefono'=>12345678,
+                'email'=>'maria@gmail.com',
+                'password'=>bcrypt('mariamaria'),
+                'role_id'=>'3'
                                 ]);
-                                DB::table('users')->insert([
-                                    'nombre' => 'pescadores_admin',
-                                    'apellido'=>'pescadores_admin',
-                                    'telefono'=>12345678,
-                                    'email'=>'pescadores_admin@gmail.com',
-                                    'password'=>bcrypt('pescadorespescadores'),
-                                    'role_id'=>'2'
-                                    ]);
-                                    DB::table('users')->insert([
-                                        'nombre' => 'armonia_admin',
-                                        'apellido'=>'armonia_admin',
-                                        'telefono'=>12345678,
-                                        'email'=>'armonia_admin@gmail.com',
-                                        'password'=>bcrypt('armoniaarmonia'),
-                                        'role_id'=>'2'
-                                        ]);
-                                        DB::table('users')->insert([
-                                            'nombre' => 'bascongada_admin',
-                                            'apellido'=>'bascongada_admin',
-                                            'telefono'=>12345678,
-                                            'email'=>'bascongada_admin@gmail.com',
-                                            'password'=>bcrypt('bascongadabascongada'),
-                                            'role_id'=>'2'
-                                            ]);
-    }
+            DB::table('users')->insert([
+                'nombre' => 'pescadores_admin',
+                'apellido'=>'pescadores_admin',
+                'telefono'=>12345678,
+                'email'=>'pescadores_admin@gmail.com',
+                'password'=>bcrypt('pescadorespescadores'),
+                'role_id'=>'2'
+                ]);
+
+            DB::table('users')->insert([
+                'nombre' => 'armonia_admin',
+                'apellido'=>'armonia_admin',
+                'telefono'=>12345678,
+                'email'=>'armonia_admin@gmail.com',
+                'password'=>bcrypt('armoniaarmonia'),
+                'role_id'=>'2'
+                ]);
+
+            DB::table('users')->insert([
+                'nombre' => 'bascongada_admin',
+                'apellido'=>'bascongada_admin',
+                'telefono'=>12345678,
+                'email'=>'bascongada_admin@gmail.com',
+                'password'=>bcrypt('bascongadabascongada'),
+                'role_id'=>'2'
+                ]);
+}
 }

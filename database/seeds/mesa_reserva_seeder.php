@@ -39,7 +39,7 @@ class mesa_reserva_seeder extends Seeder
             'reserva_id'=>'2',   
         ]);
         DB::table('mesa_reserva')->insert([
-            'mesa_id' => '2',
+            'mesa_id' => '3',
             'reserva_id'=>'2', 
         ]);
     }

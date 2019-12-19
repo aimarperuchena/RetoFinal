@@ -15,13 +15,13 @@ class sociedad_user_seeder extends Seeder
             'sociedad_id' => '1',
             'usuario_id'=>'2'
             ]);
-            DB::table('sociedad_user')->insert([
-                'sociedad_id' => '2',
-                'usuario_id'=>'3'
-                ]);
-                DB::table('sociedad_user')->insert([
-                    'sociedad_id' => '2',
-                    'usuario_id'=>'4'
-                    ]);
+        DB::table('sociedad_user')->insert([
+            'sociedad_id' => '2',
+            'usuario_id'=>'3'
+            ]);
+        DB::table('sociedad_user')->insert([
+            'sociedad_id' => '2',
+            'usuario_id'=>'4'
+            ]);
     }
 }
