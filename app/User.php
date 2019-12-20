@@ -37,7 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function sociedades(){
+        return $this->belongsToMany(Sociedad::class);
+    }
     public function role(){
         return $this->belongsTo('App\Role');
     }
