@@ -15,4 +15,8 @@ class Reserva extends Model
   public function usuario(){
     return $this->belongsTo(User::class);
   }
+
+  public function tipo(){
+    return $this->belongsTo(TipoReserva::class);
+  }
 }
