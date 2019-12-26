@@ -13,7 +13,7 @@ class CreateTables extends Migration
      */
     public function up()
     {
-        Schema::create('mesas', function (Blueprint $table) {
+        Schema::create('mesa', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');            
             $table->integer('capacidad');

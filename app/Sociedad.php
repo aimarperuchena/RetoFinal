@@ -6,18 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sociedad extends Model
 {
-    protected $table='sociedad';
-    protected $fillable=['nombre','ubicacion','telefono','administrador_id'];
+    protected $table = 'sociedad';
+    protected $fillable = ['nombre', 'ubicacion', 'telefono', 'administrador_id'];
 
 
-    public function usuarios(){
+    public function usuarios()
+    {
         return $this->belongsToMany(User::class);
     }
-    public function incidencias(){
+    public function incidencias()
+    {
         return $this->hasMany(Incidencia::class);
     }
 
-    public function productos(){
+    public function productos()
+    {
         return $this->hasMany(ProductoSociedad::class);
+    }
+
+    public function mesas()
+    {
+        return $this->hasMany(Mesa::class);
     }
 }

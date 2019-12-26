@@ -22,7 +22,7 @@ class CreateProductosSociedad extends Migration
             $table->timestamps();
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('producto_id')->references('id')->on('producto');
         });
     }
 

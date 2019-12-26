@@ -19,8 +19,8 @@ class CreateMesaReserva extends Migration
             $table->unsignedBigInteger('mesa_id'); 
 
             $table->timestamps();
-            $table->foreign('reserva_id')->references('id')->on('reservas');
-            $table->foreign('mesa_id')->references('id')->on('mesas');
+            $table->foreign('reserva_id')->references('id')->on('reserva');
+            $table->foreign('mesa_id')->references('id')->on('mesa');
 
 
         });

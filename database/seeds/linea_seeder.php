@@ -17,17 +17,17 @@ class linea_seeder extends Seeder
         */
     public function run()
     {
-        DB::table('lineas')->insert([
+        DB::table('linea')->insert([
             'producto_sociedad_id' => '2',
             'factura_id'=>'1',
             'unidades'=>'10',
         ]);
-        DB::table('lineas')->insert([
+        DB::table('linea')->insert([
             'producto_sociedad_id' => '1',
             'factura_id'=>'2',
             'unidades'=>'1',
         ]);
-        DB::table('lineas')->insert([
+        DB::table('linea')->insert([
             'producto_sociedad_id' => '3',
             'factura_id'=>'1',
             'unidades'=>'15',

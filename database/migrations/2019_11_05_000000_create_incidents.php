@@ -13,7 +13,7 @@ class CreateIncidents extends Migration
      */
     public function up()
     {
-        Schema::create('incidencias', function (Blueprint $table) {
+        Schema::create('incidencia', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');            
             $table->longText('descripcion');

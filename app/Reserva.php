@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reserva extends Model
 {
-  protected $table="reservas";
+  protected $table="reserva";
   protected $fillable=["sociedad_id","usuario_id","tipo_id","fecha","personas"];
 
   public function sociedad(){
@@ -19,4 +19,12 @@ class Reserva extends Model
   public function tipo(){
     return $this->belongsTo(TipoReserva::class);
   }
+
+  public function factura(){
+    return $this->hasOne(Factura::class);
+  }
+
+  public function mesas(){
+    return $this->belongsToMany(Mesa::class);
+}
 }

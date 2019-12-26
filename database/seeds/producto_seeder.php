@@ -11,15 +11,15 @@ class producto_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('productos')->insert([
+        DB::table('producto')->insert([
             'nombre'=>'coca cola',
             'descripcion'=>'bebida',
         ]);
-        DB::table('productos')->insert([
+        DB::table('producto')->insert([
             'nombre'=>'Cerveza',
             'descripcion'=>'Alcohol',
         ]);
-        DB::table('productos')->insert([
+        DB::table('producto')->insert([
             'nombre'=>'Gintonic',
             'descripcion'=>'Alcohol', 
         ]);

@@ -13,7 +13,7 @@ class CreateLineas extends Migration
      */
     public function up()
     {
-        Schema::create('lineas', function (Blueprint $table) {
+        Schema::create('linea', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('producto_sociedad_id'); 
             $table->unsignedBigInteger('factura_id'); 
@@ -21,7 +21,7 @@ class CreateLineas extends Migration
 
             $table->timestamps();
             $table->foreign('producto_sociedad_id')->references('id')->on('productos_sociedad');
-            $table->foreign('factura_id')->references('id')->on('facturas');
+            $table->foreign('factura_id')->references('id')->on('factura');
         });
     }
 

@@ -21,35 +21,35 @@ Schema::create('reservas', function (Blueprint $table) {
         */
     public function run()
     {
-        DB::table('reservas')->insert([
+        DB::table('reserva')->insert([
             'sociedad_id' => '2',
             'usuario_id'=>'3',
             'tipo_id'=>'1',
             'fecha'=>'2019/12/20',
             'personas'=>'10'   
         ]);
-        DB::table('reservas')->insert([
+        DB::table('reserva')->insert([
             'sociedad_id' => '3',
             'usuario_id'=>'2',
             'tipo_id'=>'1',
             'fecha'=>'2019/12/20',
             'personas'=>'10'   
         ]);
-        DB::table('reservas')->insert([
+        DB::table('reserva')->insert([
             'sociedad_id' => '2',
             'usuario_id'=>'3',
             'tipo_id'=>'1',
             'fecha'=>'2019/12/20',
             'personas'=>'10'   
         ]);
-        DB::table('reservas')->insert([
+        DB::table('reserva')->insert([
             'sociedad_id' => '1',
             'usuario_id'=>'2',
             'tipo_id'=>'3',
             'fecha'=>'2019/12/20',
             'personas'=>'10'   
         ]);
-        DB::table('reservas')->insert([
+        DB::table('reserva')->insert([
             'sociedad_id' => '3',
             'usuario_id'=>'2',
             'tipo_id'=>'1',
