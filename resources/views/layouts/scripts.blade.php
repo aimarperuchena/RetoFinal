@@ -1,6 +1,18 @@
 <script src="assets/js/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="assets/js/jquery.backstretch.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
-<script src="assets/js/validacion_editar.js"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{{ asset('jquery-easing/jquery.easing.min.js') }}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
+
+<!-- Page level plugins -->
+<script src="{{ asset('chart.js/Chart.min.js') }}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
+<script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
