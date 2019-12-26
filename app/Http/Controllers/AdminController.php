@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Sociedad;
 use Illuminate\Http\Request;
 use App\User;
-
+use App\UsuarioSociedad;
+use Auth;
 class AdminController extends Controller
 {
     public function __construct()
@@ -14,7 +16,10 @@ class AdminController extends Controller
     }
     public function index()
     {
-        return view('layouts.admin.home');
+        $user=Auth::user();
+        $sociedad=Sociedad::where('administrador_id',$user->id)->first();
+        $socios=UsuarioSociedad::where('sociedad_id',$sociedad->id)->first();
+        return view('layouts.admin.home')->with('sociedad',$sociedad)->with('socios',$socios);
     }
 
 
