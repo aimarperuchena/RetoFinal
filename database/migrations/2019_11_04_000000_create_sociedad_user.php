@@ -16,8 +16,8 @@ class CreateSociedadUser extends Migration
         Schema::create('sociedad_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');
-            $table->unsignedBigInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');
 

@@ -18,8 +18,8 @@ class AdminController extends Controller
     {
         $user=Auth::user();
         $sociedad=Sociedad::where('administrador_id',$user->id)->first();
-        $socios=UsuarioSociedad::where('sociedad_id',$sociedad->id)->first();
-        return view('layouts.admin.home')->with('sociedad',$sociedad)->with('socios',$socios);
+     
+        return view('layouts.admin.home')->with('sociedad',$sociedad);
     }
 
 

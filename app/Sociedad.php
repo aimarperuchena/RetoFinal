@@ -12,7 +12,7 @@ class Sociedad extends Model
 
     public function usuarios()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'sociedad_user');
     }
     public function incidencias()
     {
@@ -27,5 +27,9 @@ class Sociedad extends Model
     public function mesas()
     {
         return $this->hasMany(Mesa::class);
+    }
+
+    public function reservas(){
+        return $this->hasMany(Reserva::class);
     }
 }

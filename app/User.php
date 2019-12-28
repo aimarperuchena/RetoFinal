@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function sociedades(){
-        return $this->belongsToMany(Sociedad::class);
+        return $this->belongsToMany(Sociedad::class,'sociedad_user');
     }
     public function role(){
         return $this->belongsTo('App\Role');
