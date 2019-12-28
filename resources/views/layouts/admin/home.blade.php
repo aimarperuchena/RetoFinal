@@ -31,10 +31,12 @@
 <h3>Reservas</h3>
 <table>
     <tr>
-        <td>Socio</td>
-        <td>Tipo</td>
-        <td>Fecha</td>
-        <td>Personas</td>
+        <th>Socio</th>
+        <th>Tipo</th>
+        <th>Fecha</th>
+        <th>Personas</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
     </tr>
 
     @foreach($sociedad->reservas as $reserva)
@@ -43,6 +45,8 @@
         <td>{{$reserva->tipo->nombre}}</td>
         <td>{{$reserva->fecha}}</td>
         <td>{{$reserva->personas}}</td>
+        <td><i class="fa fa-pencil" style="color:black"></i></td>
+        <td><i class="fa fa-trash-o" style="color:black"></td>
     </tr>
     @endforeach
 </table>
@@ -53,12 +57,17 @@
     <tr>
         <th>Id</th>
         <th>Capacidad</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
     </tr>
 
     @foreach($sociedad->mesas as $mesa)
     <tr>
         <td>{{$mesa->id}}</td>
         <td>{{$mesa->capacidad}}</td>
+        <td><i class="fa fa-pencil" style="color:black"></i></td>
+        <td><i class="fa fa-trash-o" style="color:black"></td>
+
     </tr>
     @endforeach
 </table>
@@ -72,6 +81,9 @@
         <th>Descripcion</th>
         <th>Estado</th>
         <th>Fecha</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+
     </tr>
     @foreach($sociedad->incidencias as $incidencia)
     <tr>
@@ -79,6 +91,9 @@
         <td>{{$incidencia->descripcion}}</td>
         <td>{{$incidencia->estado}}</td>
         <td>{{$incidencia->fecha}}</td>
+        <td><i class="fa fa-pencil" style="color:black"></i></td>
+        <td><i class="fa fa-trash-o" style="color:black"></td>
+
     </tr>
     @endforeach
 </table>
@@ -88,9 +103,12 @@
 <table>
     <tr>
         <th>Id</th>
-    <th>Nombre</th>
+        <th>Nombre</th>
         <th>Precio</th>
         <th>Stock</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+
     </tr>
 
     @foreach($sociedad->productos as $producto)
@@ -99,6 +117,9 @@
         <td>{{$producto->producto->nombre}}</td>
         <td>{{$producto->precio}}</td>
         <td>{{$producto->stock}}</td>
+        <td><a href="/admin/productEdit/{{$producto->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+        <td><a href="/admin/product_destroy/{{$producto->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
+
     </tr>
     @endforeach
 </table>

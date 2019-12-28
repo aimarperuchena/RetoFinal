@@ -24,7 +24,7 @@ Route::get('/menu',function(){
 });
 
 Route::get('/webmaster', 'WebMasterController@index');
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/user', 'UserController@index');
 
 
@@ -39,3 +39,8 @@ Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
 });
+
+
+
+Route::get('/admin/productEdit/{id}','AdminController@productEdit')->name('admin.productEdit');
+Route::post('/admin/productUpdate','AdminController@productUpdate')->name('admin.productUpdate');

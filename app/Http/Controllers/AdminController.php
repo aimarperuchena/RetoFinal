@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\ProductoSociedad;
 use App\Sociedad;
 use Illuminate\Http\Request;
 use App\User;
@@ -20,6 +21,19 @@ class AdminController extends Controller
         $sociedad=Sociedad::where('administrador_id',$user->id)->first();
      
         return view('layouts.admin.home')->with('sociedad',$sociedad);
+    }
+
+    public function productEdit($id){
+        $producto=ProductoSociedad::find($id);
+        return view('layouts.admin.product_update')->with('producto',$producto);
+    }
+
+    public function productUpdate(Request $request){
+        $producto=ProductoSociedad::find($request->id);
+        $producto->stock=$request->stock;
+        $producto->precio=$request->precio;
+        $producto->save();
+        return redirect(route('admin.index'));
     }
 
 
