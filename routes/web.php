@@ -41,6 +41,8 @@ Route::get('locale/{locale}', function ($locale){
 });
 
 
-
+Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');
+Route::post('/admin/productStore/','AdminController@productStore')->name('admin.productStore');
 Route::get('/admin/productEdit/{id}','AdminController@productEdit')->name('admin.productEdit');
 Route::post('/admin/productUpdate','AdminController@productUpdate')->name('admin.productUpdate');
+Route::get('/admin/product_destroy/{id}','AdminController@productDestroy')->name('admin.productDestroy');

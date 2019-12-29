@@ -100,6 +100,12 @@
 
 <hr>
 <h3>Productos</h3>
+@if(isset($contador))
+    <h1>{{$contador}}</h1>
+@endif
+
+
+<a href="/admin/productCreate/">Añadir Producto</a>
 <table>
     <tr>
         <th>Id</th>
