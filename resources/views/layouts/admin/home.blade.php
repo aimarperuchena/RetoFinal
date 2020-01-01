@@ -75,6 +75,7 @@
 <hr>
 
 <h3>Incidencias</h3>
+<a href="/admin/createIncidencia">Crear Incidencia</a>
 <table>
     <tr>
         <th>Id</th>
@@ -91,8 +92,8 @@
         <td>{{$incidencia->descripcion}}</td>
         <td>{{$incidencia->estado}}</td>
         <td>{{$incidencia->fecha}}</td>
-        <td><i class="fa fa-pencil" style="color:black"></i></td>
-        <td><i class="fa fa-trash-o" style="color:black"></td>
+        <td><a href="/admin/incidenciaEdit/{{$incidencia->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+        <td><a href="/admin/incidenciaDelete/{{$incidencia->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
     </tr>
     @endforeach
@@ -124,7 +125,7 @@
         <td>{{$producto->precio}}</td>
         <td>{{$producto->stock}}</td>
         <td><a href="/admin/productEdit/{{$producto->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
-        <td><a href="/admin/product_destroy/{{$producto->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
+        <td><a href="/admin/productDestroy/{{$producto->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
     </tr>
     @endforeach

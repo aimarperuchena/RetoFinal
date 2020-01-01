@@ -40,9 +40,17 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 
-
+/*PRODUCTOS*/
 Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');
 Route::post('/admin/productStore/','AdminController@productStore')->name('admin.productStore');
 Route::get('/admin/productEdit/{id}','AdminController@productEdit')->name('admin.productEdit');
 Route::post('/admin/productUpdate','AdminController@productUpdate')->name('admin.productUpdate');
-Route::get('/admin/product_destroy/{id}','AdminController@productDestroy')->name('admin.productDestroy');
+Route::get('/admin/productDestroy/{id}','AdminController@productDestroy')->name('admin.productDestroy');
+
+//INCIDENCIAS
+Route::get('/admin/createIncidencia', 'AdminController@incidenciaCreate')->name('admin.incidenciaCreate');
+Route::post('/admin/storeIncidencia','AdminController@incidenciaStore')->name('admin.incidenciaStore');
+Route::get('/admin/incidenciaEdit/{id}','AdminController@incidenciaEdit')->name('admin.incidenciaEdit');
+Route::post('/admin/incidenciaUpdate','AdminController@incidenciaUpdate')->name('admin.incidenciaUpdate');
+Route::get('/admin/incidenciaDelete/{id}','AdminController@incidenciaDestroy')->name('admin.incidenciaDestroy');
+/* Route::post() */
