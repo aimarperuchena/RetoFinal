@@ -47,12 +47,14 @@
         <td>{{$reserva->personas}}</td>
         <td><i class="fa fa-pencil" style="color:black"></i></td>
         <td><i class="fa fa-trash-o" style="color:black"></td>
+        <td><a href="/admin/reservaShow/{{$reserva->id}}"><i class="fa fa-eye" style="color:black"></i></a></td>
     </tr>
     @endforeach
 </table>
 
 <hr>
 <h3>Mesas</h3>
+<a href="/admin/mesaCreate">Crear Mesas</a>
 <table>
     <tr>
         <th>Id</th>
@@ -65,8 +67,8 @@
     <tr>
         <td>{{$mesa->id}}</td>
         <td>{{$mesa->capacidad}}</td>
-        <td><i class="fa fa-pencil" style="color:black"></i></td>
-        <td><i class="fa fa-trash-o" style="color:black"></td>
+        <td><a href="/admin/mesaEdit/{{$mesa->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+        <td><a href="/admin/mesaDestroy/{{$mesa->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
     </tr>
     @endforeach

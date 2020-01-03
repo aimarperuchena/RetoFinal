@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProductoCreateRequest;
 use App\Http\Requests\ProductoUpdateRequest;
 use App\Http\Requests\IncidenciaCreateRequest;
+use App\Http\Requests\CreateMesaRequest;
+use App\Mesa;
+use App\Reserva;
 
 class AdminController extends Controller
 {
@@ -114,15 +117,64 @@ class AdminController extends Controller
 
     public function incidenciaEdit($id)
     {
-        $incidencia=Incidencia::find($id);
-        return view('layouts.admin.incidencias.update')->with('incidencia',$incidencia);
+        $incidencia = Incidencia::find($id);
+        return view('layouts.admin.incidencias.update')->with('incidencia', $incidencia);
     }
 
-    public function incidenciaUpdate(Request $request){
-        $incidencia=Incidencia::find($request->id);
-        $incidencia->descripcion=$request->descripcion;
-        $incidencia->estado=$request->estado;
+    public function incidenciaUpdate(IncidenciaCreateRequest $request)
+    {
+        $validated = $request->validated();
+        $incidencia = Incidencia::find($request->id);
+        $incidencia->descripcion = $request->descripcion;
+        $incidencia->estado = $request->estado;
         $incidencia->save();
         return redirect('/admin');
+    }
+
+
+    public function mesaCreate()
+    {
+        return view('layouts.admin.mesas.create');
+    }
+
+    public function mesaStore(Request $request)
+    {
+        /*  $validated = $request->validated(); */
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+
+        $mesa = new Mesa();
+        $mesa->capacidad = $request->capacidad;
+        $mesa->sociedad_id = $sociedad->id;
+        $mesa->save();
+
+        return redirect('/admin');
+    }
+
+    public function mesaEdit($id)
+    {
+        $mesa = Mesa::find($id);
+        return view('layouts.admin.mesas.update')->with('mesa', $mesa);
+    }
+
+    public function mesaUpdate(Request $request)
+    {
+      /*   $validated = $request->validated(); */
+
+        $mesa = Mesa::find($request->id);
+        $mesa->capacidad = $request->capacidad;
+        $mesa->save();
+        return redirect('/admin');
+    }
+
+    public function mesaDestroy($id){
+        $mesa=Mesa::find($id);
+        $mesa->delete();
+        return redirect('/admin');
+    }
+
+    public function reservaShow($id){
+        $reserva=Reserva::find($id);
+        return view('layouts.admin.reservas.show')->with('reserva',$reserva);
     }
 }

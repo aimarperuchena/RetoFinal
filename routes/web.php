@@ -53,4 +53,14 @@ Route::post('/admin/storeIncidencia','AdminController@incidenciaStore')->name('a
 Route::get('/admin/incidenciaEdit/{id}','AdminController@incidenciaEdit')->name('admin.incidenciaEdit');
 Route::post('/admin/incidenciaUpdate','AdminController@incidenciaUpdate')->name('admin.incidenciaUpdate');
 Route::get('/admin/incidenciaDelete/{id}','AdminController@incidenciaDestroy')->name('admin.incidenciaDestroy');
-/* Route::post() */
+
+
+//Mesas
+Route::get('/admin/mesaCreate','AdminController@mesaCreate')->name('admin.mesaCreate');
+Route::post('/admin/mesaStore','AdminController@mesaStore')->name('admin.mesaStore');
+Route::get('/admin/mesaEdit/{id}','AdminController@mesaEdit')->name('admin.mesaEdit');
+Route::post('/admin/mesaUpdate','AdminController@mesaUpdate')->name('admin.mesaUpdate');
+Route::get('/admin/mesaDestroy/{id}','AdminController@mesaDestroy')->name('admin.mesaDestroy');
+
+//RESERVAS
+Route::get('/admin/reservaShow/{id}','AdminController@reservaShow')->name('admin.reservaShow');

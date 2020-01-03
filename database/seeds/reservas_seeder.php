@@ -21,40 +21,57 @@ Schema::create('reservas', function (Blueprint $table) {
         */
     public function run()
     {
-        DB::table('reserva')->insert([
-            'sociedad_id' => '2',
-            'usuario_id'=>'3',
-            'tipo_id'=>'1',
-            'fecha'=>'2019/12/20',
-            'personas'=>'10'   
-        ]);
-        DB::table('reserva')->insert([
-            'sociedad_id' => '3',
-            'usuario_id'=>'2',
-            'tipo_id'=>'1',
-            'fecha'=>'2019/12/20',
-            'personas'=>'10'   
-        ]);
-        DB::table('reserva')->insert([
-            'sociedad_id' => '2',
-            'usuario_id'=>'3',
-            'tipo_id'=>'1',
-            'fecha'=>'2019/12/20',
-            'personas'=>'10'   
-        ]);
+
+        //RESERVA 1 SOCIEDAD 1
         DB::table('reserva')->insert([
             'sociedad_id' => '1',
-            'usuario_id'=>'2',
-            'tipo_id'=>'3',
-            'fecha'=>'2019/12/20',
-            'personas'=>'10'   
+            'usuario_id' => '2',
+            'tipo_id' => '1',
+            'fecha' => '2019/12/20',
+            'personas' => '10'
         ]);
+
+        //RESERVA 2 SOCIEDAD 1
+        DB::table('reserva')->insert([
+            'sociedad_id' => '1',
+            'usuario_id' => '3',
+            'tipo_id' => '1',
+            'fecha' => '2019/12/20',
+            'personas' => '10'
+        ]);
+
+        //RESERVA 3 SOCIEDAD 2
+        DB::table('reserva')->insert([
+            'sociedad_id' => '2',
+            'usuario_id' => '4',
+            'tipo_id' => '1',
+            'fecha' => '2019/12/20',
+            'personas' => '10'
+        ]);
+        //RESERVA 4 SOCIEDAD 2
+        DB::table('reserva')->insert([
+            'sociedad_id' => '2',
+            'usuario_id' => '5',
+            'tipo_id' => '1',
+            'fecha' => '2019/12/20',
+            'personas' => '10'
+        ]);
+
+        //RESERVA 5 SOCIEDAD 3
         DB::table('reserva')->insert([
             'sociedad_id' => '3',
-            'usuario_id'=>'2',
-            'tipo_id'=>'1',
-            'fecha'=>'2019/12/20',
-            'personas'=>'10'   
+            'usuario_id' => '6',
+            'tipo_id' => '1',
+            'fecha' => '2019/12/20',
+            'personas' => '10'
+        ]);
+        //RESERVA 6 SOCIEDAD 3
+        DB::table('reserva')->insert([
+            'sociedad_id' => '2',
+            'usuario_id' => '7',
+            'tipo_id' => '1',
+            'fecha' => '2019/12/20',
+            'personas' => '10'
         ]);
     }
 }
