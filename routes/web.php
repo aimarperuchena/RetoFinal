@@ -64,3 +64,4 @@ Route::get('/admin/mesaDestroy/{id}','AdminController@mesaDestroy')->name('admin
 
 //RESERVAS
 Route::get('/admin/reservaShow/{id}','AdminController@reservaShow')->name('admin.reservaShow');
+Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin.facturaShow');

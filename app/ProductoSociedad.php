@@ -12,6 +12,10 @@ class ProductoSociedad extends Model
   public function producto(){
     return $this->belongsTo(Producto::class);
   }
+
+  public function lineas(){
+    return $this->hasMany(Linea::class);
+  }
   public function sociedad(){
     return $this->belongsTo(Scoiedad::class);
   }

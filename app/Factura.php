@@ -13,7 +13,7 @@ class Factura extends Model
         return $this->belongsTo(Reserva::class);
     }
 
-    public function factura(){
-        return $this->hasOne(Linea::class);
+    public function lineas(){
+        return $this->hasMany(Linea::class);
     }
 }

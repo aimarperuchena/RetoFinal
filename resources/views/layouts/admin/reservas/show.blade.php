@@ -36,9 +36,8 @@
         <td>{{$reserva->factura->fecha}}</td>
         <td>{{$reserva->factura->personas}}</td>
         <td>{{$reserva->factura->importe}}</td>
-
+        <td><a href="/admin/facturaShow/{{$reserva->factura->id}}"><i class="fa fa-eye" style="color:black"></i></a></td>
     </tr>
-
 </table>
 
 

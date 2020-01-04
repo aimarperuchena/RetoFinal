@@ -18,6 +18,8 @@ use App\Http\Requests\IncidenciaCreateRequest;
 use App\Http\Requests\CreateMesaRequest;
 use App\Mesa;
 use App\Reserva;
+use App\Factura;
+use App\Linea;
 
 class AdminController extends Controller
 {
@@ -176,5 +178,10 @@ class AdminController extends Controller
     public function reservaShow($id){
         $reserva=Reserva::find($id);
         return view('layouts.admin.reservas.show')->with('reserva',$reserva);
+    }
+
+    function facturaShow($id){
+        $factura=Factura::find($id);
+        return view('layouts.admin.facturas.show')->with('factura',$factura);
     }
 }
