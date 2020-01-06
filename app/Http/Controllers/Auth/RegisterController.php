@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,21 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/menu';
+    protected function redirectTo()
+    {
+        $user=Auth::user();
+    
+        if($user->role_id == 1){
+            return '/webmaster';
+        }
+        if($user->role_id == 2){
+            return '/admin';
+        }
+        if($user->role_id == 3){
+            return '/user';
+        }
+    
+    }
 
     /**
      * Create a new controller instance.
@@ -49,9 +64,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'telefono'=>['required','integer','size:9'],
+            'apellido'=>['required','string','min:2']
         ]);
     }
 
@@ -64,10 +81,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nombre' => $data['nombre'],
+            'apellido'=>$data['apellido'],
+            'telefono'=>$data['telefono'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => '2'
+            'role_id' => '3'
         ]);
     }
 }

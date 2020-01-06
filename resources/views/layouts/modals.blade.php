@@ -74,8 +74,8 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     <div class="col-md-6 form-modal">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                        <input id="name_reg" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name...">
+                        <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <input id="nombre_reg" type="text" class="@error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="name" autofocus placeholder="Name...">
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -83,6 +83,32 @@
                     </div>
 
                 </div>
+
+                <div class="md-form mb-5">
+                    <div class="col-md-6 form-modal">
+                        <label for="apellido" class="col-md-4 col-form-label text-md-right">apellido</label>
+                        <input id="apellido_reg" type="text" class="@error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus placeholder="apellido...">
+                        @error('apellido')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span> @enderror
+                    </div>
+
+                </div>
+
+
+                <div class="md-form mb-5">
+                    <div class="col-md-6 form-modal">
+                        <label for="telefono" class="col-md-4 col-form-label text-md-right">telefono</label>
+                        <input id="telefono_reg" type="number" class="@error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus placeholder="telefono...">
+                        @error('telefono')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span> @enderror
+                    </div>
+
+                </div>
+
 
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
