@@ -54,7 +54,7 @@
         <div id="collapseSocios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Socios:</h6>
-            <a class="collapse-item" href="/admin/userIndex">Listar Socios</a>
+            <a class="collapse-item" href="buttons.html">Listar Socios</a>
             <a class="collapse-item" href="cards.html">Nuevas Peticiones</a>
           </div>
         </div>
@@ -69,8 +69,8 @@
         <div id="collapseProductos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Productos:</h6>
-            <a class="collapse-item" href="/admin/productoIndex">Listar Productos</a>
-            <a class="collapse-item" href="/admin/productCreate">Añadir Productos</a>
+            <a class="collapse-item" href="buttons.html">Listar Productos</a>
+            <a class="collapse-item" href="cards.html">Añadir Productos</a>
           </div>
         </div>
       </li>
@@ -110,7 +110,6 @@
 
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="/admin/reservaIndex">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -125,11 +124,9 @@
                   </div>
                 </div>
               </div>
-              </a>
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="/admin/productoIndex">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -143,11 +140,9 @@
                   </div>
                 </div>
               </div>
-              </a>
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="/admin/incidenciaIndex">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -161,11 +156,9 @@
                   </div>
                 </div>
               </div>
-              </a>
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="/admin/mesaIndex">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -180,7 +173,6 @@
                 </div>
               </div>
             </div>
-            </a>
           </div>
           <!-- Content Row -->
 
@@ -188,10 +180,55 @@
 
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
-         
+              <h3>Incidencias</h3>
+              <a href="/admin/createIncidencia">Crear Incidencia</a>
+              <table>
+                <tr>
+                  <th>Id</th>
+                  <th>Descripcion</th>
+                  <th>Estado</th>
+                  <th>Fecha</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+
+                </tr>
+                @foreach($sociedad->incidencias as $incidencia)
+                <tr>
+                  <td>{{$incidencia->id}}</td>
+                  <td>{{$incidencia->descripcion}}</td>
+                  <td>{{$incidencia->estado}}</td>
+                  <td>{{$incidencia->fecha}}</td>
+                  <td><a href="/admin/incidenciaEdit/{{$incidencia->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+                  <td><a href="/admin/incidenciaDelete/{{$incidencia->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
+
+                </tr>
+                @endforeach
+              </table>
             </div>
 
 
-            
+            <!-- End of Page Wrapper -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+              <i class="fas fa-angle-up"></i>
+            </a>
 
-            
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

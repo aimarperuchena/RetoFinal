@@ -36,7 +36,18 @@ class AdminController extends Controller
     }
 
 
+    public function userIndex(){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        return view('layouts.admin.usuarios.index')->with('sociedad',$sociedad);
+    }
 
+    public function productoIndex()
+    {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        return view('layouts.admin.productos.index')->with('sociedad', $sociedad);
+    }
     public function productCreate()
     {
         $productos = Producto::all();
@@ -87,6 +98,12 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
+    public function incidenciaIndex()
+    {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad);
+    }
 
     public function incidenciaCreate()
     {
@@ -161,7 +178,7 @@ class AdminController extends Controller
 
     public function mesaUpdate(Request $request)
     {
-      /*   $validated = $request->validated(); */
+        /*   $validated = $request->validated(); */
 
         $mesa = Mesa::find($request->id);
         $mesa->capacidad = $request->capacidad;
@@ -169,19 +186,28 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-    public function mesaDestroy($id){
-        $mesa=Mesa::find($id);
+    public function mesaDestroy($id)
+    {
+        $mesa = Mesa::find($id);
         $mesa->delete();
         return redirect('/admin');
     }
 
-    public function reservaShow($id){
-        $reserva=Reserva::find($id);
-        return view('layouts.admin.reservas.show')->with('reserva',$reserva);
+
+    public function reservaIndex (){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        return view('layouts.admin.reservas.index');
+    }
+    public function reservaShow($id)
+    {
+        $reserva = Reserva::find($id);
+        return view('layouts.admin.reservas.show')->with('reserva', $reserva);
     }
 
-    function facturaShow($id){
-        $factura=Factura::find($id);
-        return view('layouts.admin.facturas.show')->with('factura',$factura);
+    function facturaShow($id)
+    {
+        $factura = Factura::find($id);
+        return view('layouts.admin.facturas.show')->with('factura', $factura);
     }
 }
