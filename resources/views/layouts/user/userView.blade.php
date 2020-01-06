@@ -13,75 +13,75 @@
       </div>
     </div>
   </div>
-  <div id="listaSociedad" class="d-flex flex-wrap">
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+  <div id="listaSociedad" class="d-flex flex-wrap mb-5">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+    <div class="card m-2" style="width: 18rem;">
+      <a href="{{ route('sociedad.info') }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>

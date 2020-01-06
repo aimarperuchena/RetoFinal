@@ -41,6 +41,10 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 
+// InfoSociedad
+Route::get('/sociedadID','SociedadController@info')->name('sociedad.info');
+Route::get('/reserva','SociedadController@reserva')->name('sociedad.reserva');
+
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');
 Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');

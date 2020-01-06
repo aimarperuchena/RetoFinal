@@ -137,6 +137,23 @@ html {
     padding-bottom: 2%;
 }
 
+/* Mapa Sociedad Info*/
+
+.mapaSociedad {
+    padding: 5%;
+    text-align: center;
+    height: 600px;
+}
+
+.mapaSociedad iframe {
+    border-radius: 2%;
+    width: 80%;
+    height: 80%;
+}
+
+.mapaSociedad h2 {
+    padding-bottom: 2%;
+}
 
 /* Contactenos */
 
