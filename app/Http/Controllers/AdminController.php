@@ -16,6 +16,7 @@ use App\Http\Requests\ProductoCreateRequest;
 use App\Http\Requests\ProductoUpdateRequest;
 use App\Http\Requests\IncidenciaCreateRequest;
 use App\Http\Requests\CreateMesaRequest;
+use App\Http\Requests\SociedadUpdateRequest;
 use App\Mesa;
 use App\Reserva;
 use App\Factura;
@@ -34,6 +35,27 @@ class AdminController extends Controller
 
         return view('layouts.admin.home')->with('sociedad', $sociedad);
     }
+
+public function sociedadEdit(){
+    $user = Auth::user();
+    $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+
+    return view('layouts.admin.sociedad.update')->with('sociedad', $sociedad);
+}
+
+public function sociedadUpdate(SociedadUpdateRequest $request){
+    $validated = $request->validated();
+    $user = Auth::user();
+    $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+    $sociedadUpdate=Sociedad::find($sociedad->id);
+
+    $sociedadUpdate->nombre=$request->nombre;
+    $sociedadUpdate->telefono=$request->telefono;
+    $sociedadUpdate->ubicacion=$request->ubicacion;
+    $sociedadUpdate->save();
+
+    return redirect('/admin');
+}
 
 
     public function userIndex(){
