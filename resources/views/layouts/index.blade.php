@@ -19,7 +19,6 @@
 @yield('content')
 @include('layouts.footer')
 <!-- Javascript -->
-@include('layouts.scripts')
 @include('layouts.modals')
 </body>
 </html>
