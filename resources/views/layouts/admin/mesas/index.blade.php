@@ -184,33 +184,25 @@
                     </div>
                     <!-- Content Row -->
 
-                    <div class="row">
-                    <h3>Productos</h3>
-                           
+                    <h3>Mesas</h3>
+<a href="/admin/mesaCreate">Crear Mesas</a>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Capacidad</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
 
+    @foreach($sociedad->mesas as $mesa)
+    <tr>
+        <td>{{$mesa->id}}</td>
+        <td>{{$mesa->capacidad}}</td>
+        <td><a href="/admin/mesaEdit/{{$mesa->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+        <td><a href="/admin/mesaDestroy/{{$mesa->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
-                           <a href="/admin/productCreate/">Añadir Producto</a>
-                           <table>
-                               <tr>
-                                   <th>Id</th>
-                                   <th>Nombre</th>
-                                   <th>Precio</th>
-                                   <th>Stock</th>
-                                   <th>Editar</th>
-                                   <th>Eliminar</th>
+    </tr>
+    @endforeach
+</table>
 
-                               </tr>
-
-                               @foreach($sociedad->productos as $producto)
-                               <tr>
-                                   <td>{{$producto->id}}</td>
-                                   <td>{{$producto->producto->nombre}}</td>
-                                   <td>{{$producto->precio}}</td>
-                                   <td>{{$producto->stock}}</td>
-                                   <td><a href="/admin/productEdit/{{$producto->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
-                                   <td><a href="/admin/productDestroy/{{$producto->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
-
-                               </tr>
-                               @endforeach
-                           </table>
               </div>

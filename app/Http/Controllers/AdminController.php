@@ -150,7 +150,11 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
-
+public function mesaIndex(){
+    $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+    return view('layouts.admin.mesas.index')->with('sociedad',$sociedad);
+}
     public function mesaCreate()
     {
         return view('layouts.admin.mesas.create');
@@ -197,7 +201,7 @@ class AdminController extends Controller
     public function reservaIndex (){
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.reservas.index');
+        return view('layouts.admin.reservas.index')->with('sociedad',$sociedad);
     }
     public function reservaShow($id)
     {
