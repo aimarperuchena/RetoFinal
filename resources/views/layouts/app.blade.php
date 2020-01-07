@@ -9,19 +9,42 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}" rel="stylesheet">
-    <link rel="dns-prefetch" href="{{assets('//fonts.gstatic.com')}}">
-    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+    <!-- Scripts -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="{{ asset('assets/js/moment.js') }}"></script>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css')}}" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
+    <!-- DatePicker -->
+    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('assets/js/sb-admin-2.js') }}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{ asset('chart.js/Chart.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
     <!-- Styles -->
     <base href="/public">
+
+    <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/css/Nunito.css')}}" rel="stylesheet">
+    <link rel="dns-prefetch" href="{{assets('//fonts.gstatic.com')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <!-- Datetimepicker -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker-standalone.min.css') }}">
+    <!-- Local Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-  
     <link rel="stylesheet" href="{{ asset('/assets/css/adminView.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <link rel="icon" type="img/png" href=  "{{ asset('/assets/img/logo_alpha.png') }}">
@@ -30,6 +53,5 @@
   @include('layouts.header')
   @yield('content')
   @include('layouts.footer')
-  @include('layouts.scripts')
 </body>
 </html>
