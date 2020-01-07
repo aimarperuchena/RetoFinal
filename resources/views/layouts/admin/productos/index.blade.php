@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <div id="page-top">
 
     <!-- Page Wrapper -->
@@ -214,3 +216,4 @@
                                @endforeach
                            </table>
               </div>
+              @endsection

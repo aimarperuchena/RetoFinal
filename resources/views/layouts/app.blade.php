@@ -37,7 +37,7 @@
 
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/Nunito.css')}}" rel="stylesheet">
-    <link rel="dns-prefetch" href="{{assets('//fonts.gstatic.com')}}">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
