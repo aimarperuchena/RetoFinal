@@ -15,12 +15,14 @@ class CreateFactura extends Migration
     {
         Schema::create('factura', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('reserva_id'); 
             $table->date('fecha');
             $table->integer('personas');
             $table->double('importe');
             $table->timestamps();
             $table->foreign('reserva_id')->references('id')->on('reserva');
+            $table->foreign('sociedad_id')->references('id')->on('sociedad');
 
         });
     }
