@@ -37,8 +37,11 @@
 
     <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/Nunito.css')}}" rel="stylesheet">
-    <link rel="dns-prefetch" href="{{assets('//fonts.gstatic.com')}}">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <!-- Datetimepicker -->
@@ -52,6 +55,6 @@
 <body id="page-top">
   @include('layouts.header')
   @yield('content')
-  @include('layouts.footer')
+
 </body>
 </html>

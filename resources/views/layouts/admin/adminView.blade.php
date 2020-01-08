@@ -1,3 +1,5 @@
+@extends('layouts.index')
+@section('content')
 <div id="page-top">
 
   <!-- Page Wrapper -->
@@ -37,7 +39,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="/admin/sociedadEdit" aria-controls="collapseTwo">
           <i class="fas fa-info-circle"></i>
           <span>Información Sociedad</span>
         </a>
@@ -191,7 +193,7 @@
          
             </div>
 
-
+            @endsection
             
 
             

@@ -45,6 +45,13 @@ Route::get('locale/{locale}', function ($locale){
 Route::get('/sociedadID','SociedadController@info')->name('sociedad.info');
 Route::get('/reserva','SociedadController@reserva')->name('sociedad.reserva');
 
+
+
+
+//----------------------------------------ADMIN----------------------------
+
+Route::get('/admin/sociedadEdit','AdminController@sociedadEdit')->name('admin.sociedad.edit');
+Route::post('/admin/sociedadUpdate','AdminController@sociedadUpdate')->name('admin.sociedad.update');
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');
 Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');
