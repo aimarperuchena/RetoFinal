@@ -8,10 +8,10 @@ class SociedadController extends Controller
 {
   public function info()
   {
-      return view('layouts.user.SociedadViews.infoSociedadView');
+      return view('layouts.user.SociedadViews.info.infoSociedadView');
   }
   public function reserva()
   {
-      return view('layouts.user.SociedadViews.reservaView');
+      return view('layouts.user.SociedadViews.reserva.reservaView');
   }
 }
