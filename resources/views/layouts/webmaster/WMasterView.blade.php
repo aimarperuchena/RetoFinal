@@ -7,11 +7,11 @@
     <ul class="bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/webmaster">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin </div>
+        <div class="sidebar-brand-text mx-3">WebMaster</div>
       </a>
 
       <!-- Divider -->
@@ -19,7 +19,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/webmaster">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Panel de Control</span></a>
       </li>
@@ -37,7 +37,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="/webmaster" aria-controls="collapseTwo">
           <i class="fas fa-info-circle"></i>
           <span>Información Admin</span>
         </a>
@@ -47,16 +47,15 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSociedades" aria-expanded="true" aria-controls="collapseSociedades">
+        <a class="nav-link collapsed" href="/webmaster" data-toggle="collapse" data-target="#collapseSociedades" aria-expanded="true" aria-controls="collapseSociedades">
           <i class="fas fa-users"></i>
           <span>Sociedades</span>
         </a>
         <div id="collapseSociedades" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Sociedades:</h6>
-            <a class="collapse-item" href="/admin/userIndex">Listar Sociedades</a>
-            <a class="collapse-item" href="/admin/userIndex">Editar Sociedades</a>
-            <a class="collapse-item" href="cards.html">Eliminar Sociedades</a>
+            <a class="collapse-item" href="/webmaster/sociIndex">Listar Sociedades</a>
+            <a class="collapse-item" href="/webmaster/sociDelete">Eliminar Sociedades</a>
           </div>
         </div>
       </li>
@@ -69,9 +68,8 @@
         <div id="collapseSocios" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Socios:</h6>
-            <a class="collapse-item" href="/admin/userIndex">Listar Socios</a>
-            <a class="collapse-item" href="cards.html">Editar Socios</a>
-            <a class="collapse-item" href="cards.html">Eliminar Socios</a>
+            <a class="collapse-item" href="/webmaster/userIndex">Listar Socios</a>
+            <a class="collapse-item" href="/webmaster/userDelete">Eliminar Socios</a>
 
           </div>
         </div>
@@ -86,10 +84,9 @@
         <div id="collapseProductos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Productos:</h6>
-            <a class="collapse-item" href="/admin/productoIndex">Listar Productos</a>
-            <a class="collapse-item" href="/admin/productCreate">Añadir Productos</a>
-            <a class="collapse-item" href="/admin/productCreate">Editar Productos</a>
-            <a class="collapse-item" href="cards.html">Eliminar Productos</a>
+            <a class="collapse-item" href="/webmaster/productoIndex">Listar Productos</a>
+            <a class="collapse-item" href="/webmaster/productCreate">Añadir Productos</a>
+            <a class="collapse-item" href="/webmaster/productEdit">Editar Productos</a>
           </div>
         </div>
       </li>
