@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function sociedades(){
-        return $this->belongsToMany(Sociedad::class,'sociedad_user');
+        return $this->belongsToMany('App\Sociedad');
     }
     public function role(){
         return $this->belongsTo('App\Role');

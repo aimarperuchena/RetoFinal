@@ -26,7 +26,7 @@ Route::get('/menu',function(){
 
 Route::get('/webmaster', 'WebMasterController@index');
 Route::get('/admin', 'AdminController@index')->name('admin.index');
-Route::get('/user', 'UserController@index');
+Route::get('/user', 'UserController@index')->name('usuario.listado');
 
 
 Route::get('/denegado',function(){
@@ -42,8 +42,9 @@ Route::get('locale/{locale}', function ($locale){
 });
 
 // InfoSociedad
-Route::get('/sociedadID','SociedadController@info')->name('sociedad.info');
-Route::get('/reserva','SociedadController@reserva')->name('sociedad.reserva');
+Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.suscripciones');
+Route::get('/{id}','SociedadController@info')->name('sociedad.info');
+Route::get('/{id}/reserva','SociedadController@reserva')->name('sociedad.reserva');
 
 
 

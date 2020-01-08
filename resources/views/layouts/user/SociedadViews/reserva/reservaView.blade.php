@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.app')
 @section('content')
 <br><br><br><br><br>
 
@@ -6,30 +6,16 @@
   <div class="mb-5 ml-5 col">
     <h1>Mesas</h1>
     <div class="jumbotronm d-flex flex-wrap" style="width: 50rem;">
-      <div class="card m-2" style="width: 12rem;">
-        <img src="assets/img/mesa.png" class="card-img-top" alt="...">
-        <hr>
-        <h5 class="card-title">Capacidad</h5>
-        <p class="card-text">5</p>
-      </div>
-      <div class="card m-2" style="width: 12rem;">
-        <img src="assets/img/mesa.png" class="card-img-top" alt="...">
-        <hr>
-        <h5 class="card-title">Capacidad</h5>
-        <p class="card-text">6</p>
-      </div>
-      <div class="card m-2" style="width: 12rem;">
-        <img src="assets/img/mesa.png" class="card-img-top" alt="...">
-        <hr>
-        <h5 class="card-title">Capacidad</h5>
-        <p class="card-text">4</p>
-      </div>
-      <div class="card m-2" style="width: 12rem;">
-        <img src="assets/img/mesa.png" class="card-img-top" alt="...">
-        <hr>
-        <h5 class="card-title">Capacidad</h5>
-        <p class="card-text">8</p>
-      </div>
+      @if($mesas)
+        @foreach($mesas as $mesa)
+          <div class="card m-2" style="width: 12rem;">
+            <img src="assets/img/mesa.png" class="card-img-top" alt="...">
+            <hr>
+            <h5 class="card-title">Nombre: {{$mesa -> nombre}}</h5>
+            <p class="card-text">Capacidad: {{$mesa -> capacidad}}</p>
+          </div>
+        @endforeach
+      @endif
     </div>
   </div>
   <div class="col">
@@ -49,10 +35,11 @@
          <label for="exampleInputPassword1" class="ml-3 justify-content-start">Mesa:</label>
          <select style="width: 250px;" class="form-control">
            <option value=".." selected>Elige..</option>
-           <option value="1">Mesa 1</option>
-           <option value="2">Mesa 2</option>
-           <option value="3">Mesa 3</option>
-           <option value="4">Mesa 4</option>
+           @if($mesas)
+             @foreach($mesas as $mesa)
+               <option value="{{$mesa -> id}}">Mesa {{$mesa -> nombre}}</option>
+           @endforeach
+         @endif
          </select>
        </div>
        <button type="submit" class="btn btn-primary">Reservar</button>

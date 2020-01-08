@@ -6,14 +6,27 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Auth;
+use App\Mesa;
+use App\Sociedad;
+
 
 class UserController extends Controller
 {
     public function __construct()
     {
-     $this->middleware('role:3'); 
+     $this->middleware('role:3');
     }
     public function index(){
-        return view('layouts.user.home');
+      $sociedades = Sociedad::all();
+      $todos = true;
+      return view('layouts.user.home')-> with('sociedades' , $sociedades)-> with('todos' , $todos);
     }
+    public function suscripciones(){
+      $user = Auth::user();
+      $sociedades = Sociedad::all();
+      $suscripciones = $user->sociedades;
+      $todos = false;
+      return view('layouts.user.home')-> with('suscripciones' , $suscripciones)-> with('sociedades' , $sociedades)-> with('todos' , $todos);
+    }
+
 }
