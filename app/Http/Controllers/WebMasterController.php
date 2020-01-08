@@ -11,13 +11,13 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProductoCreateRequest;
 use App\Http\Requests\ProductoUpdateRequest;
-
+use producto_seeder;
 
 class WebMasterController extends Controller
 {
    public function __construct()
 {
- $this->middleware('role:1'); 
+ $this->middleware('role:1');
 }
    public function index(){
         return view('layouts.webmaster.home');
@@ -37,32 +37,31 @@ class WebMasterController extends Controller
         return view('layouts.webmaster.productos.create');
     }
 
-    public function productStore(ProductoCreateRequest $request)
+    public function productStore(Request $request)
     {
-        $this->validate($request, [
-        'nombre' => 'required',
-        'descripcion' => 'required'
-    ]);
+        $producto = new Producto;
+        $producto->nombre=$request->input('nombre');
+        $producto->descripcion=$request->input('descripcion');
+        $producto->save();
 
-    Producto::create($request->all());
-    return redirect('layouts.webmaster.productos.index');
+        return "completado";
 
     }
     public function productEdit($id)
     {
-      
+
         return view('layouts.webmaster.productos.update');
     }
 
     public function productUpdate(ProductoUpdateRequest $request)
     {
-      
+
         //return redirect('/admin');
     }
 
     public function productDestroy($id)
     {
-   
+
         //return redirect('/admin');
     }
 

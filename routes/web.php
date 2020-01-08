@@ -91,7 +91,7 @@ Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userInde
 
 Route::get('/webmaster/productoIndex','WebMasterController@productoIndex');
 Route::get('/webmaster/productCreate','WebMasterController@productCreate');
-Route::post('/webmaster/productStore/','WebMasterController@productStore')->name('webmaster.productStore');;
+Route::post('/webmaster/productStore','WebMasterController@productStore')-> name ('webmaster.productStore');
 Route::get('/webmaster/productEdit/{id}','WebMasterController@productEdit');
 Route::post('/webmaster/productUpdate','WebMasterController@productUpdate');
 Route::get('/webmaster/productDestroy/{id}','WebMasterController@productDestroy');
