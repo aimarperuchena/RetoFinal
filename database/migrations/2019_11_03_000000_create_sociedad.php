@@ -18,6 +18,7 @@ class CreateSociedad extends Migration
             $table->string('nombre');
             $table->string('ubicacion');
             $table->integer('telefono');
+            $table->text('descripcion');
             $table->unsignedBigInteger('administrador_id');
             $table->timestamps();
 
