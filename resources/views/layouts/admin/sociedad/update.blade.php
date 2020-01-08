@@ -9,7 +9,7 @@
         <ul class="bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -21,7 +21,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Panel de Control</span></a>
             </li>
@@ -39,7 +39,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/admin/sociedadEdit" aria-controls="collapseTwo">
                     <i class="fas fa-info-circle"></i>
                     <span>Información Sociedad</span>
                 </a>
@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSocios" aria-expanded="true" aria-controls="collapseSocios">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseSocios" aria-expanded="true" aria-controls="collapseSocios">
                     <i class="fas fa-users"></i>
                     <span>Socios</span>
                 </a>
@@ -64,7 +64,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProductos" aria-expanded="true" aria-controls="collapseProductos">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseProductos" aria-expanded="true" aria-controls="collapseProductos">
                     <i class="fas fa-warehouse"></i>
                     <span>Productos</span>
                 </a>
@@ -186,15 +186,14 @@
                     </div>
                     <!-- Content Row -->
 
-                <div class="row">
+                    <div class="row">
                     <div class="col-xl-8 col-lg-7">
-                    
                     <form action="{{route('admin.sociedad.update')}}" method="post">
                     {{ csrf_field() }}
                     <label>Nombre: </label><input type="text" name="nombre" value="{{$sociedad->nombre}}" id=""><br>
                     <label>Ubicación: </label><input type="text" name="ubicacion" value="{{$sociedad->ubicacion}}" id=""><br>
                     <label>Teléfono: </label><input type="number" name="telefono" id="" value="{{$sociedad->telefono}}"> <br>
-                    
+                  
                     <input type="submit" value="Enviar" >
                     </form>
                     @if ($errors->any())
@@ -206,8 +205,6 @@
     </ul>
 </div>
 @endif
-
-
-                    </div>
+                           </div>
               </div>
               @endsection
