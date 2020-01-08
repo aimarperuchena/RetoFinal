@@ -4,12 +4,12 @@
       <h1>Filtrar</h1>
       <hr>
       <div class="form-group form-check text-left">
-        <a href="{{route('usuario.listado')}}"><input type="checkbox" class="form-check-input" id="exampleCheck1"></a>
-        <label class="form-check-label" for="exampleCheck1">Todas</label>
+        <input type="checkbox" class="form-check-input" id="checkboxTodos" onclick='window.location.assign("{{route("usuario.listado")}}")'>
+        <label class="form-check-label" for="exampleCheck1"><a href="{{route('usuario.listado')}}">Todas</a></label>
       </div>
       <div class="form-group form-check text-left">
-        <a href="{{route('usuario.suscripciones')}}"><input type="checkbox" class="form-check-input" id="exampleCheck1"></a>
-        <label class="form-check-label" for="exampleCheck1">Mis Sociedades</label>
+        <input type="checkbox" class="form-check-input" id="checkboxTodos" onclick='window.location.assign("{{route("usuario.suscripciones")}}")'>
+        <label class="form-check-label" for="exampleCheck1"><a href="{{route('usuario.suscripciones')}}">Mis Sociedades</a></label>
       </div>
     </div>
   </div>
