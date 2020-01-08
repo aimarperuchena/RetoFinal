@@ -86,3 +86,16 @@ Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin
 
 //SOCIOS
 Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userIndex');
+
+//Productos webmaster
+
+Route::get('/webmaster/productoIndex','WebMasterController@productoIndex');
+Route::get('/webmaster/productCreate','WebMasterController@productCreate');
+Route::post('/webmaster/productStore/','WebMasterController@productStore')->name('webmaster.productStore');;
+Route::get('/webmaster/productEdit/{id}','WebMasterController@productEdit');
+Route::post('/webmaster/productUpdate','WebMasterController@productUpdate');
+Route::get('/webmaster/productDestroy/{id}','WebMasterController@productDestroy');
+
+//Sociedades Webmaster
+Route::get('/webmaster/sociIndex','WebMasterController@sociIndex')->name('webmaster.sociIndex');
+
