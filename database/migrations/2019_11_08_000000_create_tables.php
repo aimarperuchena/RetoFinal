@@ -15,7 +15,8 @@ class CreateTables extends Migration
     {
         Schema::create('mesa', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('sociedad_id');            
+            $table->unsignedBigInteger('sociedad_id');
+            $table->string('nombre');            
             $table->integer('capacidad');
             $table->timestamps();
 
