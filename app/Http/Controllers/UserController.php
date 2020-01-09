@@ -28,5 +28,9 @@ class UserController extends Controller
       $todos = false;
       return view('layouts.user.home')-> with('suscripciones' , $suscripciones)-> with('sociedades' , $sociedades)-> with('todos' , $todos);
     }
+    public function profile(){
+      $user = Auth::user();
+      return view('layouts.user.Perfil.usuarioPerfil');
+    }
 
 }
