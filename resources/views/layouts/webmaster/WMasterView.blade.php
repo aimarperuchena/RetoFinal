@@ -55,7 +55,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Sociedades:</h6>
             <a class="collapse-item" href="/webmaster/sociIndex">Listar Sociedades</a>
-            <a class="collapse-item" href="/webmaster/sociDelete">Eliminar Sociedades</a>
           </div>
         </div>
       </li>
@@ -69,7 +68,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones Socios:</h6>
             <a class="collapse-item" href="/webmaster/userIndex">Listar Socios</a>
-            <a class="collapse-item" href="/webmaster/userDelete">Eliminar Socios</a>
 
           </div>
         </div>
@@ -204,10 +202,9 @@
 
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
-         
+
             </div>
 
 
-            
 
-            
+

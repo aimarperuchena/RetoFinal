@@ -10,6 +10,7 @@
                             <th>Ubicacion</th>
                             <th>Telefono</th>
                             <th>ID Administrador</th>
+                            <th>Suspender</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,6 +21,8 @@
                                  <td>{!! $sociedad->ubicacion !!}</td>
                                  <td>{!! $sociedad->telefono !!}</td>
                                  <td>{!! $sociedad->administrador_id !!}</td>
+                                 <td><a href=""><i class="fa fa-ban" style="color:black"></i></a></td>
+
 
                             </tr>
                         @endforeach
