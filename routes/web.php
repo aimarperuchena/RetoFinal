@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('layouts.inicio');
 });
 
+Route::get('/prueba', function () {
+    return view('prueba');
+});
+
 Auth::routes(['verify' => true]);
 
 
