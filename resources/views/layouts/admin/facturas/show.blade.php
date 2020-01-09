@@ -1,6 +1,8 @@
-@extends('layouts.index')
-@section('content')
-<br><br><br><br>
+@extends('layouts.admin.adminView')
+@section('adminContent')
+@extends('layouts.app')
+<div class="row">
+                    <div class="col-xl-8 col-lg-7">
 <b>Id: </b><span>{{$factura->id}}</span><br>
 <b>Usuario: </b><span>{{$factura->reserva->usuario->nombre}}  {{$factura->reserva->usuario->apellido}}</span><br>
 <b>Reserva: </b><span>{{$factura->reserva_id}}</span><br>
@@ -25,4 +27,6 @@
     @endforeach
    
 </table>
+</div>
+</div>
 @endsection

@@ -1,5 +1,6 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
+
 <div class="row">
   <div class="col-xl-8 col-lg-7">
     <h3>Reservas</h3>

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('layouts.inicio');
 });
 
+Route::get('/prueba', function () {
+    return view('prueba');
+});
+
 Auth::routes(['verify' => true]);
 
 
@@ -43,9 +47,11 @@ Route::get('locale/{locale}', function ($locale){
 
 // InfoSociedad
 Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.suscripciones');
-Route::get('/{id}','SociedadController@info')->name('sociedad.info');
-Route::get('/{id}/reserva','SociedadController@reserva')->name('sociedad.reserva');
+Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
+Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
 
+//Perfil usuario
+Route::get('/perfil','UserController@profile')->name('usuario.profile');
 
 
 
@@ -98,4 +104,3 @@ Route::get('/webmaster/productDestroy/{id}','WebMasterController@productDestroy'
 
 //Sociedades Webmaster
 Route::get('/webmaster/sociIndex','WebMasterController@sociIndex')->name('webmaster.sociIndex');
-

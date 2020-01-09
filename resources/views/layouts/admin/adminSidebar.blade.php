@@ -11,7 +11,7 @@
   <hr class="sidebar-divider my-0">
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="/admin">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Panel de Control</span></a>
   </li>
@@ -30,7 +30,7 @@
   </li>
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSocios" aria-expanded="true" aria-controls="collapseSocios">
+    <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseSocios" aria-expanded="true" aria-controls="collapseSocios">
       <i class="fas fa-users"></i>
       <span>Socios</span>
     </a>
@@ -44,7 +44,7 @@
   </li>
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProductos" aria-expanded="true" aria-controls="collapseProductos">
+    <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseProductos" aria-expanded="true" aria-controls="collapseProductos">
       <i class="fas fa-warehouse"></i>
       <span>Productos</span>
     </a>
