@@ -21,9 +21,6 @@ html {
     margin-left: 2px;
 }
 
-.contenido {
-    padding-right: 5em;
-}
 
 
 /* Banner */
@@ -10274,8 +10271,7 @@ a:focus {
   margin-top: -.25rem;
 }
 
-.sidebar .nav-item .nav-link .img-profile,
-.topbar .nav-item .nav-link .img-profile {
+.img-profile {
   height: 2rem;
   width: 2rem;
 }
