@@ -16,6 +16,13 @@
                   
                     <input type="submit" value="Enviar" >
                     </form>
+
+                    <h3>Cambiar Plano</h3>
+                    <form action="{{route('admin.sociedad.planoUpdate')}}" method="post">
+                        <span>Imagen</span><input type="file" name="imagen" id=""><br>
+
+                        <input type="submit" value="Subir">
+                    </form>
                     @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
