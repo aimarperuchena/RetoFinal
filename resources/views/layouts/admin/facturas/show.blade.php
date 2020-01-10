@@ -1,6 +1,6 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
-@extends('layouts.app')
+
 <div class="row">
                     <div class="col-xl-8 col-lg-7">
 <b>Id: </b><span>{{$factura->id}}</span><br>
@@ -22,7 +22,7 @@
     @foreach($factura->lineas as $linea)
     <tr>
         <td>{{$linea->id}}</td>
-        <td>{{$linea->producto->producto_id}}</td>
+        <td>{{$linea->unidades}}</td>
     </tr>
     @endforeach
    

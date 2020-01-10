@@ -3,7 +3,7 @@
                     <br><br><br><br>
 
                     <ul class="nav flex-column">
-
+<h3 class="text-dark">{{$sociedad->nombre}}</h3>
                         <li class="nav-item">
                             <a class="nav-link text-dark active">
                                  <i class="fas fa-fw fa-tachometer-alt"></i>

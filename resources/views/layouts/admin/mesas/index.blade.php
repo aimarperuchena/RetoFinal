@@ -1,6 +1,5 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
-@extends('layouts.app')
 
 
 
