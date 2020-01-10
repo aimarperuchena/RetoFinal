@@ -1,6 +1,6 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
-@extends('layouts.app')
+
 
                     <!-- Content Row -->
 
