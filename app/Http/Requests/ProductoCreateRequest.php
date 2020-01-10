@@ -24,8 +24,8 @@ class ProductoCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'stock'=>'required|min:5',
-            'precio'=>'required|min:0.1'  
+            'stock'=>'required|integer|min:5',
+            'precio'=>'required|integer|min:0.1'  
         ];
     }
 

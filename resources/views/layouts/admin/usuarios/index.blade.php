@@ -7,7 +7,7 @@
                     <div class="row">
                     <div class="col-xl-8 col-lg-7">
                     <h2>Socios</h2>
-                        <table>
+                        <table class="table table-striped">
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
