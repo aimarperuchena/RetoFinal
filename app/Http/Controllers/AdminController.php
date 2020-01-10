@@ -236,4 +236,8 @@ public function mesaIndex(){
         $factura = Factura::find($id);
         return view('layouts.admin.facturas.show')->with('factura', $factura);
     }
+
+    function planoUpdate(Request $request){
+        
+    }
 }

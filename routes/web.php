@@ -59,6 +59,7 @@ Route::get('/perfil','UserController@profile')->name('usuario.profile');
 
 Route::get('/admin/sociedadEdit','AdminController@sociedadEdit')->name('admin.sociedad.edit');
 Route::post('/admin/sociedadUpdate','AdminController@sociedadUpdate')->name('admin.sociedad.update');
+Route::post('/admin/planoUpdate','AdminController@planoUpdate')->name('admin.sociedad.planoUpdate');
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');
 Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');
