@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.index')
 @section('content')
 <br><br><br><br><br>
 <!-- vista información sociedad -->
 <div class="d-flex flex-wrap text-center">
   <div class="d-flex text-center mb-5 ml-5">
     <div class="m-2" style="width: 50rem;">
-      <a href="#"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
+      <a href="#"><img src="{{url('assets/img/Gaztelubide.jpeg')}}" class="card-img-top" alt="..."></a>
     </div>
   </div>
   <div class="container">

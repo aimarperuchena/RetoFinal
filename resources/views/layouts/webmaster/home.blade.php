@@ -1,4 +1,4 @@
 @extends('layouts.index')
 @section('content')
-@include('layouts.webmaster.WMasterView')
+@include('layouts.webmaster.WMView')
 @endsection

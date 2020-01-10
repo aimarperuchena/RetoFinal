@@ -1,15 +1,17 @@
+@extends('layouts.webmaster.WMView')
 
-@extends('layouts.index')
-@section('content')
-@include('layouts.webmaster.WMasterView')
-<br><br><br><br>
-<h3>Añadir Productos</h3>
-<form action="{{route ('webmaster.productStore')}}" method="post">
+@section('webmasterContent')
+<!-- Content Row -->
+
+<div class="row">
+  <div class="col-xl-12 col-lg-7">
+  <h3>Añadir Producto</h3><br>
+  <form action="{{route ('webmaster.productStore')}}" method="post">
     {{ csrf_field() }}
-    <label>Nombre del producto</label>
-    <input type="text" name="nombre"><br>
-    <label>Descripcion del producto</label>
-    <input type="text" name="descripcion"><br>
-    <input type="submit" value="Añadir">
+    <input type="text" name="nombre" placeholder="Nombre del producto" size="25"><br><br>
+    <input type="text" name="descripcion" placeholder="Descripcion del producto" size="25"><br><br>
+    <input type="submit" value="Añadir"><br><br>
 </form>
+  </div>
+</div>
 @endsection

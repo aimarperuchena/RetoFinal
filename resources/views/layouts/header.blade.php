@@ -1,14 +1,20 @@
 
 <section class="header">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <a href="#top"><img src="assets\img\logo_alpha_white.png" width="50" height="50" alt="logo"></a>
+      <a href="#top"><img src="{{url('assets\img\logo_alpha_white.png')}}" width="50" height="50" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="contenido collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
               @if ($user = Auth::user())
-              <!-- ------------------------Mensajes------------------------- -->
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="{{route('usuario.listado')}}">{{ __('multi.inicio') }}</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="{{route('usuario.suscripciones')}}">Mis suscripciones</a>
+              </li>              <!-- ------------------------Mensajes------------------------- -->
+         <!-- ------------------------Mensajes------------------------- -->
               <li class="nav-item dropdown no-arrow mx-1">
                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-envelope fa-fw"></i>
@@ -17,7 +23,7 @@
                 </a>
                 <!-- Dropdown - Messages -->
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                  <h6 class="dropdown-header">
+                  <h6 class="dropdown-header text-white">
                     Message Center
                   </h6>
                   <a class="dropdown-item d-flex align-items-center" href="#">
@@ -164,13 +170,13 @@
               </li>
               @endif
               <li class="nav-item">
-                  <a href="{{ url('locale/es') }}"><img class="banderas" src="assets/img/espania.ico"></a>
+                  <a class="badge badge-light mt-3 ml-1" href="{{ url('locale/es') }}">Es</a>
               </li>
               <li class="nav-item">
-                  <a href="{{ url('locale/en') }}"><img class="banderas" src="assets/img/reino_unido.ico"></a>
+                  <a class="badge badge-light mt-3 ml-1" href="{{ url('locale/en') }}">En</a>
               </li>
               <li class="nav-item">
-                  <a href="{{ url('locale/eus') }}"><img class="banderas" src="assets/img/pais_vasco.ico"></a>
+                  <a class="badge badge-light mt-3 ml-1" href="{{ url('locale/eus') }}">Eu</a>
               </li>
 
           </ul>
