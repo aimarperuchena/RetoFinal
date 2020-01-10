@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\ID;
 use App\Http\Requests\UserRequest;
 use App\Producto;
 use App\Sociedad;
+use App\UsuarioSociedad;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,10 +28,9 @@ class WebMasterController extends Controller
     public function productoIndex()
 {
     $productos = producto::all();
-    //return view('layouts.webmaster.productos.index', compact('productos'));
+
     return view('layouts.webmaster.productos.index')->with('productos',$productos);
 
-    //return view('layouts.webmaster.productos.index');
 }
 
      public function productCreate()
@@ -44,35 +45,50 @@ class WebMasterController extends Controller
         $producto->descripcion=$request->input('descripcion');
         $producto->save();
 
-        return "completado";
+        return redirect('/webmaster/productoIndex');
 
     }
     public function productEdit($id)
     {
-
-        return view('layouts.webmaster.productos.update');
+        $producto = Producto::find($id);
+        return view('layouts.webmaster.productos.update')->with('producto', $producto);
     }
-
-    public function productUpdate(ProductoUpdateRequest $request)
+    public function productUpdate(Request $request, $id)
     {
+        $producto = Producto::find($id);
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        $producto->save();
 
-        //return redirect('/admin');
+
+        return redirect('/webmaster/productoIndex');
     }
+
 
     public function productDestroy($id)
     {
+        $producto = Producto::find($id);
+        $producto->delete();
 
-        //return redirect('/admin');
+        return redirect('/webmaster/productoIndex');
     }
 
     public function sociIndex()
 {
     $soci = sociedad::all();
-    //return view('layouts.webmaster.productos.index', compact('productos'));
+
     return view('layouts.webmaster.sociedades.index')->with('soci',$soci);
 
-    //return view('layouts.webmaster.productos.index');
 }
+
+public function socioIndex()
+{
+    $socios = UsuarioSociedad::all();
+    return view('layouts.webmaster.socios.index')->with('socios',$socios);
+
+
+}
+
 
 }
 
