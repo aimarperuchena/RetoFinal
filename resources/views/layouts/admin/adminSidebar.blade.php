@@ -23,12 +23,12 @@
                                 <div class="card card-body">
 
                                     <a class="nav-link " href="/admin/userIndex">
-                                          <i class="fas fa-users"></i>
-                                        <span data-feather="file"></span> Listar Socios
+                                        
+                                          <i class="fas fa-eye"></i> Listar Socios
                                     </a>
 
-                                    <a class="nav-link " href="#">
-                                        <span data-feather="file"></span> Nuevas Peticiones
+                                    <a class="nav-link " href="/admin/peticionesSociedad">
+                                    <i class="fas fa-plus-circle"></i> Nuevas Peticiones
                                     </a>
 
                                 </div>
@@ -40,12 +40,12 @@
 <div class="collapse" id="collapseproducto">
     <div class="card card-body">
 
-        <a class="nav-link " href="#">
-            <span data-feather="file"></span> Listar Productos
+        <a class="nav-link " href="/admin/productoIndex">
+        <i class="fas fa-eye"></i>  Listar Productos
         </a>
 
-        <a class="nav-link " href="#">
-            <span data-feather="file"></span> Añadir Productos
+        <a class="nav-link " href="/admin/productCreate/">
+        <i class="fas fa-plus-circle"></i> Añadir Productos
         </a>
 
     </div>

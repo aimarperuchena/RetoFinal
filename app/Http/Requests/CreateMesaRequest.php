@@ -24,6 +24,7 @@ class CreateMesaRequest extends FormRequest
     public function rules()
     {
         return [
+            'nombre'=>'required',
             'capacidad'=>'required|min:2'
 
         ];
@@ -32,6 +33,7 @@ class CreateMesaRequest extends FormRequest
     public function messages()
     {   
         return $messages=[
+            'nombre.required'=>'Nombre requerido',
             'capacidad.required'=>'Capacidad requerida',
             'capacidad.min'=>'Capacidad minima 2',
             

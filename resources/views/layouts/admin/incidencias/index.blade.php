@@ -8,7 +8,7 @@
                     <div class="col-xl-8 col-lg-7">
                     <h3>Incidencias</h3>
               <a href="/admin/createIncidencia">Crear Incidencia</a>
-              <table>
+              <table class="table table-striped">
                 <tr>
                   <th>Id</th>
                   <th>Descripcion</th>

@@ -13,7 +13,7 @@ class Peticion extends Migration
      */
     public function up()
     {
-        Schema::create('peticion', function (Blueprint $table) {
+        Schema::create('peticion_sociedad', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('usuario_id'); 

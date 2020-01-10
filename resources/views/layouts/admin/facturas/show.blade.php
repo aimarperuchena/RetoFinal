@@ -11,7 +11,7 @@
 <b>Importe: </b><span>{{$factura->importe}}</span><br>
 
 
-<table>
+<table class="table table-striped">
     <tr>
         <th>Id</th>
         <th>Id Producto</th>

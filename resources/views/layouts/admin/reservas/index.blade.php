@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-xl-8 col-lg-7">
     <h3>Reservas</h3>
-    <table>
+    <table class="table table-striped">
       <tr>
         <th>Socio</th>
         <th>Tipo</th>
@@ -12,10 +12,11 @@
         <th>Personas</th>
         <th>Editar</th>
         <th>Eliminar</th>
+        <th>Ver</th>
       </tr>
       @foreach($sociedad->reservas as $reserva)
       <tr>
-      <td>{{$reserva->usuario_id}}</td>
+      <td>{{$reserva->usuario->nombre}}  {{$reserva->usuario->apellido}}</td>
       <td>{{$reserva->tipo->nombre}}</td>
       <td>{{$reserva->fecha}}</td>
       <td>{{$reserva->personas}}</td>

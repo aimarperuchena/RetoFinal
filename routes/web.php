@@ -61,6 +61,9 @@ Route::get('/perfil/desuscribirse/{id}','UserController@deleteSuscripcion')->nam
 Route::get('/admin/sociedadEdit','AdminController@sociedadEdit')->name('admin.sociedad.edit');
 Route::post('/admin/sociedadUpdate','AdminController@sociedadUpdate')->name('admin.sociedad.update');
 Route::post('/admin/planoUpdate','AdminController@planoUpdate')->name('admin.sociedad.planoUpdate');
+Route::get('/admin/peticionesSociedad','AdminController@peticionIndex')->name('admin.peticionIndex');
+Route::get('/admin/peticionSociedadAceptar/{id}','AdminController@peticionAceptar')->name('admin.peticionAceptar');
+Route::get('/admin/peticionSociedadDenegar/{id}','AdminController@peticionDenegar')->name('admin.peticionDenegar');
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');
 Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');
