@@ -30,7 +30,8 @@ class UserController extends Controller
     }
     public function profile(){
       $user = Auth::user();
-      return view('layouts.user.Perfil.usuarioPerfil');
+      $suscripciones = $user->sociedades;
+      return view('layouts.user.Perfil.usuarioPerfil')-> with('user' , $user)-> with('suscripciones' , $suscripciones);
     }
 
 }

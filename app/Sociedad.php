@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sociedad extends Model
 {
     protected $table = 'sociedad';
-    protected $fillable = ['nombre', 'ubicacion', 'telefono', 'administrador_id'];
+    protected $fillable = ['nombre', 'ubicacion', 'telefono', 'administrador_id', 'link_plano'];
 
 
     public function usuarios()

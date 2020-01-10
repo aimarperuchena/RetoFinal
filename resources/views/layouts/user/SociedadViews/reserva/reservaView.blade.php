@@ -1,15 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.index')
 @section('content')
 <br><br><br><br><br>
 
 <div class="d-flex text-center flex-wrap">
   <div class="mb-5 ml-5 col">
     <h1>Mesas</h1>
+    <div class="mb-5 mt-5">
+      <img src="{{url('assets/img/planos',$sociedad->link_plano)}}" alt="plano_sociedad">
+    </div>
     <div class="jumbotronm d-flex flex-wrap" style="width: 50rem;">
       @if($mesas)
         @foreach($mesas as $mesa)
           <div class="card m-2" style="width: 12rem;">
-            <img src="assets/img/mesa.png" class="card-img-top" alt="...">
+            <img src="{{url('assets/img/mesa.png')}}" class="card-img-top" alt="...">
             <hr>
             <h5 class="card-title">Nombre: {{$mesa -> nombre}}</h5>
             <p class="card-text">Capacidad: {{$mesa -> capacidad}}</p>
@@ -42,7 +45,7 @@
          @endif
          </select>
        </div>
-       <button type="submit" class="btn btn-primary">Reservar</button>
+       <button type="submit" class="btn btn-primary mb-5">Reservar</button>
      </form>
   </div>
 </div>

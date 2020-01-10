@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
+<br><br>
 <!-- Perfil de usuario -->
 <div class="d-flex text-center">
   <div id="" class="mt-5 ml-5 mb-5">
     <div class="card" style="width: 18rem;">
-      <img src="assets/img/profile.jpg" class="card-img-top" alt="fotoPerfil">
+      <img src="{{url('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
       <div class="card-body">
         <p class="card-text">Nombre Usuario</p>
       </div>

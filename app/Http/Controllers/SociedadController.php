@@ -17,6 +17,6 @@ class SociedadController extends Controller
   {
     $sociedad = Sociedad::find($id);
     $numMesa = Mesa::where('sociedad_id',$id)->get();
-    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa);
+    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad);
   }
 }
