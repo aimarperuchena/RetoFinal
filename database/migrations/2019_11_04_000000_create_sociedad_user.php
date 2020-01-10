@@ -17,6 +17,7 @@ class CreateSociedadUser extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('user_id');
+            $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');

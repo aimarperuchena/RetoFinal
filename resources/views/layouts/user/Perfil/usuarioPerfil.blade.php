@@ -7,7 +7,7 @@
     <div class="card" style="width: 18rem;">
       <img src="{{url('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
       <div class="card-body">
-        <p class="card-text">Nombre Usuario</p>
+        <p class="card-text">{{$user->nombre}}</p>
       </div>
     </div>
   </div>
@@ -17,29 +17,131 @@
       <form>
         <div class="d-flex form-group justify-content-around">
           <label for="exampleInputEmail1">Nombre</label>
-          <input type="text" class="form-control" style="width: 300px;"readonly>
+          <input type="text" class="form-control" style="width: 300px;"readonly value="{{$user->nombre}}">
         </div>
         <div class="d-flex form-group justify-content-around">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" style="width: 300px;"readonly>
+          <label for="exampleInputEmail1">Apellido</label>
+          <input type="text" class="form-control" style="width: 300px;"readonly value="{{$user->apellido}}">
         </div>
         <div class="d-flex form-group justify-content-around">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" style="width: 300px;" readonly>
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" style="width: 300px;"readonly value="{{$user->email}}">
         </div>
-        <button type="submit" class="btn btn-primary">Editar</button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </button>
       </form>
     </div>
     <hr class="m-5">
     <div class="">
       <h1 class="mb-5">Suscripciones</h1>
-      <ul>
-        <li>aaaaa</li>
-        <li>bbbbb</li>
-        <li>ccccc</li>
+      <ul class="list-group">
+        @if ($suscripciones)
+          @foreach ($suscripciones as $suscripcion)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{$suscripcion -> nombre}}
+                <a class="badge badge-danger badge-pill text-white" href="{{ route('usuario.deleteSus',$suscripcion -> id)}}"><i class="fas fa-minus-circle"></i></a>
+              </li>
+          @endforeach
+        @endif
       </ul>
     </div>
   </div>
 </div>
 
+
+<!-- Modal editar usuario -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Editar Usuario</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+              <div class="col-md-6 form-modal">
+                  <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                  <input id="nombre_reg" type="text" class="@error('nombre') is-invalid @enderror" name="nombre" required autocomplete="name" autofocus value="{{$user->nombre}}">
+                  @error('name')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span> @enderror
+              </div>
+
+          </div>
+
+          <div class="md-form mb-5">
+              <div class="col-md-6 form-modal">
+                  <label for="apellido" class="col-md-4 col-form-label text-md-right">apellido</label>
+                  <input id="apellido_reg" type="text" class="@error('apellido') is-invalid @enderror" name="apellido" required autocomplete="apellido" autofocus value="{{$user->apellido}}">
+                  @error('apellido')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span> @enderror
+              </div>
+
+          </div>
+
+
+          <div class="md-form mb-5">
+              <div class="col-md-6 form-modal">
+                  <label for="telefono" class="col-md-4 col-form-label text-md-right">telefono</label>
+                  <input id="telefono_reg" type="number" class="@error('telefono') is-invalid @enderror" name="telefono" required autocomplete="telefono" autofocus value="{{$user->telefono}}">
+                  @error('telefono')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span> @enderror
+              </div>
+
+          </div>
+
+
+          <div class="md-form mb-4">
+              <div class="col-md-6 form-modal">
+                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                  <input id="email_reg" type="email" class="@error('email') is-invalid @enderror" name="email" required autocomplete="email" value="{{$user->email}}">
+                  @error('email')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span> @enderror
+              </div>
+          </div>
+
+          <div class="md-form mb-4">
+              <div class="col-md-6 form-modal">
+                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                  <input id="password_reg" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password...">
+                  @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span> @enderror
+              </div>
+          </div>
+
+          <div class="md-form mb-4">
+              <div class="col-md-6 form-modal">
+                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                  <input id="password-confirm_reg" type="password" class="" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password...">
+              </div>
+          </div>
+          <div class="md-form mb-4">
+              <p id="registro_email_error"> </p>
+              <p id="registro_password_error"></p>
+              <p id="registro_name"></p></p>
+          </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+          <div class="col-md-6 offset-md-4 footer-modal">
+              <button id="registro" type="submit" class="btn">
+                  Confirmar
+              </button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
