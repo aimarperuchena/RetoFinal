@@ -21,6 +21,7 @@ class CreateSociedad extends Migration
             $table->text('descripcion');
             $table->string('link_plano');
             $table->unsignedBigInteger('administrador_id');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('administrador_id')->references('id')->on('users');

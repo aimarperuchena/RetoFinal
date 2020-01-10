@@ -11,8 +11,7 @@ use App\UsuarioSociedad;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\ProductoCreateRequest;
-use App\Http\Requests\ProductoUpdateRequest;
+use App\Http\Requests\ProductoRequest;
 use producto_seeder;
 
 class WebMasterController extends Controller
@@ -38,8 +37,9 @@ class WebMasterController extends Controller
         return view('layouts.webmaster.productos.create');
     }
 
-    public function productStore(Request $request)
+    public function productStore(ProductoRequest $request)
     {
+        $validated = $request->validated();
         $producto = new Producto;
         $producto->nombre=$request->input('nombre');
         $producto->descripcion=$request->input('descripcion');
@@ -53,8 +53,9 @@ class WebMasterController extends Controller
         $producto = Producto::find($id);
         return view('layouts.webmaster.productos.update')->with('producto', $producto);
     }
-    public function productUpdate(Request $request, $id)
+    public function productUpdate(ProductoRequest $request, $id)
     {
+        $validated = $request->validated();
         $producto = Producto::find($id);
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
