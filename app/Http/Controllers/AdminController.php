@@ -21,6 +21,7 @@ use App\Mesa;
 use App\Reserva;
 use App\Factura;
 use App\Linea;
+use App\PeticionSociedad;
 
 class AdminController extends Controller
 {
@@ -72,7 +73,15 @@ public function sociedadUpdate(SociedadUpdateRequest $request){
     }
     public function productCreate()
     {
-        $productos = Producto::all();
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+      $productos=DB::table('producto')
+      ->whereNotIn('id', DB::table('productos_sociedad')->where('sociedad_id',$sociedad->id)->pluck('producto_id'))
+      
+      ->get();
+        
+
+        
         return view('layouts.admin.productos.create')->with('productos', $productos);
     }
 
@@ -189,6 +198,7 @@ public function mesaIndex(){
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
 
         $mesa = new Mesa();
+        $mesa->nombre=$request->nombre;
         $mesa->capacidad = $request->capacidad;
         $mesa->sociedad_id = $sociedad->id;
         $mesa->save();
@@ -207,6 +217,8 @@ public function mesaIndex(){
         /*   $validated = $request->validated(); */
 
         $mesa = Mesa::find($request->id);
+        $mesa->nombre=$request->nombre;
+
         $mesa->capacidad = $request->capacidad;
         $mesa->save();
         return redirect('/admin');
@@ -237,6 +249,37 @@ public function mesaIndex(){
         return view('layouts.admin.facturas.show')->with('factura', $factura);
     }
 
+
+    public function peticionIndex(){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $peticiones=PeticionSociedad::where('sociedad_id',$sociedad->id)->where('estado','pendiente')->get();
+        return view('layouts.admin.peticiones.index')->with('peticiones',$peticiones);
+    }
+
+    public function peticionAceptar($id){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $peticion=PeticionSociedad::find($id);
+        $peticion->estado="aceptado";
+        $peticion->save();
+
+        $sociedad_user=new UsuarioSociedad();
+        $sociedad_user->sociedad_id=$sociedad->id;
+        $sociedad_user->user_id=$peticion->usuario_id;
+        $sociedad_user->save();
+        return redirect('admin');
+    }
+
+    public function peticionDenegar($id){
+       
+        $peticion=PeticionSociedad::find($id);
+        $peticion->estado="denegado";
+        $peticion->save();
+
+        
+        return redirect('admin');
+    }
     function planoUpdate(Request $request){
         
     }

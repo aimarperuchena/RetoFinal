@@ -1,6 +1,6 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
-@extends('layouts.app')
+
 
                     <!-- Content Row -->
 
@@ -10,7 +10,7 @@
 <form action="{{route ('admin.mesaStore')}}" method="post">
     {{ csrf_field() }}
 
-  
+  <span>Nombre</span><input type="text" name="nombre" id="nombre"><br>
     <span>Capacidad: </span><input type="number" name="capacidad" id="capacidad"><br>
     <input type="submit" value="Insertar" id="submit" id="enviar">
 </form>

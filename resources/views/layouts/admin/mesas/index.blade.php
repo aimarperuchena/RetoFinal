@@ -12,9 +12,10 @@
                     <div class="col-xl-8 col-lg-7">
                     <h3>Mesas</h3>
 <a href="/admin/mesaCreate">Crear Mesas</a>
-<table>
+<table class="table table-striped">
     <tr>
-        <th>Id</th>
+     
+        <th>Nombre</th>
         <th>Capacidad</th>
         <th>Editar</th>
         <th>Eliminar</th>
@@ -22,7 +23,7 @@
 
     @foreach($sociedad->mesas as $mesa)
     <tr>
-        <td>{{$mesa->id}}</td>
+       <td>{{$mesa->nombre}}</td>
         <td>{{$mesa->capacidad}}</td>
         <td><a href="/admin/mesaEdit/{{$mesa->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
         <td><a href="/admin/mesaDestroy/{{$mesa->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>

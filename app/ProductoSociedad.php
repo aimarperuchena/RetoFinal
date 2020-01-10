@@ -19,4 +19,6 @@ class ProductoSociedad extends Model
   public function sociedad(){
     return $this->belongsTo(Scoiedad::class);
   }
+
+ 
 }

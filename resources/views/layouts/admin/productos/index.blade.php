@@ -7,7 +7,7 @@
   <div class="col-xl-8 col-lg-7">
   <h3>Productos</h3>
   <a href="/admin/productCreate/">Añadir Producto</a>
-  <table>
+  <table class="table table-striped">
     <tr>
       <th>Id</th>
       <th>Nombre</th>
