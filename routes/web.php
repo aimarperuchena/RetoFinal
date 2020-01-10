@@ -52,6 +52,7 @@ Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva
 
 //Perfil usuario
 Route::get('/perfil','UserController@profile')->name('usuario.profile');
+Route::get('/perfil/desuscribirse/{id}','UserController@deleteSuscripcion')->name('usuario.deleteSus');
 
 
 
