@@ -17,12 +17,12 @@ class CreateProductosSociedad extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('producto_id');
-            $table->double('precio'); 
-            $table->integer('stock'); 
+            $table->double('precio');
+            $table->integer('stock');
             $table->timestamps();
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');
-            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->foreign('producto_id')->references('id')->on('producto')->onDelete('cascade');
         });
     }
 

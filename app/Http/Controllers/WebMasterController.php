@@ -56,13 +56,13 @@ class WebMasterController extends Controller
     public function productUpdate(ProductoRequest $request, $id)
     {
         $validated = $request->validated();
-        $producto = Producto::find($id);
+        $producto = Producto::find($request->id);
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->save();
 
-
         return redirect('/webmaster/productoIndex');
+
     }
 
 
