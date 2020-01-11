@@ -20,7 +20,7 @@
       <td>{{$reserva->tipo->nombre}}</td>
       <td>{{$reserva->fecha}}</td>
       <td>{{$reserva->personas}}</td>
-      <td><i class="fa fa-pencil" style="color:black"></i></td>
+      <td><a href="/admin/reservaEdit/{{$reserva->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
       <td><i class="fa fa-trash-o" style="color:black"></td>
       <td><a href="/admin/reservaShow/{{$reserva->id}}"><i class="fa fa-eye" style="color:black"></i></a></td>
       </tr>

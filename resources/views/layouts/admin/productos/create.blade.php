@@ -4,32 +4,52 @@
 
 
 
-           
-                    <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-                    <h3>Añadir Productos</h3>
-<form action="{{route ('admin.productStore')}}" method="post">
-    {{ csrf_field() }}
 
-    <span>Producto: </span><select name="producto">
-        @foreach( $productos as $producto)
-        <option value="{{$producto->id}}">{{$producto->nombre}}</option>
-        @endforeach
-    </select><br>
-    <span>Stock: </span><input type="number" name="stock" id="stock"><br>
-    <span>Precio: </span><input type="number" step="any" name="precio" id="precio"><br>
-    <input type="submit" value="Insertar" id="submit" id="enviar">
-</form>
+<div class="row">
+    <div class="col-xl-8 col-lg-7">
+        <h3>Añadir Productos</h3>
+        <form action="{{route ('admin.productStore')}}" method="post">
+            {{ csrf_field() }}
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Producto:</label>
+                </div>
+                <select class="custom-select" name="producto">
+                    @foreach( $productos as $producto)
+                    <option value="{{$producto->id}}">{{$producto->nombre}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Stock: </span>
+                </div>
+                <input type="number" class="form-control border" placeholder="Stock" id="stock"  aria-label="Stock" name="stock" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Precio: </span>
+                </div>
+                <input type="number" class="form-control border" placeholder="Precio" step="any" id="precio" aria-label="Precio" name="precio" aria-describedby="basic-addon1">
+            </div>
+
+            
+            
+            <input class="btn btn-primary" type="submit" value="Crear">
+        </form>
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    </div>
 </div>
-@endif
-                           </div>
-              </div>
-              @endsection
+@endsection

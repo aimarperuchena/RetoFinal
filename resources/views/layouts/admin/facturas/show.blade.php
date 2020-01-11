@@ -9,8 +9,8 @@
 <b>Fecha: </b><span>{{$factura->fecha}}</span><br>
 <b>Personas: </b><span>{{$factura->personas}}</span><br>
 <b>Importe: </b><span>{{$factura->importe}}</span><br>
-
-
+<br>
+<h3>Lineas</h3>
 <table class="table table-striped">
     <tr>
         <th>Id</th>
@@ -22,6 +22,7 @@
     @foreach($factura->lineas as $linea)
     <tr>
         <td>{{$linea->id}}</td>
+       <td>{{$linea->producto[0]}}</td>
         <td>{{$linea->unidades}}</td>
     </tr>
     @endforeach

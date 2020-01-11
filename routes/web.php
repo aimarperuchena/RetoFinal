@@ -93,6 +93,7 @@ Route::get('/admin/mesaDestroy/{id}','AdminController@mesaDestroy')->name('admin
 Route::get('/admin/reservaIndex','AdminController@reservaIndex')->name('admin.reservaIndex');
 Route::get('/admin/reservaShow/{id}','AdminController@reservaShow')->name('admin.reservaShow');
 Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin.facturaShow');
+Route::get('/admin/reservaEdit/{id}','AdminController@reservaEdit')->name('admin.reservaEdit');
 
 
 //SOCIOS

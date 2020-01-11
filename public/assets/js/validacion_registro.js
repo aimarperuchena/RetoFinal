@@ -10,7 +10,7 @@ $(document).ready(function() {
     let bol_name = false;
     let bol_email = false;
     let bol_pass = false;
-    name = document.getElementById("name_reg").value;
+    name = document.getElementById("nombre_reg").value;
     email = document.getElementById("email_reg").value;
     password = document.getElementById("password_reg").value;
     password2 = document.getElementById("password-confirm_reg").value;
@@ -18,8 +18,8 @@ $(document).ready(function() {
     registro.disabled = true;
 
 
-    $('#name_reg').on('input', function(e) {
-        name = document.getElementById("name_reg").value;
+    $('#nombre_reg').on('input', function(e) {
+        name = document.getElementById("nombre_reg").value;
 
         bol_name = validarName(name);
         validar();

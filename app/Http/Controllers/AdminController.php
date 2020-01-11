@@ -22,6 +22,7 @@ use App\Reserva;
 use App\Factura;
 use App\Linea;
 use App\PeticionSociedad;
+use App\TipoReserva;
 
 class AdminController extends Controller
 {
@@ -37,32 +38,35 @@ class AdminController extends Controller
         return view('layouts.admin.inicio')->with('sociedad', $sociedad);
     }
 
-public function sociedadEdit(){
-    $user = Auth::user();
-    $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-
-    return view('layouts.admin.sociedad.update')->with('sociedad', $sociedad);
-}
-
-public function sociedadUpdate(SociedadUpdateRequest $request){
-    $validated = $request->validated();
-    $user = Auth::user();
-    $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-    $sociedadUpdate=Sociedad::find($sociedad->id);
-
-    $sociedadUpdate->nombre=$request->nombre;
-    $sociedadUpdate->telefono=$request->telefono;
-    $sociedadUpdate->ubicacion=$request->ubicacion;
-    $sociedadUpdate->save();
-
-    return redirect('/admin');
-}
-
-
-    public function userIndex(){
+    public function sociedadEdit()
+    {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.usuarios.index')->with('sociedad',$sociedad);
+
+        return view('layouts.admin.sociedad.update')->with('sociedad', $sociedad);
+    }
+
+    public function sociedadUpdate(SociedadUpdateRequest $request)
+    {
+        $validated = $request->validated();
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $sociedadUpdate = Sociedad::find($sociedad->id);
+
+        $sociedadUpdate->nombre = $request->nombre;
+        $sociedadUpdate->telefono = $request->telefono;
+        $sociedadUpdate->ubicacion = $request->ubicacion;
+        $sociedadUpdate->save();
+
+        return redirect('/admin');
+    }
+
+
+    public function userIndex()
+    {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        return view('layouts.admin.usuarios.index')->with('sociedad', $sociedad);
     }
 
     public function productoIndex()
@@ -75,14 +79,14 @@ public function sociedadUpdate(SociedadUpdateRequest $request){
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-      $productos=DB::table('producto')
-      ->whereNotIn('id', DB::table('productos_sociedad')->where('sociedad_id',$sociedad->id)->pluck('producto_id'))
-      
-      ->get();
-        
+        $productos = DB::table('producto')
+            ->whereNotIn('id', DB::table('productos_sociedad')->where('sociedad_id', $sociedad->id)->pluck('producto_id'))
 
-        
-        return view('layouts.admin.productos.create')->with('productos', $productos)->with('sociedad',$sociedad);
+            ->get();
+
+
+
+        return view('layouts.admin.productos.create')->with('productos', $productos)->with('sociedad', $sociedad);
     }
 
     public function productStore(ProductoCreateRequest $request)
@@ -107,8 +111,10 @@ public function sociedadUpdate(SociedadUpdateRequest $request){
     }
     public function productEdit($id)
     {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $producto = ProductoSociedad::find($id);
-        return view('layouts.admin.productos.update')->with('producto', $producto);
+        return view('layouts.admin.productos.update')->with('producto', $producto)->with('sociedad', $sociedad);
     }
 
     public function productUpdate(ProductoUpdateRequest $request)
@@ -140,7 +146,7 @@ public function sociedadUpdate(SociedadUpdateRequest $request){
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.incidencias.create')->with('sociedad',$sociedad);
+        return view('layouts.admin.incidencias.create')->with('sociedad', $sociedad);
     }
 
     public function incidenciaStore(IncidenciaCreateRequest $request)
@@ -172,7 +178,7 @@ public function sociedadUpdate(SociedadUpdateRequest $request){
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $incidencia = Incidencia::find($id);
-        return view('layouts.admin.incidencias.update')->with('incidencia', $incidencia)->with('sociedad',$sociedad);
+        return view('layouts.admin.incidencias.update')->with('incidencia', $incidencia)->with('sociedad', $sociedad);
     }
 
     public function incidenciaUpdate(IncidenciaCreateRequest $request)
@@ -185,16 +191,17 @@ public function sociedadUpdate(SociedadUpdateRequest $request){
         return redirect('/admin');
     }
 
-public function mesaIndex(){
-    $user = Auth::user();
+    public function mesaIndex()
+    {
+        $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-    return view('layouts.admin.mesas.index')->with('sociedad',$sociedad);
-}
+        return view('layouts.admin.mesas.index')->with('sociedad', $sociedad);
+    }
     public function mesaCreate()
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.mesas.create')->with('sociedad',$sociedad);
+        return view('layouts.admin.mesas.create')->with('sociedad', $sociedad);
     }
 
     public function mesaStore(Request $request)
@@ -204,7 +211,7 @@ public function mesaIndex(){
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
 
         $mesa = new Mesa();
-        $mesa->nombre=$request->nombre;
+        $mesa->nombre = $request->nombre;
         $mesa->capacidad = $request->capacidad;
         $mesa->sociedad_id = $sociedad->id;
         $mesa->save();
@@ -217,7 +224,7 @@ public function mesaIndex(){
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $mesa = Mesa::find($id);
-        return view('layouts.admin.mesas.update')->with('mesa', $mesa)->with('sociedad',$sociedad);
+        return view('layouts.admin.mesas.update')->with('mesa', $mesa)->with('sociedad', $sociedad);
     }
 
     public function mesaUpdate(Request $request)
@@ -225,7 +232,7 @@ public function mesaIndex(){
         /*   $validated = $request->validated(); */
 
         $mesa = Mesa::find($request->id);
-        $mesa->nombre=$request->nombre;
+        $mesa->nombre = $request->nombre;
 
         $mesa->capacidad = $request->capacidad;
         $mesa->save();
@@ -240,59 +247,71 @@ public function mesaIndex(){
     }
 
 
-    public function reservaIndex (){
+    public function reservaIndex()
+    {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.reservas.index')->with('sociedad',$sociedad);
+        return view('layouts.admin.reservas.index')->with('sociedad', $sociedad);
     }
     public function reservaShow($id)
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $reserva = Reserva::find($id);
-        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad',$sociedad);
+        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad);
     }
+    public function reservaEdit($id)
+    {
+        $reserva = Reserva::find($id);
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $tipo = TipoReserva::all();
 
+        return view('layouts.admin.reservas.update')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('tipo',$tipo);
+    }
     function facturaShow($id)
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $factura = Factura::find($id);
-        return view('layouts.admin.facturas.show')->with('factura', $factura)->with('sociedad',$sociedad);;
+        return view('layouts.admin.facturas.show')->with('factura', $factura)->with('sociedad', $sociedad);;
     }
 
 
-    public function peticionIndex(){
+    public function peticionIndex()
+    {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        $peticiones=PeticionSociedad::where('sociedad_id',$sociedad->id)->where('estado','pendiente')->get();
-        return view('layouts.admin.peticiones.index')->with('peticiones',$peticiones)->with('sociedad',$sociedad);
+        $peticiones = PeticionSociedad::where('sociedad_id', $sociedad->id)->where('estado', 'pendiente')->get();
+        return view('layouts.admin.peticiones.index')->with('peticiones', $peticiones)->with('sociedad', $sociedad);
     }
 
-    public function peticionAceptar($id){
+    public function peticionAceptar($id)
+    {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        $peticion=PeticionSociedad::find($id);
-        $peticion->estado="aceptado";
+        $peticion = PeticionSociedad::find($id);
+        $peticion->estado = "aceptado";
         $peticion->save();
 
-        $sociedad_user=new UsuarioSociedad();
-        $sociedad_user->sociedad_id=$sociedad->id;
-        $sociedad_user->user_id=$peticion->usuario_id;
+        $sociedad_user = new UsuarioSociedad();
+        $sociedad_user->sociedad_id = $sociedad->id;
+        $sociedad_user->user_id = $peticion->usuario_id;
         $sociedad_user->save();
         return redirect('admin');
     }
 
-    public function peticionDenegar($id){
-       
-        $peticion=PeticionSociedad::find($id);
-        $peticion->estado="denegado";
+    public function peticionDenegar($id)
+    {
+
+        $peticion = PeticionSociedad::find($id);
+        $peticion->estado = "denegado";
         $peticion->save();
 
-        
+
         return redirect('admin');
     }
-    function planoUpdate(Request $request){
-        
+    function planoUpdate(Request $request)
+    {
     }
 }

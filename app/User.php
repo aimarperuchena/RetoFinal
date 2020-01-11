@@ -48,6 +48,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\PeticionSociedad');
     }
 
+
+    public function usuarioSociedad(){
+        return $this->hasMany('App\UsuarioSociedad');
+    }
+
     public function isWebMaster(){
         return($this->role_id==1);
     }

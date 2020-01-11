@@ -10,4 +10,8 @@ class UsuarioSociedad extends Model
     use SoftDeletes;
     protected $table="sociedad_user";
     protected $fillable=["id","sociedad_id","user_id"];
+
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
 }
