@@ -49,6 +49,7 @@ Route::get('locale/{locale}', function ($locale){
 Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.suscripciones');
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
+Route::get('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
 
 //Perfil usuario
 Route::get('/perfil','UserController@profile')->name('usuario.profile');
