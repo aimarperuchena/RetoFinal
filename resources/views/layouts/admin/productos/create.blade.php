@@ -2,7 +2,10 @@
 @section('adminContent')
 
 
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
 
+<!-- Content Row -->
+<script src="{{url('assets/js/validacion_crearProducto.js')}}"></script>
 
 
 <div class="row">
@@ -38,8 +41,19 @@
 
             
             
-            <input class="btn btn-primary" type="submit" value="Crear">
+            <input class="btn btn-primary" type="submit" value="Crear" id="enviar">
         </form>
+
+
+        <div id="error_val" class="alert alert-danger"style="visibility:hidden">
+            <ul >
+                
+                <li style="visibility:hidden" id="error_stock">El stock debe ser mayor a 5</li>
+                <li style="visibility:hidden" id="error_precio">El precio debe ser mayor a 0.1</li>
+               
+              
+            </ul>
+        </div>
 
         @if ($errors->any())
         <div class="alert alert-danger">
