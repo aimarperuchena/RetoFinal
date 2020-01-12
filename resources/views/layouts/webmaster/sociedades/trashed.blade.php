@@ -13,7 +13,7 @@
                 <th>Ubicacion</th>
                 <th>Telefono</th>
                 <th>ID Administrador</th>
-                <th>Deshabilitar</th>
+                <th>Habilitar</th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
                     <td>{!! $sociedad->ubicacion !!}</td>
                     <td>{!! $sociedad->telefono !!}</td>
                     <td>{!! $sociedad->administrador_id !!}</td>
-                    <td><a href="/webmaster/sociDestroy/{{$sociedad->id}}"><i class="fa fa-toggle-off" style="color:black"></i></a></td>
+                    <td><a href="/webmaster/sociRestore/{{$sociedad->id}}"><i class="fa fa-toggle-on" style="color:black"></i></a></td>
                 </tr>
             @endforeach
         </tbody>

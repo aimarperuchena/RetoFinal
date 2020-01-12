@@ -25,12 +25,30 @@ class WebMasterController extends Controller
     }
 
     public function productoIndex()
-{
-    $productos = producto::all();
+    {
+        $productos = producto::all();
 
-    return view('layouts.webmaster.productos.index')->with('productos',$productos);
+        return view('layouts.webmaster.productos.index')->with('productos',$productos);
 
-}
+    }
+
+     public function productoTrashed()
+    {
+        $productos = producto::onlyTrashed()->get();
+
+        return view('layouts.webmaster.productos.trashed')->with('productos',$productos);
+
+    }
+
+    public function productoRestore($id)
+    {
+        producto::withTrashed()->find($id)->restore();
+
+
+        return redirect('/webmaster/productoTrashed');
+
+    }
+
 
      public function productCreate()
     {
@@ -79,6 +97,32 @@ class WebMasterController extends Controller
     $soci = sociedad::all();
 
     return view('layouts.webmaster.sociedades.index')->with('soci',$soci);
+
+}
+
+public function sociTrashed()
+    {
+        $soci = sociedad::onlyTrashed()->get();
+
+        return view('layouts.webmaster.sociedades.trashed')->with('soci',$soci);
+
+    }
+
+    public function sociRestore($id)
+    {
+        sociedad::withTrashed()->find($id)->restore();
+
+
+        return redirect('/webmaster/sociTrashed');
+
+    }
+
+    public function sociDestroy($id)
+{
+    $soci = sociedad::find($id);
+    $soci->delete();
+
+    return redirect('/webmaster/sociIndex');
 
 }
 

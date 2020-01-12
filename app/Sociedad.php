@@ -3,9 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Sociedad extends Model
 {
+
+
+    use SoftDeletes;
+
     protected $table = 'sociedad';
     protected $fillable = ['nombre', 'ubicacion', 'telefono', 'administrador_id', 'link_plano'];
 

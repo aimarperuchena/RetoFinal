@@ -17,6 +17,7 @@ class CreateProducts extends Migration
             $table->bigIncrements('id');           
             $table->string('nombre');
             $table->longText('descripcion');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
