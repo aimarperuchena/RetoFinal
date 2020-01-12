@@ -23,20 +23,31 @@
   </div>
   <div class="col">
     <h1>Reserva</h1>
-     <form class="mt-5 mr-5">
+     <form class="mt-5 mr-5" action="{{ route('sociedad.crear',$sociedad -> id) }}">
        <div class="d-flex form-group justify-content-between">
          <label for="exampleInputEmail1" class="ml-3 justify-content-start">Nº Personas</label>
-         <input type="number" style="width: 250px;" class="form-control ">
+         <input type="number" name="personas" style="width: 250px;" class="form-control ">
        </div>
        <small class="form-text text-muted mb-3">Por favor no introduzca de más o de menos.</small>
        <div class="d-flex pr-3 form-group justify-content-between">
-         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Date:</label>
-         <input type="date" id="date" class="mr-3 justify-content-end">
+         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Fecha:</label>
+         <input type="date" name="fecha" class="mr-3 justify-content-end">
+       </div>
+       <div class="d-flex pr-3 form-group justify-content-between">
+         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Tipo de comida:</label>
+         <select style="width: 250px;" class="form-control"name="tipo">
+           <option value=".." selected>Elige..</option>
+           @if($tipo)
+             @foreach($tipo as $comida)
+               <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
+           @endforeach
+         @endif
+         </select>
        </div>
        <!-- Según el número de mesas que tenga la sociedad registradas -->
        <div class="d-flex pr-3 form-group justify-content-between">
          <label for="exampleInputPassword1" class="ml-3 justify-content-start">Mesa:</label>
-         <select style="width: 250px;" class="form-control">
+         <select name="mesa" style="width: 250px;" class="form-control">
            <option value=".." selected>Elige..</option>
            @if($mesas)
              @foreach($mesas as $mesa)
@@ -45,7 +56,7 @@
          @endif
          </select>
        </div>
-       <button type="submit" class="btn btn-primary mb-5">Reservar</button>
+       <button type="submit" class="btn btn-primary">Reservar</button>
      </form>
   </div>
 </div>

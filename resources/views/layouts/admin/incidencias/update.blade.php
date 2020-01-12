@@ -1,6 +1,10 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
+
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+
 <!-- Content Row -->
+<script src="{{url('assets/js/validacion_update_incidencia.js')}}"></script>
 
 <div class="row">
     <div class="col-xl-8 col-lg-7">
@@ -26,10 +30,16 @@
                     <option value="solucionado">Solucionado</option>
                 </select>
             </div>
-            <input class="btn btn-primary" type="submit" value="Actualizar">
+            <input class="btn btn-primary" id="enviar" type="submit" value="Actualizar">
            
         </form>
-
+        <div class="alert alert-danger" style="visibility:hidden" id="div_validacion">
+            <ul>
+               
+                <li>La descripción debe tener minimo 20 caracteres</li>
+               
+            </ul>
+        </div>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

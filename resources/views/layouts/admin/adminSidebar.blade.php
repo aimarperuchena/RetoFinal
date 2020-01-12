@@ -5,7 +5,7 @@
                     <ul class="nav flex-column">
 <h3 class="text-dark">{{$sociedad->nombre}}</h3>
                         <li class="nav-item">
-                            <a class="nav-link text-dark active">
+                            <a class="nav-link text-dark active" href="/admin">
                                  <i class="fas fa-fw fa-tachometer-alt"></i>
                                 <span data-feather="home"></span> Panel De Control <span class="sr-only">(current)</span>
                             </a>

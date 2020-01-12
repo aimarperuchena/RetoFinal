@@ -3,8 +3,11 @@
 
 
 
-<!-- Content Row -->
 
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+
+<!-- Content Row -->
+<script src="{{url('assets/js/validacion_create_incidencia.js')}}"></script>
 <div class="row">
     <div class="col-xl-8 col-lg-7">
         <h3>Añadir Incidencia</h3>
@@ -18,9 +21,17 @@
             </div>
 
 
-            <input class="btn btn-primary" type="submit" value="Crear">
+            <input class="btn btn-primary" id="enviar" type="submit" value="Crear">
         </form>
 
+        <div class="alert alert-danger" style="visibility:hidden" id="div_validacion">
+            <ul>
+               
+            <li>La descripción debe tener minimo 20 caracteres</li>
+               
+            </ul>
+        </div>
+       
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
