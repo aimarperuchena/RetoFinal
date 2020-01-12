@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Título</th>
+            <th>Nombre</th>
             <th>Descripcion</th>
             <th>Editar</th>
             <th>Deshabilitar</th>

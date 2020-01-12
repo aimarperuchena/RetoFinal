@@ -9,10 +9,11 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>ID Administrador</th>
                 <th>Nombre</th>
                 <th>Ubicacion</th>
                 <th>Telefono</th>
-                <th>ID Administrador</th>
+                <!-- <th>Descripcion</th> -->
                 <th>Deshabilitar</th>
             </tr>
         </thead>
@@ -20,10 +21,11 @@
             @foreach($soci as $sociedad)
                 <tr>
                     <td>{!! $sociedad->id !!}</td>
+                    <td>{!! $sociedad->administrador_id !!}</td>
                     <td>{!! $sociedad->nombre !!}</td>
                     <td>{!! $sociedad->ubicacion !!}</td>
                     <td>{!! $sociedad->telefono !!}</td>
-                    <td>{!! $sociedad->administrador_id !!}</td>
+                    <!-- <td>{!! $sociedad->descripcion !!}</td> -->
                     <td><a href="/webmaster/sociDestroy/{{$sociedad->id}}"><i class="fa fa-toggle-off" style="color:black"></i></a></td>
                 </tr>
             @endforeach

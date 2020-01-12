@@ -16,14 +16,35 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link texto_link" href="/webmaster/sociIndex">
-                <i class="fas fa-users"></i> Sociedades</a>
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link texto_link" href="/webmaster/socioIndex">
-                <i class="fas fa-users"></i> Socios</a>
+            <a class="nav-link texto_link active" data-toggle="collapse" href="#collapsesoci" role="button" aria-expanded="false" aria-controls="collapsesoci">   <i class="fas fa-warehouse"></i> Sociedades</a>
+            <div class="collapse" id="collapsesoci">
+            <div class="card card-body">
 
+            <a class="nav-link " href="/webmaster/sociIndex">
+            <span data-feather="file"></span> Lista Sociedades
+            </a>
+
+            <a class="nav-link " href="/webmaster/sociTrashed">
+            <span data-feather="file"></span>Sociedades en suspenso
+            </a>
+            </div>
+            </div>
+            </li>  <li class="nav-item">
+
+            <a class="nav-link texto_link active" data-toggle="collapse" href="#collapsesocio" role="button" aria-expanded="false" aria-controls="collapsesocio">   <i class="fas fa-warehouse"></i> Socios</a>
+            <div class="collapse" id="collapsesocio">
+            <div class="card card-body">
+
+            <a class="nav-link " href="/webmaster/socioIndex">
+            <span data-feather="file"></span> Lista Socios
+            </a>
+
+            <a class="nav-link " href="/webmaster/socioTrashed">
+            <span data-feather="file"></span> Socios en suspenso
+            </a>
+            </div>
+            </div>
             </li>
 
             <li class="nav-item">
@@ -34,6 +55,10 @@
 
             <a class="nav-link " href="/webmaster/productoIndex">
             <span data-feather="file"></span> Listar Productos
+            </a>
+
+            <a class="nav-link " href="/webmaster/productoTrashed">
+            <span data-feather="file"></span> Productos en suspenso
             </a>
 
             <a class="nav-link " href="/webmaster/productCreate">
