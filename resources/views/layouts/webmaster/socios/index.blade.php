@@ -8,11 +8,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>ID usuario</th>
-                <th>Nombre Usuario</th>
-                <th>ID Sociedad</th>
-                <th>Nombre Sociedad</th>
+                <th>ID Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Email</th>
                 <th>Suspender</th>
 
             </tr>
@@ -21,14 +21,16 @@
             @foreach($socios as $socio)
                 <tr>
                     <td>{!! $socio->id !!}</td>
-                    <td>{!! $socio->user_id !!}</td>
-                    <td></td>
-                    <td>{!! $socio->sociedad_id !!}</td>
-                    <td></td>
+                    <td>{!! $socio->nombre !!}</td>
+                    <td>{!! $socio->apellido !!}</td>
+                    <td>{!! $socio->telefono !!}</td>
+                    <td>{!! $socio->email !!}</td>
                     <td><a href=""><i class="fa fa-ban" style="color:black"></i></a></td>
 
                 </tr>
             @endforeach
+
+
         </tbody>
     </table>
   </div>
