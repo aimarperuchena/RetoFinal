@@ -11,10 +11,14 @@
 <b>Importe: </b><span>{{$factura->importe}}</span><br>
 <br>
 <h3>Lineas</h3>
+
+
+
 <table class="table table-striped">
     <tr>
         <th>Id</th>
         <th>Id Producto</th>
+        <th>Nombre</th>
         <th>Descripción</th>
         <th>Unidades</th>
 
@@ -22,12 +26,29 @@
     @foreach($factura->lineas as $linea)
     <tr>
         <td>{{$linea->id}}</td>
-       <td>{{$linea->producto[0]}}</td>
+       <td>{{$linea->producto_sociedad_id}}</td>
+        @foreach($productoSociedad as $sociedadP)
+
+            @if($sociedadP->id==$linea->producto_sociedad_id)
+                @foreach($productoGenerico as $generico)
+                    @if($generico->id==$sociedadP->producto_id)
+                    
+                    <td>{{$generico->nombre}}</td>
+                    <td>{{$generico->descripcion}}</td>
+                    @endif
+                @endforeach
+            @endif
+        @endforeach
+        
+
         <td>{{$linea->unidades}}</td>
     </tr>
     @endforeach
    
 </table>
+
+
+       
 </div>
 </div>
 @endsection

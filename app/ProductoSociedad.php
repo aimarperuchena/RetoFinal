@@ -12,7 +12,7 @@ class ProductoSociedad extends Model
   protected $fillable=["producto_id","sociedad_id","precio","stock"];
 
   public function producto(){
-    return $this->belongsTo(Producto::class);
+    return $this->belongsTo(Producto::class,'producto_id');
   }
 
   public function lineas(){

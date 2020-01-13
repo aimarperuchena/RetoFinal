@@ -274,7 +274,9 @@ class AdminController extends Controller
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $factura = Factura::find($id);
-        return view('layouts.admin.facturas.show')->with('factura', $factura)->with('sociedad', $sociedad);;
+        $productoSociedad = ProductoSociedad::where('sociedad_id',$sociedad->id)->get();
+        $productoGenerico=Producto::all();
+        return view('layouts.admin.facturas.show')->with('factura', $factura)->with('sociedad', $sociedad)->with('productoSociedad',$productoSociedad)->with('productoGenerico',$productoGenerico);
     }
 
 
