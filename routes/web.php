@@ -28,7 +28,7 @@ Route::get('/menu',function(){
     return view('menu');
 });
 
-Route::get('/webmaster', 'WebMasterController@index');
+Route::get('/webmaster', 'WebMasterController@index')-> name('webmaster.index');
 Route::get('/admin', 'AdminController@index')->name('admin.index');
 Route::get('/user', 'UserController@index')->name('usuario.listado');
 

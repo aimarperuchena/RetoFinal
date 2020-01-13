@@ -8,13 +8,25 @@
       <div class="contenido collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
               @if ($user = Auth::user())
+              @if ($user->role_id === 3)
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{route('usuario.listado')}}">{{ __('multi.inicio') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{route('usuario.suscripciones')}}">Mis suscripciones</a>
+                </li>
+              @endif
+              @if ($user->role_id === 2)
               <li class="nav-item">
-                  <a class="nav-link text-white" href="{{route('usuario.listado')}}">{{ __('multi.inicio') }}</a>
+                  <a class="nav-link text-white" href="{{route('admin.index')}}">{{ __('multi.inicio') }}</a>
               </li>
+              @endif
+              @if ($user->role_id === 1)
               <li class="nav-item">
-                  <a class="nav-link text-white" href="{{route('usuario.suscripciones')}}">Mis suscripciones</a>
-              </li>              <!-- ------------------------Mensajes------------------------- -->
-         <!-- ------------------------Mensajes------------------------- -->
+                  <a class="nav-link text-white" href="{{route('webmaster.index')}}">{{ __('multi.inicio') }}</a>
+              </li>
+              @endif
+              <!-- ------------------------Mensajes------------------------- -->
               <li class="nav-item dropdown no-arrow mx-1">
                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-envelope fa-fw"></i>
