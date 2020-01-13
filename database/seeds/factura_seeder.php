@@ -18,7 +18,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'1',
             'fecha' => '2019/12/19',
             'personas' => '10',
-            'importe' => '40'
+            'importe' => '60'
         ]);
 
         //RESERVA 2 SOCIEDAD 1
@@ -27,7 +27,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'1',
             'fecha' => '2019/12/19',
             'personas' => '10',
-            'importe' => '40'
+            'importe' => '60'
         ]);
         //RESERVA 3 SOCIEDAD 2
         DB::table('factura')->insert([
@@ -35,7 +35,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'2',
             'fecha' => '2019/12/19',
             'personas' => '10',
-            'importe' => '40'
+            'importe' => '60'
         ]);
 
         //RESERVA 4 SOCIEDAD 2
@@ -44,7 +44,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'2',
             'fecha' => '2019/12/19',
             'personas' => '10',
-            'importe' => '40'
+            'importe' => '60'
         ]);
 
         //RESERVA 5 SOCIEDAD 3
@@ -53,7 +53,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'3',
             'fecha' => '2019/12/19',
             'personas' => '10',
-            'importe' => '40'
+            'importe' => '60'
         ]);
 
         //RESERVA 6 SOCIEDAD 3
@@ -62,7 +62,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'3',
             'fecha' => '2019/12/19',
             'personas' => '10',
-            'importe' => '40'
+            'importe' => '60'
         ]);
     }
 }
