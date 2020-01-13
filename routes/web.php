@@ -54,6 +54,7 @@ Route::get('/reserva/{id}/success','SociedadController@crear')->name('sociedad.c
 //Perfil usuario
 Route::get('/perfil','ProfileController@profile')->name('profile.index');
 Route::get('/perfil/desuscribirse/{id}','ProfileController@deleteSuscripcion')->name('profile.deleteSus');
+Route::post('/perfil/update','ProfileController@update')->name('profile.update');
 
 
 

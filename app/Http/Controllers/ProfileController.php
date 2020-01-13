@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\UsuarioSociedad;
+use App\User;
 
 
 class ProfileController extends Controller
@@ -18,6 +19,17 @@ class ProfileController extends Controller
     $user = Auth::user();
     $suscripcion = UsuarioSociedad::where('sociedad_id',$id)->where('user_id',$user->id)->first();
     $suscripcion -> delete();
+    return redirect('/perfil');
+  }
+  public function update(Request $request){
+    $user = Auth::user();
+    $newUser = User::find($user->id);
+    $newUser->nombre = $request->nombre;
+    $newUser->apellido = $request->apellido;
+    $newUser->telefono = $request->telefono;
+    $newUser->email = $request->email;
+    $newUser->password = $request->password;
+    $newUser->save();
     return redirect('/perfil');
   }
 }

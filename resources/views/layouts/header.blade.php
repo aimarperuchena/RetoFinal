@@ -144,7 +144,7 @@
                   @if ($user->role_id === 3)
                     <a class="dropdown-item" href="#">
                       <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                      Ajustes
+                      Facturas
                     </a>
                     <a class="dropdown-item" href="#">
                       <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>

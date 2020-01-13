@@ -14,7 +14,7 @@
   <div id="tablaProfile" class="d-block flex-wrap m-5 row">
     <div class="">
       <h1 class="mb-5">Información personal</h1>
-      <form>
+      <form class="form-group">
         <div class="d-flex form-group justify-content-around">
           <label for="exampleInputEmail1">Nombre</label>
           <input type="text" class="form-control" style="width: 300px;"readonly value="{{$user->nombre}}">
@@ -29,7 +29,7 @@
         </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Launch demo modal
+          Editar
         </button>
       </form>
     </div>
@@ -64,6 +64,8 @@
           </button>
       </div>
       <div class="modal-body mx-3">
+        <form class="class=" action="{{route('profile.update')}}" method="post">
+          @csrf
           <div class="md-form mb-5">
               <div class="col-md-6 form-modal">
                   <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -73,9 +75,7 @@
                       <strong>{{ $message }}</strong>
                   </span> @enderror
               </div>
-
           </div>
-
           <div class="md-form mb-5">
               <div class="col-md-6 form-modal">
                   <label for="apellido" class="col-md-4 col-form-label text-md-right">apellido</label>
@@ -85,10 +85,7 @@
                       <strong>{{ $message }}</strong>
                   </span> @enderror
               </div>
-
           </div>
-
-
           <div class="md-form mb-5">
               <div class="col-md-6 form-modal">
                   <label for="telefono" class="col-md-4 col-form-label text-md-right">telefono</label>
@@ -98,10 +95,7 @@
                       <strong>{{ $message }}</strong>
                   </span> @enderror
               </div>
-
           </div>
-
-
           <div class="md-form mb-4">
               <div class="col-md-6 form-modal">
                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -112,7 +106,6 @@
                   </span> @enderror
               </div>
           </div>
-
           <div class="md-form mb-4">
               <div class="col-md-6 form-modal">
                   <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -123,7 +116,6 @@
                   </span> @enderror
               </div>
           </div>
-
           <div class="md-form mb-4">
               <div class="col-md-6 form-modal">
                   <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
@@ -143,6 +135,7 @@
               </button>
           </div>
       </div>
+    </form>
     </div>
   </div>
 </div>
