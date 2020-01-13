@@ -29,17 +29,5 @@ class UserController extends Controller
       $todos = false;
       return view('layouts.user.home')-> with('suscripciones' , $suscripciones)-> with('sociedades' , $sociedades)-> with('todos' , $todos);
     }
-    public function profile(){
-      $user = Auth::user();
-      // preguntar como se hace soft delete
-      $suscripciones = UsuarioSociedad::where('user_id',$user->id)->whereNull('deleted_at')->get();
-      return view('layouts.user.Perfil.usuarioPerfil')-> with('user' , $user)-> with('suscripciones' , $suscripciones);
-    }
-    public function deleteSuscripcion($id){
-      $user = Auth::user();
-      $suscripcion = UsuarioSociedad::where('sociedad_id',$id)->where('user_id',$user->id)->first();
-      $suscripcion -> delete();
-      return redirect('/perfil');
-    }
 
 }

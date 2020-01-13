@@ -141,14 +141,16 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Perfil
                   </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Ajustes
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Reservas
-                  </a>
+                  @if ($user->role_id === 3)
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Ajustes
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Reservas
+                    </a>
+                  @endif
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

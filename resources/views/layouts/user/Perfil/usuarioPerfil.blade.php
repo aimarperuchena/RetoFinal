@@ -34,19 +34,21 @@
       </form>
     </div>
     <hr class="m-5">
-    <div class="">
-      <h1 class="mb-5">Suscripciones</h1>
-      <ul class="list-group">
-        @if ($suscripciones)
-          @foreach ($suscripciones as $suscripcion)
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{$suscripcion -> nombre}}
-                <a class="badge badge-danger badge-pill text-white" href="{{ route('usuario.deleteSus',$suscripcion -> id)}}"><i class="fas fa-minus-circle"></i></a>
-              </li>
-          @endforeach
-        @endif
-      </ul>
-    </div>
+    @if ($user->role_id === 3)
+      <div class="">
+        <h1 class="mb-5">Suscripciones</h1>
+        <ul class="list-group">
+          @if ($suscripciones)
+            @foreach ($suscripciones as $suscripcion)
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  {{$suscripcion -> nombre}}
+                  <a class="badge badge-danger badge-pill text-white" href="{{ route('profile.deleteSus',$suscripcion -> id)}}"><i class="fas fa-minus-circle"></i></a>
+                </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+    @endif
   </div>
 </div>
 

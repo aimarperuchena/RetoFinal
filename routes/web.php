@@ -52,8 +52,8 @@ Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva
 Route::get('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
 
 //Perfil usuario
-Route::get('/perfil','UserController@profile')->name('usuario.profile');
-Route::get('/perfil/desuscribirse/{id}','UserController@deleteSuscripcion')->name('usuario.deleteSus');
+Route::get('/perfil','ProfileController@profile')->name('profile.index');
+Route::get('/perfil/desuscribirse/{id}','ProfileController@deleteSuscripcion')->name('profile.deleteSus');
 
 
 
