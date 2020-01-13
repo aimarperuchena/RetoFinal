@@ -80,7 +80,7 @@
                 <div class="md-form mb-5">
                     <div class="col-md-6 form-modal">
                         <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                        <input id="nombre" required type="text" class="@error('nombre') is-invalid @enderror" name="nombre"  required autocomplete="name" autofocus placeholder="Name...">
+                        <input id="nombre" required type="text" class="@error('nombre') is-invalid @enderror" name="nombre"  required  placeholder="Name...">
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -92,7 +92,7 @@
                 <div class="md-form mb-5">
                     <div class="col-md-6 form-modal">
                         <label for="apellido" class="col-md-4 col-form-label text-md-right">apellido</label>
-                        <input id="apellido" required type="text" class="@error('apellido') is-invalid @enderror" name="apellido"  required autocomplete="apellido" autofocus placeholder="apellido...">
+                        <input id="apellido" required type="text" class="@error('apellido') is-invalid @enderror" name="apellido"  required  placeholder="apellido...">
                         @error('apellido')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -105,7 +105,7 @@
                 <div class="md-form mb-5">
                     <div class="col-md-6 form-modal">
                         <label for="telefono" class="col-md-4 col-form-label text-md-right">telefono</label>
-                        <input id="telefono" type="number" class="@error('telefono') is-invalid @enderror" name="telefono"  required autocomplete="telefono" autofocus placeholder="telefono...">
+                        <input id="telefono" type="number" class="@error('telefono') is-invalid @enderror" name="telefono"  required  placeholder="telefono...">
                         @error('telefono')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -117,7 +117,7 @@
 
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <label for="correo" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                         <input id="correo" type="email" class="@error('email') is-invalid @enderror" name="email"  required  placeholder="Email...">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                        <input id="contrasena1" type="password" class="@error('password') is-invalid @enderror" name="password" required  placeholder="Password...">
+                        <input id="contrasena1" type="password" class="@error('password') is-invalid @enderror" name="password" required placeholder="Password..." >
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -140,7 +140,7 @@
                 <div class="md-form mb-4">
                     <div class="col-md-6 form-modal">
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                        <input id="contrasena2" type="password" class="" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password...">
+                        <input id="contrasena2" type="password"  name="password_confirmation" required placeholder="Password Comfirmation...">
                     </div>
                 </div>
 
