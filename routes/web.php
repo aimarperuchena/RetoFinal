@@ -56,6 +56,12 @@ Route::get('/perfil','ProfileController@profile')->name('profile.index');
 Route::get('/perfil/desuscribirse/{id}','ProfileController@deleteSuscripcion')->name('profile.deleteSus');
 Route::post('/perfil/update','ProfileController@update')->name('profile.update');
 
+//Reserva
+Route::get('/reservas','ReservaController@index')->name('reserva.index');
+Route::get('/reservas/{id}','ReservaController@show')->name('reserva.show');
+
+//Lineas
+Route::get('/lineas/{id}','LineaController@index')->name('linea.show');
 
 
 //----------------------------------------ADMIN----------------------------
