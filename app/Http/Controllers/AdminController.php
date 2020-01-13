@@ -316,7 +316,12 @@ class AdminController extends Controller
     function lineaDelete($id){
         $linea=Linea::find($id);
         $factura=Factura::find($linea->factura_id);
-        $lineas_factura_total=Linea::where('factura_id',$factura_id)->where('id', 'not like',$linea->id)->sum('price');;
-        $importe=$linea;
+        $importe_nuevo=$factura->importe-$linea->importe;
+
+        $factura->importe=$importe_nuevo;
+        $factura->save();
+        $linea->delete();
+        $link='/admin/reservaShow/'.$factura->reserva->id;
+        return redirect($link);
     }
 }
