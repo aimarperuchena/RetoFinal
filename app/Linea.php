@@ -10,7 +10,7 @@ class Linea extends Model
     protected $fillable=["producto_sociedad_id","factura_id","unidades"];
 
     public function producto(){
-        return $this->belongsTo(ProductoSociedad::class);
+        return $this->belongsTo(ProductoSociedad::class, 'producto_sociedad_id');
     }
 
     public function factura(){

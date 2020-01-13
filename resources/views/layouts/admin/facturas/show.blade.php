@@ -27,19 +27,8 @@
     <tr>
         <td>{{$linea->id}}</td>
        <td>{{$linea->producto_sociedad_id}}</td>
-        @foreach($productoSociedad as $sociedadP)
-
-            @if($sociedadP->id==$linea->producto_sociedad_id)
-                @foreach($productoGenerico as $generico)
-                    @if($generico->id==$sociedadP->producto_id)
-                    
-                    <td>{{$generico->nombre}}</td>
-                    <td>{{$generico->descripcion}}</td>
-                    @endif
-                @endforeach
-            @endif
-        @endforeach
-        
+       <td>{{$linea->producto->producto->nombre}}</td>
+       <td>{{$linea->producto->producto->descripcion}}</td>
 
         <td>{{$linea->unidades}}</td>
     </tr>
