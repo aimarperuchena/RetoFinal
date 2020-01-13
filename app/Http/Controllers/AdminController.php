@@ -313,7 +313,10 @@ class AdminController extends Controller
 
         return redirect('admin');
     }
-    function planoUpdate(Request $request)
-    {
+    function lineaDelete($id){
+        $linea=Linea::find($id);
+        $factura=Factura::find($linea->factura_id);
+        $lineas_factura_total=Linea::where('factura_id',$factura_id)->where('id', 'not like',$linea->id)->sum('price');;
+        $importe=$linea;
     }
 }

@@ -97,6 +97,8 @@ Route::get('/admin/reservaShow/{id}','AdminController@reservaShow')->name('admin
 Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin.facturaShow');
 Route::get('/admin/reservaEdit/{id}','AdminController@reservaEdit')->name('admin.reservaEdit');
 
+//LINEAS
+Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
 
 //SOCIOS
 Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userIndex');

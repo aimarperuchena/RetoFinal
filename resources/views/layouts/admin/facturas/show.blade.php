@@ -29,8 +29,10 @@
        <td>{{$linea->producto_sociedad_id}}</td>
        <td>{{$linea->producto->producto->nombre}}</td>
        <td>{{$linea->producto->producto->descripcion}}</td>
-
         <td>{{$linea->unidades}}</td>
+
+        <td><a href="/admin/deleteLinea/{{$linea->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
+
     </tr>
     @endforeach
    

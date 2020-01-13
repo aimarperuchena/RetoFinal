@@ -18,6 +18,7 @@ class CreateLineas extends Migration
             $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('producto_sociedad_id'); 
             $table->unsignedBigInteger('factura_id'); 
+            $table->double('importe');
             $table->integer('unidades');
 
             $table->timestamps();
