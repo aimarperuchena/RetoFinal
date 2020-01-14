@@ -9,7 +9,7 @@
       @foreach($facturas as $factura)
       <li class="list-group-item d-flex justify-content-between align-items-center">
           Factura: {{$factura -> id}}
-          <a class="badge badge-info badge-pill text-white ml-2" href="{{ route('linea.show',$reserva) }}"><i class="fas fa-eye"></i></a>
+          <a class="badge badge-info badge-pill text-white ml-2" href="{{ route('linea.show',$factura->id) }}"><i class="fas fa-eye"></i></a>
         </li>
       @endforeach
     @else

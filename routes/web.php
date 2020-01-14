@@ -66,7 +66,7 @@ Route::get('/lineas/{id}','LineaController@index')->name('linea.show');
 
 // Facturas
 Route::get('/crear_factura','FacturaController@create')->name('factura.create');
-Route::get('/crear_factura/store/{id}','FacturaController@store')->name('factura.store');
+Route::post('/factura_store/{id}','FacturaController@store')->name('factura.store');
 
 
 //----------------------------------------ADMIN----------------------------

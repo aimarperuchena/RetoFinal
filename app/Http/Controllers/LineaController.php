@@ -18,13 +18,13 @@ class LineaController extends Controller
   {
    $this->middleware('role:3');
   }
-  public function index($reserva_id){
+  public function index($factura_id){
     $user = Auth::user();
-    $denegado = Reserva::where('id',$reserva_id)->where('usuario_id',$user->id)->get();
-    $facturas = Factura::where('reserva_id',$reserva_id)->first();
-    $sociedad = Sociedad::find($facturas->sociedad_id);
+    $factura = Factura::find($factura_id);
+    $denegado = Reserva::where('id',$factura->reserva_id)->where('usuario_id',$user->id)->get();
+    $sociedad = Sociedad::find($factura->sociedad_id);
     if (count($denegado) === 1) {
-      return view('layouts.user.Lineas.show')-> with('facturas' , $facturas)-> with('sociedad' , $sociedad)-> with('user' , $user);
+      return view('layouts.user.Lineas.show')-> with('factura' , $factura)-> with('sociedad' , $sociedad)-> with('user' , $user);
     }else {
       return redirect('/denegado');
     }
