@@ -130,10 +130,22 @@ class AdminController extends Controller
 
     public function productDestroy($id)
     {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $producto = ProductoSociedad::find($id);
-        $producto->delete();
+        $lineas=Linea::where('producto_sociedad_id',$producto->id)->count();
+        if($lineas==0){ 
+            $producto->delete();
+            return view('layouts.admin.productos.index')->with('sociedad', $sociedad);
 
-        return redirect('/admin');
+        }else{
+            $error="El articulo ".$producto->producto->nombre." tiene lineas";
+            return view('layouts.admin.productos.index')->with('sociedad', $sociedad)->with('error',$error);
+
+        }
+       
+
+      
     }
 
     public function incidenciaIndex()
@@ -261,9 +273,26 @@ class AdminController extends Controller
 
     public function mesaDestroy($id)
     {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $mesa = Mesa::find($id);
-        $mesa->delete();
-        return redirect('/admin');
+        if($mesa->sociedad_id==$sociedad->id){
+            $mesa_reserva=MesaReserva::where('mesa_id',$mesa->id)->count();
+            if($mesa_reserva==0){
+                $mesa->delete();
+                return view('layouts.admin.mesas.index')->with('sociedad', $sociedad);
+    
+            }else{
+            $error="La mesa ".$mesa->nombre." existe en reservas";
+            return view('layouts.admin.mesas.index')->with('sociedad', $sociedad)->with('error',$error);
+
+            }
+        }else{
+            return redirect('/denegado');
+        }
+
+        
+     
     }
 
 

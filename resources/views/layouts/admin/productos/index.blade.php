@@ -6,6 +6,17 @@
 <div class="row">
   <div class="col-xl-8 col-lg-7">
   <h3>Productos</h3>
+  @if(isset($error))
+ 
+        <div class="alert alert-danger">
+            <ul>
+                
+                <li>{{ $error }}</li>
+                
+            </ul>
+        </div>
+       
+  @endif
   <a href="/admin/productCreate/">Añadir Producto</a>
   <table class="table table-striped">
     <tr>
@@ -23,7 +34,7 @@
       <td>{{$producto->precio}}</td>
       <td>{{$producto->stock}}</td>
       
-      <td>{{Linea::where('producto_sociedad_id',$this->id)->count()}}</td>
+      
       <td><a href="/admin/productEdit/{{$producto->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
       <td><a href="/admin/productDestroy/{{$producto->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
     </tr>
