@@ -20,6 +20,7 @@ class CreateFactura extends Migration
             $table->date('fecha');
             $table->integer('personas');
             $table->double('importe');
+            $table->softDeletes();
             $table->timestamps();
             $table->foreign('reserva_id')->references('id')->on('reserva');
             $table->foreign('sociedad_id')->references('id')->on('sociedad');

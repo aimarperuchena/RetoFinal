@@ -19,6 +19,8 @@ class CreateProductosSociedad extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->double('precio');
             $table->integer('stock');
+            $table->softDeletes();
+
             $table->timestamps();
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');

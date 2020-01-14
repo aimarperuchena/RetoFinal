@@ -17,6 +17,7 @@ class CreateMesaReserva extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('reserva_id'); 
             $table->unsignedBigInteger('mesa_id'); 
+            $table->softDeletes();
 
             $table->timestamps();
             $table->foreign('reserva_id')->references('id')->on('reserva');

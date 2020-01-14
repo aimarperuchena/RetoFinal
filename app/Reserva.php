@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reserva extends Model
 {
+  use SoftDeletes;
+
   protected $table="reserva";
   protected $fillable=["sociedad_id","usuario_id","tipo_id","fecha","personas"];
 

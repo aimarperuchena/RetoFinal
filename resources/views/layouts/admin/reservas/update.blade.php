@@ -8,8 +8,8 @@
     <div class="col-xl-8 col-lg-7">
         <h3>Editar Reserva</h3>
 
-        <form action="" method="post">
-
+        <form action="{{route('admin.reservaUpdate')}}" method="post">
+        {{ csrf_field() }}
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Socio:</label>
@@ -55,7 +55,7 @@
                 </div>
                 <input type="number" class="form-control border" placeholder="Personas" aria-label="Fecha"  name="personas" value="{{$reserva->personas}}" aria-describedby="basic-addon1">
             </div>
-            
+            <input type="hidden" name="id" value="{{$reserva->id}}">
             
             <input class="btn btn-primary" type="submit" value="Actualizar">
         </form>
