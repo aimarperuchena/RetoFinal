@@ -5,7 +5,7 @@
 <div class="container text-center">
   <h1>Todas sus Facturas de la reserva ({{$reserva}})</h1>
   <ul class="list-group">
-    @if ($facturas)
+    @if (count($facturas) > 0)
       @foreach($facturas as $factura)
       <li class="list-group-item d-flex justify-content-between align-items-center">
           Factura: {{$factura -> id}}
@@ -13,8 +13,8 @@
         </li>
       @endforeach
     @else
-      <h1>Crear Factura para la reserva con id {{$reserva}}</h1>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">Crear</button>
+      <h3 class="m-5">Crear Factura</h3>
+      <a class="btn btn-primary btn-lg mb-5" href="{{ route('factura.create') }}" role="button">Crear</a>
     @endif
   </ul>
 </div>

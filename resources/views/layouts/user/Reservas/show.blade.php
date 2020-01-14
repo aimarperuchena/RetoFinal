@@ -8,7 +8,7 @@
     @if(count($reservas) > 0)
       @foreach($reservas as $reserva)
       <li class="list-group-item d-flex justify-content-between align-items-center">
-          Reserva: {{$reserva -> id}}
+          Reserva: {{$reserva -> id}} // Fecha: {{$reserva->fecha}} // Tipo: {{$reserva->tipo->nombre}} // Sociedad: {{$reserva->sociedad->nombre}}
           <a class="badge badge-info badge-pill text-white ml-2" href="{{ route('reserva.show',$reserva->id) }}"><i class="fas fa-eye"></i></a>
         </li>
       @endforeach

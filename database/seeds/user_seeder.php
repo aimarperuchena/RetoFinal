@@ -120,5 +120,13 @@ class user_seeder extends Seeder
             'password' => bcrypt('ikeriker'),
             'role_id' => '3'
         ]);
+        DB::table('users')->insert([
+            'nombre' => 'Firulais',
+            'apellido' => 'Rigoverto',
+            'telefono' => 12345678,
+            'email' => 'firulais@gmail.com',
+            'password' => bcrypt('123456789'),
+            'role_id' => '3'
+        ]);
     }
 }
