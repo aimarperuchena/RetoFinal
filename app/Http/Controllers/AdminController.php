@@ -130,10 +130,22 @@ class AdminController extends Controller
 
     public function productDestroy($id)
     {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $producto = ProductoSociedad::find($id);
-        $producto->delete();
+        $lineas=Linea::where('producto_sociedad_id',$producto->id)->count();
+        if($lineas==0){ 
+            $producto->delete();
+            return view('layouts.admin.productos.index')->with('sociedad', $sociedad);
 
-        return redirect('/admin');
+        }else{
+            $error="El articulo ".$producto->producto->nombre." tiene lineas";
+            return view('layouts.admin.productos.index')->with('sociedad', $sociedad)->with('error',$error);
+
+        }
+       
+
+      
     }
 
     public function incidenciaIndex()
