@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PeticionSociedad extends Model
 {
+    use SoftDeletes;
+
     protected $table="peticion_sociedad";
     protected $fillable=["sociedad_id","usuario_id","estado","created_at"];
 

@@ -20,6 +20,7 @@ class CreateLineas extends Migration
             $table->unsignedBigInteger('factura_id'); 
             $table->double('importe');
             $table->integer('unidades');
+            $table->softDeletes();
 
             $table->timestamps();
             $table->foreign('sociedad_id')->references('id')->on('sociedad');

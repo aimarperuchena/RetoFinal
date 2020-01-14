@@ -18,6 +18,7 @@ class CreateTables extends Migration
             $table->unsignedBigInteger('sociedad_id');
             $table->string('nombre');            
             $table->integer('capacidad');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');

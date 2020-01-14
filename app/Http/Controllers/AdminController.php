@@ -251,7 +251,23 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.reservas.index')->with('sociedad', $sociedad);
+        $reservas=Reserva::where('fecha', '>=', date('Y-m-d'))->where('sociedad_id',$sociedad->id)->get();
+       $tipo=1;
+        return view('layouts.admin.reservas.index')->with('sociedad', $sociedad)->with('reservas',$reservas)->with('tipo',$tipo);
+    }
+
+    public function reservaIndexFiltro(Request $request){
+        $reservas=null;
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        if($request->tipo==1){
+            $reservas=Reserva::where('fecha', '>=', date('Y-m-d'))->where('sociedad_id',$sociedad->id)->get();
+        }else{
+            $reservas=Reserva::where('fecha', '<', date('Y-m-d'))->where('sociedad_id',$sociedad->id)->get();
+        }
+        $tipo=$request->tipo;
+        return view('layouts.admin.reservas.index')->with('sociedad', $sociedad)->with('reservas',$reservas)->with('tipo',$tipo);
+
     }
     public function reservaShow($id)
     {
@@ -268,6 +284,17 @@ class AdminController extends Controller
         $tipo = TipoReserva::all();
 
         return view('layouts.admin.reservas.update')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('tipo',$tipo);
+    }
+
+    public function reservaUpdate(Request $request){
+        $reserva=Reserva::find($request->id);
+        $reserva->usuario_id=$request->usuario;
+        $reserva->tipo_id=$request->tipo;
+        $reserva->fecha=$request->fecha;
+        $reserva->personas=$request->personas;
+
+        $reserva->save();
+        return redirect('/admin/reservaIndex');
     }
     function facturaShow($id)
     {

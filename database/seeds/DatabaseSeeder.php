@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(factura_seeder::class);
         $this->call(linea_seeder::class);
         $this->call(peticiones_sociedad_seeder::class);
-        
+        $this->call(PeticionNuevaSociedadSeeder::class);
+
     }
 }

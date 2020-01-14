@@ -19,6 +19,7 @@ class CreateIncidents extends Migration
             $table->longText('descripcion');
             $table->string('estado');
             $table->date('fecha');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('sociedad_id')->references('id')->on('sociedad');

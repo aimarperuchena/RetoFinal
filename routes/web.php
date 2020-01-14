@@ -48,6 +48,7 @@ Route::get('locale/{locale}', function ($locale){
 // InfoSociedad
 Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.suscripciones');
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
+Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
 Route::get('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
 
@@ -102,7 +103,8 @@ Route::get('/admin/reservaIndex','AdminController@reservaIndex')->name('admin.re
 Route::get('/admin/reservaShow/{id}','AdminController@reservaShow')->name('admin.reservaShow');
 Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin.facturaShow');
 Route::get('/admin/reservaEdit/{id}','AdminController@reservaEdit')->name('admin.reservaEdit');
-
+Route::post('/admin/reservaUpdate','AdminController@reservaUpdate')->name('admin.reservaUpdate');
+Route::post('/admin/reservaIndexFiltro','AdminController@reservaIndexFiltro')->name('admin.reservaIndexFiltro');
 //LINEAS
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
 

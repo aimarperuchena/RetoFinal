@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Linea extends Model
 {
+    use SoftDeletes;
+
     protected $table="linea";
     protected $fillable=["producto_sociedad_id","factura_id","unidades"];
 
