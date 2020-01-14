@@ -10,6 +10,17 @@
                     <div class="row">
                     <div class="col-xl-8 col-lg-7">
                     <h3>Mesas</h3>
+                    @if(isset($error))
+ 
+        <div class="alert alert-danger">
+            <ul>
+                
+                <li>{{ $error }}</li>
+                
+            </ul>
+        </div>
+       
+  @endif
 <a href="/admin/mesaCreate">Crear Mesas</a>
 <table class="table table-striped">
     <tr>
