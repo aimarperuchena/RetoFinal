@@ -3,9 +3,9 @@
 
 <br><br><br><br>
 <div class="container text-center">
-  <h1>Todas sus Reservas</h1>
+  <h1 class="mb-5">Todas sus Reservas</h1>
   <ul class="list-group">
-    @if($reservas)
+    @if(count($reservas) > 0)
       @foreach($reservas as $reserva)
       <li class="list-group-item d-flex justify-content-between align-items-center">
           Reserva: {{$reserva -> id}}
@@ -14,8 +14,8 @@
       @endforeach
     @else
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        Crear Reserva 
-      <a class="btn btn-primary btn-lg mb-5" href="{{ route('sociedad.reserva',$sociedad -> id) }}" role="button">Listado Sociedades</a>
+        No tienes ninguna reserva
+      <a class="btn btn-primary btn-lg" href="{{ route('usuario.listado') }}" role="button">Listado Sociedades</a>
       </li>
     @endif
   </ul>
