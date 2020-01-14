@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Producto;
 use App\Sociedad;
 use App\UsuarioSociedad;
+use App\PeticionSociedad;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -102,6 +103,14 @@ class WebMasterController extends Controller
 
 }
 
+public function sociPeticion()
+{
+    $soci = PeticionSociedad::all();
+
+    return view('layouts.webmaster.sociedades.peticion')->with('soci',$soci);
+
+}
+
 public function sociTrashed()
     {
         $soci = User::onlyTrashed()->get();
@@ -136,6 +145,31 @@ public function socioIndex()
 
 }
 
+public function socioTrashed()
+    {
+        $socios = User::onlyTrashed()->get();
+
+        return view('layouts.webmaster.socios.trashed')->with('socios',$socios);
+
+    }
+
+    public function socioRestore($id)
+    {
+        User::withTrashed()->find($id)->restore();
+
+
+        return redirect('/webmaster/socioTrashed');
+
+    }
+
+    public function socioDestroy($id)
+{
+    $socios = User::find($id);
+    $socios->delete();
+
+    return redirect('/webmaster/socioIndex');
+
+}
 
 }
 

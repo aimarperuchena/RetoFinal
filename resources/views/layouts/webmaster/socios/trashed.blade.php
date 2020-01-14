@@ -25,7 +25,7 @@
                     <td>{!! $socio->apellido !!}</td>
                     <td>{!! $socio->telefono !!}</td>
                     <td>{!! $socio->email !!}</td>
-                    <td><a href="/webmaster/socioDestroy/{{$socio->id}}"><i class="fa fa-toggle-off" style="color:black"></i></a></td>
+                    <td><a href="/webmaster/socioRestore/{{$socio->id}}"><i class="fa fa-toggle-on" style="color:black"></i></a></td>
 
                 </tr>
             @endforeach

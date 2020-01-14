@@ -9,8 +9,15 @@
     {{ csrf_field() }}
     <span>Tipo</span>
     <select name="tipo">
+    @if($tipo==1)
     <option value="1">Futuro</option>
     <option value="2">Historico</option>
+    @endif
+    @if($tipo==2)
+    <option value="2">Historico</option>
+    <option value="1">Futuro</option>
+   
+    @endif
     </select>
     <input type="submit" value="Enviar">
     </form>
@@ -34,7 +41,7 @@
       <td>{{$reserva->personas}}</td>
       <td><a href="/admin/reservaEdit/{{$reserva->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
       @if($tipo==1)
-      <td><i class="fa fa-trash-o" style="color:black"></td>
+      <td><a href="/admin/reservaDelete/{{$reserva->id}}"><i class="fa fa-trash-o" style="color:black"></a></td>
       @endif
       
       <td><a href="/admin/reservaShow/{{$reserva->id}}"><i class="fa fa-eye" style="color:black"></i></a></td>

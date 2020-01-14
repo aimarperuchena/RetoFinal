@@ -23,6 +23,7 @@ use App\Factura;
 use App\Linea;
 use App\PeticionSociedad;
 use App\TipoReserva;
+use App\MesaReserva;
 
 class AdminController extends Controller
 {
@@ -139,7 +140,26 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad);
+        $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado','pendiente')->get();
+        $tipo=1;
+        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias',$incidencias)->with('tipo',$tipo);
+    }
+    public function incidenciaIndexFiltro(Request $request)
+    {
+        if($request->tipo==1){
+            $user = Auth::user();
+            $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+            $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado','pendiente')->get();
+            $tipo=1;
+        }
+        if($request->tipo==2){
+            $user = Auth::user();
+            $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+            $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado','solucionado')->get();
+            $tipo=2;
+        }
+       
+        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias',$incidencias)->with('tipo',$tipo);
     }
 
     public function incidenciaCreate()
@@ -288,6 +308,7 @@ class AdminController extends Controller
 
     public function reservaUpdate(Request $request){
         $reserva=Reserva::find($request->id);
+        
         $reserva->usuario_id=$request->usuario;
         $reserva->tipo_id=$request->tipo;
         $reserva->fecha=$request->fecha;
@@ -295,6 +316,22 @@ class AdminController extends Controller
 
         $reserva->save();
         return redirect('/admin/reservaIndex');
+    }
+
+    public function reservaDelete($id){
+        $user = Auth::user();
+        $reserva=Reserva::find($id);
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        if($reserva->sociedad_id==$sociedad->id){
+            $mesaReserva=MesaReserva::where('reserva_id',$id);
+            $mesaReserva->delete();
+          
+            $reserva->delete();
+            return redirect('/admin');
+        }else{
+            return redirect('/denegado');
+        }
+       
     }
     function facturaShow($id)
     {

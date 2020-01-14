@@ -88,7 +88,7 @@ Route::post('/admin/storeIncidencia','AdminController@incidenciaStore')->name('a
 Route::get('/admin/incidenciaEdit/{id}','AdminController@incidenciaEdit')->name('admin.incidenciaEdit');
 Route::post('/admin/incidenciaUpdate','AdminController@incidenciaUpdate')->name('admin.incidenciaUpdate');
 Route::get('/admin/incidenciaDelete/{id}','AdminController@incidenciaDestroy')->name('admin.incidenciaDestroy');
-
+Route::post('/admin/incidenciaIndexFiltro','AdminController@incidenciaIndexFiltro')->name('admin.incidenciaIndexFiltro');
 
 //Mesas
 Route::get('/admin/mesaIndex','AdminController@mesaIndex')->name('admin.mesaIndex');
@@ -105,6 +105,8 @@ Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin
 Route::get('/admin/reservaEdit/{id}','AdminController@reservaEdit')->name('admin.reservaEdit');
 Route::post('/admin/reservaUpdate','AdminController@reservaUpdate')->name('admin.reservaUpdate');
 Route::post('/admin/reservaIndexFiltro','AdminController@reservaIndexFiltro')->name('admin.reservaIndexFiltro');
+Route::get('/admin/reservaDelete/{id}','AdminController@reservaDelete')->name('admin.reservaDelete');
+
 //LINEAS
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
 
@@ -124,6 +126,7 @@ Route::get('/webmaster/productDestroy/{id}','WebMasterController@productDestroy'
 
 //Sociedades Webmaster
 Route::get('/webmaster/sociIndex','WebMasterController@sociIndex')->name('webmaster.sociIndex');
+Route::get('/webmaster/sociPeticion','WebMasterController@sociPeticion')->name('webmaster.sociPeticion');
 Route::get('/webmaster/sociTrashed','WebMasterController@sociTrashed');
 Route::get('/webmaster/sociRestore/{id}','WebMasterController@sociRestore');
 Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
@@ -131,3 +134,6 @@ Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
 
 //Socios Webmaster
 Route::get('/webmaster/socioIndex','WebMasterController@socioIndex')->name('webmaster.socioIndex');
+Route::get('/webmaster/socioTrashed','WebMasterController@socioTrashed');
+Route::get('/webmaster/socioRestore/{id}','WebMasterController@socioRestore');
+Route::get('/webmaster/socioDestroy/{id}','WebMasterController@socioDestroy');
