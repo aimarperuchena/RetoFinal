@@ -24,10 +24,17 @@ class SociedadController extends Controller
   }
   public function reserva($id)
   {
+    $user = Auth::user();
+    $denegado = UsuarioSociedad::where('sociedad_id', $id)->where('user_id',$user->id)->get();
     $sociedad = Sociedad::find($id);
     $numMesa = Mesa::where('sociedad_id',$id)->get();
     $tipo = TipoReserva::all();
-    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo);
+    if (count($denegado)===1) {
+      return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo);
+    }else {
+      return redirect('/denegado');
+    }
+
   }
   public function peticion($id)
   {

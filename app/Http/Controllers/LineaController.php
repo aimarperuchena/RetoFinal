@@ -20,8 +20,13 @@ class LineaController extends Controller
   }
   public function index($reserva_id){
     $user = Auth::user();
+    $denegado = Reserva::where('id',$reserva_id)->where('usuario_id',$user->id)->get();
     $facturas = Factura::where('reserva_id',$reserva_id)->first();
     $sociedad = Sociedad::find($facturas->sociedad_id);
-    return view('layouts.user.Lineas.show')-> with('facturas' , $facturas)-> with('sociedad' , $sociedad)-> with('user' , $user);
+    if (count($denegado) === 1) {
+      return view('layouts.user.Lineas.show')-> with('facturas' , $facturas)-> with('sociedad' , $sociedad)-> with('user' , $user);
+    }else {
+      return redirect('/denegado');
+    }
   }
 }
