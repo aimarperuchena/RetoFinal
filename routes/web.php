@@ -126,6 +126,7 @@ Route::get('/webmaster/productDestroy/{id}','WebMasterController@productDestroy'
 
 //Sociedades Webmaster
 Route::get('/webmaster/sociIndex','WebMasterController@sociIndex')->name('webmaster.sociIndex');
+Route::get('/webmaster/sociPeticion','WebMasterController@sociPeticion')->name('webmaster.sociPeticion');
 Route::get('/webmaster/sociTrashed','WebMasterController@sociTrashed');
 Route::get('/webmaster/sociRestore/{id}','WebMasterController@sociRestore');
 Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
@@ -133,3 +134,6 @@ Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
 
 //Socios Webmaster
 Route::get('/webmaster/socioIndex','WebMasterController@socioIndex')->name('webmaster.socioIndex');
+Route::get('/webmaster/socioTrashed','WebMasterController@socioTrashed');
+Route::get('/webmaster/socioRestore/{id}','WebMasterController@socioRestore');
+Route::get('/webmaster/socioDestroy/{id}','WebMasterController@socioDestroy');

@@ -105,8 +105,8 @@ class user_seeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'nombre' => 'Javier',
-            'apellido' => 'Tomas',
+            'nombre' => 'Tomas',
+            'apellido' => 'Turvado',
             'telefono' => 12345678,
             'email' => 'JavierTomas@gmail.com',
             'password' => bcrypt('javierjavier'),

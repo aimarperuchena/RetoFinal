@@ -25,6 +25,10 @@
             <span data-feather="file"></span> Lista Sociedades
             </a>
 
+            <a class="nav-link " href="/webmaster/sociPeticion">
+                <span data-feather="file"></span> Solicitudes de Sociedades
+            </a>
+
             <a class="nav-link " href="/webmaster/sociTrashed">
             <span data-feather="file"></span>Sociedades en suspenso
             </a>
@@ -57,13 +61,14 @@
             <span data-feather="file"></span> Listar Productos
             </a>
 
-            <a class="nav-link " href="/webmaster/productoTrashed">
-            <span data-feather="file"></span> Productos en suspenso
-            </a>
-
             <a class="nav-link " href="/webmaster/productCreate">
             <span data-feather="file"></span> Añadir Productos
             </a>
+
+            <a class="nav-link " href="/webmaster/productoTrashed">
+                <span data-feather="file"></span> Productos en suspenso
+            </a>
+
             </div>
             </div>
             </li>
