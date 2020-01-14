@@ -40,8 +40,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function nueva(){
+        return $this->hasOne(PeticionNuevaSociedad::class, 'user_id');
+    }
+
     public function sociedades(){
-        return $this->belongsToMany('App\Sociedad');
+        return $this->hasOne(Sociedad::class, 'administrador_id');
     }
     public function role(){
         return $this->belongsTo('App\Role');

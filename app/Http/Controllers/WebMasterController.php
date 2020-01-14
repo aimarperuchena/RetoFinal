@@ -174,7 +174,7 @@ public function sociTrashed()
 
 public function socioIndex()
 {
-    $socios = User::where('role_id','3')->get();
+    $socios = UsuarioSociedad::all();
     return view('layouts.webmaster.socios.index')->with('socios',$socios);
 
 

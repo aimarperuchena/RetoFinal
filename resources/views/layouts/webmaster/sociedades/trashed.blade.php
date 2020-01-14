@@ -8,11 +8,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>ID Usuario</th>
                 <th>Nombre</th>
                 <th>Ubicacion</th>
                 <th>Telefono</th>
-                <th>ID Administrador</th>
+                <th>Email</th>
                 <th>Habilitar</th>
             </tr>
         </thead>
@@ -20,10 +20,10 @@
             @foreach($soci as $sociedad)
                 <tr>
                     <td>{!! $sociedad->id !!}</td>
-                    <td>{!! $sociedad->nombre !!}</td>
-                    <td>{!! $sociedad->ubicacion !!}</td>
+                    <td>{!! $sociedad->sociedades->nombre !!}</td>
+                    <td>{!! $sociedad->sociedades->ubicacion !!}</td>
                     <td>{!! $sociedad->telefono !!}</td>
-                    <td>{!! $sociedad->administrador_id !!}</td>
+                    <td>{!! $sociedad->email !!}</td>
                     <td><a href="/webmaster/sociRestore/{{$sociedad->id}}"><i class="fa fa-toggle-on" style="color:black"></i></a></td>
                 </tr>
             @endforeach
