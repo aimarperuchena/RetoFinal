@@ -20,6 +20,8 @@ class CreateReservas extends Migration
             $table->unsignedBigInteger('tipo_id');
             $table->date('fecha');
             $table->integer('personas');
+            $table->softDeletes();
+
             $table->timestamps();
 
             $table->foreign('tipo_id')->references('id')->on('tipo_reserva');

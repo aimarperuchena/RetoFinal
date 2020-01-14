@@ -15,20 +15,20 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Nombre: </span>
                 </div>
-                <input type="text" required class="form-control border" placeholder="Nombre" id="nombre" aria-label="Nombre" name="nombre" aria-describedby="basic-addon1">
+                <input type="text" value="{{$sociedad->nombre}}" required class="form-control border" placeholder="Nombre" id="nombre" aria-label="Nombre" name="nombre" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Ubicación: </span>
                 </div>
-                <input type="text" required class="form-control border" placeholder="Ubicación" id="ubicacion" aria-label="Ubicacion" name="ubicacion" aria-describedby="basic-addon1">
+                <input type="text" value="{{$sociedad->ubicacion}}" required class="form-control border" placeholder="Ubicación" id="ubicacion" aria-label="Ubicacion" name="ubicacion" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Teléfono: </span>
                 </div>
-                <input type="number" required class="form-control border" placeholder="Teléfono" id="telefono" aria-label="telefono" name="Teléfono" aria-describedby="basic-addon1">
+                <input type="number" value="{{$sociedad->telefono}}" required class="form-control border" placeholder="Teléfono" id="telefono" aria-label="telefono" name="Teléfono" aria-describedby="basic-addon1">
             </div>
             <input class="btn btn-primary" type="submit" id="update_sociedad" value="Crear">
         </form>
