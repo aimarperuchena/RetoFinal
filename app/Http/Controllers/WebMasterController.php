@@ -8,7 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Producto;
 use App\Sociedad;
 use App\UsuarioSociedad;
-use App\PeticionSociedad;
+use App\PeticionNuevaSociedad;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -105,11 +105,46 @@ class WebMasterController extends Controller
 
 public function sociPeticion()
 {
-    $soci = PeticionSociedad::all();
+    $soci = PeticionNuevaSociedad::all();
 
     return view('layouts.webmaster.sociedades.peticion')->with('soci',$soci);
 
 }
+
+public function peticionAceptar($id)
+    {
+
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->estado = "aceptado";
+        $soci->save();
+
+        $sociedad_user = new Sociedad();
+        $sociedad_user->nombre = $soci->nombre;
+        $sociedad_user->ubicacion = $soci->ubicacion;
+        $sociedad_user->telefono = $soci->telefono;
+        $sociedad_user->descripcion = $soci->descripcion;
+        $sociedad_user->link_plano = $soci->link_plano;
+        $sociedad_user->administrador_id = $soci->user_id;
+        $sociedad_user->save();
+
+        $id_usuario=$soci->user_id;
+
+        $soci = User::find($id_usuario);
+        $soci->role_id = 2;
+        $soci->save();
+
+        return redirect('/webmaster/sociPeticion');
+    }
+
+    public function peticionDenegar($id)
+    {
+
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->estado = "denegado";
+        $soci->save();
+
+        return redirect('/webmaster/sociPeticion');
+    }
 
 public function sociTrashed()
     {
@@ -172,4 +207,3 @@ public function socioTrashed()
 }
 
 }
-
