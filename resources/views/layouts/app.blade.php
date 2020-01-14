@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
     <link href="{{url('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('assets/css/blog-post.css')}}" rel="stylesheet">
+    <link rel="icon" type="img/png" href="{{url('assets\img\logo_alpha.png')}}">
 </head>
 <body id="page-top">
   @include('layouts.header')
