@@ -105,6 +105,8 @@ Route::get('/admin/facturaShow/{id}','AdminController@facturaShow')->name('admin
 Route::get('/admin/reservaEdit/{id}','AdminController@reservaEdit')->name('admin.reservaEdit');
 Route::post('/admin/reservaUpdate','AdminController@reservaUpdate')->name('admin.reservaUpdate');
 Route::post('/admin/reservaIndexFiltro','AdminController@reservaIndexFiltro')->name('admin.reservaIndexFiltro');
+Route::get('/admin/reservaDelete/{id}','AdminController@reservaDelete')->name('admin.reservaDelete');
+
 //LINEAS
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
 

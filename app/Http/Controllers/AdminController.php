@@ -23,6 +23,7 @@ use App\Factura;
 use App\Linea;
 use App\PeticionSociedad;
 use App\TipoReserva;
+use App\MesaReserva;
 
 class AdminController extends Controller
 {
@@ -288,6 +289,7 @@ class AdminController extends Controller
 
     public function reservaUpdate(Request $request){
         $reserva=Reserva::find($request->id);
+        
         $reserva->usuario_id=$request->usuario;
         $reserva->tipo_id=$request->tipo;
         $reserva->fecha=$request->fecha;
@@ -295,6 +297,22 @@ class AdminController extends Controller
 
         $reserva->save();
         return redirect('/admin/reservaIndex');
+    }
+
+    public function reservaDelete($id){
+        $user = Auth::user();
+        $reserva=Reserva::find($id);
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        if($reserva->sociedad_id==$sociedad->id){
+            $mesaReserva=MesaReserva::where('reserva_id',$id);
+            $mesaReserva->delete();
+          
+            $reserva->delete();
+            return redirect('/admin');
+        }else{
+            return redirect('/denegado');
+        }
+       
     }
     function facturaShow($id)
     {
