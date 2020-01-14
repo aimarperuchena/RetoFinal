@@ -26,17 +26,17 @@
      <form class="mt-5 mr-5" action="{{ route('sociedad.crear',$sociedad -> id) }}">
        <div class="d-flex form-group justify-content-between">
          <label for="exampleInputEmail1" class="ml-3 justify-content-start">Nº Personas</label>
-         <input type="number" name="personas" style="width: 250px;" class="form-control ">
+         <input type="number" name="personas" style="width: 250px;" class="form-control" value="{{$personaEditar ?? ''}}">
        </div>
        <small class="form-text text-muted mb-3">Por favor no introduzca de más o de menos.</small>
        <div class="d-flex pr-3 form-group justify-content-between">
          <label for="exampleInputPassword1" class="ml-3 justify-content-start">Fecha:</label>
-         <input type="date" name="fecha" class="mr-3 justify-content-end">
+         <input type="date" name="fecha" class="mr-3 justify-content-end" value="{{$fechaEditar ?? ''}}">
        </div>
        <div class="d-flex pr-3 form-group justify-content-between">
          <label for="exampleInputPassword1" class="ml-3 justify-content-start">Tipo de comida:</label>
          <select style="width: 250px;" class="form-control"name="tipo">
-           <option value=".." selected>Elige..</option>
+           <option value="{{$tipoEditar->id ?? '...'}}" selected>{{$tipoEditar->nombre ?? 'Elige...'}}</option>
            @if($tipo)
              @foreach($tipo as $comida)
                <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>

@@ -7,6 +7,10 @@ use Auth;
 use App\Factura;
 use App\User;
 use App\Reserva;
+use App\MesaReserva;
+use App\Sociedad;
+use App\TipoReserva;
+use App\Mesa;
 
 class ReservaController extends Controller
 {
@@ -28,5 +32,15 @@ class ReservaController extends Controller
     }else {
       return redirect('/denegado');
     }
+  }
+  public function edit($reserva_id){
+    $user = Auth::user();
+    $reserva = Reserva::find($reserva_id);
+    $sociedad = Sociedad::find($reserva->sociedad_id);//mejor usar modal relacion
+    $tipoEditar = TipoReserva::find($reserva->tipo_id);//mejor usar modal relacion
+    $tipo = TipoReserva::all();
+    $mesaReserva = MesaReserva::where('reserva_id',$reserva_id)->first();
+    $mesa = Mesa::find($mesaReserva->mesa_id);
+    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesa', $mesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo)-> with('personaEditar', $reserva->personas)-> with('fechaEditar', $reserva->fecha)-> with('tipoEditar', $tipoEditar);
   }
 }

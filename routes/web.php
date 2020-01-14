@@ -60,6 +60,7 @@ Route::post('/perfil/update','ProfileController@update')->name('profile.update')
 //Reserva
 Route::get('/reservas','ReservaController@index')->name('reserva.index');
 Route::get('/reservas/{id}','ReservaController@show')->name('reserva.show');
+Route::get('/reservas/editar/{id}','ReservaController@edit')->name('reserva.edit');
 
 //Lineas
 Route::get('/lineas/{id}','LineaController@index')->name('linea.show');
