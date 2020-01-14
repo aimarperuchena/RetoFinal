@@ -8,6 +8,22 @@
                     <div class="col-xl-8 col-lg-7">
                     <h3>Incidencias</h3>
               <a href="/admin/createIncidencia">Crear Incidencia</a>
+              <form action="{{route('admin.incidenciaIndexFiltro')}}" method="post">
+    {{ csrf_field() }}
+    <span>Tipo</span>
+    <select name="tipo">
+    @if($tipo==1)
+    <option value="1">Pendiente</option>
+    <option value="2">Solucinado</option>
+    @endif
+    @if($tipo==2)
+    <option value="2">Solucinado</option>
+    <option value="1">Pendiente</option>
+   
+    @endif
+    </select>
+    <input type="submit" value="Enviar">
+    </form>
               <table class="table table-striped">
                 <tr>
                   <th>Id</th>
@@ -18,7 +34,7 @@
                   <th>Eliminar</th>
 
                 </tr>
-                @foreach($sociedad->incidencias as $incidencia)
+                @foreach($incidencias as $incidencia)
                 <tr>
                   <td>{{$incidencia->id}}</td>
                   <td>{{$incidencia->descripcion}}</td>

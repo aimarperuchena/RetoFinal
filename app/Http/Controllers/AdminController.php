@@ -140,7 +140,26 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad);
+        $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado','pendiente')->get();
+        $tipo=1;
+        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias',$incidencias)->with('tipo',$tipo);
+    }
+    public function incidenciaIndexFiltro(Request $request)
+    {
+        if($request->tipo==1){
+            $user = Auth::user();
+            $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+            $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado','pendiente')->get();
+            $tipo=1;
+        }
+        if($request->tipo==2){
+            $user = Auth::user();
+            $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+            $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado','solucionado')->get();
+            $tipo=2;
+        }
+       
+        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias',$incidencias)->with('tipo',$tipo);
     }
 
     public function incidenciaCreate()

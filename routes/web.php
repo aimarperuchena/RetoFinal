@@ -88,7 +88,7 @@ Route::post('/admin/storeIncidencia','AdminController@incidenciaStore')->name('a
 Route::get('/admin/incidenciaEdit/{id}','AdminController@incidenciaEdit')->name('admin.incidenciaEdit');
 Route::post('/admin/incidenciaUpdate','AdminController@incidenciaUpdate')->name('admin.incidenciaUpdate');
 Route::get('/admin/incidenciaDelete/{id}','AdminController@incidenciaDestroy')->name('admin.incidenciaDestroy');
-
+Route::post('/admin/incidenciaIndexFiltro','AdminController@incidenciaIndexFiltro')->name('admin.incidenciaIndexFiltro');
 
 //Mesas
 Route::get('/admin/mesaIndex','AdminController@mesaIndex')->name('admin.mesaIndex');
