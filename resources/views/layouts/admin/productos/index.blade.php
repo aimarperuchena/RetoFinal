@@ -22,6 +22,8 @@
       <td>{{$producto->producto->nombre}}</td>
       <td>{{$producto->precio}}</td>
       <td>{{$producto->stock}}</td>
+      
+      <td>{{Linea::where('producto_sociedad_id',$this->id)->count()}}</td>
       <td><a href="/admin/productEdit/{{$producto->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
       <td><a href="/admin/productDestroy/{{$producto->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
     </tr>

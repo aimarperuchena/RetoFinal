@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Linea;
 class ProductoSociedad extends Model
 {
   use SoftDeletes;
@@ -22,6 +22,11 @@ class ProductoSociedad extends Model
   }
   public function sociedad(){
     return $this->belongsTo(Scoiedad::class);
+  }
+
+  public function hasLineas(){
+    $lineas=Linea::where('producto_sociedad_id',$this->id)->count();
+    return $lineas;
   }
 
  

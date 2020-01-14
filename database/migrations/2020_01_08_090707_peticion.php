@@ -17,6 +17,7 @@ class Peticion extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('usuario_id'); 
+            $table->softDeletes();
             $table->string('estado'); 
            
 
