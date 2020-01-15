@@ -16,7 +16,9 @@
                                 <th>Eliminar</th>
                             </tr>
 
-                            @foreach($sociedad->usuarios as $socio)
+                            @foreach($socios as $socio)
+                            @foreach($sociedadUsuario as $usuario)
+                            @if($socio->id==$usuario->user_id)
                             <tr>
                                 <td>
                                     {{$socio->id}}
@@ -27,6 +29,8 @@
                                 <td><a href="/admin/userDelete/{{$socio->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
                             </tr>
+                            @endif
+                            @endforeach
                             @endforeach
 
 

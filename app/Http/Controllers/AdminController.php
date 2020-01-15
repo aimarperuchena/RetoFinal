@@ -39,15 +39,7 @@ class AdminController extends Controller
         return view('layouts.admin.inicio')->with('sociedad', $sociedad);
     }
 
-    public function userDelete($id){
-        $user = Auth::user();
-        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        $userDelete=UsuarioSociedad::where('sociedad_id',$sociedad->id)->where('user_id',$id)->get();
-       
-        $userDelete->delete();
-        return redirect('/admin/userIndex');
-        
-    }
+    
 
     public function sociedadEdit()
     {
@@ -77,7 +69,19 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        return view('layouts.admin.usuarios.index')->with('sociedad', $sociedad);
+        $sociedadUsuario=UsuarioSociedad::where('sociedad_id',1)->where('deleted_at',null)->get();
+        $socios=$sociedad->usuarios;
+        return view('layouts.admin.usuarios.index')->with('sociedad', $sociedad)->with('socios',$socios)->with('sociedadUsuario',$sociedadUsuario);
+    }
+
+    public function userDelete($id){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $userDelete=UsuarioSociedad::where('sociedad_id',$sociedad->id)->where('user_id',$id)->first();
+       
+        $userDelete->delete();
+        return redirect('/admin/userIndex');
+        
     }
 
     public function productoIndex()
@@ -86,6 +90,8 @@ class AdminController extends Controller
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         return view('layouts.admin.productos.index')->with('sociedad', $sociedad);
     }
+
+    
     public function productCreate()
     {
         $user = Auth::user();
