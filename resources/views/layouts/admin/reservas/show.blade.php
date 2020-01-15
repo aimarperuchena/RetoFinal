@@ -27,7 +27,7 @@
             @endforeach
         </table>
         <hr>
-      
+      @if(!is_null($factura))
         <h3>Factura</h3>
        
         <table class="table table-striped">
@@ -49,9 +49,9 @@
           <br>
 
         </table>
-        
+        @endif
     </div>
-   
+    @if(!is_null($factura))
     <div class="col-xl-4 col-lg-7">
         <h3>Lineas Factura</h3>
     <table class="table table-striped">
@@ -79,5 +79,6 @@
 </table>
 <a  class="btn btn-primary"  href="/admin/lineaAdd/{{$factura->id}}">Añadir Linea </a>
     </div>
+    @endif
 </div>
 @endsection

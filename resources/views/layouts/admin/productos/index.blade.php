@@ -13,6 +13,10 @@ $(document).ready(function(){
     });
   });
 });
+$(document).ready(function () {
+  $('#dtBasicExample').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+});
 </script>
 <div class="row">
   <div class="col-xl-8 col-lg-7">
@@ -33,7 +37,7 @@ $(document).ready(function(){
   <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
 
   <br>
-  <table class="table table-striped" id="myList">
+  <table class="table table-striped" id="dtBasicExample" cellspacing="0" width="100%" id="myList">
     <tr>
       <th>Id</th>
       <th>Nombre</th>
