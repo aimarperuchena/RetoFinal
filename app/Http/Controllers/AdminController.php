@@ -39,6 +39,16 @@ class AdminController extends Controller
         return view('layouts.admin.inicio')->with('sociedad', $sociedad);
     }
 
+    public function userDelete($id){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $userDelete=UsuarioSociedad::where('sociedad_id',$sociedad->id)->where('user_id',$id)->get();
+       
+        $userDelete->delete();
+        return redirect('/admin/userIndex');
+        
+    }
+
     public function sociedadEdit()
     {
         $user = Auth::user();
