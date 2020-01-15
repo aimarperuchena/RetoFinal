@@ -36,9 +36,10 @@
        <div class="d-flex pr-3 form-group justify-content-between">
          <label for="exampleInputPassword1" class="ml-3 justify-content-start">Tipo de comida:</label>
          <select style="width: 250px;" class="form-control"name="tipo">
-           <option value="{{$tipoEditar->id ?? '...'}}" selected>{{$tipoEditar->nombre ?? 'Elige...'}}</option>
+           <option value="..." selected>Elige...</option>
            @if($tipo)
              @foreach($tipo as $comida)
+             @if(($tipoEditar->id ?? '') === $comida->id) continue @endif
                <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
            @endforeach
          @endif
@@ -48,9 +49,10 @@
        <div class="d-flex pr-3 form-group justify-content-between">
          <label for="exampleInputPassword1" class="ml-3 justify-content-start">Mesa:</label>
          <select name="mesa" style="width: 250px;" class="form-control">
-           <option value=".." selected>Elige..</option>
+           <option value="..." selected>Elige...</option>
            @if($mesas)
              @foreach($mesas as $mesa)
+             @if(($mesaEditar->id ?? '') === $mesa->id) continue @endif
                <option value="{{$mesa -> id}}">Mesa {{$mesa -> nombre}}</option>
            @endforeach
          @endif
