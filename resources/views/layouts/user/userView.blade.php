@@ -28,15 +28,15 @@
         @endforeach
       @endif
     @endif
-
-    @if($suscripciones ?? '')
-      @foreach( $suscripciones as $suscripcion)
+    @if($suscripciones ?? '' ?? '')
+      @foreach( $suscripciones ?? '' as $suscripcion)
       <div class="card m-2" style="width: 18rem; height:18rem;">
         @if($suscripcion)
           <a href="{{ route('sociedad.info', $suscripcion -> id) }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
         @endif
         <div class="card-body">
-          <p class="card-text">{{$suscripcion -> nombre}}</p>
+          <p class="card-text">{{$suscripcion->nombre}}</p>
+
         </div>
       </div>
       @endforeach
