@@ -40,7 +40,8 @@ class ReservaController extends Controller
     $tipoEditar = TipoReserva::find($reserva->tipo_id);//mejor usar modal relacion
     $tipo = TipoReserva::all();
     $mesaReserva = MesaReserva::where('reserva_id',$reserva_id)->first();
-    $mesa = Mesa::find($mesaReserva->mesa_id);
-    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesa', $mesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo)-> with('personaEditar', $reserva->personas)-> with('fechaEditar', $reserva->fecha)-> with('tipoEditar', $tipoEditar);
+    $mesaEditar = Mesa::find($mesaReserva->mesa_id);
+    $numMesa = Mesa::where('sociedad_id',$reserva->sociedad_id)->get();
+    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo)-> with('personaEditar', $reserva->personas)-> with('fechaEditar', $reserva->fecha)-> with('tipoEditar', $tipoEditar)-> with('mesaEditar', $mesaEditar);
   }
 }
