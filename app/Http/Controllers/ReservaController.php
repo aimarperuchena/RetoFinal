@@ -42,6 +42,7 @@ class ReservaController extends Controller
     $mesaReserva = MesaReserva::where('reserva_id',$reserva_id)->first();
     $mesaEditar = Mesa::find($mesaReserva->mesa_id);
     $numMesa = Mesa::where('sociedad_id',$reserva->sociedad_id)->get();
+  }
 
   public function delete($reserva_id){
     $user = Auth::user();
