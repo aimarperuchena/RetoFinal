@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-     $this->middleware('role:3');
+      $this->middleware(['role:3', 'verified']);
     }
     public function index(){
       $sociedades = Sociedad::all();

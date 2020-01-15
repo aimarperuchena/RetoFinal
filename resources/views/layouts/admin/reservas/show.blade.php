@@ -11,6 +11,7 @@
 <b>Tipo: </b><span>{{$reserva->tipo->nombre}}</span><br>
 <b>Personas: </b><span>{{$reserva->personas}}</span>
 
+<hr>
 <h3>Mesas</h3>
 <table>
     <tr>
@@ -25,7 +26,8 @@
     </tr>
     @endforeach
 </table>
-
+<hr>
+@if(count($facturas)>0)
 <h3>Factura</h3>
 <table>
     <tr>
@@ -34,15 +36,22 @@
         <th>Personas</th>
         <th>Importe</th>
     </tr>
-
+  
+@foreach($facturas as $factura)
     <tr>
-        <td>{{$reserva->factura->id}}</td>
-        <td>{{$reserva->factura->fecha}}</td>
-        <td>{{$reserva->factura->personas}}</td>
-        <td>{{$reserva->factura->importe}}</td>
-        <td><a href="/admin/facturaShow/{{$reserva->factura->id}}"><i class="fa fa-eye" style="color:black"></i></a></td>
+        <td>{{$factura->id}}</td>
+        <td>{{$factura->fecha}}</td>
+        <td>{{$factura->personas}}</td>
+        <td>{{$factura->importe}}</td>
+        <td><a href="/admin/facturaShow/{{$factura->id}}"><i class="fa fa-eye" style="color:black"></i></a></td>
     </tr>
+    @endforeach
+  
 </table>
+@else
+<h3>No tiene factura</h3>
+
+@endif
                            </div>
               </div>
               @endsection
