@@ -10,7 +10,6 @@
             <tr>
                 <th>ID Usuario</th>
                 <th>Nombre</th>
-                <th>Ubicacion</th>
                 <th>Telefono</th>
                 <th>Email</th>
                 <th>Habilitar</th>
@@ -20,11 +19,10 @@
             @foreach($soci as $sociedad)
                 <tr>
                     <td>{!! $sociedad->id !!}</td>
-                    <td>{!! $sociedad->sociedades->nombre !!}</td>
-                    <td>{!! $sociedad->sociedades->ubicacion !!}</td>
+                    <td>{!! $sociedad->nombre !!}</td>
                     <td>{!! $sociedad->telefono !!}</td>
                     <td>{!! $sociedad->email !!}</td>
-                    <td><a href="/webmaster/sociRestore/{{$sociedad->id}}"><i class="fa fa-toggle-on" style="color:black"></i></a></td>
+                    <td><a href="/webmaster/sociRestore/{{$sociedad->id}}"><i class="fa fa-check-circle" style="color:black"></i></a></td>
                 </tr>
             @endforeach
         </tbody>

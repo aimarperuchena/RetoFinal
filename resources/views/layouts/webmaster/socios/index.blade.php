@@ -20,13 +20,12 @@
         <tbody>
             @foreach($socios as $socio)
                 <tr>
-                    <td>{!! $socio->usuario->id !!}</td>
-                    <td>{!! $socio->usuario->nombre !!}</td>
-                    <td>{!! $socio->usuario->apellido !!}</td>
-                    <td>{!! $socio->usuario->telefono !!}</td>
-                    <td>{!! $socio->usuario->email !!}</td>
-                    <td><a href="/webmaster/socioDestroy/{{$socio->usuario->id}}"><i class="fa fa-toggle-off" style="color:black"></i></a></td>
-
+                    <td>{!! $socio->id !!}</td>
+                    <td>{!! $socio->nombre !!}</td>
+                    <td>{!! $socio->apellido !!}</td>
+                    <td>{!! $socio->telefono !!}</td>
+                    <td>{!! $socio->email !!}</td>
+                    <td ><a href="/webmaster/socioDestroy/{{$socio->id}}"><i class="fa fa-ban" style="color:black"></i></a></td>
                 </tr>
             @endforeach
 
@@ -36,5 +35,4 @@
   </div>
 </div>
 @endsection
-
 

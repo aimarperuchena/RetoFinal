@@ -20,7 +20,7 @@
                 <td>{!! $producto->id !!}</td>
                 <td>{!! $producto->nombre !!}</td>
                  <td>{!! $producto->descripcion !!}</td>
-                 <td><a href="/webmaster/productoRestore/{{$producto->id}}"><i class="fa fa-toggle-on" style="color:black"></i></a></td>
+                 <td><a href="/webmaster/productoRestore/{{$producto->id}}"><i class="fa fa-check-circle" style="color:black"></i></a></td>
 
             </tr>
         @endforeach

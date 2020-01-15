@@ -12,7 +12,7 @@ class UsuarioSociedad extends Model
     protected $fillable=["id","sociedad_id","user_id"];
 
     public function usuario(){
-        return $this->hasOne(User::class, 'id');
+        return $this->belongsTo(User::class, 'id');
     }
 
     public function sociedades(){
