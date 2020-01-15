@@ -48,7 +48,7 @@ class WebMasterController extends Controller
         producto::withTrashed()->find($id)->restore();
 
 
-        return redirect('/webmaster/productoTrashed');
+        return redirect('/webmaster/productoIndex');
 
     }
 
@@ -97,7 +97,7 @@ class WebMasterController extends Controller
 
     public function sociIndex()
 {
-    $soci = User::where('role_id','2')->get();
+    $soci = Sociedad::get();
 
     return view('layouts.webmaster.sociedades.index')->with('soci',$soci);
 
@@ -148,7 +148,7 @@ public function peticionAceptar($id)
 
 public function sociTrashed()
     {
-        $soci = User::onlyTrashed()->get();
+        $soci = Sociedad::onlyTrashed()->get();
 
         return view('layouts.webmaster.sociedades.trashed')->with('soci',$soci);
 
@@ -156,7 +156,7 @@ public function sociTrashed()
 
     public function sociRestore($id)
     {
-        User::withTrashed()->find($id)->restore();
+        Sociedad::withTrashed()->find($id)->restore();
 
 
         return redirect('/webmaster/sociTrashed');
@@ -165,7 +165,7 @@ public function sociTrashed()
 
     public function sociDestroy($id)
 {
-    $soci = User::find($id);
+    $soci = Sociedad::find($id);
     $soci->delete();
 
     return redirect('/webmaster/sociIndex');
@@ -174,7 +174,8 @@ public function sociTrashed()
 
 public function socioIndex()
 {
-    $socios = UsuarioSociedad::all();
+    $socios = User::where('role_id','3')->get();
+
     return view('layouts.webmaster.socios.index')->with('socios',$socios);
 
 

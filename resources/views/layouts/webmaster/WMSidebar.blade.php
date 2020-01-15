@@ -4,7 +4,7 @@
         <ul class="nav flex-column">
 
             <li class="nav-item">
-                <a class="nav-link text-dark active">
+                <a class="nav-link text-dark active" href="/webmaster">
                      <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span data-feather="home"></span> Panel De Control <span class="sr-only">(current)</span>
                 </a>
