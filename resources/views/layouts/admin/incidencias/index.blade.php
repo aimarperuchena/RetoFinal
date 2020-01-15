@@ -3,12 +3,26 @@
 
 
 <!-- Content Row -->
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
 
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <div class="row">
   <div class="col-xl-8 col-lg-7">
     <h3>Incidencias</h3>
     <a class="btn btn-primary" href="/admin/createIncidencia">Crear Incidencia</a>
     <br><br>
+
+
+    
     <form action="{{route('admin.incidenciaIndexFiltro')}}" method="post">
       {{ csrf_field() }}
 
@@ -35,6 +49,8 @@
 
 
     </form>
+    <br><br>
+    <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
     <br>
     <table class="table table-striped">
       <tr>
@@ -46,6 +62,7 @@
         <th>Eliminar</th>
 
       </tr>
+      <tbody id="myTable">
       @foreach($incidencias as $incidencia)
       <tr>
         <td>{{$incidencia->id}}</td>
@@ -57,6 +74,7 @@
 
       </tr>
       @endforeach
+      </tbody>
     </table>
   </div>
 </div>
