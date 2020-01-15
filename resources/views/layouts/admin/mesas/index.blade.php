@@ -21,8 +21,9 @@
         </div>
        
   @endif
-<a href="/admin/mesaCreate">Crear Mesas</a>
-<table class="table table-striped">
+<a href="/admin/mesaCreate" class="btn btn-primary">Crear Mesas</a><br><br>
+<table class="table table-striped border">
+<thead>
     <tr>
      
         <th>Nombre</th>
@@ -30,7 +31,7 @@
         <th>Editar</th>
         <th>Eliminar</th>
     </tr>
-
+    </thead>
     @foreach($sociedad->mesas as $mesa)
     <tr>
        <td>{{$mesa->nombre}}</td>

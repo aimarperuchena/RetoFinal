@@ -12,16 +12,18 @@
                     <div class="col-xl-8 col-lg-7">
                     <h3>Peticiones</h3>
 
-<table class="table table-striped">
-    <tr>
+<table class="table table-striped border">
+<tHead>  
+<tr>
      
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Estado</th>
         <th>Fecha</th>
         <th>Aceptar</th>
+        <th>Denegar</th>
     </tr>
-
+    </tHead>  
     @foreach($peticiones as $peticion)
     <tr>
        <td>{{$peticion->usuario->nombre}}</td>

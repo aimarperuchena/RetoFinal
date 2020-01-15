@@ -14,11 +14,12 @@
         <hr>
         <h3>Mesas</h3>
         <table class="table table-striped">
+            <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Capacidad</th>
             </tr>
-
+            </thead>
             @foreach($reserva->mesas as $mesa)
             <tr>
                 <td>{{$mesa->nombre}}</td>
@@ -30,14 +31,15 @@
       @if(!is_null($factura))
         <h3>Factura</h3>
        
-        <table class="table table-striped">
+        <table class="table table-striped border">
+            <thead>
             <tr>
              
                 <th>Fecha</th>
                 <th>Personas</th>
                 <th>Importe</th>
             </tr>
-
+            </thead>
             
             <tr>
         
@@ -54,7 +56,8 @@
     @if(!is_null($factura))
     <div class="col-xl-4 col-lg-7">
         <h3>Lineas Factura</h3>
-    <table class="table table-striped">
+    <table class="table table-striped border ">
+        <thead>
     <tr>
        
         <th>Nombre</th>
@@ -64,6 +67,7 @@
         <th>Eliminar</th>
 
     </tr>
+    </thead>
     @foreach($factura->lineas as $linea)
     <tr>
       

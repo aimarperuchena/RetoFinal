@@ -37,7 +37,8 @@ $(document).ready(function () {
   <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
 
   <br>
-  <table class="table table-striped" id="dtBasicExample" cellspacing="0" width="100%" id="myList">
+  <table class="table table-striped border" id="dtBasicExample" cellspacing="0" width="100%" id="myList">
+  <thead>
     <tr>
       <th>Id</th>
       <th>Nombre</th>
@@ -46,6 +47,7 @@ $(document).ready(function () {
       <th>Editar</th>
       <th>Eliminar</th>
     </tr>
+    </thead>
     <tbody id="myTable">
     @foreach($sociedad->productos as $producto)
     <tr>

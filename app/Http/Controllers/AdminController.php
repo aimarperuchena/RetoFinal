@@ -17,6 +17,7 @@ use App\Http\Requests\ProductoUpdateRequest;
 use App\Http\Requests\IncidenciaCreateRequest;
 use App\Http\Requests\CreateMesaRequest;
 use App\Http\Requests\SociedadUpdateRequest;
+use App\Http\Requests\admin_reserva_create;
 use App\Mesa;
 use App\Reserva;
 use App\Factura;
@@ -69,9 +70,9 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        $sociedadUsuario = UsuarioSociedad::where('sociedad_id', 1)->where('deleted_at', null)->get();
-        $socios = $sociedad->usuarios;
-        return view('layouts.admin.usuarios.index')->with('sociedad', $sociedad)->with('socios', $socios)->with('sociedadUsuario', $sociedadUsuario);
+
+        $socios = DB::select('select * from users where id in(select user_id from sociedad_user where sociedad_id=' . $sociedad->id . ' and deleted_at is null)');
+        return view('layouts.admin.usuarios.index')->with('sociedad', $sociedad)->with('socios', $socios);
     }
 
     public function userDelete($id)
@@ -372,6 +373,34 @@ class AdminController extends Controller
         }
     }
 
+    public function reservaCreate()
+    {
+        $user = Auth::user();
+        $tipo = TipoReserva::all();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $sociedadUsuario = UsuarioSociedad::where('sociedad_id', $sociedad->id)->where('deleted_at', null)->get();
+        $socios = DB::select('select * from users where id in(select user_id from sociedad_user where sociedad_id=' . $sociedad->id . ' and deleted_at is null)');
+
+        return view('layouts.admin.Reservas.create')->with('sociedad', $sociedad)->with('tipo', $tipo)->with('socios', $socios);
+    }
+
+    public function reservaStore(admin_reserva_create $request)
+    {
+        $validated = $request->validated();
+        $user = Auth::user();
+
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $reserva = new Reserva();
+        $reserva->fecha = $request->fecha;
+        $reserva->usuario_id = $request->usuario;
+        $reserva->sociedad_id = $sociedad->id;
+        $reserva->personas = $request->personas;
+        $reserva->tipo_id = $request->tipo;
+        $reserva->save();
+
+        return redirect('/admin/reservaIndex');
+    }
+
     public function lineaAdd($id)
     {
         $user = Auth::user();
@@ -399,19 +428,19 @@ class AdminController extends Controller
             $error = "El Producto " . $productoElegido->nombre . " solo tiene " . $productoElegido->stock . " unidades en stock";
             return view('layouts.admin.Lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura)->with('error', $error);
         } else {
-            $importeFactura=$factura->importe;
-            $importeLinea=$unidades*$productoElegido->precio;
-            $importeTotal=$importeFactura+$importeLinea;
+            $importeFactura = $factura->importe;
+            $importeLinea = $unidades * $productoElegido->precio;
+            $importeTotal = $importeFactura + $importeLinea;
             $linea = new Linea();
             $linea->producto_sociedad_id = $productoElegido->id;
             $linea->factura_id = $factura->id;
             $linea->unidades = $unidades;
-            $linea->sociedad_id=$sociedad->id;
-            $linea->importe=$importeLinea;
+            $linea->sociedad_id = $sociedad->id;
+            $linea->importe = $importeLinea;
             $linea->save();
 
-           
-            $factura->importe=$importeTotal;
+
+            $factura->importe = $importeTotal;
             $factura->save();
             return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura);
         }

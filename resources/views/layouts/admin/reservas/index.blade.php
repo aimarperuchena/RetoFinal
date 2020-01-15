@@ -28,7 +28,10 @@
 
       </div>
     </form>
-    <table class="table table-striped">
+
+    <a href="/admin/reservaCreate" class="btn btn-primary">Crear Reserva</a>
+    <table class="table table-striped border">
+    <thead>
       <tr>
         <th>Socio</th>
         <th>Tipo</th>
@@ -40,6 +43,7 @@
         @endif
         <th>Ver</th>
       </tr>
+      </thead>
       @foreach($reservas as $reserva)
       <tr>
         <td>{{$reserva->usuario->nombre}} {{$reserva->usuario->apellido}}</td>

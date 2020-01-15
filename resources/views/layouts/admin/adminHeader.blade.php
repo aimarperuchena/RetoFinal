@@ -5,7 +5,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Reservas</div>
+                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Reservas <h4>{{$sociedad->reservas->where('fecha', '>=', date('Y-m-d'))->count()}}</h4></div>
 
                                         </div>
                                         <div class="col-auto">
@@ -24,7 +24,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Productos</div>
+                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Productos <h4>{{$sociedad->productos->count()}}</h4></div>
 
                                         </div>
                                         <div class="col-auto">
@@ -42,7 +42,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Incidencias</div>
+                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Incidencias <h4>{{$sociedad->incidencias->where('estado','pendiente')->count()}}</h4></div>
 
                                         </div>
                                         <div class="col-auto">
@@ -60,11 +60,11 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Mesas</div>
+                                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Mesas <h4>{{$sociedad->mesas->count()}}</h4></div>
 
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-park fa-2x text-gray-300"></i>
+                                        <img src="https://img.icons8.com/ultraviolet/60/000000/table.png">
                                         </div>
                                     </div>
                                 </div>

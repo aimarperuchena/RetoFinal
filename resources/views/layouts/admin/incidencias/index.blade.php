@@ -52,7 +52,8 @@ $(document).ready(function(){
     <br><br>
     <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
     <br>
-    <table class="table table-striped">
+    <table class="table table-striped border">
+    <thead>
       <tr>
         <th>Id</th>
         <th>Descripcion</th>
@@ -62,6 +63,7 @@ $(document).ready(function(){
         <th>Eliminar</th>
 
       </tr>
+      </thead>
       <tbody id="myTable">
       @foreach($incidencias as $incidencia)
       <tr>
