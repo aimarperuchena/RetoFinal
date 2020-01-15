@@ -50,7 +50,7 @@ Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.su
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
-Route::get('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
+Route::post('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
 
 //Perfil usuario
 Route::get('/perfil','ProfileController@profile')->name('profile.index');

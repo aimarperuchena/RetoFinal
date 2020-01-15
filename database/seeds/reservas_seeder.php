@@ -67,10 +67,19 @@ Schema::create('reservas', function (Blueprint $table) {
         ]);
         //RESERVA 6 SOCIEDAD 3
         DB::table('reserva')->insert([
-            'sociedad_id' => '2',
+            'sociedad_id' => '3',
             'usuario_id' => '7',
             'tipo_id' => '1',
             'fecha' => '2019/12/20',
+            'personas' => '10'
+        ]);
+
+
+        DB::table('reserva')->insert([
+            'sociedad_id' => '1',
+            'usuario_id' => '3',
+            'tipo_id' => '1',
+            'fecha' => '2020/12/20',
             'personas' => '10'
         ]);
     }
