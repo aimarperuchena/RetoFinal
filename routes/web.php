@@ -117,7 +117,8 @@ Route::get('/admin/reservaDelete/{id}','AdminController@reservaDelete')->name('a
 
 //LINEAS
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
-
+Route::get('/admin/lineaAdd/{id}','AdminController@lineaAdd')->name('admin.lineaAdd');
+Route::post('/admin/lineaCreate','AdminController@lineaCreate')->name('admin.lineaCreate');
 //SOCIOS
 Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userIndex');
 

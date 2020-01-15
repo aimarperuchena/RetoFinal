@@ -10,7 +10,7 @@ class Linea extends Model
     use SoftDeletes;
 
     protected $table="linea";
-    protected $fillable=["producto_sociedad_id","factura_id","unidades"];
+    protected $fillable=["producto_sociedad_id","factura_id","unidades","sociedad_id"];
 
     public function producto(){
         return $this->belongsTo(ProductoSociedad::class, 'producto_sociedad_id');

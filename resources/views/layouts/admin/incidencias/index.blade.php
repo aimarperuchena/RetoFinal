@@ -2,50 +2,62 @@
 @section('adminContent')
 
 
-                    <!-- Content Row -->
+<!-- Content Row -->
 
-                    <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-                    <h3>Incidencias</h3>
-              <a href="/admin/createIncidencia">Crear Incidencia</a>
-              <form action="{{route('admin.incidenciaIndexFiltro')}}" method="post">
-    {{ csrf_field() }}
-    <span>Tipo</span>
-    <select name="tipo">
-    @if($tipo==1)
-    <option value="1">Pendiente</option>
-    <option value="2">Solucinado</option>
-    @endif
-    @if($tipo==2)
-    <option value="2">Solucinado</option>
-    <option value="1">Pendiente</option>
-   
-    @endif
-    </select>
-    <input type="submit" value="Enviar">
+<div class="row">
+  <div class="col-xl-8 col-lg-7">
+    <h3>Incidencias</h3>
+    <a class="btn btn-primary" href="/admin/createIncidencia">Crear Incidencia</a>
+    <br><br>
+    <form action="{{route('admin.incidenciaIndexFiltro')}}" method="post">
+      {{ csrf_field() }}
+
+
+      <div class="input-group mb-2 ">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Estado:</label>
+        </div>
+        <select class="custom-select " name="estado">
+          @if($tipo==1)
+          <option value="1">Pendiente</option>
+          <option value="2">Solucinado</option>
+          @endif
+          @if($tipo==2)
+          <option value="2">Solucinado</option>
+          <option value="1">Pendiente</option>
+
+          @endif
+        </select>
+        <input class="btn btn-primary" type="submit" value="Enviar">
+
+      </div>
+
+
+
     </form>
-              <table class="table table-striped">
-                <tr>
-                  <th>Id</th>
-                  <th>Descripcion</th>
-                  <th>Estado</th>
-                  <th>Fecha</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
+    <br>
+    <table class="table table-striped">
+      <tr>
+        <th>Id</th>
+        <th>Descripcion</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
 
-                </tr>
-                @foreach($incidencias as $incidencia)
-                <tr>
-                  <td>{{$incidencia->id}}</td>
-                  <td>{{$incidencia->descripcion}}</td>
-                  <td>{{$incidencia->estado}}</td>
-                  <td>{{$incidencia->fecha}}</td>
-                  <td><a href="/admin/incidenciaEdit/{{$incidencia->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
-                  <td><a href="/admin/incidenciaDelete/{{$incidencia->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
+      </tr>
+      @foreach($incidencias as $incidencia)
+      <tr>
+        <td>{{$incidencia->id}}</td>
+        <td>{{$incidencia->descripcion}}</td>
+        <td>{{$incidencia->estado}}</td>
+        <td>{{$incidencia->fecha}}</td>
+        <td><a href="/admin/incidenciaEdit/{{$incidencia->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+        <td><a href="/admin/incidenciaDelete/{{$incidencia->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
-                </tr>
-                @endforeach
-              </table>
-                           </div>
-              </div>
-              @endsection
+      </tr>
+      @endforeach
+    </table>
+  </div>
+</div>
+@endsection
