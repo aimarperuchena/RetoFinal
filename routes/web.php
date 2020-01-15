@@ -49,7 +49,7 @@ Route::get('locale/{locale}', function ($locale){
 Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.suscripciones');
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
-Route::post('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
+Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
 Route::post('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
 
 //Perfil usuario

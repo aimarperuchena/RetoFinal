@@ -23,7 +23,8 @@
   </div>
   <div class="col">
     <h1>Reserva</h1>
-     <form class="mt-5 mr-5" action="{{ route('sociedad.crear',$sociedad -> id) }}" method="post"> 
+     <form class="mt-5 mr-5" action="{{ route('sociedad.crear',$sociedad -> id) }}" method="post">
+       @csrf
        <div class="d-flex form-group justify-content-between">
          <label for="exampleInputEmail1" class="ml-3 justify-content-start">Nº Personas</label>
          <input type="number" name="personas" style="width: 250px;" class="form-control" value="{{$personaEditar ?? ''}}">
