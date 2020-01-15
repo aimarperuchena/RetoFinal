@@ -25,7 +25,10 @@ class UserController extends Controller
     public function suscripciones(){
       $user = Auth::user();
       $sociedades = Sociedad::all();
-      $suscripciones = $user->sociedades;
+      $usuarioSociead = UsuarioSociedad::where('user_id', $user->id)->get();
+      foreach ($usuarioSociead as $soci) {
+        $suscripciones []= Sociedad::find($soci->sociedad_id);
+      }
       $todos = false;
       return view('layouts.user.home')-> with('suscripciones' , $suscripciones)-> with('sociedades' , $sociedades)-> with('todos' , $todos);
     }
