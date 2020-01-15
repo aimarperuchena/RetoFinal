@@ -10,12 +10,12 @@
     <span>Tipo</span>
     <select name="tipo">
     @if($tipo==1)
-    <option value="1">Futuro</option>
+    <option value="1">Actuales</option>
     <option value="2">Historico</option>
     @endif
     @if($tipo==2)
     <option value="2">Historico</option>
-    <option value="1">Futuro</option>
+    <option value="1">Actuales</option>
    
     @endif
     </select>
