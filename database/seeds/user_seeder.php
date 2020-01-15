@@ -17,6 +17,7 @@ class user_seeder extends Seeder
             'apellido' => 'admin',
             'telefono' => 12345678,
             'email' => 'admin@example.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('adminadmin'),
             'role_id' => '1'
 
@@ -27,6 +28,7 @@ class user_seeder extends Seeder
             'apellido' => 'user',
             'telefono' => 12345678,
             'email' => 'user@example.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('usuariousuario'),
             'role_id' => '3'
         ]);
@@ -36,6 +38,7 @@ class user_seeder extends Seeder
             'apellido' => 'peruchena',
             'telefono' => 12345678,
             'email' => 'aimarperuchena@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('aimaraimar'),
             'role_id' => '3'
         ]);
@@ -46,6 +49,7 @@ class user_seeder extends Seeder
             'apellido' => 'molina',
             'telefono' => 12345678,
             'email' => 'jeffry@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('jeffryjeffry'),
             'role_id' => '3'
         ]);
@@ -55,6 +59,7 @@ class user_seeder extends Seeder
             'apellido' => 'rodriguez',
             'telefono' => 12345678,
             'email' => 'adrian@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('adrianadrian'),
             'role_id' => '3'
         ]);
@@ -64,6 +69,7 @@ class user_seeder extends Seeder
             'apellido' => 'tomas',
             'telefono' => 12345678,
             'email' => 'tomas@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('tomastomas'),
             'role_id' => '3'
         ]);
@@ -73,6 +79,7 @@ class user_seeder extends Seeder
             'apellido' => 'maria',
             'telefono' => 12345678,
             'email' => 'maria@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('mariamaria'),
             'role_id' => '3'
         ]);
@@ -82,6 +89,7 @@ class user_seeder extends Seeder
             'apellido' => 'pescadores_admin',
             'telefono' => 12345678,
             'email' => 'pescadores_admin@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('pescadorespescadores'),
             'role_id' => '2'
         ]);
@@ -91,6 +99,7 @@ class user_seeder extends Seeder
             'apellido' => 'armonia_admin',
             'telefono' => 12345678,
             'email' => 'armonia_admin@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('armoniaarmonia'),
             'role_id' => '2'
         ]);
@@ -100,6 +109,7 @@ class user_seeder extends Seeder
             'apellido' => 'bascongada_admin',
             'telefono' => 12345678,
             'email' => 'bascongada_admin@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('bascongadabascongada'),
             'role_id' => '2'
         ]);
@@ -109,6 +119,7 @@ class user_seeder extends Seeder
             'apellido' => 'Turvado',
             'telefono' => 12345678,
             'email' => 'JavierTomas@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('javierjavier'),
             'role_id' => '3'
         ]);
@@ -117,6 +128,7 @@ class user_seeder extends Seeder
             'apellido' => 'Iker',
             'telefono' => 12345678,
             'email' => 'IkerIker@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('ikeriker'),
             'role_id' => '3'
         ]);
@@ -124,7 +136,9 @@ class user_seeder extends Seeder
             'nombre' => 'Firulais',
             'apellido' => 'Rigoverto',
             'telefono' => 12345678,
-            'email' => 'firulais@gmail.com',
+            'email' => 'firulaisRigoverto@gmail.com',
+            'email_verified_at' => date('Y-m-d H:i:s'),
+            
             'password' => bcrypt('123456789'),
             'role_id' => '3'
         ]);
