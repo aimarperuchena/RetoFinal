@@ -11,6 +11,7 @@
           Reserva: {{$reserva -> id}} // Fecha: {{$reserva->fecha}} // Tipo: {{$reserva->tipo->nombre}} // Sociedad: {{$reserva->sociedad->nombre}}
           <a class="badge badge-info badge-pill text-white ml-2" href="{{ route('reserva.show',$reserva->id) }}"><i class="fas fa-eye"></i></a>
           <a class="badge badge-info badge-pill text-white ml-2" href="{{ route('reserva.edit',$reserva->id) }}"><i class="fas fa-pencil-alt"></i></a>
+          <a class="badge badge-info badge-pill text-white ml-2" href="{{ route('reserva.delete',$reserva->id) }}"><i class="fas fa-minus-circle"></i></i></a>
         </li>
       @endforeach
     @else

@@ -61,6 +61,7 @@ Route::post('/perfil/update','ProfileController@update')->name('profile.update')
 Route::get('/reservas','ReservaController@index')->name('reserva.index');
 Route::get('/reservas/{id}','ReservaController@show')->name('reserva.show');
 Route::get('/reservas/editar/{id}','ReservaController@edit')->name('reserva.edit');
+Route::get('/reservas/borrar/{id}','ReservaController@delete')->name('reserva.delete');
 
 //Lineas
 Route::get('/lineas/{id}','LineaController@index')->name('linea.show');

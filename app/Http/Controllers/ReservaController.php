@@ -42,6 +42,16 @@ class ReservaController extends Controller
     $mesaReserva = MesaReserva::where('reserva_id',$reserva_id)->first();
     $mesaEditar = Mesa::find($mesaReserva->mesa_id);
     $numMesa = Mesa::where('sociedad_id',$reserva->sociedad_id)->get();
-    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo)-> with('personaEditar', $reserva->personas)-> with('fechaEditar', $reserva->fecha)-> with('tipoEditar', $tipoEditar)-> with('mesaEditar', $mesaEditar);
+
+  public function delete($reserva_id){
+    $user = Auth::user();
+    $denegado = Reserva::where('usuario_id', $user->id)->get();
+    $reserva = Reserva::find($reserva_id);
+    $reserva -> delete();
+    if (count($denegado) <= 1) {
+      return redirect('/reservas');
+    }else {
+      return redirect('/denegado');
+    }
   }
 }
