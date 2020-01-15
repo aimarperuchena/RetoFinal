@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-     $this->middleware('role:3');
+      $this->middleware(['role:3', 'verified']);
     }
     public function index(){
       $sociedades = Sociedad::all();
@@ -23,9 +23,13 @@ class UserController extends Controller
       return view('layouts.user.home')-> with('sociedades' , $sociedades)-> with('todos' , $todos);
     }
     public function suscripciones(){
+      $suscripciones = null;
       $user = Auth::user();
       $sociedades = Sociedad::all();
-      $suscripciones = $user->sociedades;
+      $usuarioSociead = UsuarioSociedad::where('user_id', $user->id)->get();
+      foreach ($usuarioSociead as $soci) {
+        $suscripciones []= Sociedad::find($soci->sociedad_id);
+      }
       $todos = false;
       return view('layouts.user.home')-> with('suscripciones' , $suscripciones)-> with('sociedades' , $sociedades)-> with('todos' , $todos);
     }

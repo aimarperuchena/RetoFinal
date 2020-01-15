@@ -50,7 +50,7 @@ Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.su
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
-Route::get('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
+Route::post('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
 
 //Perfil usuario
 Route::get('/perfil','ProfileController@profile')->name('profile.index');
@@ -61,6 +61,7 @@ Route::post('/perfil/update','ProfileController@update')->name('profile.update')
 Route::get('/reservas','ReservaController@index')->name('reserva.index');
 Route::get('/reservas/{id}','ReservaController@show')->name('reserva.show');
 Route::get('/reservas/editar/{id}','ReservaController@edit')->name('reserva.edit');
+Route::get('/reservas/borrar/{id}','ReservaController@delete')->name('reserva.delete');
 
 //Lineas
 Route::get('/lineas/{id}','LineaController@index')->name('linea.show');
@@ -78,6 +79,7 @@ Route::post('/admin/planoUpdate','AdminController@planoUpdate')->name('admin.soc
 Route::get('/admin/peticionesSociedad','AdminController@peticionIndex')->name('admin.peticionIndex');
 Route::get('/admin/peticionSociedadAceptar/{id}','AdminController@peticionAceptar')->name('admin.peticionAceptar');
 Route::get('/admin/peticionSociedadDenegar/{id}','AdminController@peticionDenegar')->name('admin.peticionDenegar');
+Route::get('/admin/userDelete/{id}','AdminController@userDelete')->name('admin.userDelete');
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');
 Route::get('/admin/productCreate/','AdminController@productCreate')->name('admin.productCreate');

@@ -16,6 +16,6 @@ class UsuarioSociedad extends Model
     }
 
     public function sociedades(){
-        return $this->hasOne(Sociedad::class, 'id');
+        return $this->belongsTo(Sociedad::class);
     }
 }

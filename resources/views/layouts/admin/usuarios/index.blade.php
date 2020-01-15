@@ -13,6 +13,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Telefono</th>
+                                <th>Eliminar</th>
                             </tr>
 
                             @foreach($sociedad->usuarios as $socio)
@@ -23,6 +24,7 @@
                                 <td>{{$socio->nombre}}</td>
                                 <td>{{$socio->apellido}}</td>
                                 <td>{{$socio->telefono}}</td>
+                                <td><a href="/admin/userDelete/{{$socio->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
                             </tr>
                             @endforeach
