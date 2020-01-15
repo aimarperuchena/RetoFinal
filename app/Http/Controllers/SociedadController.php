@@ -22,15 +22,16 @@ class SociedadController extends Controller
     $suscrito = count($suscripcion) > 0 ? true : false;
     return view('layouts.user.SociedadViews.info.infoSociedadView') -> with('sociedad', $sociedad)-> with('suscrito', $suscrito);
   }
-  public function reserva($id)
+  public function reserva($sociedad_id)
   {
     $user = Auth::user();
-    $denegado = UsuarioSociedad::where('sociedad_id', $id)->where('user_id',$user->id)->get();
-    $sociedad = Sociedad::find($id);
-    $numMesa = Mesa::where('sociedad_id',$id)->get();
+    $denegado = UsuarioSociedad::where('sociedad_id', $sociedad_id)->where('user_id',$user->id)->get();
+    $sociedad = Sociedad::find($sociedad_id);
+    $numMesa = Mesa::where('sociedad_id',$sociedad_id)->get();
+    $reservas = Reserva::where('sociedad_id',$sociedad_id)->get();
     $tipo = TipoReserva::all();
     if (count($denegado)===1) {
-      return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo);
+      return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo)-> with('reservasH', $reservas);
     }else {
       return redirect('/denegado');
     }

@@ -42,6 +42,8 @@ class ReservaController extends Controller
     $mesaReserva = MesaReserva::where('reserva_id',$reserva_id)->first();
     $mesaEditar = Mesa::find($mesaReserva->mesa_id);
     $numMesa = Mesa::where('sociedad_id',$reserva->sociedad_id)->get();
+    $reservasH = Reserva::where('sociedad_id',$reserva->sociedad_id)->get();
+    return view('layouts.user.SociedadViews.reserva.reservaView') -> with('mesas', $numMesa)-> with('sociedad', $sociedad)-> with('tipo', $tipo)-> with('personaEditar', $reserva->personas)-> with('fechaEditar', $reserva->fecha)-> with('tipoEditar', $tipoEditar)-> with('mesaEditar', $mesaEditar)->with('reservasH', $reservasH);
   }
 
   public function delete($reserva_id){

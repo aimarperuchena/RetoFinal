@@ -22,7 +22,17 @@
     </div>
   </div>
   <div class="col">
-    <h1>Reserva</h1>
+    <h1>Historial de Reservas</h1>
+    <div class="m-5">
+      <ul class="list-group">
+        @if ($reservasH)
+        @foreach ($reservasH as $reserva)
+        <li class="list-group-item">{{$reserva->fecha}}, {{$reserva->tipo->nombre}}, {{$reserva->mesas->mesas}}</li>
+        @endforeach
+        @endif
+      </ul>
+    </div>
+    <h1>Tu Reserva</h1>
      <form class="mt-5 mr-5" action="{{ route('sociedad.crear',$sociedad -> id) }}" method="post">
        @csrf
        <div class="d-flex form-group justify-content-between">
