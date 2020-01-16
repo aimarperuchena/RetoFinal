@@ -4,12 +4,12 @@
 <!-- Content Row -->
 <br><br>
 <div class="row">
-  <div class="col-xl-12 col-lg-7">
-  <h3>Añadir Producto</h3><br>
-  <form action="{{route ('webmaster.productStore')}}" method="post">
+  <div class="col-xl-12 col-lg-12">
+  <h3 class="text-center">Añadir Producto</h3><br>
+  <form class="center-block"" action="{{route ('webmaster.productStore')}}" method="post">
     {{ csrf_field() }}
 
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 center-block">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Nombre: </span>
         <input class="form-control border" aria-describedby="basic-addon1" type="text" size="53" name="nombre" placeholder="Nombre del producto"  minlength="3" maxlength="20" required>

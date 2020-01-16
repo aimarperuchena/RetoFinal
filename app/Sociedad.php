@@ -13,13 +13,18 @@ class Sociedad extends Model
     use SoftDeletes;
 
     protected $table = 'sociedad';
-    protected $fillable = ['nombre', 'ubicacion', 'telefono', 'administrador_id', 'link_plano'];
+    protected $fillable = ['nombre', 'ubicacion', 'telefono', 'administrador_id', 'link_plano', 'deleted_at'];
 
-
-    public function usuarios()
-    {
-        return $this->belongsToMany(User::class, 'sociedad_user');
+    public function scopeBuscarpor($query, $tipo, $buscar) {
+    	if ( ($tipo) && ($buscar) ) {
+    		return $query->where($tipo,'like',"%$buscar%");
+    	}
     }
+
+    public function users(){
+        return $this->belongsTo('App\User', 'administrador_id', 'id');
+    }
+
     public function incidencias()
     {
         return $this->hasMany(Incidencia::class);

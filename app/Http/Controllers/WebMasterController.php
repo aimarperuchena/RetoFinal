@@ -23,15 +23,30 @@ class WebMasterController extends Controller
 }
    public function index(){
 
-    //user()->deleted_at->null
-        return view('layouts.webmaster.home');
+        $productos = producto::count();
+        $socios = User::count();
+        $sociedades = Sociedad::count();
+        $datos = producto::count();
+
+
+
+        return view('layouts.webmaster.panel')->with('productos',$productos)->with('socios',$socios)->with('sociedades',$sociedades);
+
+
     }
 
-    public function productoIndex()
+    public function productoIndex(Request $request)
     {
-        $productos = producto::all();
 
-        return view('layouts.webmaster.productos.index')->with('productos',$productos);
+        $buscar = $request->get('buscar');
+
+        $tipo = $request->get('tipo');
+
+        $productos = Producto::buscarpor($tipo, $buscar)->paginate(15);
+
+
+        return view('layouts.webmaster.productos.index',compact('productos'));
+
 
     }
 
@@ -95,11 +110,20 @@ class WebMasterController extends Controller
         return redirect('/webmaster/productoIndex');
     }
 
-    public function sociIndex()
+    public function sociIndex(Request $request)
 {
-    $soci = Sociedad::get();
+    //$soci = Sociedad::withTrashed()->get();
 
-    return view('layouts.webmaster.sociedades.index')->with('soci',$soci);
+
+        $buscar = $request->get('buscar');
+
+        $tipo = $request->get('tipo');
+
+        $soci = Sociedad::buscarpor($tipo, $buscar)->paginate(15);
+
+
+
+    return view('layouts.webmaster.sociedades.index',compact('soci'));
 
 }
 
@@ -133,6 +157,10 @@ public function peticionAceptar($id)
         $soci->role_id = 2;
         $soci->save();
 
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->delete();
+
+
         return redirect('/webmaster/sociPeticion');
     }
 
@@ -143,15 +171,11 @@ public function peticionAceptar($id)
         $soci->estado = "denegado";
         $soci->save();
 
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->delete();
+
+
         return redirect('/webmaster/sociPeticion');
-    }
-
-public function sociTrashed()
-    {
-        $soci = Sociedad::onlyTrashed()->get();
-
-        return view('layouts.webmaster.sociedades.trashed')->with('soci',$soci);
-
     }
 
     public function sociRestore($id)
@@ -159,7 +183,7 @@ public function sociTrashed()
         Sociedad::withTrashed()->find($id)->restore();
 
 
-        return redirect('/webmaster/sociTrashed');
+        return redirect('/webmaster/sociIndex');
 
     }
 
@@ -172,39 +196,38 @@ public function sociTrashed()
 
 }
 
-public function socioIndex()
-{
-    $socios = User::where('role_id','3')->get();
-
-    return view('layouts.webmaster.socios.index')->with('socios',$socios);
-
-
-}
-
-public function socioTrashed()
+    public function socioIndex(Request $request)
     {
-        $socios = User::onlyTrashed()->get();
+        //$socios = UsuarioSociedad::withTrashed()->get();
 
-        return view('layouts.webmaster.socios.trashed')->with('socios',$socios);
+        $buscar = $request->get('buscar');
+
+        $tipo = $request->get('tipo');
+
+        $socios = UsuarioSociedad::buscarpor($tipo, $buscar)->paginate(15);
+
+
+        return view('layouts.webmaster.socios.index',compact('socios'));
+
 
     }
 
     public function socioRestore($id)
     {
-        User::withTrashed()->find($id)->restore();
+        UsuarioSociedad::withTrashed()->find($id)->restore();
 
 
-        return redirect('/webmaster/socioTrashed');
+        return redirect('/webmaster/socioIndex');
 
     }
 
-    public function socioDestroy($id)
-{
-    $socios = User::find($id);
-    $socios->delete();
+        public function socioDestroy($id)
+    {
+        $socios = UsuarioSociedad::find($id);
+        $socios->delete();
 
-    return redirect('/webmaster/socioIndex');
+        return redirect('/webmaster/socioIndex');
 
-}
+    }
 
 }

@@ -11,8 +11,14 @@ class UsuarioSociedad extends Model
     protected $table="sociedad_user";
     protected $fillable=["id","sociedad_id","user_id"];
 
-    public function usuario(){
-        return $this->belongsTo(User::class, 'user_id');
+    public function scopeBuscarpor($query, $tipo, $buscar) {
+    	if ( ($tipo) && ($buscar) ) {
+    		return $query->where($tipo,'like',"%$buscar%");
+    	}
+    }
+
+    public function users(){
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     public function sociedades(){

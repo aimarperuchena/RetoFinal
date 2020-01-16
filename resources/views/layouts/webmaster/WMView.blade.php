@@ -11,6 +11,8 @@
                     <h1 class="h3 mb-0 text-gray-800">Panel de Control</h1>
                 </div>
                 @include('layouts.webmaster.WMHeader') --}}
+
+
                 @yield('webmasterContent')
             </main>
         </div>

@@ -17,4 +17,10 @@ class Producto extends Model
    public function producto_sociedad(){
     return $this->hasMany(ProductoSociedad::class);
    }
+
+   public function scopeBuscarpor($query, $tipo, $buscar) {
+    if ( ($tipo) && ($buscar) ) {
+        return $query->where($tipo,'like',"%$buscar%");
+    }
+}
 }

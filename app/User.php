@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email', 'password','role_id','telefono','apellido'
+        'id','nombre', 'email', 'password','role_id','telefono','apellido'
     ];
 
     /**
@@ -40,19 +40,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function scopeCorreo($query, $email){
-        if ($email) {
-            return $query->where('email', 'LIKE', "%$email%");
-        }
-    }
 
 
     public function nueva(){
         return $this->hasOne(PeticionNuevaSociedad::class, 'user_id');
     }
 
-    public function usuarioSociedad(){
-        return $this->hasMany(UsuarioSociedad::class);
+    public function usuarioSociedades(){
+        return $this->hasMany('App\UsuarioSociedad','id','user_id');
     }
 
     public function sociedades(){
