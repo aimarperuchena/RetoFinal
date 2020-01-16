@@ -16,8 +16,8 @@
                 </div>
                 <select class="custom-select" name="usuario">
                     <option value="{{$reserva->usuario->id}}">{{$reserva->usuario->nombre}} {{$reserva->usuario->apellido}} </option>
-                    @foreach($sociedad->usuarios as $user)
-                    @if($user->getRole()==3)
+                    @foreach($socios as $user)
+                    @if($user->role_id==3)
                     @if($user->id!=$reserva->usuario->id)
                     <option value="{{$user->id}}">{{$user->nombre}} {{$user->apellido}}</option>
                     @endif
