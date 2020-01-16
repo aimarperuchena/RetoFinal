@@ -31,7 +31,7 @@
         <h3>Añadir Linea</h3>
         <form action="{{route ('admin.lineaCreate')}}" method="POST">
         {{ csrf_field() }}
-            <input type="hidden" name="factura" value="{{$factura}}">
+            <input type="hidden" name="factura" value="{{$factura->id}}">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Producto:</label>

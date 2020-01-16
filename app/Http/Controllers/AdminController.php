@@ -407,7 +407,7 @@ class AdminController extends Controller
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
 
-        return view('layouts.admin.Lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $id);
+        return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $id);
     }
 
     public function lineaCreate(Request $request)
@@ -426,7 +426,7 @@ class AdminController extends Controller
         $stock = $productoElegido->stock;
         if ($unidades > $stock) {
             $error = "El Producto " . $productoElegido->nombre . " solo tiene " . $productoElegido->stock . " unidades en stock";
-            return view('layouts.admin.Lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura)->with('error', $error);
+            return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura)->with('error', $error);
         } else {
             $importeFactura = $factura->importe;
             $importeLinea = $unidades * $productoElegido->precio;
