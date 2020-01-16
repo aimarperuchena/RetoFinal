@@ -5,6 +5,7 @@
 <div class="container text-center">
   <h1>Seleccione la Reserva</h1>
   <h3>Seleccione el producto e inserte la cantidad consumida</h3>
+  <h5 style="color:red;">{{$error ?? ''}}</h5>
   <table class="table table-hover">
     <thead>
       <tr>
