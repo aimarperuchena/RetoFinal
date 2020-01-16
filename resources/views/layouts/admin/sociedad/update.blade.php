@@ -51,7 +51,7 @@
             </ul>
         </div>
         @endif
-        <h3>Cambiar Plano</h3>
+        <!-- <h3>Cambiar Plano</h3>
         <form action="{{route('admin.sociedad.planoUpdate')}}" method="post">
 
             <div class="input-group mb-3">
@@ -66,7 +66,7 @@
        
         
             <input class="btn btn-primary" type="submit" value="Subir">
-        </form>
+        </form> -->
     </div>
 
 

@@ -11,16 +11,16 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Nombre</span>
       </div>
-      <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+      <input type="text" class="form-control border" placeholder="Nombre" name="nombre">
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Ubicación</span>
       </div>
-      <input type="text" class="form-control" placeholder="Nombre" name="ubicacion">
+      <input type="text" class="form-control border" placeholder="Nombre" name="ubicacion">
     </div>
     <div class="input-group mb-3">
-      <input type="number" class="form-control" placeholder="Telefono..." name="telefono">
+      <input type="number" class="form-control border" placeholder="Telefono..." name="telefono">
       <div class="input-group-append">
         <span class="input-group-text">Telefono</span>
       </div>

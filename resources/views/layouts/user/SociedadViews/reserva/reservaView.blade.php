@@ -11,31 +11,40 @@
   </div>
   <div class="col">
     <h1>Reserva</h1>
-     <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="post">
-       @csrf
-       <div class="d-flex pr-3 form-group justify-content-between">
-         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Fecha:</label>
-         <input type="date" name="fecha" class="mr-3 justify-content-end" value="{{$fechaEditar ?? ''}}">
-       </div>
-       <div class="d-flex pr-3 form-group justify-content-between">
-         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Tipo de comida:</label>
-         <select style="width: 250px;" class="form-control"name="tipo">
-           <option value="..." selected>Elige...</option>
-           @if($tipo)
-             @foreach($tipo as $comida)
-               @if(($tipoEditar->id ?? '') === $comida->id)
-                 <option value="{{$comida -> id}}" selected>{{$comida -> nombre}}</option>
-                 continue
-               @endif
-               @if( $comida->id != ($tipoEditar->id ?? ''))
-                <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
-               @endif
-           @endforeach
-         @endif
-         </select>
-       </div>
-       <button type="submit" class="btn btn-primary">Mesas</button>
-     </form>
+    <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="post">
+      @csrf
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Fecha</span>
+        </div>
+        <input type="date" name="fecha" value="{{$fechaEditar ?? ''}}" class="form-control border" placeholder="Nombre" name="ubicacion">
+      </div>
+     
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Tipo Comida:</label>
+        </div>
+
+        <select class="custom-select" name="tipo">
+          <option value="..." selected>Elige...</option>
+          @if($tipo)
+          @foreach($tipo as $comida)
+          @if(($tipoEditar->id ?? '') === $comida->id)
+          <option value="{{$comida -> id}}" selected>{{$comida -> nombre}}</option>
+          continue
+          @endif
+          @if( $comida->id != ($tipoEditar->id ?? ''))
+          <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
+          @endif
+          @endforeach
+          @endif
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Mesas</button>
+    </form>
   </div>
 </div>
 @endsection
