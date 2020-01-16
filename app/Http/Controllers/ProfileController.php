@@ -13,7 +13,9 @@ class ProfileController extends Controller
   public function profile(){
     $user = Auth::user();
     $suscripciones = UsuarioSociedad::where('user_id',$user->id)->whereNull('deleted_at')->get();
-    return view('layouts.user.Perfil.usuarioPerfil')-> with('user' , $user)-> with('suscripciones' , $suscripciones);
+    $sociedadSocio=UsuarioSociedad::where('user_id',$user->id)->get();
+    $sociedades=Sociedad::all();
+    return view('layouts.user.Perfil.usuarioPerfil')->with('user', $user)->with('suscripciones' , $suscripciones)->with('sociedadSocio',$sociedadSocio)->with('sociedades',$sociedades);
   }
   public function deleteSuscripcion($id){
     $user = Auth::user();
