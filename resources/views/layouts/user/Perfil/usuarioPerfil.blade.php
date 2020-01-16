@@ -54,7 +54,7 @@
         @foreach($sociedades as $sociedad)
         @if($socio->sociedad_id==$sociedad->id)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          {{$suscripcion -> nombre}}
+          {{$sociedad -> nombre}}
           <a class="badge badge-danger badge-pill text-white" href="{{ route('profile.deleteSus',$suscripcion -> id)}}"><i class="fas fa-minus-circle"></i></a>
         </li>
         @endif
