@@ -27,7 +27,7 @@ class ReservaController extends Controller
     $user = Auth::user();
     $denegado = Reserva::where('id',$reserva_id)->where('usuario_id',$user->id)->count();
     $facturas = Factura::where('reserva_id',$reserva_id)->get();
-    if ($denegado === 1) {
+    if ($denegado >0) {
       return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id);
     }else {
       return redirect('/denegado');
