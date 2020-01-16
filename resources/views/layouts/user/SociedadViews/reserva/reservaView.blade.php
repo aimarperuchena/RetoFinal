@@ -8,18 +8,6 @@
     <div class="mb-5 mt-5">
       <img src="{{url('assets/img/planos',$sociedad->link_plano)}}" alt="plano_sociedad">
     </div>
-    <div class="jumbotronm d-flex flex-wrap" style="width: 50rem;">
-      @if($mesas)
-        @foreach($mesas as $mesa)
-          <div class="card m-2" style="width: 12rem;">
-            <img src="{{url('assets/img/mesa.png')}}" class="card-img-top" alt="...">
-            <hr>
-            <h5 class="card-title">Nombre: {{$mesa -> nombre}}</h5>
-            <p class="card-text">Capacidad: {{$mesa -> capacidad}}</p>
-          </div>
-        @endforeach
-      @endif
-    </div>
   </div>
   <div class="col">
     <h1>Reserva</h1>
@@ -35,8 +23,13 @@
            <option value="..." selected>Elige...</option>
            @if($tipo)
              @foreach($tipo as $comida)
-             @if(($tipoEditar->id ?? '') === $comida->id) continue @endif
-               <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
+               @if(($tipoEditar->id ?? '') === $comida->id)
+                 <option value="{{$comida -> id}}" selected>{{$comida -> nombre}}</option>
+                 continue
+               @endif
+               @if( $comida->id != ($tipoEditar->id ?? ''))
+                <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
+               @endif
            @endforeach
          @endif
          </select>

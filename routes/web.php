@@ -50,8 +50,8 @@ Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.su
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
-Route::post('/reserva/{id}/success','SociedadController@crear')->name('sociedad.crear');
-Route::post('/reservaFecha/{id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
+Route::post('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear')->name('sociedad.crear');
+Route::post('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
 
 //Perfil usuario
 Route::get('/perfil','ProfileController@profile')->name('profile.index');
@@ -127,7 +127,6 @@ Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userInde
 //Productos webmaster
 
 Route::get('/webmaster/productoIndex','WebMasterController@productoIndex');
-Route::get('/webmaster/productoTrashed','WebMasterController@productoTrashed');
 Route::get('/webmaster/productoRestore/{id}','WebMasterController@productoRestore');
 Route::get('/webmaster/productCreate','WebMasterController@productCreate');
 Route::post('/webmaster/productStore','WebMasterController@productStore')-> name ('webmaster.productStore');
@@ -140,13 +139,11 @@ Route::get('/webmaster/sociIndex','WebMasterController@sociIndex')->name('webmas
 Route::get('/webmaster/sociPeticion','WebMasterController@sociPeticion')->name('webmaster.sociPeticion');
 Route::get('/webmaster/peticionAceptar/{id}','WebMasterController@peticionAceptar')->name('webmaster.peticionAceptar');
 Route::get('/webmaster/peticionDenegar/{id}','WebMasterController@peticionDenegar')->name('webmaster.peticionDenegar');
-Route::get('/webmaster/sociTrashed','WebMasterController@sociTrashed');
 Route::get('/webmaster/sociRestore/{id}','WebMasterController@sociRestore');
 Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
 
 
 //Socios Webmaster
 Route::get('/webmaster/socioIndex','WebMasterController@socioIndex')->name('webmaster.socioIndex');
-Route::get('/webmaster/socioTrashed','WebMasterController@socioTrashed');
 Route::get('/webmaster/socioRestore/{id}','WebMasterController@socioRestore');
 Route::get('/webmaster/socioDestroy/{id}','WebMasterController@socioDestroy');
