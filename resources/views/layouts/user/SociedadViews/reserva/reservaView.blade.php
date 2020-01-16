@@ -14,13 +14,21 @@
     <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="post">
       @csrf
 
-
+@if(isset($fechaEditar))
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">Fecha</span>
         </div>
-        <input type="date" name="fecha" value="{{$fechaEditar}}" class="form-control border" placeholder="Fecha" >
+        <input type="date" name="fecha" value="{{$fechaEditar }}" class="form-control border" placeholder="Fecha" >
       </div>
+      @else
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Fecha</span>
+        </div>
+        <input type="date" name="fecha"  class="form-control border" placeholder="Fecha" >
+      </div>
+      @endif
    
 
       <div class="input-group mb-3">
