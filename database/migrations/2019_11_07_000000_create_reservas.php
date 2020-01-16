@@ -15,10 +15,10 @@ class CreateReservas extends Migration
     {
         Schema::create('reserva', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('sociedad_id'); 
+            $table->unsignedBigInteger('sociedad_id');
             $table->unsignedBigInteger('usuario_id');
             $table->unsignedBigInteger('tipo_id');
-            $table->date('fecha');
+            $table->string('fecha');
             $table->integer('personas');
             $table->softDeletes();
 
