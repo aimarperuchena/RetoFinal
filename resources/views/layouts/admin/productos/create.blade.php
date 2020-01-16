@@ -5,7 +5,7 @@
 <script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
 
 <!-- Content Row -->
-<script src="{{url('assets/js/validacion_crearProducto.js')}}"></script>
+<script src="{{secure_asset('assets/js/validacion_crearProducto.js')}}"></script>
 
 
 <div class="row">

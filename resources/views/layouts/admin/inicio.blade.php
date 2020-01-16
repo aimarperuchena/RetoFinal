@@ -6,7 +6,7 @@
 
                     <div class="row">
                     <div class="col-xl-8 col-lg-7">
-                    <img src="{{url('assets/img/Grafico.jpg')}}" alt="">
+                    <img src="{{secure_asset('assets/img/Grafico.jpg')}}" alt="">
                            </div>
               </div>
               @endsection

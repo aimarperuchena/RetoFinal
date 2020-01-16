@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
-    <link href="{{url('/pruebaJs/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{url('pruebaJs/blog-post.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('/pruebaJs/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('pruebaJs/blog-post.css')}}" rel="stylesheet">
 
 </head>
 
