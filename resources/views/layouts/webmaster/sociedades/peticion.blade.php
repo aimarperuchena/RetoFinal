@@ -2,7 +2,7 @@
 
 @section('webmasterContent')
 <!-- Content Row -->
-
+<br>
 <div class="row">
   <div class="col-xl-12 col-lg-7">
     <table class="table">
