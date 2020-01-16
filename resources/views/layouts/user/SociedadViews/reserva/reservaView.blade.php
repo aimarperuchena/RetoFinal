@@ -6,6 +6,7 @@
   <div class="mb-5 ml-5 col">
     <h1>Mesas</h1>
     <div class="mb-5 mt-5">
+      <?php echo $sociedad ?>
       <img src="{{secure_asset('assets/img/planos',$sociedad->link_plano)}}" alt="plano_sociedad">
     </div>
   </div>
