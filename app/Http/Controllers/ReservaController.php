@@ -35,7 +35,7 @@ class ReservaController extends Controller
   }
   public function edit($reserva_id){
     $user = Auth::user();
-    $reserva = Reserva::find($reserva_id)->get();
+    $reserva = Reserva::find($reserva_id)->first();
     $sociedad = Sociedad::find($reserva->sociedad_id);//mejor usar modal relacion
     $tipoEditar = TipoReserva::find($reserva->tipo_id);//mejor usar modal relacion
     $tipo = TipoReserva::all();
