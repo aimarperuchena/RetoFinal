@@ -52,6 +52,8 @@ Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('socie
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
 Route::post('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear')->name('sociedad.crear');
 Route::post('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
+Route::get('/alta_sociedad','SociedadController@formAlta')->name('sociedad.formAlta');
+Route::post('/alta_sociedad/success','SociedadController@alta')->name('sociedad.alta');
 
 //Perfil usuario
 Route::get('/perfil','ProfileController@profile')->name('profile.index');

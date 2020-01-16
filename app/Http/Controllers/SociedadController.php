@@ -9,7 +9,9 @@ use App\TipoReserva;
 use App\Reserva;
 use App\MesaReserva;
 use App\UsuarioSociedad;
+use App\User;
 use App\PeticionSociedad;
+use App\PeticionNuevaSociedad;
 use Auth;
 use Illuminate\Support\Facades\DB;
 class SociedadController extends Controller
@@ -77,5 +79,26 @@ class SociedadController extends Controller
     $resrevaMesa->save();
 
     return view('layouts.user.SociedadViews.reserva.success')->with('fecha', $request->fecha)->with('mesa', $request->mesa)->with('personas', $request->personas);
+  }
+  public function formAlta(Request $request)
+  {
+    return view('layouts.user.Perfil.altaSociedad');
+  }
+
+  public function alta(Request $request)
+  {
+    $user = Auth::user();
+    $user_change = User::find($user->id);
+    $sociedad = new PeticionNuevaSociedad;
+    $sociedad->nombre =  $request->ubicacion;
+    $sociedad->ubicacion = $request->ubicacion;
+    $sociedad->telefono = $request->telefono;
+    $sociedad->descripcion = $request->descripcion;
+    $sociedad->estado = 'pendiente';
+    $sociedad->link_plano = $request->link_plano;
+    $sociedad->user_id = $user_change->id;
+    $sociedad->save();
+    Auth::logout();
+    return redirect('/');
   }
 }

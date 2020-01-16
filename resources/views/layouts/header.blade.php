@@ -146,6 +146,10 @@
                       <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                       Reservas
                     </a>
+                    <a class="dropdown-item" href="{{ route('sociedad.formAlta') }}">
+                      <i class="fas fa-plus-circle"></i>
+                      Crear Sociedad
+                    </a>
                   @endif
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
