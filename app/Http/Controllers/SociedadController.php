@@ -48,7 +48,8 @@ class SociedadController extends Controller
     $newDate = date("Y-m-d", strtotime($fecha));
     $tipo = TipoReserva::find($request->tipo);
     $sociedad = Sociedad::find($sociedad_id);
-    $mesas = DB::select('select * from mesa where mesa.sociedad_id = '.$sociedad->id.' and id not in(select mesa_id from mesa_reserva where reserva_id in(select id from reserva where fecha like "'.$newDate.'" and sociedad_id='.$sociedad_id.' and tipo_id = '.$request->tipo.'))');
+    // $mesas = DB::select('select * from mesa where mesa.sociedad_id = '.$sociedad->id.' and id not in(select mesa_id from mesa_reserva where reserva_id in(select id from reserva where fecha like "'.$newDate.'" and sociedad_id='.$sociedad_id.' and tipo_id = '.$request->tipo.'))');
+    $mesas = Mesa::where('sociedad_id',$sociedad->id)->get();
 
     return view('layouts.user.Reservas.index')->with('mesas',$mesas)->with('tipo',$tipo)->with('fecha',$fecha)->with('sociedad',$sociedad);
   }
