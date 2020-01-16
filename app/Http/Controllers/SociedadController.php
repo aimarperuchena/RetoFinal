@@ -14,6 +14,10 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 class SociedadController extends Controller
 {
+  public function __construct()
+  {
+   $this->middleware('role:3');
+  }
   public function info($id)
   {
     $user = Auth::user();
@@ -28,24 +32,22 @@ class SociedadController extends Controller
     $denegado = UsuarioSociedad::where('sociedad_id', $sociedad_id)->where('user_id', $user->id)->get();
     $sociedad = Sociedad::find($sociedad_id);
     $numMesa = Mesa::where('sociedad_id', $sociedad_id)->get();
-    $reservas = Reserva::where('sociedad_id', $sociedad_id)->get();
     $tipo = TipoReserva::all();
     if (count($denegado) === 1) {
-      return view('layouts.user.SociedadViews.reserva.reservaView')->with('mesas', $numMesa)->with('sociedad', $sociedad)->with('tipo', $tipo)->with('reservasH', $reservas);
+      return view('layouts.user.SociedadViews.reserva.reservaView')->with('sociedad', $sociedad)->with('tipo', $tipo);
     } else {
       return redirect('/denegado');
     }
   }
 
-  public function reservaFecha()
+  public function reservaFecha(Request $request, $sociedad_id)
   {
-    //AQUI METER LA FECHA QUE VENGA DEL REQUEST
-    $fecha = '2019-12-20';
-    //METER EL ID SOCIEDAD
-    $sociedad_id = 1;
-    $mesas = DB::select('select * from mesa where sociedad_id=1 and id not in(select id from mesa_reserva where reserva_id in(select id from reserva where fecha="2019-12-20" and sociedad_id=1))');
+    $fecha = $request->fecha;
+    $tipo = TipoReserva::find($request->tipo);
+    $sociedad = Sociedad::find($sociedad_id);
+    $mesas = DB::select('select * from mesa where sociedad_id='.$sociedad_id.' and id not in(select mesa_id from mesa_reserva where reserva_id in(select id from reserva where fecha="'.$fecha.'" and sociedad_id='.$sociedad_id.' and tipo_id = '.$request->tipo.'))');
 
-    return view('layouts.user.Reservas.index')->with('mesas',$mesas);
+    return view('layouts.user.Reservas.index')->with('mesas',$mesas)->with('tipo',$tipo)->with('fecha',$fecha)->with('sociedad',$sociedad);
   }
   public function peticion($id)
   {
@@ -57,13 +59,14 @@ class SociedadController extends Controller
     $peticion->save();
     return redirect('/user');
   }
-  public function crear(Request $request, $sociead_id)
+  public function crear(Request $request, $sociead_id, $tipo_id)
   {
     $user = Auth::user();
+    $tipo = TipoReserva::find($tipo_id);
     $resreva = new Reserva;
     $resreva->sociedad_id = $sociead_id;
     $resreva->usuario_id = $user->id;
-    $resreva->tipo_id = $request->tipo;
+    $resreva->tipo_id = $tipo->id;
     $resreva->fecha = $request->fecha;
     $resreva->personas = $request->personas;
     $resreva->save();
