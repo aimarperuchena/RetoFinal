@@ -45,10 +45,10 @@ class ReservaController extends Controller
 
   public function delete($reserva_id){
     $user = Auth::user();
-    $denegado = Reserva::where('usuario_id', $user->id)->get();
+    $denegado = Reserva::where('usuario_id', $user->id)->count();
     $reserva = Reserva::find($reserva_id);
     $reserva -> delete();
-    if (count($denegado) <= 1) {
+    if ($denegado > 0) {
       return redirect('/reservas');
     }else {
       return redirect('/denegado');
