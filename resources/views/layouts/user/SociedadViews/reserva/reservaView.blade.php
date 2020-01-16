@@ -19,9 +19,9 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Fecha</span>
         </div>
-        <input type="date" name="fecha" value="{{$fechaEditar ?? ''}}" class="form-control border" placeholder="Fecha" >
+        <input type="date" name="fecha" value="{{$fechaEditar}}" class="form-control border" placeholder="Fecha" >
       </div>
-     
+   
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
