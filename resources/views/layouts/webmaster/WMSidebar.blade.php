@@ -18,15 +18,22 @@
 
             <li class="nav-item">
                 <a class="nav-link texto_link" href="/webmaster/socioIndex">
-                <i class="fas fa-warehouse"></i>
+                <i class="fas fa-users"></i>
                      Socios
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link texto_link" href="/webmaster/productoIndex">
-                <i class="fas fa-info-circle"></i>
+                <i class="fas fa-cocktail "></i>
                      Productos
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link texto_link" href="/webmaster/sociPeticion">
+                <i class="fas fa-bell"></i>
+                     Peticiones
                 </a>
             </li>
                     </ul>

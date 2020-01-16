@@ -18,6 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
+
     protected $fillable = [
         'id','nombre', 'email', 'password','role_id','telefono','apellido'
     ];
@@ -40,7 +41,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function scopeBuscarpor($query, $tipo, $buscar) {
+    	if ( ($tipo) && ($buscar) ) {
+    		return $query->where($tipo,'like',"%$buscar%");
+    	}
+    }
 
     public function nueva(){
         return $this->hasOne(PeticionNuevaSociedad::class, 'user_id');

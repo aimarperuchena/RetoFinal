@@ -28,8 +28,6 @@ class WebMasterController extends Controller
         $sociedades = Sociedad::count();
         $datos = producto::count();
 
-
-
         return view('layouts.webmaster.panel')->with('productos',$productos)->with('socios',$socios)->with('sociedades',$sociedades);
 
 
@@ -42,7 +40,8 @@ class WebMasterController extends Controller
 
         $tipo = $request->get('tipo');
 
-        $productos = Producto::buscarpor($tipo, $buscar)->paginate(15);
+
+        $productos = Producto::withTrashed()->buscarpor($tipo, $buscar)->paginate(15);
 
 
         return view('layouts.webmaster.productos.index',compact('productos'));
@@ -119,7 +118,7 @@ class WebMasterController extends Controller
 
         $tipo = $request->get('tipo');
 
-        $soci = Sociedad::buscarpor($tipo, $buscar)->paginate(15);
+        $soci = Sociedad::withTrashed()->buscarpor($tipo, $buscar)->paginate(15);
 
 
 
@@ -198,13 +197,15 @@ public function peticionAceptar($id)
 
     public function socioIndex(Request $request)
     {
-        //$socios = UsuarioSociedad::withTrashed()->get();
 
         $buscar = $request->get('buscar');
 
         $tipo = $request->get('tipo');
 
-        $socios = UsuarioSociedad::buscarpor($tipo, $buscar)->paginate(15);
+        $soci = Sociedad::withTrashed()->buscarpor($tipo, $buscar)->paginate(15);
+
+
+        $socios = User::withTrashed()->where('role_id', '3')->buscarpor($tipo, $buscar)->paginate(15);
 
 
         return view('layouts.webmaster.socios.index',compact('socios'));
@@ -214,7 +215,7 @@ public function peticionAceptar($id)
 
     public function socioRestore($id)
     {
-        UsuarioSociedad::withTrashed()->find($id)->restore();
+        User::withTrashed()->find($id)->restore();
 
 
         return redirect('/webmaster/socioIndex');
@@ -223,7 +224,7 @@ public function peticionAceptar($id)
 
         public function socioDestroy($id)
     {
-        $socios = UsuarioSociedad::find($id);
+        $socios = User::find($id);
         $socios->delete();
 
         return redirect('/webmaster/socioIndex');
