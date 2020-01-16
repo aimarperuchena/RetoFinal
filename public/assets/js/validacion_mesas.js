@@ -61,11 +61,13 @@ $(document).ready(function() {
         }
     }
     const validarCapacidad = (capacidad) => {
-        if (capacidad.value >= 2) {
+        if (capacidad >= 2) {
+
             error_capacidad.style.visibility = "hidden";
             error_val.style.visibility = "hidden";
             return true;
         } else {
+
             error_capacidad.style.visibility = "visible";
 
             return false;
