@@ -7,8 +7,8 @@
 <div class="row">
   <div class="col-xl-12 col-lg-7">
     <h3>Editar Stock</h3><br>
-    <form action="{{route ('webmaster.productStore')}}" method="post">
-        {{ csrf_field() }}
+    <form action="{{route ('webmaster.productUpdate', $producto->id)}}" method="post">
+             {{ csrf_field() }}
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
