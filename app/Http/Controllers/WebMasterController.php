@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Access;
 use Illuminate\Http\Request;
 use Illuminate\Http\ID;
 use App\Http\Requests\UserRequest;
@@ -21,14 +21,14 @@ class WebMasterController extends Controller
 {
  $this->middleware('role:1');
 }
-   public function index(){
+    public function index(){
 
         $productos = producto::count();
         $socios = User::count();
         $sociedades = Sociedad::count();
-        $datos = producto::count();
+        $usuarios = Access::count();
 
-        return view('layouts.webmaster.panel')->with('productos',$productos)->with('socios',$socios)->with('sociedades',$sociedades);
+        return view('layouts.webmaster.panel')->with('productos',$productos)->with('socios',$socios)->with('sociedades',$sociedades)->with('usuarios',$usuarios);
 
 
     }
