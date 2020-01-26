@@ -5,7 +5,7 @@
 <div class="d-flex text-center">
   <div id="" class="mt-5 ml-5 mb-5">
     <div class="card" style="width: 18rem;">
-      <img src="{{secure_asset('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
+      <img src="{{url('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
       <div class="card-body">
         <p class="card-text">{{$user->nombre}}</p>
       </div>

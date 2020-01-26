@@ -6,7 +6,7 @@
   <div class="mb-5 ml-5 col">
     <h1>Mesas</h1>
     <div class="mb-5 mt-5">
-      <img src="{{secure_asset('assets/img/planos/'.$sociedad->link_plano)}}" alt="plano_sociedad">
+      <img src="{{url('assets/img/planos/'.$sociedad->link_plano)}}" alt="plano_sociedad">
     </div>
   </div>
   <div class="col">
@@ -29,7 +29,7 @@
         <input type="date" name="fecha"  class="form-control border" placeholder="Fecha" >
       </div>
       @endif
-   
+
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">

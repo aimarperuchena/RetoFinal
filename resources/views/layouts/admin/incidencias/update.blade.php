@@ -4,7 +4,7 @@
 <script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
 
 <!-- Content Row -->
-<script src="{{secure_asset('assets/js/validacion_update_incidencia.js')}}"></script>
+<script src="{{url('assets/js/validacion_update_incidencia.js')}}"></script>
 
 <div class="row">
     <div class="col-xl-8 col-lg-7">
