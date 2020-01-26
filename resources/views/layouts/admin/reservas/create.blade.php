@@ -106,9 +106,7 @@
     <div class="col-xl-5 col-lg-7">
 
     
-@if(isset($fecha))
-<h1>{{$fecha}}</h1>
-@endif
+
    
 
         @if(isset($mesas))
@@ -126,6 +124,11 @@
                 </select>
             </div>
             <input type="submit" value="Crear Reserva" class="btn btn-primary">
+
+            <input type="hidden" name="fecha" value="{{$fecha}}">
+            <input type="hidden" name="personas" value="{{$personas}}">
+            <input type="hidden" name="tipo" value="{{$tipo}}">
+            <input type="hidden" name="usuario" value="{{$usuario}}">
         </form>
 
         @endif

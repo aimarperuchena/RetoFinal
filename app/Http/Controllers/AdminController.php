@@ -408,14 +408,21 @@ class AdminController extends Controller
         $mesasLibres = Mesa::whereNotIn('id', $mesasOcupadas)->where('sociedad_id', $sociedad)->get();
 
 
-        /*  $mesas = Mesa::where('sociedad_id', $sociedad->id)->get(); */
-        /*      $mesas=DB::table('mesa')->where('sociedad_id',$sociedad->id)->pluck('id')->whereNotIn('id',DB::table('mesa_reserva')->pluck('reserva_id')->whereIn('id',DB::table('reserva')->where('sociedad_id',$sociedad->id)->where('tipo_id',$request->tipo)->where('fecha',$request->fecha)))->get();
-         $mesas = DB::select('select * from mesa where sociedad_id='.$sociedad->id.' and id not in(select mesa_id from mesa_reserva where reserva_id in(select id from reserva where fecha='.$reserva->fecha.' and sociedad_id='.$sociedad->id.' and tipo_id='.$request->tipo.'))');
-        */
+       
+        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $tipo)->with('socios', $socios)->with('mesas', $mesasLibres)->with('fecha',$fecha)->with("personas",$request->personas)->with('usuario',$request->usuario);
+    }
 
-        /* $mesas=DB::select("SELECT mesa.id, mesa.nombre, mesa.capacidad from mesa, mesa_reserva, reserva where mesa.sociedad_id=".$sociedad->id." and mesa.id!=mesa_reserva.mesa_id and mesa_reserva.reserva_id=reserva.id and reserva.fecha='".$request->fecha."' and reserva.sociedad_id=".$sociedad->id." and reserva.tipo_id=".$request->tipo);
-            */
-        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $tipo)->with('socios', $socios)->with('reserva', $reserva)->with('mesas', $mesasLibres)->with('fecha',$fecha);
+
+    public function reservaStore(Request $request){
+        $fecha=$request->fecha;
+        $usuario=$request->usuario;
+        $tipo=$request->tipo;
+        $personas=$request->personas;
+
+
+
+
+        return redirect("/admin/reservaIndex");
     }
 
     public function lineaAdd($id)
