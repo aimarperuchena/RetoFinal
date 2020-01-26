@@ -74,7 +74,7 @@ Schema::create('reservas', function (Blueprint $table) {
             'personas' => '10'
         ]);
 
-
+        //RESERVA 7 SOCIEDAD 1
         DB::table('reserva')->insert([
             'sociedad_id' => '1',
             'usuario_id' => '3',

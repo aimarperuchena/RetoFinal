@@ -60,6 +60,11 @@ class mesa_reserva_seeder extends Seeder
             'mesa_id' => '8',
             'reserva_id'=>'6',   
         ]);
+        //RESERVA 7 SOCIEDAD 1
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '1',
+            'reserva_id'=>'7',   
+        ]);
 
         
         

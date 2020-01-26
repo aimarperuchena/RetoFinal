@@ -11,7 +11,7 @@
 
       <div class="input-group mb-2 ">
         <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Tipo:</label>
+          <label class="input-group-text" for="inputGroupSelect01">Fecha:</label>
         </div>
         <select class="custom-select " name="tipo">
           @if($tipo==1)
@@ -29,8 +29,8 @@
       </div>
     </form>
 
-    <a href="/admin/reservaCreate" class="btn btn-primary">Crear Reserva</a>
-    <table class="table table-striped border">
+ <a href="/admin/reservaCreate" class="btn btn-primary">Crear Reserva</a> 
+   <table class="table table-striped border">
     <thead>
       <tr>
         <th>Socio</th>

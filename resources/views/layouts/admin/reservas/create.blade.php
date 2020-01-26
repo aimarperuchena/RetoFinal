@@ -25,13 +25,13 @@
                 </select>
             </div>
 
-@if(isset($reserva))
+            @if(isset($reserva))
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Tipo:</label>
                 </div>
                 <select class="custom-select" name="tipo">
-                <option value="{{$reserva->tipo->id}}">{{$reserva->tipo->nombre}}</option>
+                    <option value="{{$reserva->tipo->id}}">{{$reserva->tipo->nombre}}</option>
                     @foreach($tipo as $t)
                     @if($t->id!=$reserva->tipo_id)
                     <option value="{{$t->id}}">{{$t->nombre}}</option>
@@ -39,27 +39,27 @@
                     @endforeach
                 </select>
             </div>
-    @else
+            @else
 
-    <div class="input-group mb-3">
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Tipo:</label>
                 </div>
                 <select class="custom-select" name="tipo">
                     @foreach($tipo as $t)
-                    
+
                     <option value="{{$t->id}}">{{$t->nombre}}</option>
                     @endforeach
                 </select>
             </div>
-@endif
+            @endif
 
-@if(isset($reserva))
+            @if(isset($reserva))
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Fecha</span>
                 </div>
-                <input type="date" value="{{$reserva->fecha}}" class="form-control border" placeholder="Fecha" aria-label="Fecha" name="fecha" aria-describedby="basic-addon1">
+                <input type="date" date_format="Y-m-d"  class="form-control border" placeholder="Fecha" aria-label="Fecha" name="fecha" aria-describedby="basic-addon1">
             </div>
             @else
 
@@ -67,19 +67,19 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Fecha</span>
                 </div>
-                <input type="date"  class="form-control border" placeholder="Fecha" aria-label="Fecha" name="fecha" aria-describedby="basic-addon1">
+                <input type="date" class="form-control border" placeholder="Fecha" aria-label="Fecha" name="fecha" aria-describedby="basic-addon1">
             </div>
-@endif
+            @endif
 
-@if(isset($reserva))
+            @if(isset($reserva))
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Personas</span>
                 </div>
                 <input type="number" value="{{$reserva->personas}}" class="form-control border" placeholder="Personas" aria-label="Fecha" name="personas" aria-describedby="basic-addon1">
             </div>
-@else
-<div class="input-group mb-3">
+            @else
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Personas</span>
                 </div>
@@ -105,23 +105,29 @@
 
     <div class="col-xl-5 col-lg-7">
 
-    @if(isset($mesas))
-<h3>Mesas Libres</h3>
-<form action="" method="post">
-<div class="input-group mb-3">
+    
+@if(isset($fecha))
+<h1>{{$fecha}}</h1>
+@endif
+   
+
+        @if(isset($mesas))
+        <h3>Mesas Libres</h3>
+        <form action="" method="post">
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Mesas:</label>
                 </div>
                 <select class="custom-select" name="tipo">
                     @foreach($mesas as $mesa)
-                    
+
                     <option value="{{$mesa->id}}">{{$mesa->nombre}}</option>
                     @endforeach
                 </select>
             </div>
-           <input type="submit" value="Crear Reserva" class="btn btn-primary">
-</form>
+            <input type="submit" value="Crear Reserva" class="btn btn-primary">
+        </form>
 
-    @endif
-</div>
-@endsection
+        @endif
+    </div>
+    @endsection
