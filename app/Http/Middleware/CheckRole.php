@@ -16,11 +16,13 @@ class CheckRole
     public function handle($request, Closure $next, $role)
     {
         $user = $request->user();
-        if($user->getRole()==$role){
-            return $next($request);
-        }else{
-            return redirect('/denegado');
+        if (isset($user)) {
+          if($user->getRole()==$role){
+              return $next($request);
+          }else{
+              return redirect('/denegado');
+          }
         }
-        
+
     }
 }
