@@ -29,7 +29,7 @@
         <input type="date" name="fecha"  class="form-control border" placeholder="Fecha" >
       </div>
       @endif
-   
+
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
