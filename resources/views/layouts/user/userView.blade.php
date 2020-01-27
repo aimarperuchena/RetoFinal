@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="input-group mb-3 justify-content-center">
+    <div class="col text-center">
+      <h1 class="mb-2">¿Qué sociedad buscas?</h1>
+      <div class="input-group mb-5 justify-content-center">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-search"></i></span>
         </div>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <input type="text" id="myInput" class="form-control border" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
       </div>
       <div id="listaSociedad" class="d-flex flex-wrap mb-5 justify-content-center">
         @if($todos)
