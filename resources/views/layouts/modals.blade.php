@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                         <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email..."> @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="md-form mb-4">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                         <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password..."> @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                         <input id="nombre" required type="text" class="@error('nombre') is-invalid @enderror" name="nombre"  required  placeholder="Name...">
                         @error('name')
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="md-form mb-5">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="apellido" class="col-md-4 col-form-label text-md-right">apellido</label>
                         <input id="apellido" required type="text" class="@error('apellido') is-invalid @enderror" name="apellido"  required  placeholder="apellido...">
                         @error('apellido')
@@ -103,7 +103,7 @@
 
 
                 <div class="md-form mb-5">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="telefono" class="col-md-4 col-form-label text-md-right">telefono</label>
                         <input id="telefono" type="number" class="@error('telefono') is-invalid @enderror" name="telefono"  required  placeholder="telefono...">
                         @error('telefono')
@@ -116,7 +116,7 @@
 
 
                 <div class="md-form mb-4">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="correo" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                         <input id="correo" type="email" class="@error('email') is-invalid @enderror" name="email"  required  placeholder="Email...">
                         @error('email')
@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="md-form mb-4">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                         <input id="contrasena1" type="password" class="@error('password') is-invalid @enderror" name="password" required placeholder="Password..." >
                         @error('password')
@@ -138,7 +138,7 @@
                 </div>
 
                 <div class="md-form mb-4">
-                    <div class="col-md-6 form-modal">
+                    <div class="col-md-6 form-modal modelos">
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
                         <input id="contrasena2" type="password"  name="password_confirmation" required placeholder="Password Comfirmation...">
                     </div>
@@ -154,15 +154,15 @@
                         <li style="visibility:hidden"  id="contrasena2_error"></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-md-6 offset-md-4 footer-modal">
                     <button id="registrar" type="submit"  class="btn">
                         {{ __('Register') }}
                     </button>
                 </div>
-            
+
             </div>
-            
+
         </form>
     </div>
 </div>

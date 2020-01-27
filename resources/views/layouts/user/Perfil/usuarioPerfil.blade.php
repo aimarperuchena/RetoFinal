@@ -1,60 +1,63 @@
-@extends('layouts.app')
+@extends('layouts.index')
 @section('content')
 <br><br>
 <!-- Perfil de usuario -->
-<div class="d-flex text-center">
-  <div id="" class="mt-5 ml-5 mb-5">
-    <div class="card" style="width: 18rem;">
-      <img src="{{url('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
-      <div class="card-body">
-        <p class="card-text">{{$user->nombre}}</p>
+<div class="container">
+  <div class="row p-5">
+    <div class="col-12 col-md-6 col-lg-6 justify-conten-center">
+      <div class="card asaa" style="width: 18rem;">
+        <img src="{{url('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
+        <div class="card-body">
+          <p class="card-text">{{$user->nombre}}</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="tablaProfile" class="d-block flex-wrap m-5 row">
-    <div class="">
-      <h1 class="mb-5">Información personal</h1>
-      <form class="form-group">
-        <div class="d-flex form-group justify-content-around">
-          <label for="exampleInputEmail1">Nombre</label>
-          <input type="text" class="form-control" style="width: 300px;" readonly value="{{$user->nombre}}">
+    <div class="col-12 col-md-6 col-lg-6">
+      <div class="">
+        <div class="">
+          <h1 class="mb-5">Información personal</h1>
+          <form class="form-group">
+            <div class="d-flex form-group justify-content-around">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input type="text" class="form-control" style="width: 300px;" readonly value="{{$user->nombre}}">
+            </div>
+            <div class="d-flex form-group justify-content-around">
+              <label for="exampleInputEmail1">Apellido</label>
+              <input type="text" class="form-control" style="width: 300px;" readonly value="{{$user->apellido}}">
+            </div>
+            <div class="d-flex form-group justify-content-around">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" style="width: 300px;" readonly value="{{$user->email}}">
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary reserva" data-toggle="modal" data-target="#exampleModal">
+              Editar
+            </button>
+          </form>
         </div>
-        <div class="d-flex form-group justify-content-around">
-          <label for="exampleInputEmail1">Apellido</label>
-          <input type="text" class="form-control" style="width: 300px;" readonly value="{{$user->apellido}}">
-        </div>
-        <div class="d-flex form-group justify-content-around">
-          <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" style="width: 300px;" readonly value="{{$user->email}}">
-        </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Editar
-        </button>
-      </form>
+      </div>
     </div>
-    <hr class="m-5">
-    @if ($user->role_id === 3)
-    <div class="">
-      <h1 class="mb-5">Suscripciones</h1>
-      <ul class="list-group">
-
-        @foreach ($sociedadSocio as $socio)
-        @foreach($sociedades as $sociedad)
-        @if($socio->sociedad_id==$sociedad->id)
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          {{$sociedad -> nombre}}
-          <a class="badge badge-danger badge-pill text-white" href="{{ route('profile.deleteSus',$sociedad -> id)}}"><i class="fas fa-minus-circle"></i></a>
-        </li>
-        @endif
-        @endforeach
-
-        @endforeach
-
-      </ul>
     </div>
-    @endif
-  </div>
+    <div class="text-center mb-5">
+      <hr class="m-5">
+      @if ($user->role_id === 3)
+      <div class="">
+        <h1 class="mb-5">Suscripciones</h1>
+        <ul class="list-group">
+          @foreach ($sociedadSocio as $socio)
+          @foreach($sociedades as $sociedad)
+          @if($socio->sociedad_id==$sociedad->id)
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{$sociedad -> nombre}}
+            <a class="badge badge-danger badge-pill text-white" href="{{ route('profile.deleteSus',$sociedad -> id)}}"><i class="fas fa-minus-circle"></i></a>
+          </li>
+          @endif
+          @endforeach
+          @endforeach
+        </ul>
+      </div>
+      @endif
+    </div>
 </div>
 
 

@@ -9,15 +9,15 @@
   </div>
     <div id="nosotros" class="about">
         <div class="row p-5">
-            <div class="col">
-                <div class="card nosotros" style="width: 25rem;">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card nosotros asaa" >
                     <img src="assets\img\aboutUs.jpg" class="card-img-top" alt="Sobre Nosotros">
                     <div class="card-body">
                         <p class="card-text">Gastro-Society</p>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-12 col-md-6 col-lg">
                 <h2>{{ __('multi.nosotros') }}</h2>
                 <p>{{ __('multi.descripcion1') }}</p>
                 <p>{{ __('multi.descripcion2') }}</p>
@@ -120,7 +120,7 @@
                             <div class="error">{{ $errors->first('message') }}</div>
                             @endif
                         </div>
-                     <p id="contact_name">aa</p>
+                     <p id="contact_name"></p>
                      <p id="contact_phone"></p>
                      <p id="contact_email"></p>
                      <p id="contact_message"></p>

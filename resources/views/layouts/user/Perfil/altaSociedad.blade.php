@@ -38,7 +38,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Descripción</span>
       </div>
-      <textarea class="form-control" aria-label="descripcion" name="descripcion"></textarea>
+      <textarea class="form-control border" aria-label="descripcion" name="descripcion"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Crear Sociedad</button>
   </form>

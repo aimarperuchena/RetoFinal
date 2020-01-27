@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{route('usuario.suscripciones')}}">Mis suscripciones</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('sociedad.formAlta') }}">Alta Sociedad</a>
+                </li>
               @endif
               @if ($user->role_id === 2)
               <li class="nav-item">

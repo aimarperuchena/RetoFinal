@@ -1,6 +1,6 @@
 <section class="footer justify-content-center">
     <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-md-4 col-lg-4">
             <h2>{{ __('multi.redes') }}</h2>
             <ul>
                 <li>Twitter</li>
@@ -9,7 +9,7 @@
                 <li>Google</li>
             </ul>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4 col-lg-4">
             <h2>{{ __('multi.servicios') }}</h2>
             <ul>
                 <li>
@@ -29,8 +29,8 @@
                 </li>
             </ul>
         </div>
-        <div class="col-4">
-            
+        <div class="col-12 col-md-4 col-lg-4">
+
             <h2>{{ __('multi.terminos') }}</h2>
             <ul>
                 <li>{{ __('multi.derechos') }}</li>
