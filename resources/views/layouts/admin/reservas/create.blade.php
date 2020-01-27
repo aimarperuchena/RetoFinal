@@ -46,7 +46,7 @@
                     <label class="input-group-text" for="inputGroupSelect01">Tipo:</label>
                 </div>
                 <select class="custom-select" name="tipo">
-                    @foreach($tipo as $t)
+                    @foreach($todosTipos as $t)
 
                     <option value="{{$t->id}}">{{$t->nombre}}</option>
                     @endforeach
@@ -107,16 +107,17 @@
 
     
 
-   
 
         @if(isset($mesas))
+    
         <h3>Mesas Libres</h3>
-        <form action="" method="post">
+        <form action="{{route('admin.reservaStore')}}" method="post">
+        {{ csrf_field() }}
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Mesas:</label>
                 </div>
-                <select class="custom-select" name="tipo">
+                <select class="custom-select" name="mesa">
                     @foreach($mesas as $mesa)
 
                     <option value="{{$mesa->id}}">{{$mesa->nombre}}</option>

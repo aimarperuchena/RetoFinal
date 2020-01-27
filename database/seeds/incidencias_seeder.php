@@ -26,20 +26,20 @@ class incidencias_seeder extends Seeder
     {
         DB::table('incidencia')->insert([
             'sociedad_id' => '1',
-            'descripcion'=>'La cafetera no ba',
+            'descripcion'=>'La cafetera no va',
             'estado'=>'pendiente',
             'fecha'=>'2019/12/2'
         ]);
         DB::table('incidencia')->insert([
             'sociedad_id' => '2',
-            'descripcion'=>'La puerta no ba',
+            'descripcion'=>'La puerta no va',
             'estado'=>'pendiente',
             'fecha'=>'2019/12/2'
         ]);
         DB::table('incidencia')->insert([
             'sociedad_id' => '3',
             'descripcion'=>'La sarten esta rota',
-            'estado'=>'reparada',
+            'estado'=>'solucionado',
             'fecha'=>'2019/12/2'
         ]);
     }

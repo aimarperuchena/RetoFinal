@@ -419,3 +419,7 @@ html {
 #tablaProfile {
     width: 100vw;
 }
+
+.borderInput {
+    border: solid black 2px;
+}

@@ -118,6 +118,7 @@ Route::post('/admin/reservaIndexFiltro','AdminController@reservaIndexFiltro')->n
 Route::get('/admin/reservaDelete/{id}','AdminController@reservaDelete')->name('admin.reservaDelete');
 Route::get('/admin/reservaCreate','AdminController@reservaCreate')->name('admin.reservaCreate');
 Route::post('/admin/reservaFechaFind','AdminController@reservaFechaFind')->name('admin.reservaFechaFind');
+Route::post('/admin/reservaStore','AdminController@reservaStore')->name('admin.reservaStore');
 
 //LINEAS
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');

@@ -123,7 +123,7 @@ class AdminController extends Controller
         $producto->stock = $request->stock;
         $producto->precio = $request->precio;
         $producto->save();
-        $link = '/admin';
+        $link = '/admin/productoIndex';
 
         return redirect($link)->with('contador', $contador);
     }
@@ -170,20 +170,30 @@ class AdminController extends Controller
     }
     public function incidenciaIndexFiltro(Request $request)
     {
-        if ($request->tipo == 1) {
-            $user = Auth::user();
-            $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-            $incidencias = Incidencia::where('sociedad_id', $sociedad->id)->where('estado', 'pendiente')->get();
-            $tipo = 1;
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+
+        $estado='';
+       
+        if ($request->estado == 1) {
+           $estado="pendiente"; 
+           $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado',$estado)->get();
+           $tipo=1;
+           return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias', $incidencias)->with('tipo', $tipo);
+
         }
-        if ($request->tipo == 2) {
-            $user = Auth::user();
-            $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-            $incidencias = Incidencia::where('sociedad_id', $sociedad->id)->where('estado', 'solucionado')->get();
+        else  {
+            $estado="solucionado";
             $tipo = 2;
+            $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado',$estado)->get();
+            return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias', $incidencias)->with('tipo', $tipo);
+
         }
 
-        return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias', $incidencias)->with('tipo', $tipo);
+       
+
+
+      
     }
 
     public function incidenciaCreate()
@@ -206,14 +216,14 @@ class AdminController extends Controller
         $incidencia->fecha = date('Y-m-d');
         $incidencia->save();
 
-        return redirect('/admin');
+        return redirect('/admin/incidenciaIndex');
     }
 
     public function incidenciaDestroy($id)
     {
         $incidencia = Incidencia::find($id);
         $incidencia->delete();
-        return redirect('/admin');
+        return redirect('/admin/incidenciaIndex');
     }
 
 
@@ -232,7 +242,7 @@ class AdminController extends Controller
         $incidencia->descripcion = $request->descripcion;
         $incidencia->estado = $request->estado;
         $incidencia->save();
-        return redirect('/admin');
+        return redirect('/admin/incidenciaIndex');
     }
 
     public function mesaIndex()
@@ -260,7 +270,7 @@ class AdminController extends Controller
         $mesa->sociedad_id = $sociedad->id;
         $mesa->save();
 
-        return redirect('/admin');
+        return redirect('/admin/mesaIndex');
     }
 
     public function mesaEdit($id)
@@ -280,7 +290,7 @@ class AdminController extends Controller
 
         $mesa->capacidad = $request->capacidad;
         $mesa->save();
-        return redirect('/admin');
+        return redirect('/admin/mesaIndex');
     }
 
     public function mesaDestroy($id)
@@ -292,7 +302,7 @@ class AdminController extends Controller
             $mesa_reserva = MesaReserva::where('mesa_id', $mesa->id)->count();
             if ($mesa_reserva == 0) {
                 $mesa->delete();
-                return view('layouts.admin.mesas.index')->with('sociedad', $sociedad);
+                return redirect('/admin/mesaIndex');
             } else {
                 $error = "La mesa " . $mesa->nombre . " existe en reservas";
                 return view('layouts.admin.mesas.index')->with('sociedad', $sociedad)->with('error', $error);
@@ -368,7 +378,7 @@ class AdminController extends Controller
             $mesaReserva->delete();
 
             $reserva->delete();
-            return redirect('/admin');
+            return redirect('/admin/reservaIndex');
         } else {
             return redirect('/denegado');
         }
@@ -377,19 +387,19 @@ class AdminController extends Controller
     public function reservaCreate()
     {
         $user = Auth::user();
-        $tipo = TipoReserva::all();
+        $todosTipos = TipoReserva::all();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $sociedadUsuario = UsuarioSociedad::where('sociedad_id', $sociedad->id)->where('deleted_at', null)->get();
         $socios = DB::select('select * from users where id in(select user_id from sociedad_user where sociedad_id=' . $sociedad->id . ' and deleted_at is null)');
 
-        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $tipo)->with('socios', $socios);
+        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('todosTipos', $todosTipos)->with('socios', $socios);
     }
 
     public function reservaFechaFind(admin_reserva_create $request)
     {
         $validated = $request->validated();
         $user = Auth::user();
-        $tipo = TipoReserva::all();
+        $tipos = TipoReserva::all();
 
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $reserva = new Reserva();
@@ -406,23 +416,42 @@ class AdminController extends Controller
         $mesa_reservas = MesaReserva::whereIn('reserva_id', $reservas)->get();
         $mesasOcupadas = Mesa::whereIn('id', $mesa_reservas)->get();
         $mesasLibres = Mesa::whereNotIn('id', $mesasOcupadas)->where('sociedad_id', $sociedad)->get();
-
-
-       
-        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $tipo)->with('socios', $socios)->with('mesas', $mesasLibres)->with('fecha',$fecha)->with("personas",$request->personas)->with('usuario',$request->usuario);
+        $contador = Mesa::whereNotIn('id', $mesasOcupadas)->where('sociedad_id', $sociedad)->count();
+        if($contador===0){
+            $mesasLibres=Mesa::where('sociedad_id',$sociedad->id)->get();
+        }
+      echo $contador;
+        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $request->tipo)->with('todosTipos',$tipos)->with('socios', $socios)->with('mesas', $mesasLibres)->with('fecha',$fecha)->with("personas",$request->personas)->with('usuario',$request->usuario);
     }
 
 
     public function reservaStore(Request $request){
-        $fecha=$request->fecha;
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+
+       
         $usuario=$request->usuario;
         $tipo=$request->tipo;
         $personas=$request->personas;
 
+        $reserva = new Reserva();
+        $reserva->fecha = $request->fecha;
+        $reserva->usuario_id = $usuario;
+        $reserva->sociedad_id = $sociedad->id;
+        $reserva->personas = $personas;
+        $reserva->tipo_id = $tipo;
+        $reserva->save();
+
+        $reservaCreada=Reserva::where('sociedad_id',$sociedad->id)->where('usuario_id',$usuario)->first()->orderBy('id', 'DESC')->first();
+        $mesa_reserva=$request->mesa;
+        $mesaReserva=new MesaReserva();
+        $mesaReserva->mesa_id=$mesa_reserva;
+        $mesaReserva->reserva_id=$reservaCreada->id;
+        $mesaReserva->save();
+        return redirect('/admin/reservaIndex');
 
 
-
-        return redirect("/admin/reservaIndex");
+   
     }
 
     public function lineaAdd($id)
