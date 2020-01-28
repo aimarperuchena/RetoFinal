@@ -11,16 +11,16 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Nombre</span>
       </div>
-      <input type="text" class="form-control border" placeholder="Nombre" name="nombre">
+      <input type="text" class="form-control border" placeholder="Nombre" name="nombre" required>
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text">Ubicación</span>
       </div>
-      <input type="text" class="form-control border" placeholder="Nombre" name="ubicacion">
+      <input type="text" class="form-control border" placeholder="ubicacion" name="ubicacion" required>
     </div>
     <div class="input-group mb-3">
-      <input type="number" class="form-control border" placeholder="Telefono..." name="telefono">
+      <input type="number" class="form-control border" placeholder="Telefono..." name="telefono" required>
       <div class="input-group-append">
         <span class="input-group-text">Telefono</span>
       </div>
@@ -40,7 +40,16 @@
       </div>
       <textarea class="form-control border" aria-label="descripcion" name="descripcion"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Crear Sociedad</button>
+    <button type="submit" class="btn btn-primary mt-5 reserva">Crear Sociedad</button>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
   </form>
 </div>
 @endsection

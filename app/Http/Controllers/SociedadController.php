@@ -16,6 +16,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ReservaRequest;
 use App\Http\Requests\ReservaFechaRequest;
+use App\Http\Requests\AltaSociedadRequest;
 
 class SociedadController extends Controller
 {
@@ -92,8 +93,9 @@ class SociedadController extends Controller
     return view('layouts.user.Perfil.altaSociedad');
   }
 
-  public function alta(Request $request)
+  public function alta(AltaSociedadRequest $request)
   {
+    $validated = $request->validated();
     $user = Auth::user();
     $user_change = User::find($user->id);
     $sociedad = new PeticionNuevaSociedad;
