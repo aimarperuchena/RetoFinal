@@ -15,7 +15,10 @@
         $('#dtBasicExample').DataTable();
         $('.dataTables_length').addClass('bs-select');
     });
+
+  
 </script>
+
 <!-- Content Row -->
 
 <div class="row">
@@ -28,7 +31,7 @@
             <input type="text" class="form-control border" id="myInput" aria-describedby="basic-addon1">
         </div>
 
-        <table class="table table-striped border" id="dtBasicExample">
+        <table class="table table-striped border " id="dtBasicExample">
             <thead>
                 <tr>
                     <th>Id</th>

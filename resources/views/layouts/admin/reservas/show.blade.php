@@ -20,7 +20,7 @@
                 <th>Capacidad</th>
             </tr>
             </thead>
-            @foreach($reserva->mesas as $mesa)
+            @foreach($mesas as $mesa)
             <tr>
                 <td>{{$mesa->nombre}}</td>
                 <td>{{$mesa->capacidad}}</td>

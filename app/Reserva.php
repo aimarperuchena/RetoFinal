@@ -28,6 +28,6 @@ class Reserva extends Model
   }
 
   public function mesas(){
-    return $this->hasOne(Mesa::class);
+    return $this->hasMany(Mesa::class);
 }
 }
