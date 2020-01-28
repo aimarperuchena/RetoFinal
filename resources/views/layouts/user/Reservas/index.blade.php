@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="container">
-    <form class="form-group" action="{{ route('sociedad.crear',[$sociedad -> id, $tipo->id]) }}" method="post">
+    <form class="form-group" action="{{ route('sociedad.crear',[$sociedad -> id, $tipo->id]) }}" method="get">
       @csrf
       <div class="d-flex pr-3 form-group justify-content-between">
         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Fecha:</label>
@@ -65,6 +65,15 @@
         </select>
       </div>
       <button type="submit" class="btn btn-primary reserva">Reservar</button>
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif
     </form>
   </div>
 </div>

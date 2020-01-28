@@ -50,8 +50,8 @@ Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.su
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
-Route::post('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear')->name('sociedad.crear');
-Route::post('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
+Route::get('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear')->name('sociedad.crear');
+Route::get('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
 Route::get('/alta_sociedad','SociedadController@formAlta')->name('sociedad.formAlta');
 Route::post('/alta_sociedad/success','SociedadController@alta')->name('sociedad.alta');
 

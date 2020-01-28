@@ -11,7 +11,7 @@
     </div>
     <div class="col-12 col-md-6 col-lg-6 mb-5">
       <h1>Reserva Fecha</h1>
-      <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="post">
+      <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="get">
         @csrf
       @if(isset($fechaEditar))
         <div class="form-group mb-3">
@@ -48,7 +48,16 @@
           @endif
         </select>
       </div>
-        <button type="submit" class="btn btn-primary">Mesas</button>
+        <button type="submit" class="btn btn-primary reserva">Mesas</button>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
       </form>
     </div>
   </div>
