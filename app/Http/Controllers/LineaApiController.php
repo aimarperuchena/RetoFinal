@@ -1,26 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Factura;
-
+use App\Linea;
 /**
-* @OA\Info(title="API Facturas", version="1.0")
+* @OA\Info(title="API Linas", version="1.0")
 *
 * @OA\Server(url="http://127.0.0.1:8000/")
 */
 
-class FacturaApiController extends Controller
+
+class LineaApiController extends Controller
 {
   /**
   * @OA\Get(
-  *     path="/api/facturas",
-  *     tags={"Facturas"},
-  *     summary="Mostrar facturas",
+  *     path="/api/lineas",
+  *     tags={"Lineas"},
+  *     summary="Mostrar lineas",
   *     @OA\Response(
   *         response=200,
-  *         description="Mostrar todos los pokemons."
+  *         description="Mostrar todos las Líneas."
   *     ),
   *     @OA\Response(
   *         response="default",
@@ -30,8 +30,8 @@ class FacturaApiController extends Controller
   */
     public function index()
     {
-        $facturas = Factura::all();
-        return $facturas;
+        $lineas = Lineas::all();
+        return $lineas;
     }
 
     /**
@@ -61,9 +61,10 @@ class FacturaApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_sociedad)
     {
-        //
+        $productos=DB::select('SELECT producto.nombre as nombre, SUM(linea.unidades) as unidades, sum(linea.importe) as importe FROM linea, productos_sociedad, producto  where linea.sociedad_id='.$id_sociedad.' and productos_sociedad.sociedad_id='.$id_sociedad.' and linea.producto_sociedad_id=productos_sociedad.id and productos_sociedad.producto_id=producto.id group by producto.nombre');
+        return $productos;
     }
 
     /**

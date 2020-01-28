@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Linea;
+use App\Factura;
+
 /**
-* @OA\Info(title="API Linas", version="1.0")
+* @OA\Info(title="API Facturas", version="1.0")
 *
 * @OA\Server(url="http://127.0.0.1:8000/")
 */
 
-
-class LineaApiController extends Controller
+class FacturaApiController extends Controller
 {
   /**
   * @OA\Get(
-  *     path="/api/lineas",
-  *     tags={"Lineas"},
-  *     summary="Mostrar lineas",
+  *     path="/api/facturas",
+  *     tags={"Facturas"},
+  *     summary="Mostrar facturas",
   *     @OA\Response(
   *         response=200,
-  *         description="Mostrar todos las Líneas."
+  *         description="Mostrar todos los pokemons."
   *     ),
   *     @OA\Response(
   *         response="default",
@@ -30,8 +30,15 @@ class LineaApiController extends Controller
   */
     public function index()
     {
-        $lineas = Lineas::all();
-        return $lineas;
+        $facturas = Factura::all();
+        return $facturas;
+    }
+
+
+    //ID SOCIEDAD
+    public function show($id_sociedad){
+        $facturas = Factura::where('sociedad_id',$id_sociedad)->get();
+        return ($facturas);
     }
 
     /**
@@ -61,10 +68,7 @@ class LineaApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+   
 
     /**
      * Show the form for editing the specified resource.
