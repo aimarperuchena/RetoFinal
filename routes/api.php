@@ -17,8 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 //Agregamos nuestra ruta al controller
-Route::resource('facturas', 'FacturaController');
-Route::resource('users', 'UserController');
-Route::resource('lineas', 'LineaController');
-Route::resource('reservas', 'ReservaController');
-Route::resource('sociedad', 'SociedadController');
+Route::resource('facturas', 'FacturaApiController');
+Route::resource('users', 'UsuarioApiController');
+Route::resource('lineas', 'LineaApiController');
+Route::resource('reservas', 'ReservaApiController');
+Route::resource('sociedad', 'SociedadApiController');
