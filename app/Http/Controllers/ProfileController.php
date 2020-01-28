@@ -7,7 +7,7 @@ use Auth;
 use App\Sociedad;
 use App\UsuarioSociedad;
 use App\User;
-
+use App\Http\Requests\PerfilUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -24,7 +24,8 @@ class ProfileController extends Controller
     $suscripcion -> delete();
     return redirect('/perfil');
   }
-  public function update(Request $request){
+  public function update(PerfilUpdateRequest $request){
+    $validated = $request->validated();
     $user = Auth::user();
     $newUser = User::find($user->id);
     $newUser->nombre = $request->nombre;

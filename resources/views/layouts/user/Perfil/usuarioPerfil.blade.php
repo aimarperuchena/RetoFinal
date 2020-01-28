@@ -33,6 +33,15 @@
             <button type="button" class="btn btn-primary reserva" data-toggle="modal" data-target="#exampleModal">
               Editar
             </button>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
           </form>
         </div>
       </div>
