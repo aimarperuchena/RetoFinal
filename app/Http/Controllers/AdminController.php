@@ -340,8 +340,10 @@ class AdminController extends Controller
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $reserva = Reserva::find($id);
+        $mesaReserva=MesaReserva::where('reserva_id',$reserva->id)->get();
+        $mesas = Mesa::whereIn('id', $mesaReserva)->get();
         $factura = Factura::where('reserva_id', $id)->first();
-        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura);
+        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas',$mesas);
     }
 
     public function reservaEdit($id)
