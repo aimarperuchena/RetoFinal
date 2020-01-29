@@ -6,10 +6,12 @@
                     <!-- Content Row -->
 
        <div class="row">
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-6 col-lg-6">
 
-            <div id="unidades" style="width: 900px; height: 300px;"></div>   
-            <div id="importe" style="width: 900px; height: 300px;"></div> 
+            <div id="unidades" style="width: 500px; height: 300px;"></div>  
+            </div>
+            <div class="col-xl-5 col-lg-5"> 
+            <div id="importe" style="width: 500px; height: 300px;"></div> 
             </div>
        </div>
 @endsection
