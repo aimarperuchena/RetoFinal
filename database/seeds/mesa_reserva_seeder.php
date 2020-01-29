@@ -65,7 +65,59 @@ class mesa_reserva_seeder extends Seeder
             'mesa_id' => '1',
             'reserva_id'=>'7',   
         ]);
+        //RESERVA 8 SOCIEDAD 1
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '1',
+            'reserva_id'=>'8',   
+        ]);
+        //RESERVA 9 SOCIEDAD 1
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '2',
+            'reserva_id'=>'9',   
+        ]);
+        //RESERVA 10 SOCIEDAD 1
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '1',
+            'reserva_id'=>'10',   
+        ]);
+        //RESERVA 11 SOCIEDAD 1
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '2',
+            'reserva_id'=>'11',   
+        ]);
+        //RESERVA 12 SOCIEDAD 2
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '4',
+            'reserva_id'=>'12',   
+        ]);
+        //RESERVA 13 SOCIEDAD 2
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '5',
+            'reserva_id'=>'13',   
+        ]);
+        //RESERVA 14 SOCIEDAD 2
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '6',
+            'reserva_id'=>'14',   
+        ]);
+        //RESERVA 15 SOCIEDAD 3
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '7',
+            'reserva_id'=>'15',   
+        ]);
+        //RESERVA 16 SOCIEDAD 3
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '8',
+            'reserva_id'=>'16',   
+        ]);
+        //RESERVA 17 SOCIEDAD 3
+        DB::table('mesa_reserva')->insert([
+            'mesa_id' => '9',
+            'reserva_id'=>'17',   
+        ]);
+        
 
+        
         
         
     }
