@@ -32,7 +32,7 @@ $(document).ready(function () {
 
   @endif
 <br><br>
-  <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
+  <input class="form-control border col-lg-12" id="myInput" type="text" placeholder="Buscador..">
 
   <br>
   <table class="table table-striped border" id="dtBasicExample" cellspacing="0" width="100%" id="myList">

@@ -7,6 +7,7 @@ use Illuminate\Http\ID;
 use App\Http\Requests\UserRequest;
 use App\Producto;
 use App\Sociedad;
+use Illuminate\Support\Carbon;
 use App\UsuarioSociedad;
 use App\PeticionNuevaSociedad;
 use App\User;
@@ -26,7 +27,7 @@ class WebMasterController extends Controller
         $productos = producto::count();
         $socios = User::count();
         $sociedades = Sociedad::count();
-        $usuarios = Access::count();
+        $usuarios=Access::whereDate('created_at', '=', Carbon::now()->format('Y-m-d'))->count();
 
         return view('layouts.webmaster.panel')->with('productos',$productos)->with('socios',$socios)->with('sociedades',$sociedades)->with('usuarios',$usuarios);
 
@@ -36,36 +37,11 @@ class WebMasterController extends Controller
     public function productoIndex(Request $request)
     {
 
-        $buscar = $request->get('buscar');
-
-        $tipo = $request->get('tipo');
-
-
-        $productos = Producto::withTrashed()->buscarpor($tipo, $buscar)->paginate(15);
-
+        $productos = Producto::all();
 
         return view('layouts.webmaster.productos.index',compact('productos'));
 
-
     }
-
-     public function productoTrashed()
-    {
-        $productos = producto::onlyTrashed()->get();
-
-        return view('layouts.webmaster.productos.trashed')->with('productos',$productos);
-
-    }
-
-    public function productoRestore($id)
-    {
-        producto::withTrashed()->find($id)->restore();
-
-
-        return redirect('/webmaster/productoIndex');
-
-    }
-
 
      public function productCreate()
     {
@@ -100,42 +76,43 @@ class WebMasterController extends Controller
 
     }
 
-
-    public function productDestroy($id)
+    public function sociIndex(Request $request)
     {
-        $producto = Producto::find($id);
-        $producto->delete();
+        $soci = Sociedad::withTrashed()->get();
 
-        return redirect('/webmaster/productoIndex');
+        return view('layouts.webmaster.sociedades.index',compact('soci'));
+
     }
 
-    public function sociIndex(Request $request)
-{
-    //$soci = Sociedad::withTrashed()->get();
-
-
-        $buscar = $request->get('buscar');
-
-        $tipo = $request->get('tipo');
-
-        $soci = Sociedad::withTrashed()->buscarpor($tipo, $buscar)->paginate(15);
-
-
-
-    return view('layouts.webmaster.sociedades.index',compact('soci'));
-
-}
-
-public function sociPeticion()
-{
-    $soci = PeticionNuevaSociedad::all();
-
-    return view('layouts.webmaster.sociedades.peticion')->with('soci',$soci);
-
-}
-
-public function peticionAceptar($id)
+    public function sociRestore($id)
     {
+        Sociedad::withTrashed()->find($id)->restore();
+
+
+        return redirect('/webmaster/sociIndex');
+
+    }
+
+        public function sociDestroy($id)
+    {
+        $soci = Sociedad::find($id);
+        $soci->delete();
+
+        return redirect('/webmaster/sociIndex');
+
+    }
+
+
+    public function sociPeticion()
+    {
+        $soci = PeticionNuevaSociedad::all();
+
+        return view('layouts.webmaster.sociedades.peticion')->with('soci',$soci);
+
+    }
+
+    public function peticionAceptar($id)
+        {
 
         $soci = PeticionNuevaSociedad::find($id);
         $soci->estado = "aceptado";
@@ -177,39 +154,13 @@ public function peticionAceptar($id)
         return redirect('/webmaster/sociPeticion');
     }
 
-    public function sociRestore($id)
-    {
-        Sociedad::withTrashed()->find($id)->restore();
-
-
-        return redirect('/webmaster/sociIndex');
-
-    }
-
-    public function sociDestroy($id)
-{
-    $soci = Sociedad::find($id);
-    $soci->delete();
-
-    return redirect('/webmaster/sociIndex');
-
-}
-
     public function socioIndex(Request $request)
     {
 
-        $buscar = $request->get('buscar');
-
-        $tipo = $request->get('tipo');
-
-        $soci = Sociedad::withTrashed()->buscarpor($tipo, $buscar)->paginate(15);
-
-
-        $socios = User::withTrashed()->where('role_id', '3')->buscarpor($tipo, $buscar)->paginate(15);
+        $socios = User::withTrashed()->where('role_id', '3')->get();
 
 
         return view('layouts.webmaster.socios.index',compact('socios'));
-
 
     }
 
