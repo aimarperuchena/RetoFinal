@@ -105,7 +105,7 @@ class WebMasterController extends Controller
 
     public function sociPeticion()
     {
-        $soci = PeticionNuevaSociedad::all();
+        $soci = PeticionNuevaSociedad::withTrashed()->where('estado','pendiente')->get();
 
         return view('layouts.webmaster.sociedades.peticion')->with('soci',$soci);
 
@@ -152,6 +152,49 @@ class WebMasterController extends Controller
 
 
         return redirect('/webmaster/sociPeticion');
+    }
+
+    public function peticionRestore($id)
+    {
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->estado = "aceptado";
+        $soci->save();
+
+        //PeticionNuevaSociedad::withTrashed()->find($id)->restore();
+
+        return redirect('/webmaster/sociPeticion');
+
+    }
+
+        public function peticionDestroy($id)
+    {
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->estado = "denegado";
+        $soci->save();
+
+        //$soci = PeticionNuevaSociedad::find($id);
+       // $soci->delete();
+
+        return redirect('/webmaster/sociPeticion');
+
+    }
+
+    public function peticionFiltrado(Request $request)
+    {
+        $estado='';
+
+        if ($request->estado == 1) {
+           $estado="denegado";
+           $soci=PeticionNuevaSociedad::withTrashed()->where('estado',$estado)->get();
+           $tipo=1;
+           return view('layouts.webmaster.sociedades.peticion')->with('tipo', $tipo)->with('estado', $estado)->with('soci', $soci);
+        }
+        else  {
+            $estado="aceptado";
+            $soci=PeticionNuevaSociedad::withTrashed()->where('estado',$estado)->get();
+           $tipo=2;
+           return view('layouts.webmaster.sociedades.peticion')->with('tipo', $tipo)->with('estado', $estado)->with('soci', $soci);
+        }
     }
 
     public function socioIndex(Request $request)

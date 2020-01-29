@@ -1,23 +1,20 @@
 @extends('layouts.webmaster.WMView')
 
 @section('webmasterContent')
-<br><br>
-<h1 class="text-center">Estadisticas</h1>
-<br><br>
+
+<br>
 <div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
-        <a href="/webmaster">
+    <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>Accesos</h1></div>
-                        </div>
-                        <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>{{$usuarios}}</h1></div>
+                        <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Accesos {{$usuarios}}</div>
+
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-book fa-2x text-gray-300"></i>
+
+                            <i class="fas fa-book fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -25,67 +22,56 @@
         </a>
     </div>
 
-    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
-        <a href="/webmaster/sociIndex">
+    <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>Sociedades</h1></div>
-                        </div>
-                        <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>{{$sociedades}}</h1></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-warehouse fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
+                        <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Sociedades {{$sociedades}}</div>
 
-    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
-        <a href="/webmaster/socioIndex">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>Socios</h1></div>
-                        </div>
-                        <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>{{$socios}}</h1></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
 
-    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
-        <a href="/webmaster/productoIndex">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>Productos</h1></div>
-                        </div>
-                        <div class="col mr-2">
-                            <div class="title-xs font-weight-bold text-primary text-uppercase mb-1"><h1>{{$productos}}</h1></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-cocktail fa-2x text-gray-300"></i>
+                            <i class="fas fa-warehouse fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </a>
     </div>
-    </a>
-</div>
+    <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                        <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Socios {{$socios}}</div>
+
+                        </div>
+                        <div class="col-auto">
+
+                            <i class="fas fa-users fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                        <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Productos {{$productos}}</div>
+
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-cocktail fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
 
 @endsection
 
