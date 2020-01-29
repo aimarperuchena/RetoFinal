@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('facturas', 'FacturaApiController');
 Route::resource('users', 'UsuarioApiController');
 Route::resource('lineas', 'LineaApiController');
-Route::resource('reservas', 'ReservaApiController');
+Route::resource('reservas', 'ReservasApiController');
 Route::resource('sociedad', 'SociedadApiController');

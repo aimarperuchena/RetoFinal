@@ -145,7 +145,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'3',
             'fecha' => '2019/12/26',
             'personas' => '10',
-            'importe' => '92'
+            'importe' => '122'
         ]);
         //RESERVA 17 SOCIEDAD 3 FACTURA 17
         DB::table('factura')->insert([
@@ -153,7 +153,7 @@ class factura_seeder extends Seeder
             'sociedad_id'=>'3',
             'fecha' => '2019/12/25',
             'personas' => '10',
-            'importe' => '92'
+            'importe' => '48'
         ]);
          
      
