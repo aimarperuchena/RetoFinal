@@ -1,6 +1,11 @@
 @extends('layouts.webmaster.WMView')
-
 @section('webmasterContent')
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ url('assets/js/charts/productosChart.js')}}"></script>
+<script src="{{ url('assets/js/charts/accesosChart.js')}}"></script>
+<script src="{{ url('assets/js/charts/sociosChart.js')}}"></script>
+
 
 <br>
 <div class="row">
@@ -72,6 +77,24 @@
             </div>
         </a>
     </div>
+
+    <div class="row">
+
+        <div class="col-xl-12 col-lg-12">
+
+             <div id="accesos" style="width: 1000px; height: 500px;"></div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6">
+
+            <div id="socios" style="width: 600px; height: 300px;"></div>
+       </div>
+
+    <div class="col-xl-6 col-lg-6">
+
+        <div id="productos" style="width: 600px; height: 300px;"></div>
+    </div>
+   </div>
 
 @endsection
 

@@ -1,16 +1,12 @@
 $(document).ready(function() {
-    //url: "http://10.14.1.240:1234/api/lineas/1",
     $.ajax({
-        url: "http://10.14.0.229:1234/api/reservas/1",
+        url: "http://10.14.0.229:1234/api/accesos/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
             grafico(data)
-
-
         }
     });
-
 
     const grafico = (datos) => {
         console.log(datos)
@@ -19,18 +15,13 @@ $(document).ready(function() {
 
         function drawChart() {
             let chart_data = [
-                ["Reservas", "Fecha", { role: "style" }]
+                ["Dia", "Accesos", "Sociedad", { role: "style" }]
             ];
 
             for (x in datos) {
-                console.log(datos[x].fecha)
-                chart_data.push([new Date(datos[x].fecha), datos[x].reservas, '#007bff']);
+                chart_data.push([datos[x].fecha, parseInt(datos[x].accesos), parseInt(datos[x].accesos), '#007bff']);
 
             }
-
-
-
-
 
             var data = google.visualization.arrayToDataTable(chart_data
 
@@ -48,19 +39,14 @@ $(document).ready(function() {
             ]);
 
             var options = {
-                title: "Reservas",
-                width: 1000,
-                height: 400,
-
-                bar: { groupWidth: "95%" },
-                legend: { position: "none" },
+                title: 'Accesos diarios de los usuarios',
+                curveType: 'function',
+                legend: { position: 'none' }
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById("reservas"));
+            var chart = new google.visualization.LineChart(document.getElementById("socios"));
             chart.draw(view, options);
         }
     }
-
-
 
     function getRandomColor() {
         var letters = '0123456789ABCDEF'.split('');

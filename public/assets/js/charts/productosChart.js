@@ -1,12 +1,10 @@
 $(document).ready(function() {
-    //url: "http://10.14.1.240:1234/api/lineas/1",
     $.ajax({
-        url: "http://10.14.0.229:1234/api/reservas/1",
+        url: "http://10.14.0.229:1234/api/productos/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
             grafico(data)
-
 
         }
     });
@@ -19,18 +17,13 @@ $(document).ready(function() {
 
         function drawChart() {
             let chart_data = [
-                ["Reservas", "Fecha", { role: "style" }]
+                ["Nombre", "Unidades", { role: "style" }]
             ];
 
             for (x in datos) {
-                console.log(datos[x].fecha)
-                chart_data.push([new Date(datos[x].fecha), datos[x].reservas, '#007bff']);
+                chart_data.push([datos[x].nombre, parseInt(datos[x].unidades), '#007bff']);
 
             }
-
-
-
-
 
             var data = google.visualization.arrayToDataTable(chart_data
 
@@ -48,19 +41,16 @@ $(document).ready(function() {
             ]);
 
             var options = {
-                title: "Reservas",
-                width: 1000,
+                title: "Productos mas utilizados por las sociedades",
+                width: 600,
                 height: 400,
-
-                bar: { groupWidth: "95%" },
+                bar: { groupWidth: "85%" },
                 legend: { position: "none" },
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById("reservas"));
+            var chart = new google.visualization.ColumnChart(document.getElementById("productos"));
             chart.draw(view, options);
         }
     }
-
-
 
     function getRandomColor() {
         var letters = '0123456789ABCDEF'.split('');

@@ -22,3 +22,7 @@ Route::resource('users', 'UsuarioApiController');
 Route::resource('lineas', 'LineaApiController');
 Route::resource('reservas', 'ReservasApiController');
 Route::resource('sociedad', 'SociedadApiController');
+Route::resource('productos', 'ProductoApiController');
+Route::resource('accesos', 'AccesoApiController');
+
+
