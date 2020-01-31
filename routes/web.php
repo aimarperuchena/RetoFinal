@@ -124,6 +124,8 @@ Route::post('/admin/reservaStore','AdminController@reservaStore')->name('admin.r
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
 Route::get('/admin/lineaAdd/{id}','AdminController@lineaAdd')->name('admin.lineaAdd');
 Route::post('/admin/lineaCreate','AdminController@lineaCreate')->name('admin.lineaCreate');
+Route::get('/admin/lineaEdit/{id}','AdminController@lineaEdit')->name('admin.lineaEdit');
+Route::post('/admin/lineaUpdate','Admincontroller@lineaUpdate')->name('admin.lineaUpdate');
 //SOCIOS
 Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userIndex');
 

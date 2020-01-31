@@ -1,7 +1,11 @@
 $(document).ready(function() {
     //url: "http://10.14.1.240:1234/api/lineas/1",
     $.ajax({
+<<<<<<< HEAD
         url: "http://10.14.0.229:1234/api/reservas/1",
+=======
+        url: "http://10.14.1.240:1234/api/reservas/1",
+>>>>>>> c7a5218bd3e12b5135c2dbf91c82c3d3e9b8d7e1
         type: 'GET',
         dataType: 'json',
         success: function(data) {
