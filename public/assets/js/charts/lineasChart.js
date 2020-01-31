@@ -1,11 +1,9 @@
 $(document).ready(function() {
     //url: "http://10.14.1.240:1234/api/lineas/1",
     $.ajax({
-<<<<<<< HEAD
-        url: "http://10.14.0.229:1234/api/lineas/1",
-=======
-        url: "http://10.14.1.240:1234/api/lineas/1",
->>>>>>> c7a5218bd3e12b5135c2dbf91c82c3d3e9b8d7e1
+
+        url: "http://192.168.0.12:1234/api/lineas/1",
+
         type: 'GET',
         dataType: 'json',
         success: function(data) {

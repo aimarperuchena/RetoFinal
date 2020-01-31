@@ -173,27 +173,19 @@ class AdminController extends Controller
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
 
-        $estado='';
-       
+        $estado = '';
+
         if ($request->estado == 1) {
-           $estado="pendiente"; 
-           $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado',$estado)->get();
-           $tipo=1;
-           return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias', $incidencias)->with('tipo', $tipo);
-
-        }
-        else  {
-            $estado="solucionado";
-            $tipo = 2;
-            $incidencias=Incidencia::where('sociedad_id',$sociedad->id)->where('estado',$estado)->get();
+            $estado = "pendiente";
+            $incidencias = Incidencia::where('sociedad_id', $sociedad->id)->where('estado', $estado)->get();
+            $tipo = 1;
             return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias', $incidencias)->with('tipo', $tipo);
-
+        } else {
+            $estado = "solucionado";
+            $tipo = 2;
+            $incidencias = Incidencia::where('sociedad_id', $sociedad->id)->where('estado', $estado)->get();
+            return view('layouts.admin.incidencias.index')->with('sociedad', $sociedad)->with('incidencias', $incidencias)->with('tipo', $tipo);
         }
-
-       
-
-
-      
     }
 
     public function incidenciaCreate()
@@ -340,10 +332,10 @@ class AdminController extends Controller
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $reserva = Reserva::find($id);
-        $mesaReserva=MesaReserva::where('reserva_id',$reserva->id)->get();
+        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->get();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
         $factura = Factura::where('reserva_id', $id)->first();
-        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas',$mesas);
+        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas', $mesas);
     }
 
     public function reservaEdit($id)
@@ -411,30 +403,31 @@ class AdminController extends Controller
         $reserva->personas = $request->personas;
         $reserva->tipo_id = $request->tipo;
         $socios = DB::select('select * from users where id in(select user_id from sociedad_user where sociedad_id=' . $sociedad->id . ' and deleted_at is null)');
-        $fecha=date('Y/m/d', strtotime($request->fecha));
-  
+        $fecha = date('Y/m/d', strtotime($request->fecha));
+
         $reservas = Reserva::where('fecha', $fecha)->where('tipo_id', $request->tipo)->where('sociedad_id', $sociedad->id)->get();
-      
+
         $mesa_reservas = MesaReserva::whereIn('reserva_id', $reservas)->get();
         $mesasOcupadas = Mesa::whereIn('id', $mesa_reservas)->get();
         $mesasLibres = Mesa::whereNotIn('id', $mesasOcupadas)->where('sociedad_id', $sociedad)->get();
         $contador = Mesa::whereNotIn('id', $mesasOcupadas)->where('sociedad_id', $sociedad)->count();
-        if($contador===0){
-            $mesasLibres=Mesa::where('sociedad_id',$sociedad->id)->get();
+        if ($contador === 0) {
+            $mesasLibres = Mesa::where('sociedad_id', $sociedad->id)->get();
         }
-      echo $contador;
-        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $request->tipo)->with('todosTipos',$tipos)->with('socios', $socios)->with('mesas', $mesasLibres)->with('fecha',$fecha)->with("personas",$request->personas)->with('usuario',$request->usuario);
+        echo $contador;
+        return view('layouts.admin.reservas.create')->with('sociedad', $sociedad)->with('tipo', $request->tipo)->with('todosTipos', $tipos)->with('socios', $socios)->with('mesas', $mesasLibres)->with('fecha', $fecha)->with("personas", $request->personas)->with('usuario', $request->usuario);
     }
 
 
-    public function reservaStore(Request $request){
+    public function reservaStore(Request $request)
+    {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
 
-       
-        $usuario=$request->usuario;
-        $tipo=$request->tipo;
-        $personas=$request->personas;
+
+        $usuario = $request->usuario;
+        $tipo = $request->tipo;
+        $personas = $request->personas;
 
         $reserva = new Reserva();
         $reserva->fecha = $request->fecha;
@@ -444,16 +437,13 @@ class AdminController extends Controller
         $reserva->tipo_id = $tipo;
         $reserva->save();
 
-        $reservaCreada=Reserva::where('sociedad_id',$sociedad->id)->where('usuario_id',$usuario)->first()->orderBy('id', 'DESC')->first();
-        $mesa_reserva=$request->mesa;
-        $mesaReserva=new MesaReserva();
-        $mesaReserva->mesa_id=$mesa_reserva;
-        $mesaReserva->reserva_id=$reservaCreada->id;
+        $reservaCreada = Reserva::where('sociedad_id', $sociedad->id)->where('usuario_id', $usuario)->first()->orderBy('id', 'DESC')->first();
+        $mesa_reserva = $request->mesa;
+        $mesaReserva = new MesaReserva();
+        $mesaReserva->mesa_id = $mesa_reserva;
+        $mesaReserva->reserva_id = $reservaCreada->id;
         $mesaReserva->save();
         return redirect('/admin/reservaIndex');
-
-
-   
     }
 
     public function lineaAdd($id)
@@ -461,7 +451,7 @@ class AdminController extends Controller
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
-$factura=Factura::find($id);
+        $factura = Factura::find($id);
         return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura);
     }
 
@@ -473,7 +463,7 @@ $factura=Factura::find($id);
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
         $factura = Factura::find($request->factura)->first();
         $reserva = Reserva::find($factura->reserva_id);
-        $mesaReserva=MesaReserva::where('reserva_id',$reserva->id)->get();
+        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->get();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
         $producto = $request->producto;
         $unidades = $request->unidades;
@@ -496,36 +486,54 @@ $factura=Factura::find($id);
             $linea->save();
             $factura->importe = $importeTotal;
             $factura->save();
-            $producto=ProductoSociedad::find($linea->producto_sociedad_id);
-            $producto->stock=$producto->stock-$unidades;
+            $producto = ProductoSociedad::find($linea->producto_sociedad_id);
+            $producto->stock = $producto->stock - $unidades;
             $producto->save();
-            return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas',$mesas);
+            return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas', $mesas);
         }
     }
 
-    function lineaEdit($id){
+    function lineaEdit($id)
+    {
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        $linea=Linea::find($id);
-        $factura=$linea->factura;
+        $linea = Linea::find($id);
+        $factura = $linea->factura;
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
-        return view('layouts.admin.lineas.update')->with('sociedad',$sociedad)->with('linea',$linea)->with('productos',$productos);
+        return view('layouts.admin.lineas.update')->with('sociedad', $sociedad)->with('linea', $linea)->with('productos', $productos);
     }
 
-    function lineaUpdate(Request $request){
-        $linea=Linea::find($request->linea);
-        $unidades=$request->unidades;
-  
-        $producto=Producto::find($request->producto);
-        $linea->importe=$producto->precio*$unidades;
-        $unidadAnterior=$linea->unidades;
-        $diferencia=$unidadAnterior-$unidades;
-        
-        $linea->producto_sociedad_id=$request->producto;
+    function lineaUpdate(Request $request)
+    {
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $linea = Linea::find($request->linea);
+        $unidades = $request->unidades;
+        $importeAnterior = $linea->importe;
+        $producto = ProductoSociedad::find($request->producto);
+        $importeActual = $producto->precio * $unidades;
+        $linea->importe = $producto->precio * $unidades;
+        $unidadAnterior = $linea->unidades;
+        $diferenciaUnidades = $unidadAnterior - $unidades;
+        $linea->unidades = $unidades;
+        $producto->stock =  $producto->stock + $diferenciaUnidades;
+        $diferenciaImporte=$importeActual-$importeAnterior;
+        $producto->save();
+        $linea->producto_sociedad_id = $request->producto;
         $linea->save();
-        
+
+        $Factura=Factura::find($linea->factura->id);
+        $Factura->importe=$Factura->importe+$diferenciaImporte;
+        $Factura->save();
+
+        $reserva=Reserva::find($Factura->reserva->id);
+        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->get();
+        $mesas = Mesa::whereIn('id', $mesaReserva)->get();
 
 
+
+
+        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $Factura)->with('mesas', $mesas);
     }
     function facturaShow($id)
     {
