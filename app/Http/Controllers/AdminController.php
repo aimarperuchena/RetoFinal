@@ -461,8 +461,8 @@ class AdminController extends Controller
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
-
-        return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $id);
+$factura=Factura::find($id);
+        return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura);
     }
 
     public function lineaCreate(Request $request)
@@ -473,7 +473,8 @@ class AdminController extends Controller
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
         $factura = Factura::find($request->factura)->first();
         $reserva = Reserva::find($factura->reserva_id);
-
+        $mesaReserva=MesaReserva::where('reserva_id',$reserva->id)->get();
+        $mesas = Mesa::whereIn('id', $mesaReserva)->get();
         $producto = $request->producto;
         $unidades = $request->unidades;
 
@@ -493,12 +494,38 @@ class AdminController extends Controller
             $linea->sociedad_id = $sociedad->id;
             $linea->importe = $importeLinea;
             $linea->save();
-
-
             $factura->importe = $importeTotal;
             $factura->save();
-            return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura);
+            $producto=ProductoSociedad::find($linea->producto_sociedad_id);
+            $producto->stock=$producto->stock-$unidades;
+            $producto->save();
+            return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas',$mesas);
         }
+    }
+
+    function lineaEdit($id){
+        $user = Auth::user();
+        $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $linea=Linea::find($id);
+        $factura=$linea->factura;
+        $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
+        return view('layouts.admin.lineas.update')->with('sociedad',$sociedad)->with('linea',$linea)->with('productos',$productos);
+    }
+
+    function lineaUpdate(Request $request){
+        $linea=Linea::find($request->linea);
+        $unidades=$request->unidades;
+  
+        $producto=Producto::find($request->producto);
+        $linea->importe=$producto->precio*$unidades;
+        $unidadAnterior=$linea->unidades;
+        $diferencia=$unidadAnterior-$unidades;
+        
+        $linea->producto_sociedad_id=$request->producto;
+        $linea->save();
+        
+
+
     }
     function facturaShow($id)
     {

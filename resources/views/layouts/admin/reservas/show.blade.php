@@ -64,6 +64,7 @@
         <th>Descripción</th>
         <th>Unidades</th>
         <th>Importe</th>
+        <th>Editar</th>
         <th>Eliminar</th>
 
     </tr>
@@ -75,6 +76,7 @@
        <td>{{$linea->producto->producto->descripcion}}</td>
         <td>{{$linea->unidades}}</td>
         <td>{{$linea->importe}}</td>
+        <td><a href="/admin/lineaEdit/{{$linea->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
         <td><a href="/admin/deleteLinea/{{$linea->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
 
     </tr>

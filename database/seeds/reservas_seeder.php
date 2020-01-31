@@ -79,7 +79,7 @@ Schema::create('reservas', function (Blueprint $table) {
             'sociedad_id' => '1',
             'usuario_id' => '3',
             'tipo_id' => '1',
-            'fecha' => '2020/12/20',
+            'fecha' => '2019/12/21',
             'personas' => '10'
         ]);
 
@@ -113,7 +113,7 @@ Schema::create('reservas', function (Blueprint $table) {
             'sociedad_id' => '1',
             'usuario_id' => '3',
             'tipo_id' => '1',
-            'fecha' => '2019/12/22',
+            'fecha' => '2019/12/23',
             'personas' => '10'
         ]);
 
