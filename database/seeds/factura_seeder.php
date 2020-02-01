@@ -16,7 +16,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '1',
             'sociedad_id'=>'1',
-            'fecha' => '2019/12/19',
+            'fecha' => '2019/12/20',
             'personas' => '10',
             'importe' => '60'
         ]);
@@ -25,7 +25,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '2',
             'sociedad_id'=>'1',
-            'fecha' => '2019/12/19',
+            'fecha' => '2019/12/20',
             'personas' => '10',
             'importe' => '60'
         ]);
@@ -33,7 +33,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '3',
             'sociedad_id'=>'2',
-            'fecha' => '2019/12/19',
+            'fecha' => '2019/12/20',
             'personas' => '10',
             'importe' => '60'
         ]);
@@ -42,7 +42,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '4',
             'sociedad_id'=>'2',
-            'fecha' => '2019/12/19',
+            'fecha' => '2019/12/20',
             'personas' => '10',
             'importe' => '60'
         ]);
@@ -51,7 +51,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '5',
             'sociedad_id'=>'3',
-            'fecha' => '2019/12/19',
+            'fecha' => '2019/12/20',
             'personas' => '10',
             'importe' => '60'
         ]);
@@ -60,7 +60,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '6',
             'sociedad_id'=>'3',
-            'fecha' => '2019/12/19',
+            'fecha' => '2019/12/20',
             'personas' => '10',
             'importe' => '60'
         ]);
@@ -103,7 +103,7 @@ class factura_seeder extends Seeder
          DB::table('factura')->insert([
             'reserva_id' => '11',
             'sociedad_id'=>'1',
-            'fecha' => '2019/12/22',
+            'fecha' => '2019/12/23',
             'personas' => '10',
             'importe' => '92'
         ]);
@@ -111,7 +111,7 @@ class factura_seeder extends Seeder
          DB::table('factura')->insert([
             'reserva_id' => '12',
             'sociedad_id'=>'2',
-            'fecha' => '2019/12/22',
+            'fecha' => '2019/12/30',
             'personas' => '10',
             'importe' => '120'
         ]);
@@ -119,7 +119,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '13',
             'sociedad_id'=>'2',
-            'fecha' => '2019/12/23',
+            'fecha' => '2019/12/30',
             'personas' => '10',
             'importe' => '120'
         ]);
@@ -127,7 +127,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '14',
             'sociedad_id'=>'2',
-            'fecha' => '2019/12/24',
+            'fecha' => '2019/12/31',
             'personas' => '10',
             'importe' => '36'
         ]);
@@ -135,7 +135,7 @@ class factura_seeder extends Seeder
          DB::table('factura')->insert([
             'reserva_id' => '15',
             'sociedad_id'=>'3',
-            'fecha' => '2019/12/25',
+            'fecha' => '2020/01/20',
             'personas' => '10',
             'importe' => '34'
         ]);
@@ -143,7 +143,7 @@ class factura_seeder extends Seeder
          DB::table('factura')->insert([
             'reserva_id' => '16',
             'sociedad_id'=>'3',
-            'fecha' => '2019/12/26',
+            'fecha' => '2020/01/20',
             'personas' => '10',
             'importe' => '122'
         ]);
@@ -151,7 +151,7 @@ class factura_seeder extends Seeder
         DB::table('factura')->insert([
             'reserva_id' => '17',
             'sociedad_id'=>'3',
-            'fecha' => '2019/12/25',
+            'fecha' => '2020/01/22',
             'personas' => '10',
             'importe' => '48'
         ]);
