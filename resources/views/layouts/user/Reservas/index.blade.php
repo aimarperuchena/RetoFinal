@@ -10,7 +10,7 @@
       <h5>{{$sociedad->nombre}}</h5>
       <h1>Plano</h1>
       <div class="mb-5 mt-5">
-        <img src="{{url('assets/img/planos',$sociedad->link_plano)}}" alt="plano_sociedad">
+        <img src="{{$sociedad->link_plano}}" >
       </div>
     </div>
     <div class="jumbotronm col">

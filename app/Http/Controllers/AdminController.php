@@ -517,24 +517,37 @@ class AdminController extends Controller
         $diferenciaUnidades = $unidadAnterior - $unidades;
         $linea->unidades = $unidades;
         $producto->stock =  $producto->stock + $diferenciaUnidades;
-        $diferenciaImporte=$importeActual-$importeAnterior;
+        $diferenciaImporte = $importeActual - $importeAnterior;
         $producto->save();
         $linea->producto_sociedad_id = $request->producto;
         $linea->save();
 
-        $Factura=Factura::find($linea->factura->id);
-        $Factura->importe=$Factura->importe+$diferenciaImporte;
+        $Factura = Factura::find($linea->factura->id);
+        $Factura->importe = $Factura->importe + $diferenciaImporte;
         $Factura->save();
 
-        $reserva=Reserva::find($Factura->reserva->id);
+        $reserva = Reserva::find($Factura->reserva->id);
         $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->get();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
 
-
-
-
         return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $Factura)->with('mesas', $mesas);
     }
+
+    function lineaDelete($id)
+    {
+        $linea = Linea::find($id);
+        $factura = Factura::find($linea->factura_id);
+        $importe_nuevo = $factura->importe - $linea->importe;
+        $producto = ProductoSociedad::find($linea->producto_sociedad_id);
+        $producto->stock = $producto->stock + $linea->unidades;
+        $producto->save();
+        $factura->importe = $importe_nuevo;
+        $factura->save();
+        $linea->delete();
+        $link = '/admin/reservaShow/' . $factura->reserva->id;
+        return redirect($link);
+    }
+
     function facturaShow($id)
     {
         $user = Auth::user();
@@ -579,16 +592,96 @@ class AdminController extends Controller
 
         return redirect('admin');
     }
-    function lineaDelete($id)
-    {
-        $linea = Linea::find($id);
-        $factura = Factura::find($linea->factura_id);
-        $importe_nuevo = $factura->importe - $linea->importe;
 
-        $factura->importe = $importe_nuevo;
-        $factura->save();
-        $linea->delete();
-        $link = '/admin/reservaShow/' . $factura->reserva->id;
-        return redirect($link);
+
+
+    public function planoUpdate(Request $request)
+    {
+        $client_id = '7911dcb95e81c27';
+        $token = 'a6aa02570efaa91a08b86442df37c2e5ec717799';
+
+        $imagen = $request->file('image');
+        $image64 = base64_encode(file_get_contents($imagen)); //pasar la foto a base64
+
+        //llamar a la api y subir la imagen
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.imgur.com/3/image",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array('image' => $image64),
+            CURLOPT_HTTPHEADER => array(
+                // "Authorization: Client-ID {{7911dcb95e81c27}}",
+                "Authorization: Bearer " . $token //nuestro token para acceder a la api
+            ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+
+            $json = json_decode($response);
+            var_dump($json);
+
+            $sociedad = Sociedad::find($request->sociedad);
+            $sociedad->link_plano = $json->data->link;
+            $sociedad->save();
+            return redirect('/admin');
+        }
     }
+
+    public function sociedadImagen(Request $request){
+        $client_id = '7911dcb95e81c27';
+        $token = 'a6aa02570efaa91a08b86442df37c2e5ec717799';
+
+        $imagen = $request->file('image');
+        $image64 = base64_encode(file_get_contents($imagen)); //pasar la foto a base64
+
+        //llamar a la api y subir la imagen
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.imgur.com/3/image",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array('image' => $image64),
+            CURLOPT_HTTPHEADER => array(
+                // "Authorization: Client-ID {{7911dcb95e81c27}}",
+                "Authorization: Bearer " . $token //nuestro token para acceder a la api
+            ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+
+            $json = json_decode($response);
+            var_dump($json);
+
+            $sociedad = Sociedad::find($request->sociedad);
+            $sociedad->link_imagen = $json->data->link;
+            $sociedad->save();
+            return redirect('/admin');
+        }
+    }
+
+
+    
 }

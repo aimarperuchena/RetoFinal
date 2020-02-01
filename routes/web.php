@@ -82,6 +82,7 @@ Route::post('/admin/planoUpdate','AdminController@planoUpdate')->name('admin.soc
 Route::get('/admin/peticionesSociedad','AdminController@peticionIndex')->name('admin.peticionIndex');
 Route::get('/admin/peticionSociedadAceptar/{id}','AdminController@peticionAceptar')->name('admin.peticionAceptar');
 Route::get('/admin/peticionSociedadDenegar/{id}','AdminController@peticionDenegar')->name('admin.peticionDenegar');
+Route::post('/admin/sociedadImagen','AdminController@sociedadImagen')->name('admin.sociedadImagen');
 Route::get('/admin/userDelete/{id}','AdminController@userDelete')->name('admin.userDelete');
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');

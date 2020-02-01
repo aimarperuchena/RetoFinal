@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-12 col-md-6 col-lg-6">
       <div class="m-2 img-fluid">
-        <img src="{{url('assets/img/Gaztelubide.jpeg')}}" class="card-img-top" alt="...">
+        <img src="{{$sociedad->link_imagen}}" class="card-img-top" alt="...">
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-6">

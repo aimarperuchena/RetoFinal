@@ -6,7 +6,7 @@
     <div class="col-12 col-md-6 col-lg-6">
       <h1>Plano</h1>
       <div class="mb-5 mt-5">
-        <img src="{{url('assets/img/planos/'.$sociedad->link_plano)}}" alt="plano_sociedad">
+        <img src="{{$sociedad->link_plano}}" alt="plano_sociedad">
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-6 mb-5">

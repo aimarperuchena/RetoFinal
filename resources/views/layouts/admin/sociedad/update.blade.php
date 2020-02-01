@@ -51,22 +51,39 @@
             </ul>
         </div>
         @endif
-        <!-- <h3>Cambiar Plano</h3>
-        <form action="{{route('admin.sociedad.planoUpdate')}}" method="post">
 
+        <h3>Cambiar Imagen</h3>
+        <form action="{{route('admin.sociedadImagen')}}" method="post" enctype="multipart/form-data">
+        @csrf
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupFileAddon01">Subir</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="imagen" name="imagen" aria-describedby="inputGroupFileAddon01">
+                    <input type="file" class="custom-file-input" id="imagen" name="image" aria-describedby="inputGroupFileAddon01">
                     <label class="custom-file-label" for="inputGroupFile01">Elegir Imagen</label>
                 </div>
             </div>
-       
+       <input type="hidden" name="sociedad" value="{{$sociedad->id}}">
         
             <input class="btn btn-primary" type="submit" value="Subir">
-        </form> -->
+        </form> 
+         <h3>Cambiar Plano</h3>
+        <form action="{{route('admin.sociedad.planoUpdate')}}" method="post" enctype="multipart/form-data">
+        @csrf
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Subir</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="imagen" name="image" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Elegir Imagen</label>
+                </div>
+            </div>
+       <input type="hidden" name="sociedad" value="{{$sociedad->id}}">
+        
+            <input class="btn btn-primary" type="submit" value="Subir">
+        </form> 
     </div>
 
 
