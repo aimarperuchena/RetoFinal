@@ -25,7 +25,7 @@
     </table>
     @else
       <h3 class="m-5">Crear Factura</h3>
-      <a class="btn btn-primary btn-lg mb-5" href="{{ route('factura.create') }}" role="button">Crear</a>
+      <a class="btn btn-primary btn-lg mb-5" href="{{ route('factura.create',$reserva) }}" role="button">Crear</a>
     @endif
 </div>
 

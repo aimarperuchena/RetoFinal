@@ -2,47 +2,59 @@
 @section('content')
 
 <br><br><br><br>
-<div class="container text-center">
-  <h1>Seleccione la Reserva</h1>
-  <h3>Seleccione el producto e inserte la cantidad consumida</h3>
-  <h5 style="color:red;">{{$error ?? ''}}</h5>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Sociedad</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Producto</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">#</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        @foreach($reservas as $reserva)
-          <tr>
-            <form action="{{ route('factura.store',$reserva->id) }}" method="post">
-              @csrf
-            <th scope="row">{{$reserva->id}}</th>
-            <td>{{$reserva->sociedad->nombre}}</td>
-            <td>{{$reserva->tipo->nombre}}</td>
-            <td>{{$reserva->fecha}}</td>
-            <td><select class="form-control" name="producto">
-                  <option>Seleccione...</option>
-                  @if($reserva->sociedad->productos)
-                    @foreach($reserva->sociedad->productos as $producto)
-                      <option value="{{$producto->producto_id}}">{{$producto->producto->nombre}}</option>
-                    @endforeach
-                  @endif
-                </select></td>
-            <td><input type="number" name="cantidad" value="0" class="form-control"></td>
-            <td><button class="badge badge-info badge-pill text-white ml-2" type="submit"><i class="far fa-hand-pointer"></i></button></td>
-            </form>
-          </tr>
-        @endforeach
-      </tr>
-    </tbody>
-  </table>
+<!-- Content Row -->
+<div class="container">
+  <div class="row">
+      <div class="col-xl-6 col-lg-7">
+        <h5 style="color:red;">{{$error ?? ''}}</h5>
+        @if(!is_null($factura ?? ''))
+          <h3>Factura</h3>
+
+          <table class="table table-striped border">
+              <thead>
+              <tr>
+                  <th>Fecha</th>
+                  <th>Personas</th>
+                  <th>Importe</th>
+              </tr>
+              </thead>
+              <tr>
+                  <td>{{$factura ->fecha}}</td>
+                  <td>{{$factura ->personas}}</td>
+                  <td>{{$factura ->importe}}</td>
+              </tr>
+            <br>
+          </table>
+          @endif
+      </div>
+      <div class="col-xl-4 col-lg-7">
+        <h3>Lineas Factura</h3>
+        <table class="table table-striped border ">
+          <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Unidades</th>
+                <th>Importe</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+          </thead>
+          @if(!is_null($factura->lineas))
+            @foreach($factura->lineas as $linea)
+              <tr>
+                 <td>{{$linea->producto->producto->nombre}}</td>
+                 <td>{{$linea->producto->producto->descripcion}}</td>
+                  <td>{{$linea->unidades}}</td>
+                  <td>{{$linea->importe}}</td>
+                  <td><a href="/admin/lineaEdit/{{$linea->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
+                  <td><a href="/admin/deleteLinea/{{$linea->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td>
+              </tr>
+            @endforeach
+          @endif
+        </table>
+        <a class="btn btn-primary"  href="{{ route('linea.create',$factura->id)}}">Añadir Linea </a>
+      </div>
+  </div>
 </div>
 @endsection
