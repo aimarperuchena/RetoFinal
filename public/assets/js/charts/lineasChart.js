@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    //url: "http://10.14.1.240:1234/api/lineas/1",
+    //url: "http://192.168.0.10:1234/api/lineas/1",
     $.ajax({
 
-        url: "http://10.14.1.240:1234/api/lineas/1",
+        url: "http://192.168.0.10:1234/api/lineas/1",
 
         type: 'GET',
         dataType: 'json',

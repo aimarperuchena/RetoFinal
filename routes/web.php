@@ -68,7 +68,13 @@ Route::get('/reservas/borrar/{id}','ReservaController@delete')->name('reserva.de
 
 //Lineas
 Route::get('/lineas/{id}','LineaController@index')->name('linea.show');
-Route::get('/lineas/create/{id}','LineaController@lineaAdd')->name('linea.create');
+Route::get('/lineas/create/{id}','LineaController@create')->name('linea.create');
+Route::post('/lineas/store','LineaController@store')->name('linea.store');
+Route::get('/lineas/delete/{id}','LineaController@delete')->name('linea.delete');
+Route::get('/lineas/edit/{id}','LineaController@edit')->name('linea.edit');
+Route::post('/lineas/update','LineaController@update')->name('linea.update');
+
+
 
 // Facturas
 Route::get('/crear_factura/{id}','FacturaController@create')->name('factura.create');

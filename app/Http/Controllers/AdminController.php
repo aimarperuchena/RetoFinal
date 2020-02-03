@@ -471,7 +471,7 @@ class AdminController extends Controller
         $productoElegido = ProductoSociedad::find($producto);
         $stock = $productoElegido->stock;
         if ($unidades > $stock) {
-            $error = "El Producto " . $productoElegido->nombre . " solo tiene " . $productoElegido->stock . " unidades en stock";
+            $error = "El Producto " . $productoElegido->producto->nombre . " solo tiene " . $productoElegido->stock . " unidades en stock";
             return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura)->with('error', $error);
         } else {
             $importeFactura = $factura->importe;

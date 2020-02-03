@@ -4,6 +4,11 @@
 <br><br><br><br>
 <div class="container">
   <div class="row">
+  <div class="col-xl-8 col-lg-7">
+<b>Id: </b><span>{{$factura->id}}</span><br>
+<b>Usuario: </b><span>{{$factura->reserva->usuario->nombre}}  {{$factura->reserva->usuario->apellido}}</span><br>
+ <b>Reserva: </b><span>{{$factura->reserva_id}}</span><br> 
+<b>Fecha: </b><span>{{$factura->fecha}}<div class="row">
     <div class="col-xl-4 col-lg-7">
         <h3>Listado Stock</h3>
         <table class="table table-striped">
@@ -27,25 +32,29 @@
     </div>
     <div class="col-xl-4 col-lg-7 text-center">
         <h3>Añadir Linea</h3>
-        <form action="{{route ('linea.store', $factura)}}" method="post">
+        <form action="{{route ('linea.update')}}" method="POST">
         {{ csrf_field() }}
-            <input type="hidden" name="factura" value="{{$factura->id}}">
+            
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Producto:</label>
                 </div>
+               
                 <select class="custom-select" name="producto">
-                    @foreach($productos as $producto)
-                    <option value="{{$producto->id}}">{{$producto->producto->nombre}}</option>
-                    @endforeach
+                    <option value="{{$linea->producto_sociedad_id}}">{{$linea->producto->producto->nombre}}</option>
+                        @foreach($productos as $producto)
+                            @if($producto->id!=$linea->producto_sociedad_id)
+                                <option value="{{$producto->id}}">{{$producto->producto->nombre}}</option>
+                            @endif
+                        @endforeach
                 </select>
             </div>
-
+            <input type="hidden" name="linea" value="{{$linea->id}}">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Unidades: </span>
                 </div>
-                <input type="text" id="Unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" aria-describedby="basic-addon1">
+                <input type="text" id="Unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$linea->unidades}}" aria-describedby="basic-addon1">
             </div>
             <input type="submit" value="Buscar">
             @if(isset($error))
@@ -59,6 +68,5 @@
             @endif
         </form>
     </div>
-</div>
 </div>
 @endsection

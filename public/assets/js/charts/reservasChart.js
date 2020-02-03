@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    //url: "http://10.14.1.240:1234/api/lineas/1",
+    //url: "http://192.168.0.10:1234/api/lineas/1",
     $.ajax({
 
-        url: "http://10.14.1.240:1234/api/reservas/1",
+        url: "http://192.168.0.10:1234/api/reservas/1",
 
         type: 'GET',
         dataType: 'json',
@@ -28,7 +28,16 @@ $(document).ready(function() {
                 data.addRow([new Date(datos[x].fecha), datos[x].reservas]);
 
             }
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                {
+                    calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation"
+                }
 
+            ]);
 
             var dash = new google.visualization.Dashboard(document.getElementById('dashboard'));
 
@@ -68,7 +77,7 @@ $(document).ready(function() {
             setOptions(chart);
 
             dash.bind([control], [chart]);
-            dash.draw(data);
+            dash.draw(data, view);
             google.visualization.events.addListener(control, 'statechange', function() {
                 var v = control.getState();
                 return 0;
