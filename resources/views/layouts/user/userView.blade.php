@@ -27,7 +27,7 @@
           @foreach( $suscripciones ?? '' as $suscripcion)
           <div class="card m-2" style="width: 18rem; height:18rem;">
             @if($suscripcion)
-              <a href="{{ route('sociedad.info', $suscripcion -> id) }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
+              <a href="{{ route('sociedad.info', $suscripcion -> id) }}"><img src="{{$suscripcion->link_imagen}}" class="card-img-top" alt="..."></a>
             @endif
             <div class="card-body">
               <p class="card-text">{{$suscripcion->nombre}}</p>
