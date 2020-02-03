@@ -51,7 +51,7 @@
             </ul>
         </div>
         @endif
-
+<img src="{{$sociedad->link_imagen}}" alt="">
         <h3>Cambiar Imagen</h3>
         <form action="{{route('admin.sociedadImagen')}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -68,6 +68,7 @@
         
             <input class="btn btn-primary" type="submit" value="Subir">
         </form> 
+        <img src="{{$sociedad->link_plano}}" alt="">
          <h3>Cambiar Plano</h3>
         <form action="{{route('admin.sociedad.planoUpdate')}}" method="post" enctype="multipart/form-data">
         @csrf

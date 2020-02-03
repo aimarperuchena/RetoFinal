@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://10.14.0.229:1234/api/accesos/1",
+        url: "http://10.14.1.240:1234/api/accesos/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
