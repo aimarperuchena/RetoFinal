@@ -7,6 +7,7 @@
 <!-- Content Row -->
 
 <div class="row">
+<div class=""></div>
      <div class="col-xl-12 col-lg-12">
 
      <div id="reservas" style="width: 1000px; height: 300px;"></div>
