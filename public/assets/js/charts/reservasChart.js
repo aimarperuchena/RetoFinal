@@ -15,50 +15,64 @@ $(document).ready(function() {
 
 
     const grafico = (datos) => {
-        console.log(datos)
-        google.charts.load("current", { packages: ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
+        google.load('visualization', '1', { packages: ['controls', 'charteditor'] });
+        google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            let chart_data = [
-                ["Reservas", "Fecha", { role: "style" }]
-            ];
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Fecha');
+            data.addColumn('number', 'Reservas');
 
             for (x in datos) {
                 console.log(datos[x].fecha)
-                chart_data.push([new Date(datos[x].fecha), datos[x].reservas, '#007bff']);
+                data.addRow([new Date(datos[x].fecha), datos[x].reservas]);
 
             }
 
 
+            var dash = new google.visualization.Dashboard(document.getElementById('dashboard'));
+
+            var control = new google.visualization.ControlWrapper({
+                controlType: 'ChartRangeFilter',
+                containerId: 'control_div',
+
+                options: {
+
+                    filterColumnIndex: 0,
+                    ui: {
+                        chartOptions: {
+                            height: 50,
+                            width: 600,
+                            chartArea: {
+                                width: '80%'
+                            }
+                        },
+                        chartView: {
+                            columns: [0, 1]
+                        }
+                    }
+                }
+            });
 
 
+            var chart = new google.visualization.ChartWrapper({
+                chartType: 'LineChart',
+                containerId: 'chart_div'
+            });
 
-            var data = google.visualization.arrayToDataTable(chart_data
+            function setOptions(wrapper) {
+                wrapper.setOption('width', 620);
+                wrapper.setOption('chartArea.width', '100%');
+            }
 
-            );
+            setOptions(chart);
 
-            var view = new google.visualization.DataView(data);
-            view.setColumns([0, 1,
-                {
-                    calc: "stringify",
-                    sourceColumn: 1,
-                    type: "string",
-                    role: "annotation"
-                },
-                2
-            ]);
-
-            var options = {
-                title: "Reservas",
-                width: 1000,
-                height: 400,
-
-                bar: { groupWidth: "95%" },
-                legend: { position: "none" },
-            };
-            var chart = new google.visualization.ColumnChart(document.getElementById("reservas"));
-            chart.draw(view, options);
+            dash.bind([control], [chart]);
+            dash.draw(data);
+            google.visualization.events.addListener(control, 'statechange', function() {
+                var v = control.getState();
+                return 0;
+            });
         }
     }
 

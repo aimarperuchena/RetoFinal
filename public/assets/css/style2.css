@@ -1,54 +1,67 @@
-.no-arrow{
-  display: none;
+.no-arrow {
+    display: none;
 }
-.animated--grow-in, .sidebar .nav-item .collapse {
-  -webkit-animation-name: growIn;
-  animation-name: growIn;
-  -webkit-animation-duration: 200ms;
-  animation-duration: 200ms;
-  -webkit-animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
-  animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
-}
-.dropdown-menu-right {
-  right: 0;
-  left: auto;
-}
-.dropdown-header {
-  display: block;
-  padding: 0.5rem 1.5rem;
-  margin-bottom: 0;
-  font-size: 0.875rem;
-  color: #858796;
-  white-space: nowrap;
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 0.65rem;
-  background-color: #4e73df;
-  border: 1px solid #4e73df;
-}
-.align-items-center {
-  align-items: center !important;
-}
-.text-gray-500 {
-  color: #b7b9cc !important;
-}
-.topbar .dropdown-list .dropdown-item .dropdown-list-image .status-indicator {
-  background-color: #eaecf4;
-  height: 0.75rem;
-  width: 0.75rem;
-  border-radius: 100%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  border: 0.125rem solid #fff;
-}
-.text-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 10rem;
 
+.animated--grow-in,
+.sidebar .nav-item .collapse {
+    -webkit-animation-name: growIn;
+    animation-name: growIn;
+    -webkit-animation-duration: 200ms;
+    animation-duration: 200ms;
+    -webkit-animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
+    animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1), opacity cubic-bezier(0, 1, 0.4, 1);
 }
-#tablaProfile{
-  width: 100vw;
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-header {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: #858796;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.65rem;
+    background-color: #4e73df;
+    border: 1px solid #4e73df;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.text-gray-500 {
+    color: #b7b9cc !important;
+}
+
+.topbar .dropdown-list .dropdown-item .dropdown-list-image .status-indicator {
+    background-color: #eaecf4;
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0.125rem solid #fff;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 10rem;
+}
+
+#tablaProfile {
+    width: 100vw;
+}
+
+#dashboard {
+    display: flex;
+    justify-content: center;
 }
