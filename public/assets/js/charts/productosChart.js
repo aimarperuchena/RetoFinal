@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://192.168.0.10:1234/api/productos/1",
+        url: "http://192.168.0.12:1234/api/productos/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {

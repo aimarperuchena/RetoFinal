@@ -12,6 +12,7 @@ use App\ProductoSociedad;
 use App\UsuarioSociedad;
 use App\Reserva;
 use App\TipoReserva;
+use App\Http\Requests\LineaRequest;
 
 class LineaController extends Controller
 {
@@ -46,9 +47,9 @@ class LineaController extends Controller
     return view('layouts.user.Lineas.create')->with('sociedad', $sociedad)->with('factura', $factura)->with('productos', $productos);
   }
 
-  public function store(Request $request)
+  public function store(LineaRequest $request)
   {
-
+    $validated = $request->validated();
     $user = Auth::user();
     $factura = Factura::find($request->factura);
     $reserva = Reserva::find($factura->reserva_id);
@@ -122,8 +123,10 @@ class LineaController extends Controller
     }
   }
 
-  public function update(Request $request)
+  public function update(LineaRequest $request)
   {
+    $validated = $request->validated();
+
     $linea = Linea::find($request->linea);
     $producto = ProductoSociedad::find($request->producto);
     $unidades = $request->unidades;

@@ -13,7 +13,7 @@ class LineaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class LineaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'unidades'=>'required|integer|min:1',
+           
+        ];
+    }
+
+    public function messages()
+    {
+        return $messages=[
+            'unidades.required'=>'Unidad Requerida',
+            'unidades.integer'=>'Valor Numérico',
+            'unidades.min'=>'Mínimo una unidad',
+            
         ];
     }
 }

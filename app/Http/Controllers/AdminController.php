@@ -18,6 +18,7 @@ use App\Http\Requests\IncidenciaCreateRequest;
 use App\Http\Requests\CreateMesaRequest;
 use App\Http\Requests\SociedadUpdateRequest;
 use App\Http\Requests\admin_reserva_create;
+use App\Http\Requests\LineaRequest;
 use App\Mesa;
 use App\Reserva;
 use App\Factura;
@@ -455,8 +456,9 @@ class AdminController extends Controller
         return view('layouts.admin.lineas.create')->with('sociedad', $sociedad)->with('productos', $productos)->with('factura', $factura);
     }
 
-    public function lineaCreate(Request $request)
+    public function lineaCreate(LineaRequest $request)
     {
+        $validated = $request->validated();
 
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
@@ -503,8 +505,10 @@ class AdminController extends Controller
         return view('layouts.admin.lineas.update')->with('sociedad', $sociedad)->with('linea', $linea)->with('productos', $productos);
     }
 
-    function lineaUpdate(Request $request)
+    function lineaUpdate(LineaRequest $request)
     {
+        $validated = $request->validated();
+
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $linea = Linea::find($request->linea);
