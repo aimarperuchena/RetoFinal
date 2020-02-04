@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://192.168.0.12:1234/api/accesos/1",
+        url: "http://192.168.1.135:1256/api/socios/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -15,11 +15,11 @@ $(document).ready(function() {
 
         function drawChart() {
             let chart_data = [
-                ["Dia", "Accesos", "Sociedad", { role: "style" }]
+                ["Sociedad", "Socios", { role: "style" }]
             ];
 
             for (x in datos) {
-                chart_data.push([datos[x].fecha, parseInt(datos[x].accesos), parseInt(datos[x].accesos), '#007bff']);
+                chart_data.push([datos[x].nombre, parseInt(datos[x].socios), '#007bff']);
 
             }
 
@@ -39,11 +39,11 @@ $(document).ready(function() {
             ]);
 
             var options = {
-                title: 'Accesos diarios de los usuarios',
-                curveType: 'function',
-                legend: { position: 'none' }
+                height:500,
+                cbar: { groupWidth: "85%" },
+                legend: { position: "none" },
             };
-            var chart = new google.visualization.LineChart(document.getElementById("socios"));
+            var chart = new google.visualization.ColumnChart(document.getElementById("socios"));
             chart.draw(view, options);
         }
     }

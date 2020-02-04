@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                        <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Accesos {{$usuarios}}</div>
+                        <div class="title-xs font-weight-bold text-primary text-uppercase mb-1">Accesos Hoy {{$usuarios}}</div>
 
                         </div>
                         <div class="col-auto">
@@ -78,23 +78,27 @@
         </a>
     </div>
 
-    <div class="row">
+<div class="container-fluid">
 
-        <div class="col-xl-12 col-lg-12">
+            <div class="col-xs-12 col-md-12 col-xl-12 col-lg-12">
+                <div id="accesos">
+                    <h1 class="d-flex justify-content-center text-primary">Acceso de usuarios en la web</h1>
+                    <div id="chart_div"></div>
+                    <div id="control_div"></div>
+                    <p><span id='dbgchart'></span></p>
+                </div>
+        </div><br><br>
 
-             <div id="accesos" style="width: 1000px; height: 500px;"></div>
+        <div class="container-fluid">
+
+            <div class="col-xs-12 col-md-12 col-xl-12 col-lg-12 ">
+                <h1 class="d-flex justify-content-center text-primary">Cantidad de socios por cada sociedad</h1>
+                    <div id="socios"></div><br>
+                <h1 class="d-flex justify-content-center text-primary">Productos mas utilizados por las sociedades</h1>
+                    <div id="productos"></div>
+            </div>
+
         </div>
-
-        <div class="col-xl-6 col-lg-6">
-
-            <div id="socios" style="width: 600px; height: 300px;"></div>
-       </div>
-
-    <div class="col-xl-6 col-lg-6">
-
-        <div id="productos" style="width: 600px; height: 300px;"></div>
-    </div>
-   </div>
 
 @endsection
 

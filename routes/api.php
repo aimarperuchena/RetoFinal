@@ -24,5 +24,6 @@ Route::resource('reservas', 'ReservasApiController');
 Route::resource('sociedad', 'SociedadApiController');
 Route::resource('productos', 'ProductoApiController');
 Route::resource('accesos', 'AccesoApiController');
+Route::resource('socios', 'SociosApiController');
 
 
