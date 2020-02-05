@@ -462,8 +462,15 @@ class AdminController extends Controller
 
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
-        $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
         $factura = Factura::find($request->factura)->first();
+        $reserva = Reserva::find($factura->reserva_id);
+        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
+        $mesas = Mesa::whereIn('id', $mesaReserva)->get();
+        $factura = Factura::where('reserva_id', $id)->first();
+        $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
+        
+        
+      
         $reserva = Reserva::find($factura->reserva_id);
         $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
@@ -491,7 +498,10 @@ class AdminController extends Controller
             $producto = ProductoSociedad::find($linea->producto_sociedad_id);
             $producto->stock = $producto->stock - $unidades;
             $producto->save();
+
+            
             return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas', $mesas);
+
         }
     }
 
