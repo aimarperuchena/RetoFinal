@@ -1,7 +1,10 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
-
 <script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+
+<!-- Content Row -->
+<script src="{{secure_asset('assets/js/validacion_linea.js')}}"></script>
+
 
 
 
@@ -47,9 +50,9 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Unidades: </span>
                 </div>
-                <input type="text" id="Unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" aria-describedby="basic-addon1">
+                <input type="text" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" value="Buscar">
+            <input type="submit" value="Añadir" id="enviar">
             @if(isset($error))
             <div class="alert alert-danger">
                 <ul>
@@ -68,6 +71,15 @@
                 </ul>
             </div>
             @endif
+            <div id="error_val" class="alert alert-danger" style="visibility:hidden">
+                    <ul>
+
+                        <li id="error_unidades">Unidades Requerido</li>
+
+
+
+                    </ul>
+                </div>
         </form>
     </div>
 </div>
