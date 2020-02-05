@@ -34,14 +34,14 @@ class ReservaController extends Controller
     
     
     $denegado = Reserva::where('id', $reserva_id)->where('usuario_id', $user->id)->count(); 
-        /* return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
-  */
-   /*  if (!isNull($denegado)) {
-      return view('layouts.user.Facturas.prueba');
+
+    if ($denegado>0) {
+      return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
+
     } else {
       return redirect('/denegado');
-    } */
-    return view('layouts.user.Facturas.prueba');
+    } 
+   
   }
   public function edit($reserva_id)
   {
