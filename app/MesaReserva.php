@@ -11,4 +11,9 @@ class MesaReserva extends Model
 
   protected $table="mesa_reserva";
   protected $fillable=["reserva_id","mesa_id"];
+
+  public function mesa()
+  {
+      return $this->belongsTo(Mesa::class);
+  }
 }

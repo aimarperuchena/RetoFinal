@@ -50,8 +50,8 @@ Route::get('/user_suscripcion','UserController@suscripciones')->name('usuario.su
 Route::get('/sociedad/{id}','SociedadController@info')->name('sociedad.info');
 Route::get('/sociedad/peticion/{id}','SociedadController@peticion')->name('sociedad.peticion');
 Route::get('/reserva/{id}','SociedadController@reserva')->name('sociedad.reserva');
-Route::post('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear')->name('sociedad.crear');
-Route::post('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
+Route::get('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear')->name('sociedad.crear');
+Route::get('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
 Route::get('/alta_sociedad','SociedadController@formAlta')->name('sociedad.formAlta');
 Route::post('/alta_sociedad/success','SociedadController@alta')->name('sociedad.alta');
 
@@ -68,9 +68,16 @@ Route::get('/reservas/borrar/{id}','ReservaController@delete')->name('reserva.de
 
 //Lineas
 Route::get('/lineas/{id}','LineaController@index')->name('linea.show');
+Route::get('/lineas/create/{id}','LineaController@create')->name('linea.create');
+Route::post('/lineas/store','LineaController@store')->name('linea.store');
+Route::get('/lineas/delete/{id}','LineaController@delete')->name('linea.delete');
+Route::get('/lineas/edit/{id}','LineaController@edit')->name('linea.edit');
+Route::post('/lineas/update','LineaController@update')->name('linea.update');
+
+
 
 // Facturas
-Route::get('/crear_factura','FacturaController@create')->name('factura.create');
+Route::get('/crear_factura/{id}','FacturaController@create')->name('factura.create');
 Route::post('/factura_store/{id}','FacturaController@store')->name('factura.store');
 
 
@@ -82,6 +89,7 @@ Route::post('/admin/planoUpdate','AdminController@planoUpdate')->name('admin.soc
 Route::get('/admin/peticionesSociedad','AdminController@peticionIndex')->name('admin.peticionIndex');
 Route::get('/admin/peticionSociedadAceptar/{id}','AdminController@peticionAceptar')->name('admin.peticionAceptar');
 Route::get('/admin/peticionSociedadDenegar/{id}','AdminController@peticionDenegar')->name('admin.peticionDenegar');
+Route::post('/admin/sociedadImagen','AdminController@sociedadImagen')->name('admin.sociedadImagen');
 Route::get('/admin/userDelete/{id}','AdminController@userDelete')->name('admin.userDelete');
 /*PRODUCTOS*/
 Route::get('/admin/productoIndex','AdminController@productoIndex')->name('admin.productoIndex');
@@ -118,11 +126,14 @@ Route::post('/admin/reservaIndexFiltro','AdminController@reservaIndexFiltro')->n
 Route::get('/admin/reservaDelete/{id}','AdminController@reservaDelete')->name('admin.reservaDelete');
 Route::get('/admin/reservaCreate','AdminController@reservaCreate')->name('admin.reservaCreate');
 Route::post('/admin/reservaFechaFind','AdminController@reservaFechaFind')->name('admin.reservaFechaFind');
+Route::post('/admin/reservaStore','AdminController@reservaStore')->name('admin.reservaStore');
 
 //LINEAS
 Route::get('/admin/deleteLinea/{id}','AdminController@lineaDelete')->name('admin.lineaDelete');
 Route::get('/admin/lineaAdd/{id}','AdminController@lineaAdd')->name('admin.lineaAdd');
 Route::post('/admin/lineaCreate','AdminController@lineaCreate')->name('admin.lineaCreate');
+Route::get('/admin/lineaEdit/{id}','AdminController@lineaEdit')->name('admin.lineaEdit');
+Route::post('/admin/lineaUpdate','AdminController@lineaUpdate')->name('admin.lineaUpdate');
 //SOCIOS
 Route::get('/admin/userIndex','AdminController@userIndex')->name('admin.userIndex');
 
@@ -138,11 +149,16 @@ Route::get('/webmaster/productDestroy/{id}','WebMasterController@productDestroy'
 
 //Sociedades Webmaster
 Route::get('/webmaster/sociIndex','WebMasterController@sociIndex')->name('webmaster.sociIndex');
+Route::get('/webmaster/sociRestore/{id}','WebMasterController@sociRestore');
+Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
+
+//Sociedades Peticiones
 Route::get('/webmaster/sociPeticion','WebMasterController@sociPeticion')->name('webmaster.sociPeticion');
 Route::get('/webmaster/peticionAceptar/{id}','WebMasterController@peticionAceptar')->name('webmaster.peticionAceptar');
 Route::get('/webmaster/peticionDenegar/{id}','WebMasterController@peticionDenegar')->name('webmaster.peticionDenegar');
-Route::get('/webmaster/sociRestore/{id}','WebMasterController@sociRestore');
-Route::get('/webmaster/sociDestroy/{id}','WebMasterController@sociDestroy');
+Route::post('/webmaster/peticionFiltrado','WebMasterController@peticionFiltrado')->name('webmaster.peticionFiltrado');
+Route::get('/webmaster/peticionRestore/{id}','WebMasterController@peticionRestore');
+Route::get('/webmaster/peticionDestroy/{id}','WebMasterController@peticionDestroy');
 
 
 //Socios Webmaster

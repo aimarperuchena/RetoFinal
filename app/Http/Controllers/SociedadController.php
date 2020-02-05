@@ -14,6 +14,10 @@ use App\PeticionSociedad;
 use App\PeticionNuevaSociedad;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ReservaRequest;
+use App\Http\Requests\ReservaFechaRequest;
+use App\Http\Requests\AltaSociedadRequest;
+
 class SociedadController extends Controller
 {
   public function __construct()
@@ -42,8 +46,9 @@ class SociedadController extends Controller
     }
   }
 
-  public function reservaFecha(Request $request, $sociedad_id)
+  public function reservaFecha(ReservaFechaRequest $request, $sociedad_id)
   {
+    $validated = $request->validated();
     $fecha = $request->fecha;
     $newDate = date("Y-m-d", strtotime($fecha));
     $tipo = TipoReserva::find($request->tipo);
@@ -63,8 +68,9 @@ class SociedadController extends Controller
     $peticion->save();
     return redirect('/user');
   }
-  public function crear(Request $request, $sociead_id, $tipo_id)
+  public function crear(ReservaRequest $request, $sociead_id, $tipo_id)
   {
+    $validated = $request->validated();
     $user = Auth::user();
     $tipo = TipoReserva::find($tipo_id);
     $resreva = new Reserva;
@@ -87,8 +93,9 @@ class SociedadController extends Controller
     return view('layouts.user.Perfil.altaSociedad');
   }
 
-  public function alta(Request $request)
+  public function alta(AltaSociedadRequest $request)
   {
+    $validated = $request->validated();
     $user = Auth::user();
     $user_change = User::find($user->id);
     $sociedad = new PeticionNuevaSociedad;

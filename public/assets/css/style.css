@@ -53,7 +53,12 @@ html {
     margin-right: 0px;
 }
 
-
+@media (max-width: 800px) {
+  .asaa {
+    margin: auto;
+    width: 60%!important;
+  }
+}
 /* Servicios */
 
 #services {
@@ -221,7 +226,20 @@ html {
     text-decoration: none;
 }
 
-
+@media (max-width: 800px) {
+  .modelos{
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
+  }
+}
+/* ------------------------------Buscador------------------------------------ */
+#myInput{
+  width: 80%;
+}
+/* ------------------------------Reserva------------------------------------- */
+.reserva{
+  width: 100%;
+}
 /* ------------------------------Footer------------------------------------- */
 
 .footer {
@@ -414,8 +432,4 @@ html {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 10rem;
-}
-
-#tablaProfile {
-    width: 100vw;
 }

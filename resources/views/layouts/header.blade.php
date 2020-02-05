@@ -1,7 +1,7 @@
 
 <section class="header">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <a href="#top"><img src="{{secure_asset('assets\img\logo_alpha_white.png')}}" width="50" height="50" alt="logo"></a>
+      <a href="#top"><img src="{{url('assets\img\logo_alpha_white.png')}}" width="50" height="50" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,6 +14,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{route('usuario.suscripciones')}}">Mis suscripciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('sociedad.formAlta') }}">Alta Sociedad</a>
                 </li>
               @endif
               @if ($user->role_id === 2)

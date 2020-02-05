@@ -30,7 +30,7 @@
     <div class="col-xl-4 col-lg-7 text-center">
         <h3>Añadir Linea</h3>
         <form action="{{route ('admin.lineaCreate')}}" method="POST">
-        {{ csrf_field() }}
+            {{ csrf_field() }}
             <input type="hidden" name="factura" value="{{$factura->id}}">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -56,6 +56,15 @@
 
                     <li>{{ $error }}</li>
 
+                </ul>
+            </div>
+            @endif
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
                 </ul>
             </div>
             @endif

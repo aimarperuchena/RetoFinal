@@ -29,19 +29,17 @@ $(document).ready(function () {
 
             </ul>
         </div>
-
   @endif
-<br><br>
-  <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
-
+  <br><br>
+  <input class="form-control border col-lg-12" id="myInput" type="text" placeholder="Buscador..">
   <br>
   <table class="table table-striped border" id="dtBasicExample" cellspacing="0" width="100%" id="myList">
-
+    <br><br>
+    <a class="btn btn-primary col-lg-2" href="/webmaster/productCreate/">Añadir Producto</a>
     <div class="row">
 
   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <br>
-  <a href="/webmaster/productCreate/">Añadir Producto</a>
+
   <table class="table">
     <thead>
         <tr>

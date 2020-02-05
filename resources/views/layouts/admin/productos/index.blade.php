@@ -19,8 +19,12 @@ $(document).ready(function () {
 });
 </script>
 <div class="row">
-  <div class="col-xl-8 col-lg-7">
-  <h3>Productos</h3>
+<div class="col-xl-12 col-lg-12">
+<h3>Productos</h3>
+</div>
+
+  <div class="col-xl-3 col-lg-3">
+
   @if(isset($error))
  
         <div class="alert alert-danger">
@@ -33,9 +37,16 @@ $(document).ready(function () {
        
   @endif
   <a class="btn btn-primary" href="/admin/productCreate/">Añadir Producto</a>
-<br><br>
-  <input class="form-control border" id="myInput" type="text" placeholder="Buscador..">
+  <br><br>
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Buscador</span>
+  </div>
+  <input type="text" class="form-control border" id="myInput"   aria-describedby="basic-addon1">
+</div>
 
+</div>
+<div class="col-xl-7 col-lg-7">
   <br>
   <table class="table table-striped border" id="dtBasicExample" cellspacing="0" width="100%" id="myList">
   <thead>

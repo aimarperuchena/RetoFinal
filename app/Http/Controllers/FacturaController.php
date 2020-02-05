@@ -13,11 +13,18 @@ use Auth;
 
 class FacturaController extends Controller
 {
-  public function create(){
+  public function create($reserva_id){
     $user = Auth::user();
     //subselect
-    $reservas = Reserva::where('usuario_id',$user->id)->whereNotIn('id', Factura::pluck('reserva_id'))->get();
-    return view('layouts.user.Facturas.create')-> with('reservas' , $reservas);
+    $reserva = Reserva::find($reserva_id);
+    $factura = new Factura;
+    $factura->sociedad_id = $reserva->sociedad_id;
+    $factura->reserva_id = $reserva->id;
+    $factura->fecha = date("Y/m/d");
+    $factura->personas = $reserva->personas;
+    $factura->importe = 0;
+    $factura->save();
+    return view('layouts.user.Facturas.create')-> with('factura' , $factura);
   }
   public function store(Request $request, $reserva_id){
     $user = Auth::user();

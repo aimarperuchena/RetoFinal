@@ -20,4 +20,6 @@ class Mesa extends Model
     {
         return $this->belongsToMany(Reserva::class);
     }
+
+    
 }

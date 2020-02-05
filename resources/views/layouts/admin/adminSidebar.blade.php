@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-none d-md-block bg-primary  sidebar">
+<nav class="col-md-2 d-none d-md-block bg-primary  sidebar position-fixed">
                 <div class="sidebar-sticky">
                     <br><br><br><br>
 

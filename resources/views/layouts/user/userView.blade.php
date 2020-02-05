@@ -1,45 +1,61 @@
-<div class="d-flex text-center">
-  <div id="filtroLista" class="">
-    <div class="flotante">
-      <h1>Filtrar</h1>
-      <hr>
-      <div class="form-group form-check text-left">
-        <input type="checkbox" class="form-check-input" id="checkboxTodos" onclick='window.location.assign("{{route("usuario.listado")}}")'>
-        <label class="form-check-label" for="exampleCheck1"><a href="{{route('usuario.listado')}}">Todas</a></label>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="mb-2">¿Qué sociedad buscas?</h1>
+      <div class="input-group mb-5 justify-content-center">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </div>
+        <input type="text" id="myInput" class="form-control border" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
       </div>
-      <div class="form-group form-check text-left">
-        <input type="checkbox" class="form-check-input" id="checkboxTodos" onclick='window.location.assign("{{route("usuario.suscripciones")}}")'>
-        <label class="form-check-label" for="exampleCheck1"><a href="{{route('usuario.suscripciones')}}">Mis Sociedades</a></label>
+      <div id="listaSociedad" class="d-flex flex-wrap mb-5 justify-content-center">
+        @if($todos)
+          @if($sociedades ?? '')
+            @foreach($sociedades ?? '' as $sociedad)
+            <div class="card m-2" style="width: 18rem; height:18rem;">
+              @if($sociedad)
+                <a href="{{ route('sociedad.info', $sociedad -> id) }}"><img src="{{$sociedad->link_imagen}}" class="card-img-top" alt="..."></a>
+              @endif
+              <div class="card-body">
+                <p class="card-text">{{$sociedad -> nombre}}</p>
+              </div>
+            </div>
+            @endforeach
+          @endif
+        @endif
+        @if($suscripciones ?? '' ?? '')
+          @foreach( $suscripciones ?? '' as $suscripcion)
+          <div class="card m-2" style="width: 18rem; height:18rem;">
+            @if($suscripcion)
+              <a href="{{ route('sociedad.info', $suscripcion -> id) }}"><img src="{{$suscripcion->link_imagen}}" class="card-img-top" alt="..."></a>
+            @endif
+            <div class="card-body">
+              <p class="card-text">{{$suscripcion->nombre}}</p>
+
+            </div>
+          </div>
+          @endforeach
+        @endif
       </div>
     </div>
   </div>
-  <div id="listaSociedad" class="d-flex flex-wrap mb-5">
-    @if($todos)
-      @if($sociedades ?? '')
-        @foreach($sociedades ?? '' as $sociedad)
-        <div class="card m-2" style="width: 18rem; height:18rem;">
-          @if($sociedad)
-            <a href="{{ route('sociedad.info', $sociedad -> id) }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
-          @endif
-          <div class="card-body">
-            <p class="card-text">{{$sociedad -> nombre}}</p>
-          </div>
-        </div>
-        @endforeach
-      @endif
-    @endif
-    @if($suscripciones ?? '' ?? '')
-      @foreach( $suscripciones ?? '' as $suscripcion)
-      <div class="card m-2" style="width: 18rem; height:18rem;">
-        @if($suscripcion)
-          <a href="{{ route('sociedad.info', $suscripcion -> id) }}"><img src="assets/img/Gaztelubide.jpeg" class="card-img-top" alt="..."></a>
-        @endif
-        <div class="card-body">
-          <p class="card-text">{{$suscripcion->nombre}}</p>
-
-        </div>
-      </div>
-      @endforeach
-    @endif
-  </div>
 </div>
+<script>
+function myFunction() {
+  var input, filter, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  card = document.getElementsByClassName('card');
+  for (i = 0; i < card.length; i++) {
+    text = card[i].getElementsByClassName("card-text")[0];
+    if (text) {
+      txtValue = text.textContent || text.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        card[i].style.display = "";
+      } else {
+        card[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
