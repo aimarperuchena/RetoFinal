@@ -2,6 +2,7 @@
 @section('content')
 
 <br><br><br><br>
+<script src="{{secure_asset('assets/js/jquery-3.3.1.min.js')}}"></script>
 <div class="container">
   <div class="d-flex text-center flex-wrap">
     <div class="mb-5 ml-5 col-12">
