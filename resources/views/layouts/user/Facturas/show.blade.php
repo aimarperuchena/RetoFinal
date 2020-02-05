@@ -30,7 +30,24 @@
   @endif
 
 
+  <h2>Mesas</h2>
   
+  <table class="table table-hover border">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Capacidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($mesas as $mesa)
+      <tr>
+        <td>{{$mesa->nombre}}</td>
+      
+      </tr>
+      @endforeach 
+    </tbody>
+  </table>
 
 </div>
 
