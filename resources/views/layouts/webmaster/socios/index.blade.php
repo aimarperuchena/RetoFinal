@@ -2,7 +2,7 @@
 
 @section('webmasterContent')
 <!-- Content Row -->
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
@@ -32,13 +32,14 @@ $(document).ready(function () {
 
   @endif
 <br><br>
-  <input class="form-control border col-lg-12" id="myInput" type="text" placeholder="Buscador..">
+<h1 class="d-flex justify-content-center text-primary container-fluid">Listado de socios</h1>
+
+<input class="form-control border col-xs-12 col-sm-12 col-md-12 col-xl-12 col-lg-12" id="myInput" type="text" placeholder="Buscador..">
 
   <br>
   <table class="table table-striped border" id="dtBasicExample" cellspacing="0" width="100%" id="myList">
-
-    <div class="row">
-  <div class="col-xl-12 col-lg-7">
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <table class="table">
         <thead>
             <tr>

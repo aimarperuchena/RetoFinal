@@ -1,30 +1,30 @@
 @extends('layouts.webmaster.WMView')
 @section('webmasterContent')
-<script src="{{secure_asset('assets/js/val_Producto.js')}}"></script>
-<link rel="stylesheet" type="text/css" href="{{secure_asset('assets/css/val_producto.css')}}">
+<script src="{{url('assets/js/val_Producto.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{url('assets/css/val_producto.css')}}">
 <!-- Content Row -->
 <br><br>
-<div class="row">
-  <div class="col-xl-12 col-lg-12">
-  <h3 class="text-center">Añadir Producto</h3><br>
-  <form class="center-block" action="{{route ('webmaster.productStore')}}" method="post">
-    {{ csrf_field() }}
+<div class="container-fluid">
 
-    <div class="input-group mb-3 center-block">
-        <div class="input-group-prepend">
+    <h1 class="d-flex justify-content-center text-primary container-fluid">Añadir productos</h1><br>
+
+    <form action="{{route ('webmaster.productStore')}}" method="post">
+        {{ csrf_field() }}
+        <div class="input-group-prepend col-12">
             <span class="input-group-text" id="basic-addon1">Nombre: </span>
         <input id="nombre" class="form-control border" aria-describedby="basic-addon1" type="text" size="53" name="nombre" placeholder="Nombre del producto" pattern="^[A-Z]{1}[a-z0-9]{2,24}" title="Primera letra mayuscula" required>
-        </div>
-    </div>
-
-    <div class="input-group mb-5">
-        <div class="input-group-prepend">
+        </div><br>
+        <div class="input-group-prepend col-12">
             <span class="input-group-text" id="basic-addon1">Descripcion: </span>
             <input id="descripcion" class="form-control border" aria-describedby="basic-addon1" type="text" size="50" name="descripcion" placeholder="Descripcion del producto" pattern="^[A-Z]{1}[a-z0-9]{2,49}" title="Primera letra mayuscula" required>
+        </div><br>
+        <div class="input-group-prepend col-12">
+            <input id="enviar" class="btn reserva btn-primary" type="submit" value="Añadir"><br>
         </div>
-    </div>
-    <input id="enviar" class="btn btn-primary" type="submit" value="Añadir"><br>
-</form>
+        </form>
+        </div>
+
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
@@ -32,7 +32,7 @@
         <li>{{ $error }}</li>
         @endforeach
     </ul>
-</div>
+
 @endif
   </div>
 </div>

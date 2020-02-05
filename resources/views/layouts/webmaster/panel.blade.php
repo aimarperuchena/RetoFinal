@@ -1,10 +1,10 @@
 @extends('layouts.webmaster.WMView')
 @section('webmasterContent')
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{ secure_asset('assets/js/charts/productosChart.js')}}"></script>
-<script src="{{ secure_asset('assets/js/charts/accesosChart.js')}}"></script>
-<script src="{{ secure_asset('assets/js/charts/sociosChart.js')}}"></script>
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ url('assets/js/charts/productosChart.js')}}"></script>
+<script src="{{ url('assets/js/charts/accesosChart.js')}}"></script>
+<script src="{{ url('assets/js/charts/sociosChart.js')}}"></script>
 
 
 <br>
@@ -78,9 +78,9 @@
         </a>
     </div>
 
-<div class="container-fluid">
+    <div class="container-fluid col-xs-6 col-sm-10 col-md-12 col-xl-12 col-lg-12">
 
-            <div class="col-xs-12 col-md-12 col-xl-12 col-lg-12">
+            <div>
                 <div id="accesos">
                     <h1 class="d-flex justify-content-center text-primary">Acceso de usuarios en la web</h1>
                     <div id="chart_div"></div>
@@ -89,9 +89,9 @@
                 </div>
         </div><br><br>
 
-        <div class="container-fluid">
+        <div class="container-fluid col-xs-6 col-sm-10 col-md-12 col-xl-12 col-lg-12">
 
-            <div class="col-xs-12 col-md-12 col-xl-12 col-lg-12 ">
+            <div>
                 <h1 class="d-flex justify-content-center text-primary">Cantidad de socios por cada sociedad</h1>
                     <div id="socios"></div><br>
                 <h1 class="d-flex justify-content-center text-primary">Productos mas utilizados por las sociedades</h1>
