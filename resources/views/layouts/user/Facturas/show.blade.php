@@ -40,12 +40,12 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($mesas as $mesa)
+     <!--  @foreach($mesas as $mesa)
       <tr>
         <td>{{$mesa->nombre}}</td>
-       <!--  <td>{{$mesa->capacidad}}</td> -->
+       <td>{{$mesa->capacidad}}</td> 
       </tr>
-      @endforeach
+      @endforeach -->
     </tbody>
   </table>
 
