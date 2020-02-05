@@ -11,7 +11,7 @@ use App\MesaReserva;
 use App\Sociedad;
 use App\TipoReserva;
 use App\Mesa;
-
+use Illuminate\Support\Facades\DB;
 class ReservaController extends Controller
 {
   public function __construct()
