@@ -31,7 +31,7 @@ class ReservaController extends Controller
     $facturas = Factura::where('reserva_id', $reserva_id)->first();
      $mesaReserva = MesaReserva::where('reserva_id', $reserva_id)->first();
     
-    $mesas = Mesa::whereIn('id', $mesaReserva)->get();
+    $mesas = Mesa::whereIn('id', $mesaReserva)->first();
     /*
     $denegado = Reserva::where('id', $reserva_id)->where('usuario_id', $user->id)->first(); */
     /*     return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
