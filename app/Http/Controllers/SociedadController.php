@@ -68,25 +68,38 @@ class SociedadController extends Controller
     $peticion->save();
     return redirect('/user');
   }
-  public function crear(ReservaRequest $request, $sociead_id, $tipo_id)
+  public function crear(ReservaRequest $request, $sociedad_id, $tipo_id)
   {
-    $validated = $request->validated();
-    $user = Auth::user();
-    $tipo = TipoReserva::find($tipo_id);
-    $resreva = new Reserva;
-    $resreva->sociedad_id = $sociead_id;
-    $resreva->usuario_id = $user->id;
-    $resreva->tipo_id = $tipo->id;
-    $resreva->fecha = $request->fecha;
-    $resreva->personas = $request->personas;
-    $resreva->save();
+    $mesa = Mesa::find($request->mesa);
 
-    $resrevaMesa = new MesaReserva;
-    $resrevaMesa->reserva_id = $resreva->id;
-    $resrevaMesa->mesa_id = $request->mesa;
-    $resrevaMesa->save();
+    if ($request->personas <= $mesa->capacidad) {
+      $validated = $request->validated();
+      $user = Auth::user();
+      $tipo = TipoReserva::find($tipo_id);
+      $resreva = new Reserva;
+      $resreva->sociedad_id = $sociedad_id;
+      $resreva->usuario_id = $user->id;
+      $resreva->tipo_id = $tipo->id;
+      $resreva->fecha = $request->fecha;
+      $resreva->personas = $request->personas;
+      $resreva->save();
 
-    return view('layouts.user.SociedadViews.reserva.success')->with('fecha', $request->fecha)->with('mesa', $request->mesa)->with('personas', $request->personas);
+      $resrevaMesa = new MesaReserva;
+      $resrevaMesa->reserva_id = $resreva->id;
+      $resrevaMesa->mesa_id = $request->mesa;
+      $resrevaMesa->save();
+
+      return view('layouts.user.SociedadViews.reserva.success')->with('fecha', $request->fecha)->with('mesa', $request->mesa)->with('personas', $request->personas);
+    }else {
+      $fecha = $request->fecha;
+      $newDate = date("Y-m-d", strtotime($fecha));
+      $tipo = TipoReserva::find($tipo_id);
+      $sociedad = Sociedad::find($sociedad_id);
+      // $mesas = DB::select('select * from mesa where mesa.sociedad_id = '.$sociedad->id.' and id not in(select mesa_id from mesa_reserva where reserva_id in(select id from reserva where fecha like "'.$newDate.'" and sociedad_id='.$sociedad_id.' and tipo_id = '.$request->tipo.'))');
+      $mesas = Mesa::where('sociedad_id',$sociedad->id)->get();
+      $mensaje = 'La capacidad de la mesa no soporta la cantidad de personas introducidas.';
+      return view('layouts.user.Reservas.index')->with('mesas',$mesas)->with('tipo',$tipo)->with('fecha',$fecha)->with('sociedad',$sociedad)->with('mensaje',$mensaje);
+    }
   }
   public function formAlta(Request $request)
   {
