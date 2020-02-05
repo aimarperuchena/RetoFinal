@@ -116,9 +116,9 @@ class user_seeder extends Seeder
 
         DB::table('users')->insert([
             'nombre' => 'Tomas',
-            'apellido' => 'Turvado',
+            'apellido' => 'Sebastian',
             'telefono' => 12345678,
-            'email' => 'JavierTomas@gmail.com',
+            'email' => 'tomas@gmail.com',
             'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => bcrypt('javierjavier'),
             'role_id' => '3'
@@ -133,12 +133,12 @@ class user_seeder extends Seeder
             'role_id' => '3'
         ]);
         DB::table('users')->insert([
-            'nombre' => 'Firulais',
-            'apellido' => 'Rigoverto',
+            'nombre' => 'Alejandro',
+            'apellido' => 'Villareal',
             'telefono' => 12345678,
-            'email' => 'firulaisRigoverto@gmail.com',
+            'email' => 'alejandro@gmail.com',
             'email_verified_at' => date('Y-m-d H:i:s'),
-            
+
             'password' => bcrypt('123456789'),
             'role_id' => '3'
         ]);
