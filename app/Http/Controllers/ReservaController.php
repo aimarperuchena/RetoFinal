@@ -29,7 +29,7 @@ class ReservaController extends Controller
     $facturas = Factura::where('reserva_id',$reserva_id)->get();
     $mesaReserva = MesaReserva::where('reserva_id', $reserva_id)->first();
     $mesas = Mesa::whereIn('id', $mesaReserva)->get();
-    
+
     if ($denegado >0) {
       return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
     }else {
@@ -38,7 +38,7 @@ class ReservaController extends Controller
   }
   public function edit($reserva_id){
     $user = Auth::user();
-    $reserva = Reserva::find($reserva_id)->first();
+    $reserva = Reserva::find($reserva_id);
     $sociedad = Sociedad::find($reserva->sociedad_id);//mejor usar modal relacion
     $tipoEditar = TipoReserva::find($reserva->tipo_id);//mejor usar modal relacion
     $tipo = TipoReserva::all();
