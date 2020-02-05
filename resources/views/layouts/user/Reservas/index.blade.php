@@ -50,7 +50,7 @@
       </div>
       <div class="d-flex form-group justify-content-between">
         <label for="exampleInputEmail1" class="ml-3 justify-content-start">Nº Personas</label>
-        <input type="number" name="personas" class="mr-3 justify-content-end form-control border" style="width: 250px;" value="{{$personaEditar ?? ''}}">
+        <input type="text" name="personas" class="mr-3 justify-content-end form-control border" style="width: 250px;" value="{{$personaEditar ?? ''}}">
       </div>
       <small class="form-text text-muted mb-3">Por favor no introduzca de más o de menos.</small>
       <!-- Según el número de mesas que tenga la sociedad registradas -->
