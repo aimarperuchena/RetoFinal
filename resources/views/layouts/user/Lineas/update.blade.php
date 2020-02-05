@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
 
+<!-- Content Row -->
+<script src="{{url('assets/js/validacion_linea.js')}}"></script>
 <br><br><br><br>
 <div class="container">
   <div class="row">
@@ -54,9 +57,9 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Unidades: </span>
                 </div>
-                <input type="text" id="Unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$linea->unidades}}" aria-describedby="basic-addon1">
+                <input type="text" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$linea->unidades}}" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" value="Buscar">
+            <input type="submit" class="btn btn-primary" value="Añadir">
             @if(isset($error))
             <div class="alert alert-danger">
                 <ul>
@@ -75,6 +78,15 @@
                 </ul>
             </div>
             @endif
+            <div id="error_val" class="alert alert-danger" style="visibility:hidden">
+                    <ul>
+
+                        <li id="error_unidades">Unidades Requerido</li>
+
+
+
+                    </ul>
+                </div>
         </form>
     </div>
 </div>

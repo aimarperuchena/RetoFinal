@@ -17,7 +17,7 @@
         <th scope="col">Eliminar</th>
       </tr>
     </thead>
-    @if(count($reservas) > 0)
+    @if(isset($reservas))
       @foreach($reservas as $reserva)
         <tbody>
           <tr>

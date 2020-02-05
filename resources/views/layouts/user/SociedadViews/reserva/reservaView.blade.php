@@ -13,49 +13,50 @@
       <h1>Reserva Fecha</h1>
       <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="get">
         @csrf
-      @if(isset($fechaEditar))
-        <div class="form-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Fecha</span>
+        @if(isset($fechaEditar))
+        <div class="input-group mb-3">
+          <div class="input-group-prepend border">
+            <span class="input-group-text" id="basic-addon1">Fecha</span>
           </div>
-          <input type="date" name="fecha" value="{{$fechaEditar }}" class="form-control" placeholder="Fecha" >
+          <input type="date" name="fecha" value="{{$fechaEditar }}" class="form-control border" placeholder="Fecha">
         </div>
+        
 
-      @else
+        @else
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text">Fecha</span>
           </div>
-          <input type="date" name="fecha"  class="form-control" placeholder="Fecha" >
+          <input type="date" name="fecha" class="form-control" placeholder="Fecha">
         </div>
-      @endif
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Tipo Comida:</label>
-        </div>
-        <select class="custom-select" name="tipo">
-          <option value="..." selected>Elige...</option>
-          @if($tipo)
+        @endif
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Tipo Comida:</label>
+          </div>
+          <select class="custom-select" name="tipo">
+            <option value="..." selected>Elige...</option>
+            @if($tipo)
             @foreach($tipo as $comida)
-              @if(($tipoEditar->id ?? '') === $comida->id)
-                <option value="{{$comida -> id}}" selected>{{$comida -> nombre}}</option>
-                continue
-              @endif
-              @if( $comida->id != ($tipoEditar->id ?? ''))
-                <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
-              @endif
+            @if(($tipoEditar->id ?? '') === $comida->id)
+            <option value="{{$comida -> id}}" selected>{{$comida -> nombre}}</option>
+            continue
+            @endif
+            @if( $comida->id != ($tipoEditar->id ?? ''))
+            <option value="{{$comida -> id}}">{{$comida -> nombre}}</option>
+            @endif
             @endforeach
-          @endif
-        </select>
-      </div>
+            @endif
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary reserva">Mesas</button>
         @if ($errors->any())
         <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
         </div>
         @endif
       </form>
