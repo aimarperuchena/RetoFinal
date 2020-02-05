@@ -25,14 +25,13 @@ class ReservaController extends Controller
   }
   public function show($reserva_id){
     $user = Auth::user();
-    $denegado = Reserva::where('id',$reserva_id)->where('usuario_id',$user->id)->count();
-    /*$facturas = Factura::where('reserva_id',$reserva_id)->get(); */
+    $denegado = Reserva::where('id',$reserva_id)->where('usuario_id',$user->id)->first();
+    $facturas = Factura::where('reserva_id',$reserva_id)->first(); 
     $mesaReserva = MesaReserva::where('reserva_id', $reserva_id)->first();
     $mesas = Mesa::whereIn('id', $mesaReserva)->get();
-/*     return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
- */
-    if ($denegado >0) {
-      return view('layouts.user.Facturas.show')->with('mesas',$mesas);
+
+    if (!isNull($denegado)) {
+    return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
     }else {
       return redirect('/denegado');
     }
