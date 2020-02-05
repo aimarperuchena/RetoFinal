@@ -95,7 +95,7 @@ $(document).ready(function() {
             ]);
 
             var options = {
-                title: "Unidades Vendidas Por articulo",
+                title: "Importe total Por articulo",
                 width: 600,
                 height: 400,
                 bar: { groupWidth: "95%" },

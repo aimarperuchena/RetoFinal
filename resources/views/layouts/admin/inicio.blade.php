@@ -8,7 +8,7 @@
 <!-- Content Row -->
 
 <div class="row">
-
+<div class="container">
 <div class=""></div>
      <div class="col-xl-12 col-lg-12 justify-content-center text-center">
 
@@ -21,13 +21,18 @@
      <br><br><br>
      </div>
 
-     <div class="col-xl-6 col-lg-6">
-<h3>Ventas por producto</h3>
+     <h3 class="text-center">Ventas</h3>
+<div class="row">
+     <div class="col-md-6 col-sm-12 col-xs-12">
+      
           <div id="unidades" style="width: 500px; height: 300px;"></div>
      </div>
-     <div class="col-xl-5 col-lg-5">
-     <h3>Importe por producto</h3>
+     <div class="col-md-6 col-sm-12 col-xs-12">
+     
           <div id="importe" style="width: 500px; height: 300px;"></div>
      </div>
+     </div>
+</div>
+</div>
 </div>
 @endsection
