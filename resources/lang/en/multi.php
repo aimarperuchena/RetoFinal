@@ -105,6 +105,11 @@ return [
     "capacidad"=>'Capacity',
     "crearfactura"=>'Create bill',
     "facturas"=>'Bills',
+    "factura"=>'Bill',
     "altasoci"=>'Create Society',
     "perfil"=>'Profile',
+    "suscripciones"=>'My Subscriptions',
+    "reservafecha"=>'Book Date',
+    "plano"=>'Blueprint',
+    "lineafactura"=>'Invoice Lines',
 ];

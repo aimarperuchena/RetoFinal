@@ -9,7 +9,7 @@
       <h1>{{ __('multi.hacerreserva') }}</h1>
       <h3>{{ __('multi.hacerreserva1') }} {{$fecha}} {{ __('multi.hacerreserva2') }}</h3>
       <h5>{{$sociedad->nombre}}</h5>
-      <h1>Plano</h1>
+      <h1>{{ __('multi.plano') }}</h1>
       <div class="mb-5 mt-5">
         <img src="{{$sociedad->link_plano}}" >
       </div>
@@ -29,8 +29,8 @@
         <div class="card m-2" style="width: 12rem; height:18rem;">
           <img src="{{secure_asset('assets/img/mesa.png')}}" class="card-img-top" alt="...">
           <hr>
-          <h5 class="card-title">Nombre: {{$mesa -> nombre}}</h5>
-          <p class="card-text">Capacidad: {{$mesa -> capacidad}}</p>
+          <h5 class="card-title">{{ __('multi.nomform') }}: {{$mesa -> nombre}}</h5>
+          <p class="card-text">{{ __('multi.capacidad') }}: {{$mesa -> capacidad}}</p>
         </div>
         @endforeach
         @endif
@@ -55,7 +55,7 @@
       <small class="form-text text-muted mb-3">{{ __('multi.requisito') }}</small>
       <!-- Según el número de mesas que tenga la sociedad registradas -->
       <div class="d-flex pr-3 form-group justify-content-between">
-        <label for="exampleInputPassword1" class="ml-3 justify-content-start">Mesas:</label>
+        <label for="exampleInputPassword1" class="ml-3 justify-content-start">{{ __('multi.table') }}:</label>
         <select style="width: 250px;" class="custom-select"name="mesa" id="mesa">
           <option value="..." selected>Elige...</option>
           @if($mesas)

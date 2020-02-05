@@ -8,7 +8,7 @@
       <div class="col-xl-6 col-lg-7">
         <h5 style="color:red;">{{$error ?? ''}}</h5>
         @if(!is_null($factura ?? ''))
-          <h3>Factura</h3>
+          <h3>{{ __('multi.factura') }}</h3>
 
           <table class="table table-striped border">
               <thead>
@@ -28,7 +28,7 @@
           @endif
       </div>
       <div class="col-xl-4 col-lg-7">
-        <h3>Lineas Factura</h3>
+        <h3>{{ __('multi.linafactura') }}</h3>
         <table class="table table-striped border ">
           <thead>
             <tr>

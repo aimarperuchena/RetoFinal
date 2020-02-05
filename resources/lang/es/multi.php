@@ -105,7 +105,12 @@ return [
     "capacidad"=>'Capacidad',
     "crearfactura"=>'Crear Factura',
     "facturas"=>'Facturas',
+    "factura"=>'Factura',
     "altasoci"=>'Alta Sociedad',
     "perfil"=>'Perfil',
+    "suscripciones"=>'Mis Suscripciones',
+    "reservafecha"=>'Reserva Fecha',
+    "plano"=>'Plano',
+    "lineafactura"=>'Lineas Facturas',
 
 ];

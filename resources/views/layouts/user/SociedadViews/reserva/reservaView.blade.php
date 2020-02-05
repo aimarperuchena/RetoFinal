@@ -4,13 +4,13 @@
 <div id="sensible2" class="container">
   <div class="d-flex text-center flex-wrap justify-content-center">
     <div class="col-12 col-md-6 col-lg-6">
-      <h1>Plano</h1>
+      <h1>{{ __('multi.plano') }}</h1>
       <div class="mb-5 mt-5">
         <img class="planos" src="{{$sociedad->link_plano}}" alt="plano_sociedad">
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-6 mb-5">
-      <h1>Reserva Fecha</h1>
+      <h1>{{ __('multi.reservafecha') }}</h1>
       <form class="mt-5 mr-5" action="{{ route('sociedad.reservaFecha',$sociedad -> id) }}" method="get">
         @csrf
         @if(isset($fechaEditar))
