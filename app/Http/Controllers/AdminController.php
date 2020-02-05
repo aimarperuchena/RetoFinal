@@ -465,7 +465,7 @@ class AdminController extends Controller
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
         $factura = Factura::find($request->factura)->first();
         $reserva = Reserva::find($factura->reserva_id);
-        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->get();
+        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
         $producto = $request->producto;
         $unidades = $request->unidades;
@@ -531,7 +531,7 @@ class AdminController extends Controller
         $Factura->save();
 
         $reserva = Reserva::find($Factura->reserva->id);
-        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->get();
+        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
 
         return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $Factura)->with('mesas', $mesas);
