@@ -54,9 +54,9 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Unidades: </span>
                 </div>
-                <input type="text" id="Unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$linea->unidades}}" aria-describedby="basic-addon1">
+                <input type="text" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$linea->unidades}}" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" value="Buscar">
+            <input type="submit" id="enviar" class="btn btn-primary" value="Actualizar">
             @if(isset($error))
             <div class="alert alert-danger">
                 <ul>

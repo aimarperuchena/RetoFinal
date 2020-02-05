@@ -52,7 +52,7 @@
                 </div>
                 <input type="text" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" value="Añadir" id="enviar">
+            <input type="submit" id="enviar" class="btn btn-primary" value="Añadir">
             @if(isset($error))
             <div class="alert alert-danger">
                 <ul>
