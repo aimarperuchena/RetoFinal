@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://192.168.1.135:1256/api/socios/1",
+        url: "http://gastrosociety.herokuapp.com//api/socios/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
             ]);
 
             var options = {
-                height:500,
+                height: 500,
                 cbar: { groupWidth: "85%" },
                 legend: { position: "none" },
             };

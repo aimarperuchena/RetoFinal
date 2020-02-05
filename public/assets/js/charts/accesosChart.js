@@ -2,7 +2,7 @@ $(document).ready(function() {
     //url: "http://192.168.0.10:1234/api/lineas/1",
     $.ajax({
 
-        url: "http://192.168.1.135:1256/api/accesos/1",
+        url: "http://gastrosociety.herokuapp.com/api/accesos/1",
 
         type: 'GET',
         dataType: 'json',
@@ -52,7 +52,7 @@ $(document).ready(function() {
                         chartOptions: {
                             height: 25,
                             chartArea: {
-                               
+
                             }
                         },
                         chartView: {
@@ -69,7 +69,7 @@ $(document).ready(function() {
             });
 
             function setOptions(wrapper) {
-                wrapper.setOption('height',500);
+                wrapper.setOption('height', 500);
                 wrapper.setOption('chartArea.width', );
             }
 
