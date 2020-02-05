@@ -66,6 +66,9 @@
         </select>
       </div>
       <button id="accion" type="submit" class="btn btn-primary reserva">Reservar</button>
+      @if(isset($mensaje))
+      <p class="text-danger mt-3 mb-3">{{$mensaje}}</p>
+      @endif
       @if ($errors->any())
       <div class="alert alert-danger">
           <ul>
