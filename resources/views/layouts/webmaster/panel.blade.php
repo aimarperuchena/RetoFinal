@@ -1,10 +1,10 @@
 @extends('layouts.webmaster.WMView')
 @section('webmasterContent')
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{ url('assets/js/charts/productosChart.js')}}"></script>
-<script src="{{ url('assets/js/charts/accesosChart.js')}}"></script>
-<script src="{{ url('assets/js/charts/sociosChart.js')}}"></script>
+<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ secure_asset('assets/js/charts/productosChart.js')}}"></script>
+<script src="{{ secure_asset('assets/js/charts/accesosChart.js')}}"></script>
+<script src="{{ secure_asset('assets/js/charts/sociosChart.js')}}"></script>
 
 
 <br>

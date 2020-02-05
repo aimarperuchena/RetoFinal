@@ -26,7 +26,7 @@
         @if($mesas)
         @foreach($mesas as $mesa)
         <div class="card m-2" style="width: 12rem; height:18rem;">
-          <img src="{{url('assets/img/mesa.png')}}" class="card-img-top" alt="...">
+          <img src="{{secure_asset('assets/img/mesa.png')}}" class="card-img-top" alt="...">
           <hr>
           <h5 class="card-title">Nombre: {{$mesa -> nombre}}</h5>
           <p class="card-text">Capacidad: {{$mesa -> capacidad}}</p>

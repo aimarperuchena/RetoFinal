@@ -2,7 +2,7 @@
 
 @section('webmasterContent')
 <!-- Content Row -->
-<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {

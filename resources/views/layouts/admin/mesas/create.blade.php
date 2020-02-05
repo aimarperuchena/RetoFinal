@@ -1,10 +1,10 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
 
-<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
 
 <!-- Content Row -->
-<script src="{{url('assets/js/validacion_mesas.js')}}"></script>
+<script src="{{secure_asset('assets/js/validacion_mesas.js')}}"></script>
 <!-- Content Row -->
 
 <div class="row">

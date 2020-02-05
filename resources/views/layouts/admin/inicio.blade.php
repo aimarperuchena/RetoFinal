@@ -1,9 +1,9 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{ url('assets/js/charts/lineasChart.js')}}"></script>
-<script src="{{ url('assets/js/charts/reservasChart.js')}}"></script>
+<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ secure_asset('assets/js/charts/lineasChart.js')}}"></script>
+<script src="{{ secure_asset('assets/js/charts/reservasChart.js')}}"></script>
 
 <!-- Content Row -->
 

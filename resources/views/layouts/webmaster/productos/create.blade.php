@@ -1,7 +1,7 @@
 @extends('layouts.webmaster.WMView')
 @section('webmasterContent')
-<script src="{{url('assets/js/val_Producto.js')}}"></script>
-<link rel="stylesheet" type="text/css" href="{{url('assets/css/val_producto.css')}}">
+<script src="{{secure_asset('assets/js/val_Producto.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{secure_asset('assets/css/val_producto.css')}}">
 <!-- Content Row -->
 <br><br>
 <div class="row">

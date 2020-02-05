@@ -53,13 +53,13 @@
 
               
                 <li class="nav-item">
-                    <a href="{{ url('locale/es') }}"><img class="banderas" src="{{ asset('assets/img/espania.ico') }}"></a>
+                    <a href="{{ secure_asset('locale/es') }}"><img class="banderas" src="{{ asset('assets/img/espania.ico') }}"></a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('locale/en') }}"><img class="banderas" src="{{ asset('assets/img/reino_unido.ico') }}"></a>
+                    <a href="{{ secure_asset('locale/en') }}"><img class="banderas" src="{{ asset('assets/img/reino_unido.ico') }}"></a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('locale/eus') }}"><img class="banderas" src="{{ asset('assets/img/pais_vasco.ico') }}"></a>
+                    <a href="{{ secure_asset('locale/eus') }}"><img class="banderas" src="{{ asset('assets/img/pais_vasco.ico') }}"></a>
                 </li>
 
           </ul>
