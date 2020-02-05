@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://192.168.0.12:1234/api/productos/1",
+        url: "http://192.168.1.135:1256/api/productos/1",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -41,9 +41,7 @@ $(document).ready(function() {
             ]);
 
             var options = {
-                title: "Productos mas utilizados por las sociedades",
-                width: 600,
-                height: 400,
+                height:500,
                 bar: { groupWidth: "85%" },
                 legend: { position: "none" },
             };

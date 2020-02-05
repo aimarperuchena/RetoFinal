@@ -1,32 +1,33 @@
 $(document).ready(function() {
+    //url: "http://192.168.0.10:1234/api/lineas/1",
     $.ajax({
-        url: "http://192.168.0.12:1234/api/accesos/1",
+
+        url: "http://192.168.1.135:1256/api/accesos/1",
+
         type: 'GET',
         dataType: 'json',
         success: function(data) {
             grafico(data)
+
+
         }
     });
 
+
     const grafico = (datos) => {
-        console.log(datos)
-        google.charts.load("current", { packages: ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
+        google.load('visualization', '1', { packages: ['controls', 'charteditor'] });
+        google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            let chart_data = [
-                ["Dia", "Accesos", { role: "style" }]
-            ];
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Fecha');
+            data.addColumn('number', 'Accesos');
 
             for (x in datos) {
-                chart_data.push([datos[x].fecha, parseInt(datos[x].accesos), '#007bff']);
+                console.log(datos[x].fecha)
+                data.addRow([new Date(datos[x].fecha), datos[x].accesos]);
 
             }
-
-            var data = google.visualization.arrayToDataTable(chart_data
-
-            );
-
             var view = new google.visualization.DataView(data);
             view.setColumns([0, 1,
                 {
@@ -34,19 +35,56 @@ $(document).ready(function() {
                     sourceColumn: 1,
                     type: "string",
                     role: "annotation"
-                },
-                2
+                }
+
             ]);
 
-            var options = {
-                title: 'Accesos diarios de los usuarios',
-                curveType: 'function',
-                legend: { position: 'none' }
-            };
-            var chart = new google.visualization.AreaChart(document.getElementById("accesos"));
-            chart.draw(view, options);
+            var dash = new google.visualization.Dashboard(document.getElementById('accesos'));
+
+            var control = new google.visualization.ControlWrapper({
+                controlType: 'ChartRangeFilter',
+                containerId: 'control_div',
+
+                options: {
+
+                    filterColumnIndex: 0,
+                    ui: {
+                        chartOptions: {
+                            height: 25,
+                            chartArea: {
+                               
+                            }
+                        },
+                        chartView: {
+                            columns: [0, 1]
+                        }
+                    }
+                }
+            });
+
+
+            var chart = new google.visualization.ChartWrapper({
+                chartType: 'LineChart',
+                containerId: 'chart_div'
+            });
+
+            function setOptions(wrapper) {
+                wrapper.setOption('height',500);
+                wrapper.setOption('chartArea.width', );
+            }
+
+            setOptions(chart);
+
+            dash.bind([control], [chart]);
+            dash.draw(data, view);
+            google.visualization.events.addListener(control, 'statechange', function() {
+                var v = control.getState();
+                return 0;
+            });
         }
     }
+
+
 
     function getRandomColor() {
         var letters = '0123456789ABCDEF'.split('');
