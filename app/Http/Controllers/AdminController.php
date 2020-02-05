@@ -466,7 +466,7 @@ class AdminController extends Controller
         $reserva = Reserva::find($factura->reserva_id);
         $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
         $mesas = Mesa::whereIn('id', $mesaReserva)->get();
-        $factura = Factura::where('reserva_id', $id)->first();
+       
         $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
         
         
