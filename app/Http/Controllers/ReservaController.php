@@ -35,7 +35,7 @@ class ReservaController extends Controller
     
     $denegado = Reserva::where('id', $reserva_id)->where('usuario_id', $user->id)->get(); 
 
-    if (!isNull($denegado)) {
+    if (isset($denegado)) {
       return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
 
     } else {
