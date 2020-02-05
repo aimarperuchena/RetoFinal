@@ -2,7 +2,7 @@
 
 @section('webmasterContent')
 <!-- Content Row -->
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ url('assets/js/jquery-3.4.1.min.js')}}"></script>
 <script>
     $(document).ready(function() {
         $("#myInput").on("keyup", function() {
@@ -14,7 +14,9 @@
         });
     });
 </script>
+<br>
 <div class="row">
+    <h1 class="d-flex justify-content-center text-primary container-fluid">Listado de peticiones</h1>
     <div class="col-xl-12 col-lg-12">
         <br>
 
