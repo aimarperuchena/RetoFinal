@@ -4,7 +4,7 @@
 <br><br><br><br>
 <div class="container">
   <div class="d-flex text-center flex-wrap">
-    <div class="mb-5 ml-5 col">
+    <div class="mb-5 ml-5 col-12">
       <h1>Realizar reserva</h1>
       <h3>Para la Fecha {{$fecha}} estas son las mesas libres.</h3>
       <h5>{{$sociedad->nombre}}</h5>
@@ -13,7 +13,7 @@
         <img src="{{$sociedad->link_plano}}" >
       </div>
     </div>
-    <div class="jumbotronm col">
+    <div class="jumbotronm col-12 mb-5">
       <div class="col">
         <div class="col">
           <h1>Mesas disponibles</h1>

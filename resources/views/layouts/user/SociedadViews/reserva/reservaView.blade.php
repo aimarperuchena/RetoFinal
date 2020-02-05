@@ -6,7 +6,7 @@
     <div class="col-12 col-md-6 col-lg-6">
       <h1>Plano</h1>
       <div class="mb-5 mt-5">
-        <img src="{{$sociedad->link_plano}}" alt="plano_sociedad">
+        <img class="planos" src="{{$sociedad->link_plano}}" alt="plano_sociedad">
       </div>
     </div>
     <div class="col-12 col-md-6 col-lg-6 mb-5">
@@ -20,7 +20,7 @@
           </div>
           <input type="date" name="fecha" value="{{$fechaEditar }}" class="form-control border" placeholder="Fecha">
         </div>
-        
+
 
         @else
         <div class="input-group mb-3">
