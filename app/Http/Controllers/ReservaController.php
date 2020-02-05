@@ -29,7 +29,8 @@ class ReservaController extends Controller
     $user = Auth::user();
    
     $facturas = Factura::where('reserva_id', $reserva_id)->first();
-    /* $mesaReserva = MesaReserva::where('reserva_id', $reserva_id)->first();
+     $mesaReserva = MesaReserva::where('reserva_id', $reserva_id)->first();
+     /*
     $mesas = Mesa::whereIn('id', $mesaReserva)->get();
     $denegado = Reserva::where('id', $reserva_id)->where('usuario_id', $user->id)->first(); */
     /*     return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
