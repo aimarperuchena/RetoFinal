@@ -4,7 +4,7 @@
 <br><br><br><br>
 <div class="container text-center">
   <h1 class="mb-5">Datos de la reserva ({{$reserva}})</h1>
- <!--  @if (count($facturas) > 0)
+  @if (count($facturas) > 0)
   <h2>Facturas</h2>
   <table class="table table-hover border">
     <thead>
@@ -28,7 +28,7 @@
   <h3 class="m-5">Crear Factura</h3>
   <a class="btn btn-primary btn-lg mb-5" href="{{ route('factura.create',$reserva) }}" role="button">Crear</a>
   @endif
- -->
+
 
   <h2>Mesas</h2>
   
