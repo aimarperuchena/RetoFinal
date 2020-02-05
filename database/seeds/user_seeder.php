@@ -115,12 +115,12 @@ class user_seeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'nombre' => 'Tomas',
-            'apellido' => 'Sebastian',
+            'nombre' => 'Pedro',
+            'apellido' => 'Leon',
             'telefono' => 12345678,
-            'email' => 'tomas@gmail.com',
+            'email' => 'pedroleon@gmail.com',
             'email_verified_at' => date('Y-m-d H:i:s'),
-            'password' => bcrypt('javierjavier'),
+            'password' => bcrypt('pedropedro'),
             'role_id' => '3'
         ]);
         DB::table('users')->insert([
@@ -139,7 +139,7 @@ class user_seeder extends Seeder
             'email' => 'alejandro@gmail.com',
             'email_verified_at' => date('Y-m-d H:i:s'),
 
-            'password' => bcrypt('123456789'),
+            'password' => bcrypt('alejandroalejandro'),
             'role_id' => '3'
         ]);
     }
