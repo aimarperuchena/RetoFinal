@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div id="sensible" class="container">
     <form class="form-group" action="{{ route('sociedad.crear',[$sociedad -> id, $tipo->id]) }}" method="get">
       @csrf
       <div class="d-flex pr-3 form-group justify-content-between">
@@ -55,7 +55,7 @@
       <!-- Según el número de mesas que tenga la sociedad registradas -->
       <div class="d-flex pr-3 form-group justify-content-between">
         <label for="exampleInputPassword1" class="ml-3 justify-content-start">Mesas:</label>
-        <select style="width: 250px;" class="custom-select"name="mesa">
+        <select style="width: 250px;" class="custom-select"name="mesa" id="mesa">
           <option value="..." selected>Elige...</option>
           @if($mesas)
             @foreach($mesas as $mesa)
@@ -64,7 +64,7 @@
         @endif
         </select>
       </div>
-      <button type="submit" class="btn btn-primary reserva">Reservar</button>
+      <button id="accion" type="submit" class="btn btn-primary reserva">Reservar</button>
       @if ($errors->any())
       <div class="alert alert-danger">
           <ul>
@@ -76,5 +76,14 @@
       @endif
     </form>
   </div>
+  <script>
+    $('#sensible').hover(function(){
+      if ($('#mesa option:selected').text() === 'Elige...') {
+        $('#accion').attr('disabled', 'disabled');
+      } else {
+        $('#accion').removeAttr('disabled');
+      }
+    });
+  </script>
 </div>
 @endsection
