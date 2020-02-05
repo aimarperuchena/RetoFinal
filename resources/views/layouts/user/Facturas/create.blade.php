@@ -13,9 +13,9 @@
           <table class="table table-striped border">
               <thead>
               <tr>
-                  <th>Fecha</th>
-                  <th>Personas</th>
-                  <th>Importe</th>
+                  <th>{{ __('multi.fecha') }}</th>
+                  <th>{{ __('multi.personas') }}</th>
+                  <th>{{ __('multi.importe') }}</th>
               </tr>
               </thead>
               <tr>
@@ -32,12 +32,12 @@
         <table class="table table-striped border ">
           <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Unidades</th>
-                <th>Importe</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th>{{ __('multi.nomform') }}</th>
+                <th>{{ __('multi.descform') }}</th>
+                <th>{{ __('multi.uniform') }}</th>
+                <th>{{ __('multi.importe') }}</th>
+                <th>{{ __('multi.edittabla') }}</th>
+                <th>{{ __('multi.eliminartabla') }}</th>
             </tr>
           </thead>
           @if(!is_null($factura->lineas))
@@ -53,7 +53,7 @@
             @endforeach
           @endif
         </table>
-        <a class="btn btn-primary"  href="{{ route('linea.create',$factura->id)}}">Añadir Linea </a>
+        <a class="btn btn-primary"  href="{{ route('linea.create',$factura->id)}}">{{ __('multi.addline') }} </a>
       </div>
   </div>
 </div>

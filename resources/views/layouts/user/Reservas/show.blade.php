@@ -3,18 +3,18 @@
 
 <br><br><br><br>
 <div class="container text-center">
-  <h1 class="mb-5">Todas sus Reservas</h1>
+  <h1 class="mb-5">{{ __('multi.todasreservas') }}</h1>
   <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">ID</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Sociedad</th>
-        <th scope="col">Info</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
+        <th scope="col">{{ __('multi.fecha') }}</th>
+        <th scope="col">{{ __('multi.tipocomida') }}</th>
+        <th scope="col">{{ __('multi.socitabla') }}</th>
+        <th scope="col">{{ __('multi.infotabla') }}</th>
+        <th scope="col">{{ __('multi.edittabla') }}</th>
+        <th scope="col">{{ __('multi.eliminartabla') }}</th>
       </tr>
     </thead>
     @if(isset($reservas))
@@ -52,7 +52,7 @@
         </tr>
       </tbody>
     </table>
-    <a class="btn btn-primary btn-lg" href="{{ route('usuario.listado') }}" role="button">Listado Sociedades</a>
+    <a class="btn btn-primary btn-lg" href="{{ route('usuario.listado') }}" role="button">{{ __('multi.listadosoci') }}</a>
     @endif
 </div>
 @endsection

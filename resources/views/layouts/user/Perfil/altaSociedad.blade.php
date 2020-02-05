@@ -9,20 +9,20 @@
     @csrf
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text">Nombre</span>
+        <span class="input-group-text">{{ __('multi.nomform') }}</span>
       </div>
       <input type="text" class="form-control border" placeholder="Nombre" name="nombre" required>
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text">Ubicación</span>
+        <span class="input-group-text">{{ __('multi.ubiform') }}</span>
       </div>
       <input type="text" class="form-control border" placeholder="ubicacion" name="ubicacion" required>
     </div>
     <div class="input-group mb-3">
       <input type="number" class="form-control border" placeholder="Telefono..." name="telefono" required>
       <div class="input-group-append">
-        <span class="input-group-text">Telefono</span>
+        <span class="input-group-text">{{ __('multi.telform') }}</span>
       </div>
     </div>
     <div class="input-group mb-3">
@@ -36,11 +36,11 @@
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">Descripción</span>
+        <span class="input-group-text">{{ __('multi.desform') }}</span>
       </div>
       <textarea class="form-control border" aria-label="descripcion" name="descripcion"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary mt-5 reserva">Crear Sociedad</button>
+    <button type="submit" class="btn btn-primary mt-5 reserva">{{ __('multi.crearsoci') }}</button>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

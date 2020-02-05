@@ -12,9 +12,9 @@
             <table class="table table-striped">
                 <tr>
                     <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
+                    <th>{{ __('multi.nomform') }}</th>
+                    <th>{{ __('multi.preciotable') }}</th>
+                    <th>{{ __('multi.stocktable') }}</th>
 
                 </tr>
                 @foreach($productos as $producto)
@@ -29,13 +29,13 @@
             </table>
         </div>
         <div class="col-xl-4 col-lg-7 text-center">
-            <h3>Añadir Linea</h3>
+            <h3>{{ __('multi.addline') }}</h3>
             <form action="{{route ('linea.store', $factura)}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="factura" value="{{$factura->id}}">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Producto:</label>
+                        <label class="input-group-text" for="inputGroupSelect01">{{ __('multi.prodform') }}:</label>
                     </div>
                     <select class="custom-select" name="producto">
                         @foreach($productos as $producto)
@@ -46,7 +46,7 @@
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Unidades: </span>
+                        <span class="input-group-text" id="basic-addon1">{{ __('multi.uniform') }}: </span>
                     </div>
                     <input type="number" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" aria-describedby="basic-addon1">
                 </div>
@@ -73,7 +73,7 @@
                 <div id="error_val" class="alert alert-danger" style="visibility:hidden">
                     <ul>
 
-                        <li id="error_unidades">Unidades Requerido</li>
+                        <li id="error_unidades">{{ __('multi.unirequeridos') }}</li>
 
 
 

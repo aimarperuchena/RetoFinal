@@ -15,18 +15,18 @@
     <div class="col-12 col-md-6 col-lg-6">
       <div class="">
         <div class="">
-          <h1 class="mb-5">Información personal</h1>
+          <h1 class="mb-5">{{ __('multi.ifopersonal') }}</h1>
           <form class="form-group">
             <div class="d-flex form-group justify-content-around">
-              <label for="exampleInputEmail1">Nombre</label>
+              <label for="exampleInputEmail1">{{ __('multi.nomform') }}</label>
               <input type="text" class="form-control" style="width: 300px;" readonly value="{{$user->nombre}}">
             </div>
             <div class="d-flex form-group justify-content-around">
-              <label for="exampleInputEmail1">Apellido</label>
+              <label for="exampleInputEmail1">{{ __('multi.nomform') }}</label>
               <input type="text" class="form-control" style="width: 300px;" readonly value="{{$user->apellido}}">
             </div>
             <div class="d-flex form-group justify-content-around">
-              <label for="exampleInputEmail1">Email</label>
+              <label for="exampleInputEmail1">{{ __('multi.emailform') }}</label>
               <input type="email" class="form-control" style="width: 300px;" readonly value="{{$user->email}}">
             </div>
             <!-- Button trigger modal -->
@@ -51,7 +51,7 @@
       <hr class="m-5">
       @if ($user->role_id === 3)
       <div class="">
-        <h1 class="mb-5">Suscripciones</h1>
+        <h1 class="mb-5">{{ __('multi.suscrippersonal') }}</h1>
         <ul class="list-group">
           @foreach ($sociedadSocio as $socio)
           @foreach($sociedades as $sociedad)
@@ -75,7 +75,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Editar Usuario</h4>
+        <h4 class="modal-title w-100 font-weight-bold">{{ __('multi.editusuario') }}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -95,7 +95,7 @@
           </div>
           <div class="md-form mb-5">
             <div class="col-md-6 form-modal">
-              <label for="apellido" class="col-md-4 col-form-label text-md-right">apellido</label>
+              <label for="apellido" class="col-md-4 col-form-label text-md-right">{{ __('multi.apellidoform') }}</label>
               <input id="apellido_reg" type="text" class="@error('apellido') is-invalid @enderror" name="apellido" required autocomplete="apellido" autofocus value="{{$user->apellido}}">
               @error('apellido')
               <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
           </div>
           <div class="md-form mb-5">
             <div class="col-md-6 form-modal">
-              <label for="telefono" class="col-md-4 col-form-label text-md-right">telefono</label>
+              <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('multi.telform') }}</label>
               <input id="telefono_reg" type="number" class="@error('telefono') is-invalid @enderror" name="telefono" required autocomplete="telefono" autofocus value="{{$user->telefono}}">
               @error('telefono')
               <span class="invalid-feedback" role="alert">
@@ -149,7 +149,7 @@
       <div class="modal-footer d-flex justify-content-center">
         <div class="col-md-6 offset-md-4 footer-modal">
           <button id="registro" type="submit" class="btn">
-            Confirmar
+            {{ __('multi.ok') }}
           </button>
         </div>
       </div>

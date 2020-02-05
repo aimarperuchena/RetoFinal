@@ -14,34 +14,34 @@
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend border">
-          <b class="input-group-text" id="basic-addon1">Fecha</b>
+          <b class="input-group-text" id="basic-addon1">{{ __('multi.fecha') }}</b>
         </div>
         <input type="text" readonly class="form-control border" value="{{$factura->fecha}} " placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon1">
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend border">
-          <b class="input-group-text" id="basic-addon1">Personas</b>
+          <b class="input-group-text" id="basic-addon1">{{ __('multi.personas') }}</b>
         </div>
         <input type="text" readonly class="form-control border" value="{{$factura->personas}} " placeholder="Personas" aria-label="Personas" aria-describedby="basic-addon1">
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend border">
-          <b class="input-group-text" id="basic-addon1">Importe</b>
+          <b class="input-group-text" id="basic-addon1">{{ __('multi.importe') }}</b>
         </div>
         <input type="text" readonly class="form-control border" value="{{$factura->importe}} " placeholder="Importe" aria-label="Importe" aria-describedby="basic-addon1">
       </div>
-     
-    
-    
+
+
+
       <h3>Lineas</h3>
       <table class="table table-striped">
         <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Unidades</th>
-          <th>Importe</th>
-          <th>Editar</th>
-          <th>Eliminar</th>
+          <th>{{ __('multi.nomform') }}</th>
+          <th>{{ __('multi.descform') }}</th>
+          <th>{{ __('multi.uniform') }}</th>
+          <th>{{ __('multi.importe') }}</th>
+          <th>{{ __('multi.edittabla') }}</th>
+          <th>{{ __('multi.eliminartabla') }}</th>
         </tr>
         @foreach($factura->lineas as $linea)
         <tr>
@@ -58,7 +58,7 @@
         @endforeach
 
       </table>
-      <a class="btn btn-primary" type="button" href="/lineas/create/{{$factura->id}}">Crear Linea</a>
+      <a class="btn btn-primary" type="button" href="/lineas/create/{{$factura->id}}">{{ __('multi.addline') }}</a>
 
 
     </div>

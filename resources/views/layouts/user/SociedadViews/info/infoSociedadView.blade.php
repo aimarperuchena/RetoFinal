@@ -24,9 +24,9 @@
   <div class="text-center">
     @if($sociedad)
       @if ($suscrito)
-        <a class="btn btn-primary btn-lg mb-5" href="{{ route('sociedad.reserva',$sociedad -> id) }}" role="button">Reserva</a>
+        <a class="btn btn-primary btn-lg mb-5" href="{{ route('sociedad.reserva',$sociedad -> id) }}" role="button">{{ __('multi.reserva') }}</a>
       @else
-        <a class="btn btn-primary btn-lg mb-5" href="{{ route('sociedad.peticion',$sociedad -> id) }}" role="button">Suscribirse</a>
+        <a class="btn btn-primary btn-lg mb-5" href="{{ route('sociedad.peticion',$sociedad -> id) }}" role="button">{{ __('multi.suscribir') }}</a>
       @endif
     @endif
   </div>

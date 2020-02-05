@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col text-center">
-      <h1 class="mb-2">¿Qué sociedad buscas?</h1>
+      <h1 class="mb-2">{{ __('multi.busqueda') }}</h1>
       <div class="input-group mb-5 justify-content-center">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-search"></i></span>

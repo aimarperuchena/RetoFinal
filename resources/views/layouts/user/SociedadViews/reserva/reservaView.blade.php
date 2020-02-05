@@ -32,7 +32,7 @@
         @endif
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Tipo Comida:</label>
+            <label class="input-group-text" for="inputGroupSelect01">{{ __('multi.tipo') }}</label>
           </div>
           <select id="tipo" class="custom-select" name="tipo">
             <option value="..." selected>Elige...</option>
@@ -49,7 +49,7 @@
             @endif
           </select>
         </div>
-        <button id="accion2" type="submit" class="btn btn-primary reserva">Mesas</button>
+        <button id="accion2" type="submit" class="btn btn-primary reserva">{{ __('multi.mesa') }}</button>
         @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
