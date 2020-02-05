@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -29,9 +30,10 @@ class ReservaController extends Controller
     $facturas = Factura::where('reserva_id',$reserva_id)->first(); 
     $mesaReserva = MesaReserva::where('reserva_id', $reserva_id)->first();
     $mesas = Mesa::whereIn('id', $mesaReserva)->get();
-
+/*     return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
+ */
     if (!isNull($denegado)) {
-    return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
+      return view('layouts.user.Facturas.prueba');
     }else {
       return redirect('/denegado');
     }
