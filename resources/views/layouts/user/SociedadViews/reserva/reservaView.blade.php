@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
 <br><br><br><br><br>
-<div class="container">
+<div id="sensible2" class="container">
   <div class="d-flex text-center flex-wrap justify-content-center">
     <div class="col-12 col-md-6 col-lg-6">
       <h1>Plano</h1>
@@ -34,7 +34,7 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">Tipo Comida:</label>
           </div>
-          <select class="custom-select" name="tipo">
+          <select id="tipo" class="custom-select" name="tipo">
             <option value="..." selected>Elige...</option>
             @if($tipo)
             @foreach($tipo as $comida)
@@ -49,7 +49,7 @@
             @endif
           </select>
         </div>
-        <button type="submit" class="btn btn-primary reserva">Mesas</button>
+        <button id="accion2" type="submit" class="btn btn-primary reserva">Mesas</button>
         @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -62,5 +62,14 @@
       </form>
     </div>
   </div>
+  <script>
+    $('#sensible2').hover(function(){
+      if ($('#tipo option:selected').text() === 'Elige...') {
+        $('#accion2').attr('disabled', 'disabled');
+      } else {
+        $('#accion2').removeAttr('disabled');
+      }
+    });
+  </script>
 </div>
 @endsection
