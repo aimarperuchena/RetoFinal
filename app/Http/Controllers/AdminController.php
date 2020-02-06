@@ -334,7 +334,7 @@ class AdminController extends Controller
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
         $reserva = Reserva::find($id);
         $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
-        $mesas = Mesa::whereIn('id', $mesaReserva)->get();
+        $mesas=DB::select('SELECT mesa.nombre, mesa.capacidad FROM mesa, mesa_reserva where mesa.id=mesa_reserva.mesa_id and mesa_reserva.reserva_id='.$reserva_id);
         $factura = Factura::where('reserva_id', $id)->first();
         return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas', $mesas);
     }
