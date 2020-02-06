@@ -159,9 +159,9 @@ class LineaController extends Controller
     $linea->producto_sociedad_id = $request->producto;
     $linea->save();
 
-    $Factura = Factura::find($linea->factura->id);
-    $Factura->importe = $Factura->importe + $diferenciaImporte;
-    $Factura->save();
+    $factura = Factura::find($linea->factura->id);
+    $factura->importe = $factura->importe + $diferenciaImporte;
+    $factura->save();
     return view('layouts.user.Lineas.show')->with('factura', $factura)->with('sociedad', $sociedad)->with('user', $user)->with('reserva', $reserva);
     }
   }
