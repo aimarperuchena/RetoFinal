@@ -4,7 +4,7 @@
 <br><br><br><br>
 <div class="container text-center">
   <h1 class="mb-5">Datos de la reserva ({{$reserva}})</h1>
-  @if (count($factura)>0)
+  @if (isset($factura))
   <h2>{{ __('multi.facturas') }}</h2>
   <table class="table table-hover border">
     <thead>
