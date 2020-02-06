@@ -15,11 +15,11 @@
             {{ csrf_field() }}
             <div class="input-group-prepend col-12">
                 <span class="input-group-text" id="basic-addon1">Nombre: </span>
-                <input id="nombre" class="form-control border" aria-describedby="basic-addon1" type="text" name="nombre" value="{{$producto->nombre}}" size="53" pattern="^[A-Z]{1}[a-z0-9]{2,24}" title="Primera letra mayuscula" required>
+                <input id="nombre" class="form-control border" aria-describedby="basic-addon1" type="text" name="nombre" value="{{$producto->nombre}}" size="53" pattern="(?=.*[a-z])(?=.*[A-Z]).{3,25}" title="Primera letra mayuscula" required>
             </div><br>
             <div class="input-group-prepend col-12">
                 <span class="input-group-text" id="basic-addon1">Descripcion: </span>
-                <input id="descripcion" class="form-control border" aria-describedby="basic-addon1" type="text" name="descripcion" size="50" value="{{$producto->descripcion}}"  pattern="^[A-Z]{1}[a-z0-9]{2,49}" title="Primera letra mayuscula" required>
+                <input id="descripcion" class="form-control border" aria-describedby="basic-addon1" type="text" name="descripcion" size="50" value="{{$producto->descripcion}}"  pattern="(?=.*[a-z])(?=.*[A-Z]).{3,50}" title="Primera letra mayuscula" required>
             </div><br>
             <div class="input-group-prepend col-12">
                 <input id="enviar" class="btn reserva btn-primary" type="submit" value="Actualizar"><br>
