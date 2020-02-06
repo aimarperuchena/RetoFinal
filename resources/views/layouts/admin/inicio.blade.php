@@ -1,9 +1,9 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{ secure_asset('assets/js/charts/lineasChart.js')}}"></script>
-<script src="{{ secure_asset('assets/js/charts/reservasChart.js')}}"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/charts/lineasChart.js"></script>
+<script src="/assets/js/charts/reservasChart.js"></script>
 
 <!-- Content Row -->
 
@@ -24,11 +24,11 @@
      <h3 class="text-center">Ventas</h3>
 <div class="row">
      <div class="col-md-6 col-sm-12 col-xs-12">
-      
+
           <div id="unidades" style="width: 500px; height: 300px;"></div>
      </div>
      <div class="col-md-6 col-sm-12 col-xs-12">
-     
+
           <div id="importe" style="width: 500px; height: 300px;"></div>
      </div>
      </div>

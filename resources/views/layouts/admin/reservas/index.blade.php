@@ -1,5 +1,5 @@
 @extends('layouts.admin.adminView') @section('adminContent')
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
 
 <script>
     function socio() {
@@ -40,7 +40,7 @@
         }
     }
 
-    
+
 </script>
 
 <div class="row">
@@ -81,7 +81,7 @@
             </div>
             <input type="text" id="tipo" onkeyup="tipo()" class="form-control border input" aria-label="Tipo" aria-describedby="basic-addon2">
         </div>
-        
+
 
     </div>
     <div class="col-xl-8 col-lg-7">
