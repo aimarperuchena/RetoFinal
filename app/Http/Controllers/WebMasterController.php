@@ -117,6 +117,7 @@ class WebMasterController extends Controller
             $soci = PeticionNuevaSociedad::find($id);
             $soci->estado = "aceptado";
             $soci->save();
+            $soci->delete();
 
             $sociedad_user = new Sociedad();
             $sociedad_user->nombre = $soci->nombre;
@@ -132,7 +133,7 @@ class WebMasterController extends Controller
 
             $soci = User::find($id_usuario);
             $soci->role_id = 2;
-            $soci->delete();
+            
 
 
             return redirect('/webmaster/sociPeticion');
