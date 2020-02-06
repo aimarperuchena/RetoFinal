@@ -28,7 +28,7 @@
           @endif
       </div>
       <div class="col-xl-4 col-lg-7">
-        <h3>{{ __('multi.linafactura') }}</h3>
+        <h3>{{ __('multi.lineafactura') }}</h3>
         <table class="table table-striped border ">
           <thead>
             <tr>
