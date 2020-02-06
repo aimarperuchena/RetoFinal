@@ -33,7 +33,7 @@ class ReservaController extends Controller
     $mesas=DB::select('SELECT mesa.nombre, mesa.capacidad FROM mesa, mesa_reserva where mesa.id=mesa_reserva.mesa_id and mesa_reserva.reserva_id='.$reserva_id);
     
     
-    $denegado = Reserva::where('id', $reserva_id)->where('usuario_id', $user->id)->get(); 
+    $denegado = Reserva::where('id', $reserva_id)->where('usuario_id', $user->id)->first(); 
 
     if (isset($denegado)) {
       return view('layouts.user.Facturas.show')-> with('facturas' , $facturas)->with('reserva', $reserva_id)->with('mesas',$mesas);
