@@ -6,7 +6,7 @@
   <div class="row p-5">
     <div class="col-12 col-md-6 col-lg-6 justify-conten-center">
       <div class="card asaa" style="width: 18rem;">
-        <img src="{{secure_asset('assets/img/profile.jpg')}}" class="card-img-top" alt="fotoPerfil">
+        <img src="/assets/img/profile.jpg" class="card-img-top" alt="fotoPerfil">
         <div class="card-body">
           <p class="card-text">{{$user->nombre}}</p>
         </div>

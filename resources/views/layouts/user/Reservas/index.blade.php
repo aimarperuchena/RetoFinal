@@ -2,7 +2,7 @@
 @section('content')
 
 <br><br><br><br>
-<script src="{{secure_asset('assets/js/jquery-3.3.1.min.js')}}"></script>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
 <div class="container">
   <div class="d-flex text-center flex-wrap">
     <div class="mb-5 ml-5 col-12">
@@ -27,7 +27,7 @@
         @if($mesas)
         @foreach($mesas as $mesa)
         <div class="card m-2" style="width: 12rem; height:18rem;">
-          <img src="{{secure_asset('assets/img/mesa.png')}}" class="card-img-top" alt="...">
+          <img src="/assets/img/mesa.png" class="card-img-top" alt="...">
           <hr>
           <h5 class="card-title">{{ __('multi.nomform') }}: {{$mesa -> nombre}}</h5>
           <p class="card-text">{{ __('multi.capacidad') }}: {{$mesa -> capacidad}}</p>

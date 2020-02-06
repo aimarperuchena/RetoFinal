@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
- 
+
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="icon" type="img/png" href="{{ asset('assets\img\logo_alpha.png') }}">
 </head>
@@ -18,26 +18,26 @@
 <body>
 <section class="header">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
- 
+
       <a href="#top"><img src="{{ asset('assets\img\logo_alpha_white.png') }}" width="50" height="50" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="contenido collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-              
+
               <li class="nav-item">
                   <a class="nav-link" >{{ Auth::user()->name }}</a>
               </li>
-             
+
               <li class="nav-item">
               @guest
-                           
-              @else
-              
-             
 
-                               
+              @else
+
+
+
+
                                     <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -47,16 +47,16 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                
+
                             </li>
                         @endguest
 
-              
+
                 <li class="nav-item">
-                    <a href="{{ secure_asset('locale/es') }}"><img class="banderas" src="{{ asset('assets/img/espania.ico') }}"></a>
+                    <a href="{{ secure_asset('locale/es') }}"><img class="banderas" src="/assets/img/espania.ico"></a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ secure_asset('locale/en') }}"><img class="banderas" src="{{ asset('assets/img/reino_unido.ico') }}"></a>
+                    <a href="{{ secure_asset('locale/en') }}"><img class="banderas" src="/assets/img/reino_unido.ico"></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ secure_asset('locale/eus') }}"><img class="banderas" src="{{ asset('assets/img/pais_vasco.ico') }}"></a>
@@ -118,7 +118,7 @@
 	</div>
 </section>
 
-    
+
 
 
     <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
