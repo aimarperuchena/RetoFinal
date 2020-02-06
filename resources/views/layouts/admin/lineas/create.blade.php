@@ -1,9 +1,9 @@
 @extends('layouts.admin.adminView')
 @section('adminContent')
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
 
 <!-- Content Row -->
-<script src="{{secure_asset('assets/js/validacion_linea.js')}}"></script>
+<script src="/assets/js/validacion_linea.js"></script>
 
 
 

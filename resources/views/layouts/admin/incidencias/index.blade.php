@@ -1,7 +1,7 @@
 @extends('layouts.admin.adminView') @section('adminContent')
 
 <!-- Content Row -->
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#myInput").on("keyup", function() {
