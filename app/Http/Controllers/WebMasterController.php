@@ -105,7 +105,7 @@ class WebMasterController extends Controller
 
     public function sociPeticion()
     {
-        $soci = PeticionNuevaSociedad::all();
+        $soci = PeticionNuevaSociedad::withTrashed()->where('estado','pendiente')->get();
 
         return view('layouts.webmaster.sociedades.peticion')->with('soci',$soci);
 
