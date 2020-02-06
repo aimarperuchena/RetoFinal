@@ -144,7 +144,7 @@ class SociedadController extends Controller
       $user = Auth::user();
       $user_change = User::find($user->id);
       $sociedad = new PeticionNuevaSociedad;
-      $sociedad->nombre =  $request->ubicacion;
+      $sociedad->nombre =  $request->nombre;
       $sociedad->ubicacion = $request->ubicacion;
       $sociedad->telefono = $request->telefono;
       $sociedad->descripcion = $request->descripcion;

@@ -72,10 +72,8 @@
                 @if ($sociedad->estado==='pendiente')
                 <th>Denegar</th>
                 <th>Aceptar</th>
-                @elseif ($sociedad->estado==='aceptado')
-                <th>Denegar</th>
                 @else
-                <th>Aceptar</th>
+                <th  style="display:none;"></th>
                 @endif
                 @endforeach
 
@@ -94,10 +92,9 @@
                     @if ($sociedad->estado==='pendiente')
                     <td><a id="w3s" href="/webmaster/peticionDenegar/{{$sociedad->id}}"><i class="fas fa-ban" style="color:black"></i></a></td>
                     <td><a id="w3s" href="/webmaster/peticionAceptar/{{$sociedad->id}}"><i class="fas fa-check-circle" style="color:black"></i></a></td>
-                    @elseif ($sociedad->estado==='aceptado')
-                    <td><a id="w3s" href="/webmaster/peticionDestroy/{{$sociedad->id}}"><i class="fas fa-ban" style="color:black"></i></a></td>
                     @else
-                    <td><a id="w3s" href="/webmaster/peticionRestore/{{$sociedad->id}}"><i class="fas fa-check-circle" style="color:black"></i></a></td>
+                    <td style="display:none;"></td>
+                    <td style="display:none;"><</td>
                     @endif
                 </tr>
             @endforeach
