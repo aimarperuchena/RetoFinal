@@ -109,18 +109,51 @@ class SociedadController extends Controller
   public function alta(AltaSociedadRequest $request)
   {
     $validated = $request->validated();
-    $user = Auth::user();
-    $user_change = User::find($user->id);
-    $sociedad = new PeticionNuevaSociedad;
-    $sociedad->nombre =  $request->ubicacion;
-    $sociedad->ubicacion = $request->ubicacion;
-    $sociedad->telefono = $request->telefono;
-    $sociedad->descripcion = $request->descripcion;
-    $sociedad->estado = 'pendiente';
-    $sociedad->link_plano = $request->link_plano;
-    $sociedad->user_id = $user_change->id;
-    $sociedad->save();
-    Auth::logout();
-    return redirect('/');
+    $client_id = '7911dcb95e81c27';
+    $token = 'a6aa02570efaa91a08b86442df37c2e5ec717799';
+
+    $imagen = $request->file('image');
+    $image64 = base64_encode(file_get_contents($imagen)); //pasar la foto a base64
+
+    //llamar a la api y subir la imagen
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.imgur.com/3/image",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => false,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => array('image' => $image64),
+        CURLOPT_HTTPHEADER => array(
+            // "Authorization: Client-ID {{7911dcb95e81c27}}",
+            "Authorization: Bearer " . $token //nuestro token para acceder a la api
+        ),
+    ));
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+      $json = json_decode($response);
+      $user = Auth::user();
+      $user_change = User::find($user->id);
+      $sociedad = new PeticionNuevaSociedad;
+      $sociedad->nombre =  $request->ubicacion;
+      $sociedad->ubicacion = $request->ubicacion;
+      $sociedad->telefono = $request->telefono;
+      $sociedad->descripcion = $request->descripcion;
+      $sociedad->estado = 'pendiente';
+      $sociedad->link_plano = $json->data->link;
+      $sociedad->user_id = $user_change->id;
+      $sociedad->save();
+      Auth::logout();
+      return redirect('/');
+    }
   }
 }
