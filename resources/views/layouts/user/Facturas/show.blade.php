@@ -14,15 +14,15 @@
         <th scope="col">{{ __('multi.infotabla') }}</th>
       </tr>
     </thead>
-    @foreach($facturas as $factura)
+   
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td>{{$factura -> id}}</td>
+        <td>{{$factura ->id}}</td>
         <td><a class="" href="{{ route('linea.show',$factura->id) }}"><i class="fa fa-eye" style="color:black"></i></a></td>
       </tr>
     </tbody>
-    @endforeach
+   
   </table>
   @else
   <h3 class="m-5">{{ __('multi.crearfactura') }}</h3>
