@@ -65,8 +65,8 @@
 <div class="modal fade" id="modalRegistrerForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
     <!-- VALIDACION JS-->
-<script src="{{ secure_asset('assets/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{secure_asset('assets/js/validacion_registro.js')}}"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/validacion_registro.js"></script>
     <div class="modal-content">
         <form method="POST" action="{{ route('register') }}">
             @csrf
