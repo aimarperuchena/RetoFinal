@@ -1,6 +1,7 @@
 $(document).ready(function() {
+    let sociedad = document.getElementById('id_sociedad').value;
     $.ajax({
-        url: "http://gastrosociety.herokuapp.com//api/productos/1",
+        url: "https://gastrosociety.herokuapp.com/api/productos/" + sociedad,
         type: 'GET',
         dataType: 'json',
         success: function(data) {

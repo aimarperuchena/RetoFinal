@@ -1,8 +1,9 @@
 $(document).ready(function() {
     //url: "http://192.168.0.10:1234/api/lineas/1",
+    let sociedad = document.getElementById('id_sociedad').value;
     $.ajax({
 
-        url: "http://gastrosociety.herokuapp.com//api/reservas/1",
+        url: "http://gastrosociety.herokuapp.com/api/reservas/" + sociedad,
 
         type: 'GET',
         dataType: 'json',
