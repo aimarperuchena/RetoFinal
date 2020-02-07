@@ -10,6 +10,7 @@
 <div class="row">
 <div class="container">
 <div class=""></div>
+<input type="hidden" id="id_sociedad" name="id_sociedad" value="{{$sociedad->id}}">
      <div class="col-xl-12 col-lg-12 justify-content-center text-center">
 
      <div id="dashboard">

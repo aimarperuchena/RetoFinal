@@ -54,6 +54,7 @@ Route::get('/reserva/{sociedad_id}/{tipo_id}/success','SociedadController@crear'
 Route::get('/reservaFecha/{sociedad_id}','SociedadController@reservaFecha')->name('sociedad.reservaFecha');
 Route::get('/alta_sociedad','SociedadController@formAlta')->name('sociedad.formAlta');
 Route::post('/alta_sociedad/success','SociedadController@alta')->name('sociedad.alta');
+Route::get('/reserva/{sociedad_id}/{tipo_id}/{old_reserva}/success','ReservaController@update')->name('sociedad.update');
 
 //Perfil usuario
 Route::get('/perfil','ProfileController@profile')->name('profile.index');
