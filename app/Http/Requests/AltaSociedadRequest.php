@@ -26,6 +26,7 @@ class AltaSociedadRequest extends FormRequest
         return [
           'nombre' => ['required', 'string', 'max:255','min:2'],
           'ubicacion' => ['required', 'string', 'min:2', 'max:255'],
+          'image' => ['required'],
           'telefono'=>['required','integer','regex:/[0-9]{9}/'],
         ];
     }
@@ -43,7 +44,7 @@ class AltaSociedadRequest extends FormRequest
           'ubicacion.string'=>'La ubicación no es tipo string.',
           'ubicacion.max'=>'Ubicación demasiado grande.',
           'ubicacion.min'=>'La ubicación tiene que contener al menos 2 letras..',
-
+          'image.required'=>'Imagen de la Sociedad requerida.',
         ];
     }
 
