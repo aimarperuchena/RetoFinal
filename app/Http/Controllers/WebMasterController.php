@@ -147,8 +147,9 @@ class WebMasterController extends Controller
 
             $id_usuario=$soci->user_id;
 
-            $soci = User::find($id_usuario);
-            $soci->role_id = 2;
+            $sociRole = User::find($id_usuario);
+            $sociRole->role_id = 2;
+            $sociRole->save();
 
 
 
