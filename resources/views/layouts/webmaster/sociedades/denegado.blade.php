@@ -16,9 +16,10 @@
 </script>
 <br>
 <div class="row">
-    <h1 class="d-flex justify-content-center text-primary container-fluid">Listado de peticiones pendientes</h1>
+    <h1 class="d-flex justify-content-center text-primary container-fluid">Listado de peticiones denegadas</h1>
     <div class="col-xl-12 col-lg-12">
         <br>
+
         <form action="{{route('webmaster.peticionFiltrado')}}" method="post">
             {{ csrf_field() }}
             <div class="input-group mb-2 ">
@@ -26,7 +27,7 @@
                     <label class="input-group-text" for="inputGroupSelect01">Estado:</label>
                 </div>
                 <select class="custom-select " name="estado">
-                    <option value="2">Denegado</option>
+                    <option value="1">Pendiente</option>
                     <option value="3">Aceptado</option>
                 </select>
                 <input class="btn btn-primary" type="submit" value="Enviar">
@@ -50,8 +51,6 @@
                 <th>Telefono</th>
                 <th>Estado</th>
                 <th>Fecha solicitada</th>
-                <th>Denegar</th>
-                <th>Aceptar</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -63,10 +62,6 @@
                     <td>{!! $sociedad->telefono !!}</td>
                     <td>{!! $sociedad->estado !!}</td>
                     <td>{!! $sociedad->created_at !!}</td>
-                    @if ($sociedad->estado==='pendiente')
-                    <td><a id="w3s" href="/webmaster/peticionDenegar/{{$sociedad->id}}"><i class="fas fa-ban" style="color:black"></i></a></td>
-                    <td><a id="w3s" href="/webmaster/peticionAceptar/{{$sociedad->id}}"><i class="fas fa-check-circle" style="color:black"></i></a></td>
-                    @endif
                 </tr>
             @endforeach
         </tbody>

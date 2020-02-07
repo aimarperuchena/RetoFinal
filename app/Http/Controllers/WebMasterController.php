@@ -111,6 +111,22 @@ class WebMasterController extends Controller
 
     }
 
+    public function sociDenegado()
+    {
+        $soci = PeticionNuevaSociedad::withTrashed()->where('estado','denegado')->get();
+
+        return view('layouts.webmaster.sociedades.denegado')->with('soci',$soci);
+
+    }
+
+    public function sociAceptado()
+    {
+        $soci = PeticionNuevaSociedad::withTrashed()->where('estado','aceptado')->get();
+
+        return view('layouts.webmaster.sociedades.aceptado')->with('soci',$soci);
+
+    }
+
     public function peticionAceptar($id)
         {
 
@@ -133,7 +149,7 @@ class WebMasterController extends Controller
 
             $soci = User::find($id_usuario);
             $soci->role_id = 2;
-            
+
 
 
             return redirect('/webmaster/sociPeticion');
@@ -155,20 +171,20 @@ class WebMasterController extends Controller
 
     public function peticionFiltrado(Request $request)
     {
-        $estado='';
+        $estado='pendiente';
 
         if ($request->estado == 1) {
-           $estado="denegado";
-           $soci=PeticionNuevaSociedad::withTrashed()->where('estado',$estado)->get();
-           $tipo=1;
-           return view('layouts.webmaster.sociedades.peticion')->with('tipo', $tipo)->with('estado', $estado)->with('soci', $soci);
+
+            return redirect('/webmaster/sociPeticion');
         }
-        else  {
-            $estado="aceptado";
-            $soci=PeticionNuevaSociedad::withTrashed()->where('estado',$estado)->get();
-           $tipo=2;
-           return view('layouts.webmaster.sociedades.peticion')->with('tipo', $tipo)->with('estado', $estado)->with('soci', $soci);
+        if ($request->estado == 2) {
+            return redirect('/webmaster/sociDenegado');
         }
+        if ($request->estado == 3) {
+            return redirect('/webmaster/sociAceptado');
+
+        }
+
     }
 
     public function socioIndex(Request $request)

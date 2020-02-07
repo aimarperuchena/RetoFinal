@@ -157,8 +157,8 @@ Route::get('/webmaster/sociPeticion','WebMasterController@sociPeticion')->name('
 Route::get('/webmaster/peticionAceptar/{id}','WebMasterController@peticionAceptar')->name('webmaster.peticionAceptar');
 Route::get('/webmaster/peticionDenegar/{id}','WebMasterController@peticionDenegar')->name('webmaster.peticionDenegar');
 Route::post('/webmaster/peticionFiltrado','WebMasterController@peticionFiltrado')->name('webmaster.peticionFiltrado');
-Route::get('/webmaster/peticionRestore/{id}','WebMasterController@peticionRestore');
-Route::get('/webmaster/peticionDestroy/{id}','WebMasterController@peticionDestroy');
+Route::get('/webmaster/sociDenegado','WebMasterController@sociDenegado')->name('webmaster.sociDenegado');
+Route::get('/webmaster/sociAceptado','WebMasterController@sociAceptado')->name('webmaster.sociAceptado');
 
 
 //Socios Webmaster
