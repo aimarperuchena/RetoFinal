@@ -2,7 +2,7 @@ $(document).ready(function() {
     //url: "http://192.168.0.10:1234/api/lineas/1",
     $.ajax({
 
-        url: "http://gastrosociety.herokuapp.com/api/accesos/1",
+        url: "http://gastrosociety.herokuapp.com/api/accesos/",
 
         type: 'GET',
         dataType: 'json',

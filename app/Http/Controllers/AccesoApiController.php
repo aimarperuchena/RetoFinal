@@ -15,7 +15,7 @@ class AccesoApiController extends Controller
      */
     public function index()
     {
-        $accesos = Access::all();
+        $accesos=DB::select('SELECT count(access.id) as accesos,  date(created_at) fecha  from access group by date(created_at)');
 
         return $accesos;
     }

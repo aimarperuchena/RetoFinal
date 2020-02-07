@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: "http://gastrosociety.herokuapp.com//api/socios/1",
+        url: "http://gastrosociety.herokuapp.com//api/socios/",
         type: 'GET',
         dataType: 'json',
         success: function(data) {
