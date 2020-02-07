@@ -15,7 +15,7 @@ class ProductoApiController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
+        $productos=DB::select('SELECT producto.nombre as nombre, SUM(linea.unidades) as unidades, sum(linea.importe) as importe FROM linea, productos_sociedad, producto  where  linea.producto_sociedad_id=productos_sociedad.id and productos_sociedad.producto_id=producto.id group by producto.nombre');
 
         return $productos;
 
