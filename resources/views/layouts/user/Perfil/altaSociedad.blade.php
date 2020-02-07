@@ -5,7 +5,7 @@
 <div class="container text-center">
   <h1>Registrar una sociedad</h1>
   <h5>Introduce todos los datos necesarios.</h5>
-  <form class="form-group" action="{{ route('sociedad.alta') }}" method="post">
+  <form class="form-group" action="{{ route('sociedad.alta') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -30,13 +30,13 @@
         <span class="input-group-text">Upload</span>
       </div>
       <div class="custom-file">
-        <input type="file" class="custom-file-input" name="link_plano">
+        <input type="file" class="custom-file-input" name="image">
         <label class="custom-file-label">Choose file</label>
       </div>
     </div>
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">{{ __('multi.desform') }}</span>
+        <span class="input-group-text">{{ __('multi.descform') }}</span>
       </div>
       <textarea class="form-control border" aria-label="descripcion" name="descripcion"></textarea>
     </div>
