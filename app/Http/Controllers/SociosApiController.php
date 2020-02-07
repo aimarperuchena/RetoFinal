@@ -16,6 +16,7 @@ class SociosApiController extends Controller
     public function index()
     {
         $socios = UsuarioSociedad::all();
+
         return $socios;
     }
 
@@ -48,8 +49,8 @@ class SociosApiController extends Controller
      */
     public function show($id)
     {
-          $productos=DB::select('SELECT sociedad.nombre as nombre, count(user_id) as socios FROM sociedad_user, sociedad where  sociedad_user.sociedad_id=sociedad.id group by sociedad.nombre
-        ');
+        $productos=DB::select('SELECT sociedad.nombre as nombre, count(user_id) as socios FROM sociedad_user, sociedad where  sociedad_user.sociedad_id=sociedad.id group by sociedad.nombre');
+
         return $productos;
     }
 

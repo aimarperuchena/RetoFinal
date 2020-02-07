@@ -33,9 +33,8 @@ admin@example.com ||
 adminadmin
 
 ## Apis
-http://gastrosociety.herokuapp.com/api/facturas
-http://gastrosociety.herokuapp.com/api/lineas/1
-http://gastrosociety.herokuapp.com/api/reservas
+http://gastrosociety.herokuapp.com/api/lineas/{sociedad}
+http://gastrosociety.herokuapp.com/api/reservas/{sociedad}
 http://gastrosociety.herokuapp.com/api/productos
 http://gastrosociety.herokuapp.com/api/accesos
 http://gastrosociety.herokuapp.com/api/socios

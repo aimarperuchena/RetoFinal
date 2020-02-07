@@ -3,27 +3,21 @@
 namespace App\Http\Controllers;
 use App\Access;
 use Illuminate\Http\Request;
-use Illuminate\Http\ID;
-use App\Http\Requests\UserRequest;
 use App\Producto;
 use App\Sociedad;
 use Illuminate\Support\Carbon;
-use App\UsuarioSociedad;
 use App\PeticionNuevaSociedad;
 use App\User;
-use Auth;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProductoRequest;
-use producto_seeder;
 
 class WebMasterController extends Controller
 {
-   public function __construct()
-{
- $this->middleware('role:1');
-}
-    public function index(){
-
+    public function __construct()
+    {
+        $this->middleware('role:1');
+    }
+    public function index()
+    {
         $productos = producto::count();
         $socios = User::count();
         $sociedades = Sociedad::count();
@@ -31,12 +25,10 @@ class WebMasterController extends Controller
 
         return view('layouts.webmaster.panel')->with('productos',$productos)->with('socios',$socios)->with('sociedades',$sociedades)->with('usuarios',$usuarios);
 
-
     }
 
     public function productoIndex(Request $request)
     {
-
         $productos = Producto::all();
 
         return view('layouts.webmaster.productos.index',compact('productos'));
@@ -59,11 +51,14 @@ class WebMasterController extends Controller
         return redirect('/webmaster/productoIndex');
 
     }
+
     public function productEdit($id)
     {
         $producto = Producto::find($id);
+
         return view('layouts.webmaster.productos.update')->with('producto', $producto);
     }
+
     public function productUpdate(ProductoRequest $request, $id)
     {
         $validated = $request->validated();
@@ -93,7 +88,7 @@ class WebMasterController extends Controller
 
     }
 
-        public function sociDestroy($id)
+    public function sociDestroy($id)
     {
         $soci = Sociedad::find($id);
         $soci->delete();
@@ -101,7 +96,6 @@ class WebMasterController extends Controller
         return redirect('/webmaster/sociIndex');
 
     }
-
 
     public function sociPeticion()
     {
@@ -128,37 +122,34 @@ class WebMasterController extends Controller
     }
 
     public function peticionAceptar($id)
-        {
+    {
 
-            $soci = PeticionNuevaSociedad::find($id);
-            $soci->estado = "aceptado";
-            $soci->save();
-            $soci->delete();
+        $soci = PeticionNuevaSociedad::find($id);
+        $soci->estado = "aceptado";
+        $soci->save();
+        $soci->delete();
 
-            $sociedad_user = new Sociedad();
-            $sociedad_user->nombre = $soci->nombre;
-            $sociedad_user->ubicacion = $soci->ubicacion;
-            $sociedad_user->telefono = $soci->telefono;
-            $sociedad_user->descripcion = $soci->descripcion;
-            $sociedad_user->link_plano = $soci->link_plano;
-            $sociedad_user->link_imagen= $soci->link_plano;
-            $sociedad_user->administrador_id = $soci->user_id;
-            $sociedad_user->save();
+        $sociedad_user = new Sociedad();
+        $sociedad_user->nombre = $soci->nombre;
+        $sociedad_user->ubicacion = $soci->ubicacion;
+        $sociedad_user->telefono = $soci->telefono;
+        $sociedad_user->descripcion = $soci->descripcion;
+        $sociedad_user->link_plano = $soci->link_plano;
+        $sociedad_user->link_imagen= $soci->link_plano;
+        $sociedad_user->administrador_id = $soci->user_id;
+        $sociedad_user->save();
 
-            $id_usuario=$soci->user_id;
+        $id_usuario=$soci->user_id;
 
-            $sociRole = User::find($id_usuario);
-            $sociRole->role_id = 2;
-            $sociRole->save();
+        $sociRole = User::find($id_usuario);
+        $sociRole->role_id = 2;
+        $sociRole->save();
 
-
-
-            return redirect('/webmaster/sociPeticion');
+        return redirect('/webmaster/sociPeticion');
     }
 
     public function peticionDenegar($id)
     {
-
         $soci = PeticionNuevaSociedad::find($id);
         $soci->estado = "denegado";
         $soci->save();
@@ -174,25 +165,24 @@ class WebMasterController extends Controller
     {
         $estado='pendiente';
 
-        if ($request->estado == 1) {
-
+        if ($request->estado == 1)
+        {
             return redirect('/webmaster/sociPeticion');
         }
-        if ($request->estado == 2) {
+        if ($request->estado == 2)
+        {
             return redirect('/webmaster/sociDenegado');
         }
-        if ($request->estado == 3) {
+        if ($request->estado == 3)
+        {
             return redirect('/webmaster/sociAceptado');
-
         }
 
     }
 
     public function socioIndex(Request $request)
     {
-
         $socios = User::withTrashed()->where('role_id', '3')->get();
-
 
         return view('layouts.webmaster.socios.index',compact('socios'));
 
@@ -202,9 +192,7 @@ class WebMasterController extends Controller
     {
         User::withTrashed()->find($id)->restore();
 
-
         return redirect('/webmaster/socioIndex');
-
     }
 
         public function socioDestroy($id)

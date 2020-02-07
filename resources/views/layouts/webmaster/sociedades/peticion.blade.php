@@ -17,8 +17,7 @@
 <br>
 <div class="row">
     <h1 class="d-flex justify-content-center text-primary container-fluid">Listado de peticiones pendientes</h1>
-    <div class="col-xl-12 col-lg-12">
-        <br>
+    <div class="col-xl-12 col-lg-12"><br>
         <form action="{{route('webmaster.peticionFiltrado')}}" method="post">
             {{ csrf_field() }}
             <div class="input-group mb-2 ">
@@ -32,15 +31,14 @@
                 <input class="btn btn-primary" type="submit" value="Enviar">
             </div>
         </form>
-
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1">Busqueda</span>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                 <span class="input-group-text" id="basic-addon1">Busqueda</span>
+            </div>
+            <input class="form-control border" id="myInput" type="text" >
+        </div>
   </div>
-  <input class="form-control border" id="myInput" type="text" >
-</div>
-  </div>
-  <div class="col-xl-12 col-lg-7">
+  <div class="col-xl-12 col-lg-12">
     <table class="table">
         <thead>
             <tr>
