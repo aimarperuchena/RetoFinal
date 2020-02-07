@@ -31,7 +31,7 @@
         </table>
     </div>
     <div class="col-xl-4 col-lg-7 text-center">
-        <h3>Añadir Linea</h3>
+        <h3>Editar Linea</h3>
         <form action="{{route ('admin.lineaUpdate')}}" method="POST">
             {{ csrf_field() }}
 
@@ -43,7 +43,7 @@
                 <select class="custom-select" name="producto">
                     <option value="{{$linea->producto_sociedad_id}}">{{$linea->producto->producto->nombre}}</option>
                     @foreach($productos as $producto)
-                    @if($producto->id!=$linea->producto_sociedad_id)
+                    @if($producto->id!=$sociedad->producto_sociedad_id)
                     <option value="{{$producto->id}}">{{$producto->producto->nombre}}</option>
                     @endif
                     @endforeach
@@ -54,7 +54,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Unidades: </span>
                 </div>
-                <input type="text" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$linea->unidades}}" aria-describedby="basic-addon1">
+                <input type="text" id="unidades" class="form-control border" placeholder="Unidades" aria-label="Unidades" name="unidades" value="{{$sociedad->unidades}}" aria-describedby="basic-addon1">
             </div>
             <input type="submit" id="enviar" class="btn btn-primary" value="Actualizar">
             @if(isset($error))

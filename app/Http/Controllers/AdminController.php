@@ -516,9 +516,10 @@ class AdminController extends Controller
     function lineaUpdate(LineaRequest $request)
     {
         $validated = $request->validated();
-
+       
         $user = Auth::user();
         $sociedad = Sociedad::where('administrador_id', $user->id)->first();
+        $productos = ProductoSociedad::where('sociedad_id', $sociedad->id)->get();
         $linea = Linea::find($request->linea);
         $unidades = $request->unidades;
         $importeAnterior = $linea->importe;
@@ -527,22 +528,31 @@ class AdminController extends Controller
         $linea->importe = $producto->precio * $unidades;
         $unidadAnterior = $linea->unidades;
         $diferenciaUnidades = $unidadAnterior - $unidades;
-        $linea->unidades = $unidades;
-        $producto->stock =  $producto->stock + $diferenciaUnidades;
-        $diferenciaImporte = $importeActual - $importeAnterior;
-        $producto->save();
-        $linea->producto_sociedad_id = $request->producto;
-        $linea->save();
+        $factura = Factura::find($linea->factura->id);
+            echo $linea->producto_sociedad_id;
+        if($unidades<=$producto->stock){
+            $linea->unidades = $unidades;
+            $producto->stock =  $producto->stock + $diferenciaUnidades;
+            $diferenciaImporte = $importeActual - $importeAnterior;
+            $producto->save();
+            $linea = Linea::find($request->linea);
+            $linea->producto_sociedad_id = $request->producto;
+            $linea->save();
+    
+            $factura->importe = $factura->importe + $diferenciaImporte;
+            $factura->save();
+  
+            $reserva = Reserva::find($factura->reserva->id);
+            $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
+            $mesas = Mesa::whereIn('id', $mesaReserva)->get();
+    
+            return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $factura)->with('mesas', $mesas)->with('linea',$linea);
+        }else{
+            $error = "El Producto " . $producto->producto->nombre . " solo tiene " . $producto->stock . " unidades en stock";
+            return view('layouts.admin.lineas.update')->with('sociedad', $sociedad)->with('linea', $linea)->with('productos', $productos)->with('error',$error);
 
-        $Factura = Factura::find($linea->factura->id);
-        $Factura->importe = $Factura->importe + $diferenciaImporte;
-        $Factura->save();
-
-        $reserva = Reserva::find($Factura->reserva->id);
-        $mesaReserva = MesaReserva::where('reserva_id', $reserva->id)->first();
-        $mesas = Mesa::whereIn('id', $mesaReserva)->get();
-
-        return view('layouts.admin.reservas.show')->with('reserva', $reserva)->with('sociedad', $sociedad)->with('factura', $Factura)->with('mesas', $mesas);
+        }
+        
     }
 
     function lineaDelete($id)
