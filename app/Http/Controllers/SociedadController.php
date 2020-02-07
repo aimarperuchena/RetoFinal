@@ -134,6 +134,8 @@ class SociedadController extends Controller
     ));
     $response = curl_exec($curl);
     $err = curl_error($curl);
+    $json = json_decode($response);
+    $link_image = $json->data->link;
 
     curl_close($curl);
 
@@ -149,7 +151,7 @@ class SociedadController extends Controller
       $sociedad->telefono = $request->telefono;
       $sociedad->descripcion = $request->descripcion;
       $sociedad->estado = 'pendiente';
-      $sociedad->link_plano = $json->data->link;
+      $sociedad->link_plano = $link_image;
       $sociedad->user_id = $user_change->id;
       $sociedad->save();
       Auth::logout();
