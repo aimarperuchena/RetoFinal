@@ -48,8 +48,8 @@
 
           <td>{{$linea->producto->producto->nombre}}</td>
           <td>{{$linea->producto->producto->descripcion}}</td>
-          <td>{{$linea->importe}}</td>
           <td>{{$linea->unidades}}</td>
+          <td>{{$linea->importe}}</td>
           <td><a href="/lineas/edit/{{$linea->id}}"><i class="fa fa-pencil" style="color:black"></i></a></td>
 
           <td><a href="/lineas/delete/{{$linea->id}}"><i class="fa fa-trash-o" style="color:black"></i></a></td> -->
